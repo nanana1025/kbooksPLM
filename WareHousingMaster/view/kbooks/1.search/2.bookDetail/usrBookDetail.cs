@@ -54,7 +54,7 @@ namespace WareHousingMaster.view.kbooks.search.bookDetail
             if (e.KeyCode == Keys.F10)
             {
                 e.Handled = true;
-                //this.DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
             }
         }
     }
