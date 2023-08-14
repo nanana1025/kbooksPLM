@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WareHousingMaster.WM_GUI">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="WareHousingMaster.WM_GUI.DictionaryInfo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>WM_GUI.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QiiCQMxERiNA0HFAnAyQBhDCBgQRBA2CXDlC2wBysCI=</HashCode>
+      <FileName>DataBaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

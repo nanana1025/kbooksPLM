@@ -1,0 +1,2801 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B434FC1A-DB77-4104-A338-B09ABB5BB417}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WareHousingMaster</RootNamespace>
+    <AssemblyName>WareHousingMaster</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>C:\Users\USER\Desktop\WM_20200421_2 임준영\새 폴더\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <PublisherName>shlee</PublisherName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>leaderstech.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F2468DA043ABE199BBD2127A0F79DD0015ED594E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>WareHousingMaster_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Charts.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Mvvm.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Export, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v20.2.UI, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpf.Core.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v20.2.UI, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.2.Wizard, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v20.2.Extensions, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Interop.QuartzTypeLib, Version=1.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>DLL\Interop.QuartzTypeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenCvSharp, Version=2.0.4666.42387, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Blob, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.Blob.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.CPlusPlus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.CPlusPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.DebuggerVisualizers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.DebuggerVisualizers.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Gpu, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.Gpu.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.MachineLearning, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.UserInterface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCVSharp.2.4.0.1\lib\OpenCvSharp.UserInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Input.Manipulations" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Report\rpOrderBook.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rpOrderBook.Designer.cs">
+      <DependentUpon>rpOrderBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\rpExportReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rpExportReport.Designer.cs">
+      <DependentUpon>rpExportReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\CaptureUtils.cs" />
+    <Compile Include="Utils\Battery.cs" />
+    <Compile Include="Utils\DlgImgArray.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\DlgImgArray.Designer.cs">
+      <DependentUpon>DlgImgArray.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\DlgLoginCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\DlgLoginCheck.Designer.cs">
+      <DependentUpon>DlgLoginCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\DlgImgTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\DlgImgTest.Designer.cs">
+      <DependentUpon>DlgImgTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\FileDownload.cs" />
+    <Compile Include="Utils\MediaStatus.cs" />
+    <Compile Include="Utils\LoginCheck.cs" />
+    <Compile Include="Utils\ScreenCopy.cs" />
+    <Compile Include="Helper\DlgWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\DlgWaitForm.Designer.cs">
+      <DependentUpon>DlgWaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogoHelper\RibbonLogoHelper.cs" />
+    <Compile Include="main\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main\usrHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main\usrHome.Designer.cs">
+      <DependentUpon>usrHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\dsUsedPurchase.cs">
+      <DependentUpon>dsUsedPurchase.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\dsUsedPurchase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsUsedPurchase.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\rpUsedPurchaseCertificate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rpUsedPurchaseCertificate.Designer.cs">
+      <DependentUpon>rpUsedPurchaseCertificate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Ini.cs" />
+    <Compile Include="Utils\SoundUtils.cs" />
+    <Compile Include="Utils\ExcelUtil.cs" />
+    <Compile Include="view\adjustment\DlgImportBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\adjustment\DlgImportBarcode.Designer.cs">
+      <DependentUpon>DlgImportBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentCompleteList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentCompleteList.Designer.cs">
+      <DependentUpon>usrAdjustmentCompleteList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentExamineListByBarcodeAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentExamineListByBarcodeAll.Designer.cs">
+      <DependentUpon>usrAdjustmentExamineListByBarcodeAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentExamineListByBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentExamineListByBarcode.Designer.cs">
+      <DependentUpon>usrAdjustmentExamineListByBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\board\usrJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\board\usrJob.Designer.cs">
+      <DependentUpon>usrJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\check\usrTabletCheckList_temp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\check\usrTabletCheckList_temp.Designer.cs">
+      <DependentUpon>usrTabletCheckList_temp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\check\usrTabletCheckList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\check\usrTabletCheckList.Designer.cs">
+      <DependentUpon>usrTabletCheckList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentStatistics.Designer.cs">
+      <DependentUpon>usrAdjustmentStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustment.Designer.cs">
+      <DependentUpon>usrAdjustment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentReceiptList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentReceiptList.Designer.cs">
+      <DependentUpon>usrAdjustmentReceiptList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentUpdateList .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentUpdateList .Designer.cs">
+      <DependentUpon>usrAdjustmentUpdateList .cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentExamineList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\adjustment\usrAdjustmentExamineList.Designer.cs">
+      <DependentUpon>usrAdjustmentExamineList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\board\usrRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\board\usrRequest.Designer.cs">
+      <DependentUpon>usrRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\check\usrProduceProductCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\check\usrProduceProductCheck.Designer.cs">
+      <DependentUpon>usrProduceProductCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\check\usrWarehousingProductCheckFull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\check\usrWarehousingProductCheckFull.Designer.cs">
+      <DependentUpon>usrWarehousingProductCheckFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\check\usrWarehousingProductCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\check\usrWarehousingProductCheck.Designer.cs">
+      <DependentUpon>usrWarehousingProductCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\check\usrInventoryCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\check\usrInventoryCheck.Designer.cs">
+      <DependentUpon>usrInventoryCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\common\custom\CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\common\custom\CustomMessageBox.Designer.cs">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\common\DBFile.cs" />
+    <Compile Include="view\common\ConCSInfo.cs" />
+    <Compile Include="view\common\DB\kbooks\DBCommon.cs" />
+    <Compile Include="view\common\DB\DBStatistics.cs" />
+    <Compile Include="view\common\DB\DBRelease.cs" />
+    <Compile Include="view\common\DB\DBProductProduce.cs" />
+    <Compile Include="view\common\DB\DBInventory.cs" />
+    <Compile Include="view\common\DB\DBAdjustment.cs" />
+    <Compile Include="view\common\DB\DBCheck.cs" />
+    <Compile Include="view\common\dlgColVisible.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\common\dlgColVisible.Designer.cs">
+      <DependentUpon>dlgColVisible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\common\ImageInfo.cs" />
+    <Compile Include="view\common\ExamineInfo.cs" />
+    <Compile Include="view\common\Dangol.cs" />
+    <Compile Include="view\common\DB\DBPrice.cs" />
+    <Compile Include="view\common\DB\DBConsigned.cs" />
+    <Compile Include="view\common\DB\DBBoard.cs" />
+    <Compile Include="view\common\DB\DBUsedPurchase.cs" />
+    <Compile Include="view\common\dlgRepNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\common\dlgRepNo.Designer.cs">
+      <DependentUpon>dlgRepNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\common\ImageHelper.cs" />
+    <Compile Include="view\common\ConsignedInfo.cs" />
+    <Compile Include="view\common\kbooks\Encrypt.cs" />
+    <Compile Include="view\common\kbooks\Order.cs" />
+    <Compile Include="view\common\kbooks\Search.cs" />
+    <Compile Include="view\common\SplashWaitForm.cs" />
+    <Compile Include="view\common\DB\DBConnect.cs" />
+    <Compile Include="view\common\Enum.cs" />
+    <Compile Include="view\common\kbooks\Common.cs" />
+    <Compile Include="view\common\Util.cs" />
+    <Compile Include="view\common\kbooks\ProjectInfo.cs" />
+    <Compile Include="view\common\ConvertUtil.cs" />
+    <Compile Include="view\consigned\DlgCompanyPartReturnStatistice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgCompanyPartReturnStatistice.Designer.cs">
+      <DependentUpon>DlgCompanyPartReturnStatistice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgCompanyPartWarehousingStatistice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgCompanyPartWarehousingStatistice.Designer.cs">
+      <DependentUpon>DlgCompanyPartWarehousingStatistice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgConsignedInvoiceState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgConsignedInvoiceState.Designer.cs">
+      <DependentUpon>DlgConsignedInvoiceState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgConsignedReceiptPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgConsignedReceiptPart.Designer.cs">
+      <DependentUpon>DlgConsignedReceiptPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedAdjustment_TEMP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedAdjustment_TEMP.Designer.cs">
+      <DependentUpon>usrConsignedAdjustment_TEMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedCompanyInventory_Temp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedCompanyInventory_Temp.Designer.cs">
+      <DependentUpon>usrConsignedCompanyInventory_Temp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\file\usrFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\file\usrFile.Designer.cs">
+      <DependentUpon>usrFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgConsignedReturnCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgConsignedReturnCheck.Designer.cs">
+      <DependentUpon>DlgConsignedReturnCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgInventoryListByWarehousingShort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgInventoryListByWarehousingShort.Designer.cs">
+      <DependentUpon>DlgInventoryListByWarehousingShort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgInventoryListByWarehousing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgInventoryListByWarehousing.Designer.cs">
+      <DependentUpon>DlgInventoryListByWarehousing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgCompanyPartStatistice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgCompanyPartStatistice.Designer.cs">
+      <DependentUpon>DlgCompanyPartStatistice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\dlgCreateCompanyModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\dlgCreateCompanyModel.Designer.cs">
+      <DependentUpon>dlgCreateCompanyModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgImportInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgImportInvoice.Designer.cs">
+      <DependentUpon>DlgImportInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgImportConsignedReceiptByModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgImportConsignedReceiptByModel.Designer.cs">
+      <DependentUpon>DlgImportConsignedReceiptByModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgImportConsignedReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgImportConsignedReceipt.Designer.cs">
+      <DependentUpon>DlgImportConsignedReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgReceiptModelList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgReceiptModelList.Designer.cs">
+      <DependentUpon>DlgReceiptModelList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgCompanyPartByWarehousing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgCompanyPartByWarehousing.Designer.cs">
+      <DependentUpon>DlgCompanyPartByWarehousing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgConsignedCompanyInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgConsignedCompanyInventory.Designer.cs">
+      <DependentUpon>DlgConsignedCompanyInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedCompanyModelList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedCompanyModelList.Designer.cs">
+      <DependentUpon>usrConsignedCompanyModelList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedCompanyInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedCompanyInventory.Designer.cs">
+      <DependentUpon>usrConsignedCompanyInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgConsignedPartModif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgConsignedPartModif.Designer.cs">
+      <DependentUpon>DlgConsignedPartModif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedReturnList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedReturnList.Designer.cs">
+      <DependentUpon>usrConsignedReturnList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedReleaseManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedReleaseManagement.Designer.cs">
+      <DependentUpon>usrConsignedReleaseManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedInvoiceManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedInvoiceManagement.Designer.cs">
+      <DependentUpon>usrConsignedInvoiceManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedSummaryListResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedSummaryListResult.Designer.cs">
+      <DependentUpon>usrConsignedSummaryListResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedSummaryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedSummaryList.Designer.cs">
+      <DependentUpon>usrConsignedSummaryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedList.Designer.cs">
+      <DependentUpon>usrConsignedList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedReceipt.Designer.cs">
+      <DependentUpon>usrConsignedReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\DlgReceiptPartList .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\DlgReceiptPartList .Designer.cs">
+      <DependentUpon>DlgReceiptPartList .cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\View1.xaml.cs">
+      <DependentUpon>View1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgPublisherList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgPublisherList.Designer.cs">
+      <DependentUpon>dlgPublisherList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgPurchaseList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgPurchaseList.Designer.cs">
+      <DependentUpon>dlgPurchaseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrBookInfoDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrBookInfoDetail.Designer.cs">
+      <DependentUpon>usrBookInfoDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrPurchaseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrPurchaseInfo.Designer.cs">
+      <DependentUpon>usrPurchaseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrPublishList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrPublishList.Designer.cs">
+      <DependentUpon>usrPublishList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrSideCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrSideCheck.Designer.cs">
+      <DependentUpon>usrSideCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\2.bookDetail\usrBookDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\2.bookDetail\usrBookDetail.Designer.cs">
+      <DependentUpon>usrBookDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchaseDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchaseDetail.Designer.cs">
+      <DependentUpon>usrSearchPurchaseDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchase.Designer.cs">
+      <DependentUpon>usrSearchPurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchaseList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchaseList.Designer.cs">
+      <DependentUpon>usrSearchPurchaseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\1.bookSearch\usrSearchBookSearchList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\1.bookSearch\usrSearchBookSearchList.Designer.cs">
+      <DependentUpon>usrSearchBookSearchList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\1.bookSearch\usrSearchBookSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\1.bookSearch\usrSearchBookSearch.Designer.cs">
+      <DependentUpon>usrSearchBookSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchaseAndPublisher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchaseAndPublisher.Designer.cs">
+      <DependentUpon>usrSearchPurchaseAndPublisher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisherDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisherDetail.Designer.cs">
+      <DependentUpon>usrSearchPublisherDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisherOutcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisherOutcome.Designer.cs">
+      <DependentUpon>usrSearchPublisherOutcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisherList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisherList.Designer.cs">
+      <DependentUpon>usrSearchPublisherList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\1.bookSearch\usrSearchBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\1.bookSearch\usrSearchBook.Designer.cs">
+      <DependentUpon>usrSearchBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisher.Designer.cs">
+      <DependentUpon>usrSearchPublisher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\6.bestSellerSearch\usrBestSeller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\6.bestSellerSearch\usrBestSeller.Designer.cs">
+      <DependentUpon>usrBestSeller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\6.bestSellerSearch\usrBestSellerList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\6.bestSellerSearch\usrBestSellerList.Designer.cs">
+      <DependentUpon>usrBestSellerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\6.bestSellerSearch\usrBestSellerSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\6.bestSellerSearch\usrBestSellerSearch.Designer.cs">
+      <DependentUpon>usrBestSellerSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooksSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooksSearch.Designer.cs">
+      <DependentUpon>usrNewBooksSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooksList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooksList.Designer.cs">
+      <DependentUpon>usrNewBooksList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooks.Designer.cs">
+      <DependentUpon>usrNewBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrder.Designer.cs">
+      <DependentUpon>usrBookOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrderSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrderSearch.Designer.cs">
+      <DependentUpon>usrBookOrderSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrderList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrderList.Designer.cs">
+      <DependentUpon>usrBookOrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrPurchaseList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrPurchaseList.Designer.cs">
+      <DependentUpon>usrPurchaseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrBookSearchList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrBookSearchList.Designer.cs">
+      <DependentUpon>usrBookSearchList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgBookSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgBookSearch.Designer.cs">
+      <DependentUpon>dlgBookSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleData.Designer.cs">
+      <DependentUpon>usrSaleData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataList.Designer.cs">
+      <DependentUpon>usrSaleDataList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataSearch.Designer.cs">
+      <DependentUpon>usrSaleDataSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifySearch.Designer.cs">
+      <DependentUpon>usrOrderBookModifySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifyList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifyList.Designer.cs">
+      <DependentUpon>usrOrderBookModifyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModify.Designer.cs">
+      <DependentUpon>usrOrderBookModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.Designer.cs">
+      <DependentUpon>usrUnregisteredBookOrderSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrder.Designer.cs">
+      <DependentUpon>usrUnregisteredBookOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderList.Designer.cs">
+      <DependentUpon>usrUnregisteredBookOrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultSearch.Designer.cs">
+      <DependentUpon>usrBookOrderResultSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResult.Designer.cs">
+      <DependentUpon>usrBookOrderResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultList.Designer.cs">
+      <DependentUpon>usrBookOrderResultList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReport.Designer.cs">
+      <DependentUpon>usrOrderBookReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReportList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReportList.Designer.cs">
+      <DependentUpon>usrOrderBookReportList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReportSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReportSearch.Designer.cs">
+      <DependentUpon>usrOrderBookReportSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturn.Designer.cs">
+      <DependentUpon>usrModifReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnList.Designer.cs">
+      <DependentUpon>usrModifReturnList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnSearch.Designer.cs">
+      <DependentUpon>usrModifReturnSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnList.Designer.cs">
+      <DependentUpon>usrInputReturnList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnSearch.Designer.cs">
+      <DependentUpon>usrInputReturnSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturn.Designer.cs">
+      <DependentUpon>usrInputReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\dlgControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\dlgControl.Designer.cs">
+      <DependentUpon>dlgControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\user\dlgCreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\user\dlgCreateUser.Designer.cs">
+      <DependentUpon>dlgCreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\user\dlgUserPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\user\dlgUserPassword.Designer.cs">
+      <DependentUpon>dlgUserPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\user\usrUserManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\user\usrUserManagement.Designer.cs">
+      <DependentUpon>usrUserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\usrControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\usrControl.Designer.cs">
+      <DependentUpon>usrControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PreView\DlgVideoPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PreView\DlgVideoPlayer.Designer.cs">
+      <DependentUpon>DlgVideoPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\produce\DlgCreateProduce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\produce\DlgCreateProduce.Designer.cs">
+      <DependentUpon>DlgCreateProduce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\produce\usrProduceProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\produce\usrProduceProduct.Designer.cs">
+      <DependentUpon>usrProduceProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\produce\usrProduceProductCheckList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\produce\usrProduceProductCheckList.Designer.cs">
+      <DependentUpon>usrProduceProductCheckList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\produce\usrProductProduceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\produce\usrProductProduceList.Designer.cs">
+      <DependentUpon>usrProductProduceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\produce\QC\usrQualityControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\produce\QC\usrQualityControl.Designer.cs">
+      <DependentUpon>usrQualityControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\produce\usrWarehousingProduce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\produce\usrWarehousingProduce.Designer.cs">
+      <DependentUpon>usrWarehousingProduce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\dlgGetBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\dlgGetBarcode.Designer.cs">
+      <DependentUpon>dlgGetBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\DlgImportBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\DlgImportBarcode.Designer.cs">
+      <DependentUpon>DlgImportBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\dlgGetPartInfoByScanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\dlgGetPartInfoByScanner.Designer.cs">
+      <DependentUpon>dlgGetPartInfoByScanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\dlgReleaseReceiptPartModif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\dlgReleaseReceiptPartModif.Designer.cs">
+      <DependentUpon>dlgReleaseReceiptPartModif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\dlgNewTechnicalReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\dlgNewTechnicalReceipt.Designer.cs">
+      <DependentUpon>dlgNewTechnicalReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\dlgSelectReceiveUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\dlgSelectReceiveUser.Designer.cs">
+      <DependentUpon>dlgSelectReceiveUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\dlgReleasePart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\dlgReleasePart.Designer.cs">
+      <DependentUpon>dlgReleasePart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\dlgReleaseCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\dlgReleaseCheck.Designer.cs">
+      <DependentUpon>dlgReleaseCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseCheck.Designer.cs">
+      <DependentUpon>usrReleaseCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\usrExternalInventoryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\usrExternalInventoryList.Designer.cs">
+      <DependentUpon>usrExternalInventoryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\usrTechnicalRequest_Unused.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\usrTechnicalRequest_Unused.Designer.cs">
+      <DependentUpon>usrTechnicalRequest_Unused.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\usrTechnicalRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\usrTechnicalRequest.Designer.cs">
+      <DependentUpon>usrTechnicalRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseOrderList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseOrderList.Designer.cs">
+      <DependentUpon>usrReleaseOrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseOrder.Designer.cs">
+      <DependentUpon>usrReleaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseCheckStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseCheckStatistics.Designer.cs">
+      <DependentUpon>usrReleaseCheckStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseStatistics.Designer.cs">
+      <DependentUpon>usrReleaseStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\External\usrReleaseList.Designer.cs">
+      <DependentUpon>usrReleaseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\usrReleaseReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\usrReleaseReceipt.Designer.cs">
+      <DependentUpon>usrReleaseReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\usrReleaseReturnList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\usrReleaseReturnList.Designer.cs">
+      <DependentUpon>usrReleaseReturnList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\usrReleaseReceiptList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\usrReleaseReceiptList.Designer.cs">
+      <DependentUpon>usrReleaseReceiptList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\search\DlgImportInventoryPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\search\DlgImportInventoryPrice.Designer.cs">
+      <DependentUpon>DlgImportInventoryPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgNtb2ndEditionCheck2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgNtb2ndEditionCheck2.Designer.cs">
+      <DependentUpon>DlgNtb2ndEditionCheck2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgTabletCheck2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgTabletCheck2.Designer.cs">
+      <DependentUpon>DlgTabletCheck2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgTabletCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgTabletCheck.Designer.cs">
+      <DependentUpon>DlgTabletCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgCasCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgCasCheck.Designer.cs">
+      <DependentUpon>DlgCasCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgHddCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgHddCheck.Designer.cs">
+      <DependentUpon>DlgHddCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgAllInOneCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgAllInOneCheck.Designer.cs">
+      <DependentUpon>DlgAllInOneCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgNtb2ndEditionCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgNtb2ndEditionCheck.Designer.cs">
+      <DependentUpon>DlgNtb2ndEditionCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgSsdCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgSsdCheck.Designer.cs">
+      <DependentUpon>DlgSsdCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgOddCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgOddCheck.Designer.cs">
+      <DependentUpon>DlgOddCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgPowCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgPowCheck.Designer.cs">
+      <DependentUpon>DlgPowCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgVgaCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgVgaCheck.Designer.cs">
+      <DependentUpon>DlgVgaCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgMbdCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgMbdCheck.Designer.cs">
+      <DependentUpon>DlgMbdCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgMEMCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgMEMCheck.Designer.cs">
+      <DependentUpon>DlgMEMCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgCpuCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgCpuCheck.Designer.cs">
+      <DependentUpon>DlgCpuCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgMonitorCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgMonitorCheck.Designer.cs">
+      <DependentUpon>DlgMonitorCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgAllInOneCheck2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgAllInOneCheck2.Designer.cs">
+      <DependentUpon>DlgAllInOneCheck2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\inventory\DlgNtbCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\inventory\DlgNtbCheck.Designer.cs">
+      <DependentUpon>DlgNtbCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\search\usrInventorySearchList .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\search\usrInventorySearchList .Designer.cs">
+      <DependentUpon>usrInventorySearchList .cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\login\usrControlLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\login\usrControlLogin.Designer.cs">
+      <DependentUpon>usrControlLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PreView\DlgCameraTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PreView\DlgCameraTest.Designer.cs">
+      <DependentUpon>DlgCameraTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PreView\DlgSoundTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PreView\DlgSoundTest.Designer.cs">
+      <DependentUpon>DlgSoundTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PreView\dlgScreenTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PreView\dlgScreenTest.Designer.cs">
+      <DependentUpon>dlgScreenTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PreView\DlgReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PreView\DlgReport.Designer.cs">
+      <DependentUpon>DlgReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\price\partPriceMapping\DlgCreateLTPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\price\partPriceMapping\DlgCreateLTPart.Designer.cs">
+      <DependentUpon>DlgCreateLTPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\price\partPriceMapping\DlgGetWmPartList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\price\partPriceMapping\DlgGetWmPartList.Designer.cs">
+      <DependentUpon>DlgGetWmPartList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\price\ntb\usrNtbPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\price\ntb\usrNtbPrice.Designer.cs">
+      <DependentUpon>usrNtbPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\price\partPriceMapping\usrWMParList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\price\partPriceMapping\usrWMParList.Designer.cs">
+      <DependentUpon>usrWMParList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\price\partPriceMapping\usrPartMappingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\price\partPriceMapping\usrPartMappingList.Designer.cs">
+      <DependentUpon>usrPartMappingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\dlgCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\dlgCompare.Designer.cs">
+      <DependentUpon>dlgCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\dlgConsignedComponentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\dlgConsignedComponentList.Designer.cs">
+      <DependentUpon>dlgConsignedComponentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\usrReleaseConsignedNew_UNUSED.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\usrReleaseConsignedNew_UNUSED.Designer.cs">
+      <DependentUpon>usrReleaseConsignedNew_UNUSED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\release\usrReleaseConsigned.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\release\usrReleaseConsigned.Designer.cs">
+      <DependentUpon>usrReleaseConsigned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\produce\usrProductProduceStandard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\produce\usrProductProduceStandard.Designer.cs">
+      <DependentUpon>usrProductProduceStandard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\repair\usrRepairStandard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\repair\usrRepairStandard.Designer.cs">
+      <DependentUpon>usrRepairStandard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\representative\DlgSelectRepresentativeType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\representative\DlgSelectRepresentativeType.Designer.cs">
+      <DependentUpon>DlgSelectRepresentativeType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\search\usrTabletCheckSearchList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\search\usrTabletCheckSearchList.Designer.cs">
+      <DependentUpon>usrTabletCheckSearchList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\statistics\usrNtbCheckStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\statistics\usrNtbCheckStatistics.Designer.cs">
+      <DependentUpon>usrNtbCheckStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\statistics\usrConsignedReturnStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\statistics\usrConsignedReturnStatistics.Designer.cs">
+      <DependentUpon>usrConsignedReturnStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\statistics\usrWorkStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\statistics\usrWorkStatistics.Designer.cs">
+      <DependentUpon>usrWorkStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgCustomerReturnCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgCustomerReturnCheck.Designer.cs">
+      <DependentUpon>dlgCustomerReturnCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgFaultPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgFaultPart.Designer.cs">
+      <DependentUpon>dlgFaultPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgEditor.Designer.cs">
+      <DependentUpon>dlgEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgSetCustomerCheckReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgSetCustomerCheckReturn.Designer.cs">
+      <DependentUpon>dlgSetCustomerCheckReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgGetCustomerCheckDes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgGetCustomerCheckDes.Designer.cs">
+      <DependentUpon>dlgGetCustomerCheckDes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgNewETCPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgNewETCPart.Designer.cs">
+      <DependentUpon>dlgNewETCPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgGetAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgGetAddress.Designer.cs">
+      <DependentUpon>dlgGetAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgGetPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgGetPart.Designer.cs">
+      <DependentUpon>dlgGetPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgUpdatePartCnt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgUpdatePartCnt.Designer.cs">
+      <DependentUpon>dlgUpdatePartCnt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgNewPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\dlgNewPart.Designer.cs">
+      <DependentUpon>dlgNewPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\receiptComponent\usrReceiptPartResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\receiptComponent\usrReceiptPartResult.Designer.cs">
+      <DependentUpon>usrReceiptPartResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\receiptComponent\usrReceiptPartTreeShort.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\receiptComponent\usrReceiptPartTreeShort.Designer.cs">
+      <DependentUpon>usrReceiptPartTreeShort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\receiptComponent\usrReceiptPartTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\receiptComponent\usrReceiptPartTree.Designer.cs">
+      <DependentUpon>usrReceiptPartTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\receiptComponent\usrReceiptPart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\receiptComponent\usrReceiptPart.Designer.cs">
+      <DependentUpon>usrReceiptPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseExamine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseExamine.Designer.cs">
+      <DependentUpon>usrUsedPurchaseExamine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseReceiptDetail_210330.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseReceiptDetail_210330.Designer.cs">
+      <DependentUpon>usrUsedPurchaseReceiptDetail_210330.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseReturnList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseReturnList.Designer.cs">
+      <DependentUpon>usrUsedPurchaseReturnList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrCustomerPaymentState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrCustomerPaymentState.Designer.cs">
+      <DependentUpon>usrCustomerPaymentState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseExamine_210402.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseExamine_210402.Designer.cs">
+      <DependentUpon>usrUsedPurchaseExamine_210402.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseStatus.Designer.cs">
+      <DependentUpon>usrUsedPurchaseStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseReceiptDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\usedPurchase\usrUsedPurchaseReceiptDetail.Designer.cs">
+      <DependentUpon>usrUsedPurchaseReceiptDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousingManagement\dlgSetPallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousingManagement\dlgSetPallet.Designer.cs">
+      <DependentUpon>dlgSetPallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousingManagement\dlgUpdateWarehouseMovementList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousingManagement\dlgUpdateWarehouseMovementList.Designer.cs">
+      <DependentUpon>dlgUpdateWarehouseMovementList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedAdjustment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\consigned\usrConsignedAdjustment.Designer.cs">
+      <DependentUpon>usrConsignedAdjustment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousingManagement\usrWarehouseState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousingManagement\usrWarehouseState.Designer.cs">
+      <DependentUpon>usrWarehouseState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousingManagement\usrWarehouseMovementStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousingManagement\usrWarehouseMovementStatus.Designer.cs">
+      <DependentUpon>usrWarehouseMovementStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousingManagement\usrComponentKeep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousingManagement\usrComponentKeep.Designer.cs">
+      <DependentUpon>usrComponentKeep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentCompare\usrComponentCompare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentCompare\usrComponentCompare.Designer.cs">
+      <DependentUpon>usrComponentCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentAIR.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentAIR.Designer.cs">
+      <DependentUpon>usrComponentAIR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentMEM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentMEM.Designer.cs">
+      <DependentUpon>usrComponentMEM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentKEY.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentKEY.Designer.cs">
+      <DependentUpon>usrComponentKEY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentTBL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentTBL.Designer.cs">
+      <DependentUpon>usrComponentTBL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrEmpty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrEmpty.Designer.cs">
+      <DependentUpon>usrEmpty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentVGA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentVGA.Designer.cs">
+      <DependentUpon>usrComponentVGA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentSTG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentSTG.Designer.cs">
+      <DependentUpon>usrComponentSTG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentMON.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentMON.Designer.cs">
+      <DependentUpon>usrComponentMON.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentCAS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentCAS.Designer.cs">
+      <DependentUpon>usrComponentCAS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentPOW.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentPOW.Designer.cs">
+      <DependentUpon>usrComponentPOW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentMOU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentMOU.Designer.cs">
+      <DependentUpon>usrComponentMOU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentFAN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentFAN.Designer.cs">
+      <DependentUpon>usrComponentFAN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentCAB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentCAB.Designer.cs">
+      <DependentUpon>usrComponentCAB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentBAT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentBAT.Designer.cs">
+      <DependentUpon>usrComponentBAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentPKG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentPKG.Designer.cs">
+      <DependentUpon>usrComponentPKG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentLIC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentLIC.Designer.cs">
+      <DependentUpon>usrComponentLIC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentPER.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentPER.Designer.cs">
+      <DependentUpon>usrComponentPER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentMBD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentMBD.Designer.cs">
+      <DependentUpon>usrComponentMBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentCPU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentCPU.Designer.cs">
+      <DependentUpon>usrComponentCPU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentADP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\componentGrid\usrComponentADP.Designer.cs">
+      <DependentUpon>usrComponentADP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\copyComponent\DlgCopyComponent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\copyComponent\DlgCopyComponent.Designer.cs">
+      <DependentUpon>DlgCopyComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreateMBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreateMBD.Designer.cs">
+      <DependentUpon>dlgCreateMBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreateTBL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreateTBL.Designer.cs">
+      <DependentUpon>dlgCreateTBL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreatePOW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreatePOW.Designer.cs">
+      <DependentUpon>dlgCreatePOW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreateCPU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreateCPU.Designer.cs">
+      <DependentUpon>dlgCreateCPU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreateADP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\createComponent\dlgCreateADP.Designer.cs">
+      <DependentUpon>dlgCreateADP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\DlgImportProductPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\DlgImportProductPrice.Designer.cs">
+      <DependentUpon>DlgImportProductPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentMBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentMBD.Designer.cs">
+      <DependentUpon>dlgComponentMBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentTBL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentTBL.Designer.cs">
+      <DependentUpon>dlgComponentTBL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentPOW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentPOW.Designer.cs">
+      <DependentUpon>dlgComponentPOW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentCPU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentCPU.Designer.cs">
+      <DependentUpon>dlgComponentCPU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentADP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgComponentADP.Designer.cs">
+      <DependentUpon>dlgComponentADP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgSelectComponent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\selectComponent\dlgSelectComponent.Designer.cs">
+      <DependentUpon>dlgSelectComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\usrInventoryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\usrInventoryList.Designer.cs">
+      <DependentUpon>usrInventoryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\usrProductSwap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\usrProductSwap.Designer.cs">
+      <DependentUpon>usrProductSwap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousingSwap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousingSwap.Designer.cs">
+      <DependentUpon>usrWarehousingSwap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousingProductManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousingProductManagement.Designer.cs">
+      <DependentUpon>usrWarehousingProductManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousingManagement1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousingManagement1.Designer.cs">
+      <DependentUpon>usrWarehousingManagement1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousingManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousingManagement.Designer.cs">
+      <DependentUpon>usrWarehousingManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\warehousing\usrWarehousing.Designer.cs">
+      <DependentUpon>usrWarehousing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Helper\DlgWaitForm.resx">
+      <DependentUpon>DlgWaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main\usrHome.resx">
+      <DependentUpon>usrHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Report\rpOrderBook.resx">
+      <DependentUpon>rpOrderBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpExportReport.resx">
+      <DependentUpon>rpExportReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpUsedPurchaseCertificate.resx">
+      <DependentUpon>rpUsedPurchaseCertificate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\DlgImgArray.resx">
+      <DependentUpon>DlgImgArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\DlgLoginCheck.resx">
+      <DependentUpon>DlgLoginCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\DlgImgTest.resx">
+      <DependentUpon>DlgImgTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\adjustment\DlgImportBarcode.resx">
+      <DependentUpon>DlgImportBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\adjustment\usrAdjustmentCompleteList.resx">
+      <DependentUpon>usrAdjustmentCompleteList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\adjustment\usrAdjustmentExamineListByBarcodeAll.resx">
+      <DependentUpon>usrAdjustmentExamineListByBarcodeAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\adjustment\usrAdjustmentExamineListByBarcode.resx">
+      <DependentUpon>usrAdjustmentExamineListByBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\board\usrJob.resx">
+      <DependentUpon>usrJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\check\usrTabletCheckList_temp.resx">
+      <DependentUpon>usrTabletCheckList_temp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\check\usrTabletCheckList.resx">
+      <DependentUpon>usrTabletCheckList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\adjustment\usrAdjustmentStatistics.resx">
+      <DependentUpon>usrAdjustmentStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\adjustment\usrAdjustment.resx">
+      <DependentUpon>usrAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\adjustment\usrAdjustmentReceiptList.resx">
+      <DependentUpon>usrAdjustmentReceiptList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\adjustment\usrAdjustmentUpdateList .resx">
+      <DependentUpon>usrAdjustmentUpdateList .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\adjustment\usrAdjustmentExamineList.resx">
+      <DependentUpon>usrAdjustmentExamineList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\board\usrRequest.resx">
+      <DependentUpon>usrRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\check\usrProduceProductCheck.resx">
+      <DependentUpon>usrProduceProductCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\check\usrWarehousingProductCheckFull.resx">
+      <DependentUpon>usrWarehousingProductCheckFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\check\usrWarehousingProductCheck.resx">
+      <DependentUpon>usrWarehousingProductCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\check\usrInventoryCheck.resx">
+      <DependentUpon>usrInventoryCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\common\custom\CustomMessageBox.resx">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\common\dlgColVisible.resx">
+      <DependentUpon>dlgColVisible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\common\dlgRepNo.resx">
+      <DependentUpon>dlgRepNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgCompanyPartReturnStatistice.resx">
+      <DependentUpon>DlgCompanyPartReturnStatistice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgCompanyPartWarehousingStatistice.resx">
+      <DependentUpon>DlgCompanyPartWarehousingStatistice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgConsignedInvoiceState.resx">
+      <DependentUpon>DlgConsignedInvoiceState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgConsignedReceiptPart.resx">
+      <DependentUpon>DlgConsignedReceiptPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedAdjustment_TEMP.resx">
+      <DependentUpon>usrConsignedAdjustment_TEMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedCompanyInventory_Temp.resx">
+      <DependentUpon>usrConsignedCompanyInventory_Temp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\file\usrFile.resx">
+      <DependentUpon>usrFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgConsignedReturnCheck.resx">
+      <DependentUpon>DlgConsignedReturnCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgInventoryListByWarehousingShort.resx">
+      <DependentUpon>DlgInventoryListByWarehousingShort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgInventoryListByWarehousing.resx">
+      <DependentUpon>DlgInventoryListByWarehousing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgCompanyPartStatistice.resx">
+      <DependentUpon>DlgCompanyPartStatistice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\dlgCreateCompanyModel.resx">
+      <DependentUpon>dlgCreateCompanyModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgImportInvoice.resx">
+      <DependentUpon>DlgImportInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgImportConsignedReceiptByModel.resx">
+      <DependentUpon>DlgImportConsignedReceiptByModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgImportConsignedReceipt.resx">
+      <DependentUpon>DlgImportConsignedReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgReceiptModelList.resx">
+      <DependentUpon>DlgReceiptModelList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgCompanyPartByWarehousing.resx">
+      <DependentUpon>DlgCompanyPartByWarehousing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgConsignedCompanyInventory.resx">
+      <DependentUpon>DlgConsignedCompanyInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedCompanyModelList.resx">
+      <DependentUpon>usrConsignedCompanyModelList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedCompanyInventory.resx">
+      <DependentUpon>usrConsignedCompanyInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgConsignedPartModif.resx">
+      <DependentUpon>DlgConsignedPartModif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedReturnList.resx">
+      <DependentUpon>usrConsignedReturnList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedReleaseManagement.resx">
+      <DependentUpon>usrConsignedReleaseManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedInvoiceManagement.resx">
+      <DependentUpon>usrConsignedInvoiceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedSummaryListResult.resx">
+      <DependentUpon>usrConsignedSummaryListResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedSummaryList.resx">
+      <DependentUpon>usrConsignedSummaryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedList.resx">
+      <DependentUpon>usrConsignedList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedReceipt.resx">
+      <DependentUpon>usrConsignedReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\DlgReceiptPartList .resx">
+      <DependentUpon>DlgReceiptPartList .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgPublisherList.resx">
+      <DependentUpon>dlgPublisherList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgPurchaseList.resx">
+      <DependentUpon>dlgPurchaseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\usrBookInfoDetail.resx">
+      <DependentUpon>usrBookInfoDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\usrPurchaseInfo.resx">
+      <DependentUpon>usrPurchaseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\usrPublishList.resx">
+      <DependentUpon>usrPublishList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\usrSideCheck.resx">
+      <DependentUpon>usrSideCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\2.bookDetail\usrBookDetail.resx">
+      <DependentUpon>usrBookDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchaseDetail.resx">
+      <DependentUpon>usrSearchPurchaseDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchase.resx">
+      <DependentUpon>usrSearchPurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchaseList.resx">
+      <DependentUpon>usrSearchPurchaseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\1.bookSearch\usrSearchBookSearchList.resx">
+      <DependentUpon>usrSearchBookSearchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\1.bookSearch\usrSearchBookSearch.resx">
+      <DependentUpon>usrSearchBookSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\3.purchaseSearch\usrSearchPurchaseAndPublisher.resx">
+      <DependentUpon>usrSearchPurchaseAndPublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisherDetail.resx">
+      <DependentUpon>usrSearchPublisherDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisherOutcome.resx">
+      <DependentUpon>usrSearchPublisherOutcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisherList.resx">
+      <DependentUpon>usrSearchPublisherList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\1.bookSearch\usrSearchBook.resx">
+      <DependentUpon>usrSearchBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\4.publisherSearch\usrSearchPublisher.resx">
+      <DependentUpon>usrSearchPublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\6.bestSellerSearch\usrBestSeller.resx">
+      <DependentUpon>usrBestSeller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\6.bestSellerSearch\usrBestSellerList.resx">
+      <DependentUpon>usrBestSellerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\6.bestSellerSearch\usrBestSellerSearch.resx">
+      <DependentUpon>usrBestSellerSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooksSearch.resx">
+      <DependentUpon>usrNewBooksSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooksList.resx">
+      <DependentUpon>usrNewBooksList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooks.resx">
+      <DependentUpon>usrNewBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\1.bookOrder\usrBookOrder.resx">
+      <DependentUpon>usrBookOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\1.bookOrder\usrBookOrderSearch.resx">
+      <DependentUpon>usrBookOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\1.bookOrder\usrBookOrderList.resx">
+      <DependentUpon>usrBookOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\usrPurchaseList.resx">
+      <DependentUpon>usrPurchaseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\usrBookSearchList.resx">
+      <DependentUpon>usrBookSearchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgBookSearch.resx">
+      <DependentUpon>dlgBookSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\2.searchSaleData\usrSaleData.resx">
+      <DependentUpon>usrSaleData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataList.resx">
+      <DependentUpon>usrSaleDataList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataSearch.resx">
+      <DependentUpon>usrSaleDataSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifySearch.resx">
+      <DependentUpon>usrOrderBookModifySearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifyList.resx">
+      <DependentUpon>usrOrderBookModifyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModify.resx">
+      <DependentUpon>usrOrderBookModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.resx">
+      <DependentUpon>usrUnregisteredBookOrderSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrder.resx">
+      <DependentUpon>usrUnregisteredBookOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderList.resx">
+      <DependentUpon>usrUnregisteredBookOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultSearch.resx">
+      <DependentUpon>usrBookOrderResultSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResult.resx">
+      <DependentUpon>usrBookOrderResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultList.resx">
+      <DependentUpon>usrBookOrderResultList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\7.report\usrOrderBookReport.resx">
+      <DependentUpon>usrOrderBookReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\7.report\usrOrderBookReportList.resx">
+      <DependentUpon>usrOrderBookReportList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\7.report\usrOrderBookReportSearch.resx">
+      <DependentUpon>usrOrderBookReportSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.returns\1.modifReturn\usrModifReturn.resx">
+      <DependentUpon>usrModifReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnList.resx">
+      <DependentUpon>usrModifReturnList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnSearch.resx">
+      <DependentUpon>usrModifReturnSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnList.resx">
+      <DependentUpon>usrInputReturnList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnSearch.resx">
+      <DependentUpon>usrInputReturnSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.returns\1.InputReturn\usrInputReturn.resx">
+      <DependentUpon>usrInputReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\dlgControl.resx">
+      <DependentUpon>dlgControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\user\dlgCreateUser.resx">
+      <DependentUpon>dlgCreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\user\dlgUserPassword.resx">
+      <DependentUpon>dlgUserPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\user\usrUserManagement.resx">
+      <DependentUpon>usrUserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\usrControl.resx">
+      <DependentUpon>usrControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PreView\DlgVideoPlayer.resx">
+      <DependentUpon>DlgVideoPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\produce\DlgCreateProduce.resx">
+      <DependentUpon>DlgCreateProduce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\produce\usrProduceProduct.resx">
+      <DependentUpon>usrProduceProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\produce\usrProduceProductCheckList.resx">
+      <DependentUpon>usrProduceProductCheckList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\produce\usrProductProduceList.resx">
+      <DependentUpon>usrProductProduceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\produce\QC\usrQualityControl.resx">
+      <DependentUpon>usrQualityControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\produce\usrWarehousingProduce.resx">
+      <DependentUpon>usrWarehousingProduce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\dlgGetBarcode.resx">
+      <DependentUpon>dlgGetBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\DlgImportBarcode.resx">
+      <DependentUpon>DlgImportBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\dlgGetPartInfoByScanner.resx">
+      <DependentUpon>dlgGetPartInfoByScanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\dlgReleaseReceiptPartModif.resx">
+      <DependentUpon>dlgReleaseReceiptPartModif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\dlgNewTechnicalReceipt.resx">
+      <DependentUpon>dlgNewTechnicalReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\dlgSelectReceiveUser.resx">
+      <DependentUpon>dlgSelectReceiveUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\dlgReleasePart.resx">
+      <DependentUpon>dlgReleasePart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\dlgReleaseCheck.resx">
+      <DependentUpon>dlgReleaseCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\usrReleaseCheck.resx">
+      <DependentUpon>usrReleaseCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\usrExternalInventoryList.resx">
+      <DependentUpon>usrExternalInventoryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\usrTechnicalRequest_Unused.resx">
+      <DependentUpon>usrTechnicalRequest_Unused.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\usrTechnicalRequest.resx">
+      <DependentUpon>usrTechnicalRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\usrReleaseOrderList.resx">
+      <DependentUpon>usrReleaseOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\usrReleaseOrder.resx">
+      <DependentUpon>usrReleaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\usrReleaseCheckStatistics.resx">
+      <DependentUpon>usrReleaseCheckStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\usrReleaseStatistics.resx">
+      <DependentUpon>usrReleaseStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\External\usrReleaseList.resx">
+      <DependentUpon>usrReleaseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\usrReleaseReceipt.resx">
+      <DependentUpon>usrReleaseReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\usrReleaseReturnList.resx">
+      <DependentUpon>usrReleaseReturnList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\usrReleaseReceiptList.resx">
+      <DependentUpon>usrReleaseReceiptList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\search\DlgImportInventoryPrice.resx">
+      <DependentUpon>DlgImportInventoryPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgNtb2ndEditionCheck2.resx">
+      <DependentUpon>DlgNtb2ndEditionCheck2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgTabletCheck2.resx">
+      <DependentUpon>DlgTabletCheck2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgTabletCheck.resx">
+      <DependentUpon>DlgTabletCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgCasCheck.resx">
+      <DependentUpon>DlgCasCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgHddCheck.resx">
+      <DependentUpon>DlgHddCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgAllInOneCheck.resx">
+      <DependentUpon>DlgAllInOneCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgNtb2ndEditionCheck.resx">
+      <DependentUpon>DlgNtb2ndEditionCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgSsdCheck.resx">
+      <DependentUpon>DlgSsdCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgOddCheck.resx">
+      <DependentUpon>DlgOddCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgPowCheck.resx">
+      <DependentUpon>DlgPowCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgVgaCheck.resx">
+      <DependentUpon>DlgVgaCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgMbdCheck.resx">
+      <DependentUpon>DlgMbdCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgMEMCheck.resx">
+      <DependentUpon>DlgMEMCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgCpuCheck.resx">
+      <DependentUpon>DlgCpuCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgMonitorCheck.resx">
+      <DependentUpon>DlgMonitorCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgAllInOneCheck2.resx">
+      <DependentUpon>DlgAllInOneCheck2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\inventory\DlgNtbCheck.resx">
+      <DependentUpon>DlgNtbCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\search\usrInventorySearchList .resx">
+      <DependentUpon>usrInventorySearchList .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\login\usrControlLogin.resx">
+      <DependentUpon>usrControlLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PreView\DlgCameraTest.resx">
+      <DependentUpon>DlgCameraTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PreView\DlgSoundTest.resx">
+      <DependentUpon>DlgSoundTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PreView\dlgScreenTest.resx">
+      <DependentUpon>dlgScreenTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PreView\DlgReport.resx">
+      <DependentUpon>DlgReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\price\partPriceMapping\DlgCreateLTPart.resx">
+      <DependentUpon>DlgCreateLTPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\price\partPriceMapping\DlgGetWmPartList.resx">
+      <DependentUpon>DlgGetWmPartList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\price\ntb\usrNtbPrice.resx">
+      <DependentUpon>usrNtbPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\price\partPriceMapping\usrWMParList.resx">
+      <DependentUpon>usrWMParList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\price\partPriceMapping\usrPartMappingList.resx">
+      <DependentUpon>usrPartMappingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\dlgCompare.resx">
+      <DependentUpon>dlgCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\dlgConsignedComponentList.resx">
+      <DependentUpon>dlgConsignedComponentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\usrReleaseConsignedNew_UNUSED.resx">
+      <DependentUpon>usrReleaseConsignedNew_UNUSED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\release\usrReleaseConsigned.resx">
+      <DependentUpon>usrReleaseConsigned.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\produce\usrProductProduceStandard.resx">
+      <DependentUpon>usrProductProduceStandard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\repair\usrRepairStandard.resx">
+      <DependentUpon>usrRepairStandard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\representative\DlgSelectRepresentativeType.resx">
+      <DependentUpon>DlgSelectRepresentativeType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\search\usrTabletCheckSearchList.resx">
+      <DependentUpon>usrTabletCheckSearchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\statistics\usrNtbCheckStatistics.resx">
+      <DependentUpon>usrNtbCheckStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\statistics\usrConsignedReturnStatistics.resx">
+      <DependentUpon>usrConsignedReturnStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\statistics\usrWorkStatistics.resx">
+      <DependentUpon>usrWorkStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgCustomerReturnCheck.resx">
+      <DependentUpon>dlgCustomerReturnCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgFaultPart.resx">
+      <DependentUpon>dlgFaultPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgEditor.resx">
+      <DependentUpon>dlgEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgSetCustomerCheckReturn.resx">
+      <DependentUpon>dlgSetCustomerCheckReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgGetCustomerCheckDes.resx">
+      <DependentUpon>dlgGetCustomerCheckDes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgNewETCPart.resx">
+      <DependentUpon>dlgNewETCPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgGetAddress.resx">
+      <DependentUpon>dlgGetAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgGetPart.resx">
+      <DependentUpon>dlgGetPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgUpdatePartCnt.resx">
+      <DependentUpon>dlgUpdatePartCnt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\dlgNewPart.resx">
+      <DependentUpon>dlgNewPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\receiptComponent\usrReceiptPartResult.resx">
+      <DependentUpon>usrReceiptPartResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\receiptComponent\usrReceiptPartTreeShort.resx">
+      <DependentUpon>usrReceiptPartTreeShort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\receiptComponent\usrReceiptPartTree.resx">
+      <DependentUpon>usrReceiptPartTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\receiptComponent\usrReceiptPart.resx">
+      <DependentUpon>usrReceiptPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\usrUsedPurchaseExamine.resx">
+      <DependentUpon>usrUsedPurchaseExamine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\usrUsedPurchaseReceiptDetail_210330.resx">
+      <DependentUpon>usrUsedPurchaseReceiptDetail_210330.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\usrUsedPurchaseReturnList.resx">
+      <DependentUpon>usrUsedPurchaseReturnList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\usrCustomerPaymentState.resx">
+      <DependentUpon>usrCustomerPaymentState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\usrUsedPurchaseExamine_210402.resx">
+      <DependentUpon>usrUsedPurchaseExamine_210402.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\usrUsedPurchaseStatus.resx">
+      <DependentUpon>usrUsedPurchaseStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\usedPurchase\usrUsedPurchaseReceiptDetail.resx">
+      <DependentUpon>usrUsedPurchaseReceiptDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousingManagement\dlgSetPallet.resx">
+      <DependentUpon>dlgSetPallet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousingManagement\dlgUpdateWarehouseMovementList.resx">
+      <DependentUpon>dlgUpdateWarehouseMovementList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\consigned\usrConsignedAdjustment.resx">
+      <DependentUpon>usrConsignedAdjustment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousingManagement\usrWarehouseState.resx">
+      <DependentUpon>usrWarehouseState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousingManagement\usrWarehouseMovementStatus.resx">
+      <DependentUpon>usrWarehouseMovementStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousingManagement\usrComponentKeep.resx">
+      <DependentUpon>usrComponentKeep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentCompare\usrComponentCompare.resx">
+      <DependentUpon>usrComponentCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentAIR.resx">
+      <DependentUpon>usrComponentAIR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentMEM.resx">
+      <DependentUpon>usrComponentMEM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentKEY.resx">
+      <DependentUpon>usrComponentKEY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentTBL.resx">
+      <DependentUpon>usrComponentTBL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrEmpty.resx">
+      <DependentUpon>usrEmpty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentVGA.resx">
+      <DependentUpon>usrComponentVGA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentSTG.resx">
+      <DependentUpon>usrComponentSTG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentMON.resx">
+      <DependentUpon>usrComponentMON.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentCAS.resx">
+      <DependentUpon>usrComponentCAS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentPOW.resx">
+      <DependentUpon>usrComponentPOW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentMOU.resx">
+      <DependentUpon>usrComponentMOU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentFAN.resx">
+      <DependentUpon>usrComponentFAN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentCAB.resx">
+      <DependentUpon>usrComponentCAB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentBAT.resx">
+      <DependentUpon>usrComponentBAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentPKG.resx">
+      <DependentUpon>usrComponentPKG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentLIC.resx">
+      <DependentUpon>usrComponentLIC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentPER.resx">
+      <DependentUpon>usrComponentPER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentMBD.resx">
+      <DependentUpon>usrComponentMBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentCPU.resx">
+      <DependentUpon>usrComponentCPU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\componentGrid\usrComponentADP.resx">
+      <DependentUpon>usrComponentADP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\copyComponent\DlgCopyComponent.resx">
+      <DependentUpon>DlgCopyComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\createComponent\dlgCreateMBD.resx">
+      <DependentUpon>dlgCreateMBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\createComponent\dlgCreateTBL.resx">
+      <DependentUpon>dlgCreateTBL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\createComponent\dlgCreatePOW.resx">
+      <DependentUpon>dlgCreatePOW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\createComponent\dlgCreateCPU.resx">
+      <DependentUpon>dlgCreateCPU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\createComponent\dlgCreateADP.resx">
+      <DependentUpon>dlgCreateADP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\DlgImportProductPrice.resx">
+      <DependentUpon>DlgImportProductPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\selectComponent\dlgComponentMBD.resx">
+      <DependentUpon>dlgComponentMBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\selectComponent\dlgComponentTBL.resx">
+      <DependentUpon>dlgComponentTBL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\selectComponent\dlgComponentPOW.resx">
+      <DependentUpon>dlgComponentPOW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\selectComponent\dlgComponentCPU.resx">
+      <DependentUpon>dlgComponentCPU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\selectComponent\dlgComponentADP.resx">
+      <DependentUpon>dlgComponentADP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\selectComponent\dlgSelectComponent.resx">
+      <DependentUpon>dlgSelectComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\usrInventoryList.resx">
+      <DependentUpon>usrInventoryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\usrProductSwap.resx">
+      <DependentUpon>usrProductSwap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\usrWarehousingSwap.resx">
+      <DependentUpon>usrWarehousingSwap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\usrWarehousingProductManagement.resx">
+      <DependentUpon>usrWarehousingProductManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\usrWarehousingManagement1.resx">
+      <DependentUpon>usrWarehousingManagement1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\usrWarehousingManagement.resx">
+      <DependentUpon>usrWarehousingManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\warehousing\usrWarehousing.resx">
+      <DependentUpon>usrWarehousing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="ClassDiagram2.cd" />
+    <None Include="libOpenCvSharpExtern.so" />
+    <None Include="OpenCvSharp.Blob.dll.config" />
+    <None Include="OpenCvSharp.CPlusPlus.dll.config" />
+    <None Include="OpenCvSharp.dll.config" />
+    <None Include="OpenCvSharp.MachineLearning.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Report\dsUsedPurchase.xsc">
+      <DependentUpon>dsUsedPurchase.xsd</DependentUpon>
+    </None>
+    <None Include="Report\dsUsedPurchase.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsUsedPurchase.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\dsUsedPurchase.xss">
+      <DependentUpon>dsUsedPurchase.xsd</DependentUpon>
+    </None>
+    <None Include="WareHousingMaster_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\Interop.QuartzTypeLib.dll" />
+    <Content Include="image\pause.bmp" />
+    <Content Include="image\play.bmp" />
+    <Content Include="image\stop.bmp" />
+    <Content Include="OpenCvSharpExtern.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\kbookslogo.png" />
+    <None Include="Resources\kbooks_logo.jpg" />
+    <None Include="Resources\picturebox_16x16.png" />
+    <None Include="Resources\iconsetsymbols3_16x163.png" />
+    <None Include="Resources\iconsetsymbols3_16x162.png" />
+    <None Include="Resources\image_16x161.png" />
+    <None Include="Resources\download_32x32.png" />
+    <None Include="Resources\boproduct_16x16.png" />
+    <None Include="Resources\image_16x16.png" />
+    <None Include="Resources\apply_16x1615.png" />
+    <None Include="Resources\cancel_16x166.png" />
+    <None Include="Resources\delete_16x161.png" />
+    <None Include="Resources\iconsetsymbols3_16x161.png" />
+    <None Include="Resources\iconsetsymbols3_16x16.png" />
+    <None Include="Resources\trash_16x164.png" />
+    <None Include="Resources\addnewdatasource_16x161.png" />
+    <None Include="Resources\apply_16x1614.png" />
+    <None Include="Resources\cancel_16x165.png" />
+    <None Include="Resources\apply_16x1613.png" />
+    <None Include="Resources\apply_16x1612.png" />
+    <None Include="Resources\apply_16x1611.png" />
+    <None Include="Resources\home_16x164.png" />
+    <None Include="Resources\home_32x321.png" />
+    <None Include="Resources\home_16x163.png" />
+    <None Include="Resources\apply_16x1610.png" />
+    <None Include="Resources\cancel_16x164.png" />
+    <None Include="Resources\ide_16x161.png" />
+    <None Include="Resources\ide_16x16.png" />
+    <None Include="Resources\convert_16x162.png" />
+    <None Include="Resources\apply_16x169.png" />
+    <None Include="Resources\delete_16x16.png" />
+    <None Include="Resources\sendxlsx_16x16.png" />
+    <None Include="Resources\warning_16x161.png" />
+    <None Include="Resources\cancel_16x163.png" />
+    <None Include="Resources\warning_16x16.png" />
+    <None Include="Resources\apply_16x168.png" />
+    <None Include="Resources\info_16x16.png" />
+    <None Include="Resources\add_16x163.png" />
+    <None Include="Resources\apply_16x167.png" />
+    <None Include="Resources\financial_16x16.png" />
+    <None Include="Resources\financial_32x32.png" />
+    <None Include="Resources\functionsfinancial_32x32.png" />
+    <None Include="Resources\addfile_16x16.png" />
+    <None Include="Resources\add_16x162.png" />
+    <None Include="Resources\suggestion_16x16.png" />
+    <None Include="Resources\refresh2_16x16.png" />
+    <None Include="Resources\remove_16x16.png" />
+    <None Include="Resources\add_16x161.png" />
+    <None Include="Resources\finishmerge_16x161.png" />
+    <None Include="Resources\trash_16x163.png" />
+    <None Include="Resources\movedown_16x16.png" />
+    <None Include="Resources\iconsetarrows3_16x16.png" />
+    <None Include="Resources\boorder_16x16.png" />
+    <None Include="Resources\insert_16x16.png" />
+    <None Include="Resources\cancel_16x162.png" />
+    <None Include="Resources\apply_16x166.png" />
+    <None Include="Resources\hide_16x16.png" />
+    <None Include="Resources\show_16x161.png" />
+    <None Include="Resources\template_16x16.png" />
+    <None Include="Resources\show_16x16.png" />
+    <None Include="Resources\chartsshowlegend_32x321.png" />
+    <None Include="Resources\chartsshowlegend_32x32.png" />
+    <None Include="Resources\exporttoxlsx_16x161.png" />
+    <None Include="Resources\exporttoxlsx_16x16.png" />
+    <None Include="Resources\home_16x162.png" />
+    <None Include="Resources\splittablecells_16x16.png" />
+    <None Include="Resources\finishmerge_16x16.png" />
+    <None Include="Resources\save_16x16.png" />
+    <None Include="Resources\download_16x161.png" />
+    <None Include="Resources\loadmap_16x16.png" />
+    <None Include="Resources\inbox_16x162.png" />
+    <None Include="Resources\unmergecells_16x16.png" />
+    <None Include="Resources\refresh_16x16.png" />
+    <None Include="Resources\convert_16x161.png" />
+    <None Include="Resources\convert_16x16.png" />
+    <None Include="Resources\download_16x16.png" />
+    <None Include="Resources\redo_16x161.png" />
+    <None Include="Resources\trash_16x162.png" />
+    <None Include="Resources\checkbox2_16x161.png" />
+    <None Include="Resources\trash_16x161.png" />
+    <None Include="Resources\edit_16x16.png" />
+    <None Include="Resources\checkbox_16x161.png" />
+    <None Include="Resources\trash_16x16.png" />
+    <None Include="Resources\redo_16x16.png" />
+    <None Include="Resources\shoppingcart_16x16.png" />
+    <None Include="image\Bullet\bullet_add.png" />
+    <None Include="image\Bullet\bullet_arrow_bottom.png" />
+    <None Include="image\Bullet\bullet_arrow_down.png" />
+    <None Include="image\Bullet\bullet_arrow_top.png" />
+    <None Include="image\Bullet\bullet_arrow_up.png" />
+    <None Include="image\Bullet\bullet_ball_blue.png" />
+    <None Include="image\Bullet\bullet_ball_glass_blue.png" />
+    <None Include="image\Bullet\bullet_ball_glass_green.png" />
+    <None Include="image\Bullet\bullet_ball_glass_grey.png" />
+    <None Include="image\Bullet\bullet_ball_glass_red.png" />
+    <None Include="image\Bullet\bullet_ball_glass_yellow.png" />
+    <None Include="image\Bullet\bullet_ball_green.png" />
+    <None Include="image\Bullet\bullet_ball_grey.png" />
+    <None Include="image\Bullet\bullet_ball_red.png" />
+    <None Include="image\Bullet\bullet_ball_yellow.png" />
+    <None Include="image\Bullet\bullet_black.png" />
+    <None Include="image\Bullet\bullet_blue.png" />
+    <None Include="image\Bullet\bullet_delete.png" />
+    <None Include="image\Bullet\bullet_disk.png" />
+    <None Include="image\Bullet\bullet_error.png" />
+    <None Include="image\Bullet\bullet_feed.png" />
+    <None Include="image\Bullet\bullet_go.png" />
+    <None Include="image\Bullet\bullet_green.png" />
+    <None Include="image\Bullet\bullet_key.png" />
+    <None Include="image\Bullet\bullet_orange.png" />
+    <None Include="image\Bullet\bullet_picture.png" />
+    <None Include="image\Bullet\bullet_pink.png" />
+    <None Include="image\Bullet\bullet_purple.png" />
+    <None Include="image\Bullet\bullet_red.png" />
+    <None Include="image\Bullet\bullet_square_blue.png" />
+    <None Include="image\Bullet\bullet_square_green.png" />
+    <None Include="image\Bullet\bullet_square_grey.png" />
+    <None Include="image\Bullet\bullet_square_red.png" />
+    <None Include="image\Bullet\bullet_square_yellow.png" />
+    <None Include="image\Bullet\bullet_star.png" />
+    <None Include="image\Bullet\bullet_toggle_minus.png" />
+    <None Include="image\Bullet\bullet_toggle_plus.png" />
+    <None Include="image\Bullet\bullet_triangle_blue.png" />
+    <None Include="image\Bullet\bullet_triangle_green.png" />
+    <None Include="image\Bullet\bullet_triangle_grey.png" />
+    <None Include="image\Bullet\bullet_triangle_red.png" />
+    <None Include="image\Bullet\bullet_triangle_yellow.png" />
+    <None Include="image\Bullet\bullet_white.png" />
+    <None Include="image\Bullet\bullet_wrench.png" />
+    <None Include="image\Bullet\bullet_yellow.png" />
+    <Content Include="leaderstech.ico" />
+    <None Include="Resources\lookup&amp;reference_16x16.png" />
+    <None Include="Resources\build_16x16.png" />
+    <None Include="Resources\build_32x32.png" />
+    <None Include="Resources\initialstate_16x16.png" />
+    <None Include="Resources\home_16x161.png" />
+    <None Include="Resources\home_16x16.png" />
+    <None Include="Resources\home_32x32.png" />
+    <None Include="Resources\version_16x16.png" />
+    <None Include="Resources\newdatasource_16x16.png" />
+    <None Include="Resources\checkbuttons_16x16.png" />
+    <None Include="Resources\favicon.ico" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\printtitles_16x16.png" />
+    <None Include="Resources\checkbox2_16x16.png" />
+    <None Include="Resources\changelabel_16x16.png" />
+    <None Include="Resources\cancel_normal.svg" />
+    <None Include="Resources\cancel_active.svg" />
+    <None Include="Resources\cancel_active.bmp" />
+    <None Include="Resources\inbox_16x161.png" />
+    <None Include="Resources\inbox_32x321.png" />
+    <None Include="Resources\horizontalgridlinesmajorminor_16x16.png" />
+    <None Include="Resources\alignhorizontalbottom_16x16.png" />
+    <None Include="Resources\checkbox_16x16.png" />
+    <None Include="Resources\print_16x16.png" />
+    <None Include="Resources\printarea_16x16.png" />
+    <None Include="Resources\editdatasource_16x16.png" />
+    <None Include="Resources\addnewdatasource_16x16.png" />
+    <None Include="Resources\add_16x16.png" />
+    <None Include="Resources\datasource_16x16.png" />
+    <None Include="Resources\open2_16x16.png" />
+    <None Include="Resources\openhyperlink_16x16.png" />
+    <None Include="Resources\horizontalgridlinesmajor_16x16.png" />
+    <None Include="Resources\product_16x16.png" />
+    <None Include="Resources\bosaleitem_16x16.png" />
+    <None Include="Resources\bosaleitem_32x32.png" />
+    <None Include="Resources\outbox_16x16.png" />
+    <None Include="Resources\outbox_32x321.png" />
+    <None Include="Resources\outbox_32x32.png" />
+    <None Include="Resources\morefunctions_16x16.png" />
+    <None Include="Resources\morefunctions_32x32.png" />
+    <None Include="Resources\inbox_16x16.png" />
+    <None Include="Resources\inbox_32x32.png" />
+    <None Include="Resources\apply_16x165.png" />
+    <None Include="Resources\pagenext_16x161.png" />
+    <None Include="Resources\pagenext_16x16.png" />
+    <None Include="Resources\cancel_16x161.png" />
+    <None Include="Resources\apply_16x164.png" />
+    <None Include="Resources\apply_16x16.png" />
+    <None Include="Resources\title_img.png" />
+    <None Include="Resources\title_img.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DevExpress\" />
+    <Folder Include="view\kbooks\2.order\4.orderBookConfirm\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="view\consigned\View1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
