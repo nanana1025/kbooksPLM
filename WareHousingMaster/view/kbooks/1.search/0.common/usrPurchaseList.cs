@@ -76,7 +76,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             gcList.DataSource = _bs;
         }
 
-        
+        public void SetFocus()
+        {
+            gvList.Focus();
+        }
 
         public void setGridEditable(bool isEditable)
         {

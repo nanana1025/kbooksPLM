@@ -92,6 +92,7 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl1.Root = this.Root;
             this.layoutControl1.Size = new System.Drawing.Size(1030, 26);
             this.layoutControl1.TabIndex = 0;
@@ -99,11 +100,12 @@
             // 
             // teTitle
             // 
+            this.teTitle.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.teTitle.Location = new System.Drawing.Point(307, 2);
             this.teTitle.Name = "teTitle";
             this.teTitle.Size = new System.Drawing.Size(121, 20);
             this.teTitle.StyleController = this.layoutControl1;
-            this.teTitle.TabIndex = 0;
+            this.teTitle.TabIndex = 1;
             this.teTitle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teTitle_KeyDown);
             // 
             // sbSearch
@@ -122,12 +124,18 @@
             this.leShopCd.EditValue = "01";
             this.leShopCd.Location = new System.Drawing.Point(92, 2);
             this.leShopCd.Name = "leShopCd";
+            this.leShopCd.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.leShopCd.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.leShopCd.Properties.Appearance.Options.UseBackColor = true;
+            this.leShopCd.Properties.Appearance.Options.UseForeColor = true;
             this.leShopCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leShopCd.Properties.NullText = "선택";
+            this.leShopCd.Properties.ReadOnly = true;
             this.leShopCd.Size = new System.Drawing.Size(136, 20);
             this.leShopCd.StyleController = this.layoutControl1;
             this.leShopCd.TabIndex = 4;
+            this.leShopCd.TabStop = false;
             // 
             // tePublisherCd
             // 
@@ -135,7 +143,7 @@
             this.tePublisherCd.Name = "tePublisherCd";
             this.tePublisherCd.Size = new System.Drawing.Size(56, 20);
             this.tePublisherCd.StyleController = this.layoutControl1;
-            this.tePublisherCd.TabIndex = 4;
+            this.tePublisherCd.TabIndex = 3;
             this.tePublisherCd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tePublisherCd_KeyDown);
             // 
             // teAuthor
@@ -144,7 +152,7 @@
             this.teAuthor.Name = "teAuthor";
             this.teAuthor.Size = new System.Drawing.Size(121, 20);
             this.teAuthor.StyleController = this.layoutControl1;
-            this.teAuthor.TabIndex = 4;
+            this.teAuthor.TabIndex = 2;
             this.teAuthor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teAuthor_KeyDown);
             // 
             // teStandCd
@@ -179,6 +187,7 @@
             this.teGroup.Size = new System.Drawing.Size(46, 20);
             this.teGroup.StyleController = this.layoutControl1;
             this.teGroup.TabIndex = 4;
+            this.teGroup.TabStop = false;
             // 
             // teStand
             // 
@@ -187,6 +196,7 @@
             this.teStand.Size = new System.Drawing.Size(46, 20);
             this.teStand.StyleController = this.layoutControl1;
             this.teStand.TabIndex = 4;
+            this.teStand.TabStop = false;
             // 
             // Root
             // 

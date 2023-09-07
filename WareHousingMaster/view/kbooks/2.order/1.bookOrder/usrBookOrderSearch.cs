@@ -181,6 +181,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 Dangol.Message(jData["MSG"]);
         }
 
+        public void Searches()
+        {
+            JObject jData = new JObject();
+            bool isSuccess = checkSearch(ref jData);
+
+            if (isSuccess)
+                searchHandler(jData);
+            else
+                Dangol.Message(jData["MSG"]);
+        }
+
         private void sbCancel_Click(object sender, EventArgs e)
         {
             cancelHandler();
@@ -386,7 +397,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         private void tePurchaseNm_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && ConvertUtil.ToInt32(rgPurchaseRange.EditValue) == 2)
             {
                 getPurchase();
             }
@@ -443,6 +454,14 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 tePurchaseNm.Text = "";
             }
         }
+        public void setFocus()
+        {
+            teStoreCd.Focus();
+        }
+        public void clear()
+        {
+            teStoreCd.Text = "";
+        }
 
         private void sbInsert_Click(object sender, EventArgs e)
         {
@@ -453,5 +472,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             deleteRowHandler();
         }
+
+        private void teStoreCd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Searches();
+        }
+
     }
 }

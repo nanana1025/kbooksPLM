@@ -75,6 +75,12 @@
             // 
             // gvList
             // 
+            this.gvList.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gvList.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.BackColor = System.Drawing.SystemColors.Control;
+            this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
@@ -650,6 +656,7 @@
             this.Controls.Add(this.gcList);
             this.Name = "usrOrderBookReportList";
             this.Size = new System.Drawing.Size(1316, 502);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usrOrderBookReportList_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riteTitle)).EndInit();

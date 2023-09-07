@@ -34,14 +34,17 @@
             this.gcCheck = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riteTitle = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gcReleaseCnt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ritePurchNm = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcComponent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riteAuthor = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gcCpu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rileTradeItem = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gcReceiptCnt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riseCnt = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gcDes = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcReleasePrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcMarginCost = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,19 +55,26 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riteTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ritePurchNm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riteAuthor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rileTradeItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riseCnt)).BeginInit();
             this.SuspendLayout();
             // 
             // gcList
             // 
             this.gcList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcList.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.gcList.Location = new System.Drawing.Point(0, 0);
             this.gcList.MainView = this.gvList;
             this.gcList.Name = "gcList";
             this.gcList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rileTradeItem,
-            this.ritePurchNm});
+            this.ritePurchNm,
+            this.riteTitle,
+            this.riteAuthor,
+            this.riseCnt});
             this.gcList.Size = new System.Drawing.Size(1019, 502);
             this.gcList.TabIndex = 7;
             this.gcList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -72,13 +82,19 @@
             // 
             // gvList
             // 
+            this.gvList.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gvList.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.BackColor = System.Drawing.SystemColors.Control;
+            this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
             this.gridColumn21,
             this.gridColumn3,
-            this.gcReleaseCnt,
             this.gridColumn23,
+            this.gcReleaseCnt,
             this.gcComponent,
             this.gcCpu,
             this.gcReceiptCnt,
@@ -161,6 +177,28 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Width = 70;
             // 
+            // gridColumn23
+            // 
+            this.gridColumn23.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn23.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn23.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn23.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn23.Caption = "도서명";
+            this.gridColumn23.ColumnEdit = this.riteTitle;
+            this.gridColumn23.FieldName = "BOOKNM";
+            this.gridColumn23.MaxWidth = 500;
+            this.gridColumn23.MinWidth = 200;
+            this.gridColumn23.Name = "gridColumn23";
+            this.gridColumn23.Visible = true;
+            this.gridColumn23.VisibleIndex = 2;
+            this.gridColumn23.Width = 218;
+            // 
+            // riteTitle
+            // 
+            this.riteTitle.AutoHeight = false;
+            this.riteTitle.Name = "riteTitle";
+            this.riteTitle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.riteTitle_KeyDown);
+            // 
             // gcReleaseCnt
             // 
             this.gcReleaseCnt.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -183,21 +221,6 @@
             this.ritePurchNm.Name = "ritePurchNm";
             this.ritePurchNm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ritePurchNm_KeyDown);
             // 
-            // gridColumn23
-            // 
-            this.gridColumn23.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gridColumn23.AppearanceHeader.Options.UseBackColor = true;
-            this.gridColumn23.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn23.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn23.Caption = "도서명";
-            this.gridColumn23.FieldName = "BOOKNM";
-            this.gridColumn23.MaxWidth = 500;
-            this.gridColumn23.MinWidth = 200;
-            this.gridColumn23.Name = "gridColumn23";
-            this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 2;
-            this.gridColumn23.Width = 218;
-            // 
             // gcComponent
             // 
             this.gcComponent.AppearanceCell.Options.UseTextOptions = true;
@@ -207,6 +230,7 @@
             this.gcComponent.AppearanceHeader.Options.UseTextOptions = true;
             this.gcComponent.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcComponent.Caption = "저자명";
+            this.gcComponent.ColumnEdit = this.riteAuthor;
             this.gcComponent.FieldName = "AUTHORNM";
             this.gcComponent.MaxWidth = 150;
             this.gcComponent.MinWidth = 70;
@@ -214,6 +238,12 @@
             this.gcComponent.Visible = true;
             this.gcComponent.VisibleIndex = 4;
             this.gcComponent.Width = 70;
+            // 
+            // riteAuthor
+            // 
+            this.riteAuthor.AutoHeight = false;
+            this.riteAuthor.Name = "riteAuthor";
+            this.riteAuthor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.riteAuthor_KeyDown);
             // 
             // gcCpu
             // 
@@ -240,6 +270,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.rileTradeItem.Name = "rileTradeItem";
             this.rileTradeItem.NullText = "";
+            this.rileTradeItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rileTradeItem_KeyDown);
             // 
             // gcReceiptCnt
             // 
@@ -272,6 +303,7 @@
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "주문수량";
+            this.gridColumn4.ColumnEdit = this.riseCnt;
             this.gridColumn4.DisplayFormat.FormatString = "N0";
             this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "ORDER_CNT";
@@ -283,6 +315,14 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 7;
             this.gridColumn4.Width = 60;
+            // 
+            // riseCnt
+            // 
+            this.riseCnt.AutoHeight = false;
+            this.riseCnt.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riseCnt.Name = "riseCnt";
+            this.riseCnt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.riseCnt_KeyDown);
             // 
             // gcDes
             // 
@@ -420,10 +460,14 @@
             this.Controls.Add(this.gcList);
             this.Name = "usrUnregisteredBookOrderList";
             this.Size = new System.Drawing.Size(1019, 502);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usrUnregisteredBookOrderList_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riteTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ritePurchNm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riteAuthor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rileTradeItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riseCnt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,5 +496,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rileTradeItem;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit ritePurchNm;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit riteTitle;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit riteAuthor;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit riseCnt;
     }
 }

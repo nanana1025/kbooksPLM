@@ -17,12 +17,20 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
     public partial class usrOrderBookModify : DevExpress.XtraEditors.XtraForm
     {
 
+        string[] _arrFunctionText;
+        bool[] _arrFunctionEditable;
+        Dictionary<Keys, int> _dicKeys;
+
         public usrOrderBookModify()
         {
             InitializeComponent();
 
-           
-                
+            _dicKeys = new Dictionary<Keys, int>
+            {
+                { Keys.F1, 1 }, { Keys.F2, 2 },{ Keys.F3, 3 },{ Keys.F4, 4 },{ Keys.F5, 5 },{ Keys.F6, 6 },{ Keys.F7, 7 },{ Keys.F8, 8 },{ Keys.F9, 9 },{ Keys.F10, 10 }
+            };
+            _arrFunctionText = new string[] { "F1\n조건확정", "F2\n행삭제", "F3\n실적조회", "F4", "F5", "F6", "F7\n취소", "F8\n확정", "F9\n닫기", "F10\n닫기", };
+            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, true, true };
         }
 
        
@@ -30,10 +38,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             this.Icon = ProjectInfo.ProjectIcon;
 
+            usrSideCheck1.processHandler += new usrSideCheck.ProcessHandler(processHandler);
             usrOrderBookModifySearch1.searchHandler += new usrOrderBookModifySearch.SearchHandler(searchList);
-            usrOrderBookModifySearch1.searchPerformanceHandler += new usrOrderBookModifySearch.SearchPerformanceHandler(searchPerformanceHandler);
-            usrOrderBookModifySearch1.deleteRowHandler += new usrOrderBookModifySearch.DeleteRowHandler(deleteRowHandler);
-            usrOrderBookModifySearch1.confirmHandler += new usrOrderBookModifySearch.ConfirmHandler(confirmHandler);
+            //usrOrderBookModifySearch1.searchPerformanceHandler += new usrOrderBookModifySearch.SearchPerformanceHandler(searchPerformanceHandler);
+            //usrOrderBookModifySearch1.deleteRowHandler += new usrOrderBookModifySearch.DeleteRowHandler(deleteRowHandler);
+            //usrOrderBookModifySearch1.confirmHandler += new usrOrderBookModifySearch.ConfirmHandler(confirmHandler);
 
             setInitialize();
         }
@@ -43,12 +52,72 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             usrOrderBookModifySearch1.setInitLoad();
             usrOrderBookModifyList1.setInitLoad();
 
+            usrSideCheck1.setInitLoad(_arrFunctionText, _arrFunctionEditable);
         }
 
         private void searchList(JObject jobj)
         {
             usrOrderBookModifyList1.setCondition(jobj);
             usrOrderBookModifyList1.getList(jobj);
+            usrOrderBookModifyList1.setFocus();
+
+
+            DataTable dt = usrOrderBookModifyList1.getTable();
+            if (dt.Rows.Count > 0)
+            {
+                int colNum = 1;
+                if (jobj.ContainsKey("STORE_TYPE"))
+                {
+                    if (ConvertUtil.ToString(jobj["STORE_TYPE"]).Equals("SINGLE"))
+                        colNum = ConvertUtil.ToInt32(jobj["STORECD"]);
+                    else
+                        colNum = ConvertUtil.ToInt32(jobj["STORECD_S"]);
+                }
+
+                if (colNum > 15)
+                    colNum = 1;
+
+                usrOrderBookModifyList1.SetColFocus($"STORE{colNum}", 0);
+            }
+        }
+
+        private void processHandler(int F)
+        {
+            switch (F)
+            {
+                case 1:
+                    usrOrderBookModifySearch1.Search();
+                    break;
+                case 2:
+                    searchPerformanceHandler();
+                    break;
+                case 3:
+                    deleteRowHandler();
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    usrOrderBookModifySearch1.clear();
+                    usrOrderBookModifyList1.clear();
+                    usrOrderBookModifySearch1.setFocus();
+                    break;
+                case 8:
+                    confirmHandler();
+                    break;
+                case 9:
+                    this.Close();
+                    break;
+                case 10:
+                    this.Close();
+                    break;
+                default:
+                    break;
+
+            }
         }
 
         private void searchPerformanceHandler()
@@ -66,5 +135,15 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             usrOrderBookModifyList1.confirm();
         }
 
+        private void usrOrderBookModify_Shown(object sender, EventArgs e)
+        {
+            usrOrderBookModifySearch1.setFocus();
+        }
+
+        private void usrOrderBookModify_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (_dicKeys.ContainsKey(e.KeyCode))
+                processHandler(_dicKeys[e.KeyCode]);
+        }
     }
 }

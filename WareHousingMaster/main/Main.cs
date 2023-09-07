@@ -79,9 +79,9 @@ namespace WareHousingMaster.view.main
             //showMain();
             //ProjectInfo.setDatatable();
             //ConsignedInfo.setDatatable();
-            
-            //bsiDBName.Caption = ProjectInfo._DBName;
-            //bsiVersion.Caption = ProjectInfo._version;
+
+            bsiDate.Caption = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            bsiVersion.Caption = ProjectInfo._version;
 
             //ProjectInfo._tabbedView = tabbedView1;
             //ProjectInfo._documentManager = documentManager;
@@ -261,6 +261,8 @@ namespace WareHousingMaster.view.main
 
         private void login()
         {
+            ProjectInfo._userType = "M";
+
             if (!ProjectInfo._autoLogin)
             {
                 ProjectInfo._userPasswd = "";
@@ -273,7 +275,8 @@ namespace WareHousingMaster.view.main
                 if (login.ShowDialog(this) == DialogResult.OK)
                 {
                     ProjectInfo._userId = login._userId;
-                    ProjectInfo._userPasswd = login._userPasswd;  
+                    ProjectInfo._userPasswd = login._userPasswd;
+                    ProjectInfo._userType = "M";
                 }
                 else
                     Util.ExitProgram();
@@ -295,6 +298,7 @@ namespace WareHousingMaster.view.main
                     {
                         ProjectInfo._userId = login._userId;
                         ProjectInfo._userPasswd = login._userPasswd;
+                        ProjectInfo._userType = "M";
                     }
                     else
                         Util.ExitProgram();
@@ -426,6 +430,7 @@ namespace WareHousingMaster.view.main
         {
             string tabName = "주문 예정입력";
             usrBookOrder bookOrder = new usrBookOrder();
+            ProjectInfo._usrBookOrder = bookOrder;
             setRibbonTabs(bookOrder, tabName, bbiOrderCartInfo);
         }
 

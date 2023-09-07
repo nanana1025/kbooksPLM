@@ -1,4 +1,7 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json.Linq;
 using System;
@@ -363,6 +366,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         public void insertHandler()
         {
+            int rowhandle = gvList.FocusedRowHandle;
+            gvList.FocusedRowHandle = -2147483646;
+            gvList.FocusedRowHandle = rowhandle;
+
             DataRow[] rows = _dt.Select("STATE <> 0");
 
             if (rows.Length < 1)
@@ -477,6 +484,32 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             return _dt;
         }
 
+        public void clear()
+        {
+            gvList.BeginDataUpdate();
+            _dt.Clear();
+            gvList.EndDataUpdate();
+        }
+
+        public void setFocus()
+        {
+            gvList.Focus();
+        }
+
+        public void SetColFocus(string col, int rowHandle = 0)
+        {
+            ColumnView View = (ColumnView)gcList.FocusedView;
+            GridColumn column = View.Columns[col];
+            if (column != null)
+            {
+                if (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    View.FocusedRowHandle = rowHandle;
+                    View.FocusedColumn = column;
+                }
+            }
+        }
+
         public void receiptRefresh()
         {
             gvList.FocusedRowObjectChanged -= gvList_FocusedRowObjectChanged;
@@ -487,182 +520,6 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         public void viewRefresh()
         {
             gvList.RefreshData();
-        }
-
-        public bool saveReleaseReceiptItem()
-        {
-            bool isSuccess = false;
-
-            //int rowhandle = gvList.FocusedRowHandle;
-            //gvList.FocusedRowHandle = -2147483646;
-            //gvList.FocusedRowHandle = rowhandle;
-
-            ////DataRow[] rows = _dt.Select("CHECK = TRUE"); //shlee
-            ////if (rows.Length < 1)
-            ////{
-            ////    Dangol.Message("선택된 아이템이 없습니다.");
-            ////    return isSuccess;
-            ////}
-
-            //DataRow[] rows = _dt.Select("CHECK = TRUE AND STATE = 2");  //shlee
-            //if (rows.Length < 1)
-            //{
-            //    Dangol.Message("수정 가능한 아이템이 없습니다.");
-            //    return isSuccess;
-            //}
-
-            //if (Dangol.MessageYN("선택한 아이템 수정하시겠습니까?") == DialogResult.Yes)
-            //{
-            //    JObject jResult = new JObject();
-            //    JObject jobj = new JObject();
-            //    string url = "/Nrelease/updateReleaseItemReceipt.json";
-
-            //    Dangol.ShowSplash();
-
-            //    var jArrayProduct = new JArray();
-
-            //    foreach (DataRow row in rows)
-            //    {
-            //        JObject jdata = new JObject();
-            //        jdata.Add("ITEM_ID", ConvertUtil.ToInt64(row["ITEM_ID"]));
-            //        jdata.Add("USED_YN", ConvertUtil.ToInt32(row["USED_YN"]));
-            //        jdata.Add("RECEIPT_CNT", ConvertUtil.ToInt32(row["RECEIPT_CNT"]));
-            //        jdata.Add("DES", ConvertUtil.ToString(row["DES"]));
-
-            //        jdata.Add("TABLE_NM", _tableNm);
-
-            //        jArrayProduct.Add(jdata);
-            //    }
-
-            //    jobj.Add("DATA", jArrayProduct);
-
-            //    if (DBConnect.getRequest(jobj, ref jResult, url))
-            //    {
-            //        isSuccess = true;
-
-            //        gvList.BeginDataUpdate();
-            //        foreach (DataRow row in rows)
-            //            row["STATE"] = 1;
-
-            //        gvList.EndDataUpdate();
-            //        Dangol.CloseSplash();
-            //        Dangol.Message("처리되었습니다");
-            //    }
-            //    else
-            //    {
-            //        Dangol.CloseSplash();
-            //        Dangol.Error(jResult["MSG"]);
-            //    }
-            //}
-
-            return isSuccess;
-        }
-
-        public void createReleaseReceiptItemt(long releaseId)
-        {
-            //using (DlgCreateCandidateItem createCandidateItem = new DlgCreateCandidateItem(releaseId))
-            //{
-            //    if (createCandidateItem.ShowDialog(this) == DialogResult.OK)
-            //    {
-            //        Dangol.ShowSplash();
-
-            //        gvList.BeginDataUpdate();
-            //        DataRow dr = _dt.NewRow();
-
-            //        dr["NO"] = 0;
-
-            //        dr["ITEM_ID"] = ConvertUtil.ToInt64(createCandidateItem._jobject["ITEM_ID"]);
-            //        dr["MODEL_ID"] = ConvertUtil.ToInt64(createCandidateItem._jobject["MODEL_ID"]);
-
-            //        dr["COMPONENT_CD"] = ConvertUtil.ToString(createCandidateItem._jobject["COMPONENT_CD"]);
-            //        dr["USED_YN"] = ConvertUtil.ToInt32(createCandidateItem._jobject["USED_YN"]);
-            //        dr["MODEL_NM"] = ConvertUtil.ToString(createCandidateItem._jobject["MODEL_NM"]);
-
-            //        //dr["CPU_MODEL_ID"] = ConvertUtil.ToInt64(createCandidateItem._jobject["CPU_MODEL_ID"]);
-            //        //dr["CPU"] = ConvertUtil.ToString(createCandidateItem._jobject["CPU"]);
-            //        //dr["MEM"] = ConvertUtil.ToInt32(createCandidateItem._jobject["MEM"]);
-            //        //dr["CPU_DETAIL"] = ConvertUtil.ToInt32(createCandidateItem._jobject["CPU_DETAIL"]);
-            //        //dr["STG"] = ConvertUtil.ToInt32(createCandidateItem._jobject["STG"]);
-
-            //        dr["RECEIPT_CNT"] = ConvertUtil.ToInt32(createCandidateItem._jobject["RECEIPT_CNT"]);
-            //        dr["DES"] = ConvertUtil.ToString(createCandidateItem._jobject["DES"]);
-
-            //        dr["STATE"] = 1;
-            //        dr["CHECK"] = false;
-            //        _dt.Rows.Add(dr);
-
-            //        Common.setGridViewNo(gvList);
-
-            //        gvList.EndDataUpdate();
-
-            //        Dangol.CloseSplash();
-
-            //        Dangol.Message("추가되었습니다.");
-            //    }
-            //}
-        }
-
-        public bool DeleteReleaseReceiptItem()
-        {
-            bool isSuccess = false;
-
-            //int rowhandle = gvList.FocusedRowHandle;
-            //gvList.FocusedRowHandle = -2147483646;
-            //gvList.FocusedRowHandle = rowhandle;
-
-            //DataRow[] rows = _dt.Select("CHECK = TRUE"); //shlee
-            //if (rows.Length < 1)
-            //{
-            //    Dangol.Message("선택된 아이템이 없습니다.");
-            //}
-            //else
-            //{
-            //    if (Dangol.MessageYN("선택한 아이템을 삭제하시겠습니까?") == DialogResult.Yes)
-            //    {
-            //        JObject jResult = new JObject();
-            //        JObject jobj = new JObject();
-            //        string url = "/Nrelease/deleteReleaseReceiptItem.json";
-
-            //        var jArrayProduct = new JArray();
-            //        List<long> listItemId = new List<long>();
-            //        foreach (DataRow row in rows)
-            //            listItemId.Add(ConvertUtil.ToInt64(row["ITEM_ID"]));
-
-            //        //jobj.Add("PRODUCT_YN", 1);
-            //        jobj.Add("LIST_ITEM_ID", string.Join(",", listItemId));
-            //        //jobj.Add(_representativeIdCol, _representativeId);
-            //        //jobj.Add("REPRESENTATIVE_ID_COL", _representativeIdCol);
-            //        //jobj.Add("REPRESENTATIVE_ID", _representativeId);
-            //        //jobj.Add("PROCESS_TYPE", _processType);
-            //        //jobj.Add("TABLE_NM", _tableNm);
-
-            //        Dangol.ShowSplash();
-
-            //        if (DBConnect.getRequest(jobj, ref jResult, url))
-            //        {
-            //            isSuccess = true;
-            //            DBNRelease.wirteUpdateLog(_representativeId, 0, "접수 제품 정보 삭제");
-
-            //            gvList.BeginDataUpdate();
-
-            //            foreach (DataRow row in rows)
-            //                row.Delete();
-
-            //            Common.setGridViewNo(gvList);
-
-            //            gvList.EndDataUpdate();
-            //            Dangol.CloseSplash();
-            //            Dangol.Message("처리되었습니다.");
-            //        }
-            //        else
-            //        {
-            //            Dangol.CloseSplash();
-            //            Dangol.Error(jResult["MSG"]);
-            //        }
-            //    }
-            //}
-
-            return isSuccess;
         }
 
         public void gvList_CustomButtonChecked()
@@ -689,30 +546,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             }
         }
 
-        private void riteTitle_KeyDown(object sender, KeyEventArgs e)
-        {
-            //if (e.KeyCode == Keys.Enter)
-            //{
-            //    TextEdit textEditor = (TextEdit)sender;
-
-            //    string title = textEditor.Text;
-
-            //    using (dlgBookSearch bookSearch = new dlgBookSearch(title))
-            //    {
-            //        bookSearch.StartPosition = FormStartPosition.Manual;
-            //        bookSearch.Location = new Point(this.Location.X + (this.Size.Width / 2) - (bookSearch.Size.Width / 2),
-            //        this.Location.Y + (this.Size.Height / 2) - (bookSearch.Size.Height / 2));
-
-            //        if (bookSearch.ShowDialog(this) == DialogResult.OK)
-            //        {
-            //            //Dangol.ShowSplash();
-            //            //usrReleaseItemList1.receiptRefresh();
-            //            //Dangol.CloseSplash();
-            //        }
-            //    }
-            //}
-        }
-
+ 
         private void ritePurchNm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -726,11 +560,15 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     purchNm = arrData[1];
                 }
 
-                string nPurchNm = getPurchase(purchNm);
+                if (getPurchase(purchNm))
+                {
+                    int rowHandle = gvList.FocusedRowHandle;
+                    SetColFocus("AUTHORNM", rowHandle);
+                }
             }
         }
 
-        private string getPurchase(string purchNm)
+        private bool getPurchase(string purchNm)
         {
             string nPurchNm = purchNm;
 
@@ -748,14 +586,66 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     ritePurchNm.BeginUpdate();
                     _currentRow["PURCHCD"] = purchCd;
                     _currentRow["PURCHNM"] = nPurchNm;
+                    _currentRow["TRADE_ITEM"] = 1;
                     _currentRow["ORD_COUNT"] = 0;
                     _currentRow["ORDER_CNT"] = 0;
                     _currentRow["STATE"] = 1;
                     ritePurchNm.EndUpdate();
+
+                    return true;
                 }
             }
 
-            return nPurchNm;
+            return false;
+
+            //return nPurchNm;
         }
+
+        private void usrUnregisteredBookOrderList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void riteTitle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int rowHandle = gvList.FocusedRowHandle;
+                SetColFocus("PURCHNM", rowHandle);
+            }
+        }
+
+        private void riteAuthor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int rowHandle = gvList.FocusedRowHandle;
+                SetColFocus("ORDER_CNT", rowHandle);
+            }
+        }
+
+        private void rileTradeItem_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    int rowHandle = gvList.FocusedRowHandle;
+            //    SetColFocus("ORDER_CNT", rowHandle);
+            //}
+        }
+
+        private void riseCnt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int rowHandle = gvList.FocusedRowHandle;
+                if (rowHandle < 29)
+                    SetColFocus("BOOKNM", rowHandle + 1);
+            }
+        }
+
+        
     }
 }

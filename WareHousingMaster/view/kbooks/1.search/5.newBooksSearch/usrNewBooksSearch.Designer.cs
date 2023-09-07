@@ -102,6 +102,7 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl1.Root = this.Root;
             this.layoutControl1.Size = new System.Drawing.Size(888, 55);
             this.layoutControl1.TabIndex = 0;
@@ -117,18 +118,18 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "부", true, "DEPT"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "조", true, "GROUP"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "서가", true, "STAND")});
-            this.rgCategory.Size = new System.Drawing.Size(206, 26);
+            this.rgCategory.Size = new System.Drawing.Size(156, 26);
             this.rgCategory.StyleController = this.layoutControl1;
-            this.rgCategory.TabIndex = 8;
+            this.rgCategory.TabIndex = 1;
             // 
             // sbSearch
             // 
             this.sbSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch.ImageOptions.Image")));
-            this.sbSearch.Location = new System.Drawing.Point(780, 27);
+            this.sbSearch.Location = new System.Drawing.Point(725, 2);
             this.sbSearch.Name = "sbSearch";
-            this.sbSearch.Size = new System.Drawing.Size(96, 26);
+            this.sbSearch.Size = new System.Drawing.Size(96, 21);
             this.sbSearch.StyleController = this.layoutControl1;
-            this.sbSearch.TabIndex = 5;
+            this.sbSearch.TabIndex = 8;
             this.sbSearch.Text = "검색";
             this.sbSearch.Click += new System.EventHandler(this.sbSearch_Click);
             // 
@@ -137,33 +138,39 @@
             this.leShopCd.EditValue = "01";
             this.leShopCd.Location = new System.Drawing.Point(92, 2);
             this.leShopCd.Name = "leShopCd";
+            this.leShopCd.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.leShopCd.Properties.Appearance.Options.UseBackColor = true;
             this.leShopCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leShopCd.Properties.NullText = "선택";
-            this.leShopCd.Size = new System.Drawing.Size(206, 20);
+            this.leShopCd.Properties.ReadOnly = true;
+            this.leShopCd.Size = new System.Drawing.Size(156, 20);
             this.leShopCd.StyleController = this.layoutControl1;
             this.leShopCd.TabIndex = 4;
+            this.leShopCd.TabStop = false;
             // 
             // teCd_S
             // 
-            this.teCd_S.Location = new System.Drawing.Point(382, 30);
+            this.teCd_S.Location = new System.Drawing.Point(332, 30);
             this.teCd_S.Name = "teCd_S";
             this.teCd_S.Size = new System.Drawing.Size(96, 20);
             this.teCd_S.StyleController = this.layoutControl1;
-            this.teCd_S.TabIndex = 4;
+            this.teCd_S.TabIndex = 2;
+            this.teCd_S.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teCd_S_KeyDown);
             // 
             // teName
             // 
-            this.teName.Location = new System.Drawing.Point(675, 30);
+            this.teName.Location = new System.Drawing.Point(625, 30);
             this.teName.Name = "teName";
-            this.teName.Size = new System.Drawing.Size(81, 20);
+            this.teName.Size = new System.Drawing.Size(109, 20);
             this.teName.StyleController = this.layoutControl1;
-            this.teName.TabIndex = 4;
+            this.teName.TabIndex = 7;
+            this.teName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teName_KeyDown);
             // 
             // deDtWork
             // 
             this.deDtWork.EditValue = null;
-            this.deDtWork.Location = new System.Drawing.Point(675, 2);
+            this.deDtWork.Location = new System.Drawing.Point(625, 2);
             this.deDtWork.Name = "deDtWork";
             this.deDtWork.Properties.BeepOnError = false;
             this.deDtWork.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -177,12 +184,12 @@
             this.deDtWork.Properties.MaskSettings.Set("mask", "yyyy-MM-dd");
             this.deDtWork.Size = new System.Drawing.Size(96, 20);
             this.deDtWork.StyleController = this.layoutControl1;
-            this.deDtWork.TabIndex = 7;
+            this.deDtWork.TabIndex = 6;
             // 
             // deDtFrom
             // 
             this.deDtFrom.EditValue = null;
-            this.deDtFrom.Location = new System.Drawing.Point(382, 2);
+            this.deDtFrom.Location = new System.Drawing.Point(332, 2);
             this.deDtFrom.Name = "deDtFrom";
             this.deDtFrom.Properties.BeepOnError = false;
             this.deDtFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -196,11 +203,11 @@
             this.deDtFrom.Properties.MaskSettings.Set("mask", "yyyy-MM-dd");
             this.deDtFrom.Size = new System.Drawing.Size(96, 20);
             this.deDtFrom.StyleController = this.layoutControl1;
-            this.deDtFrom.TabIndex = 7;
+            this.deDtFrom.TabIndex = 4;
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(482, 2);
+            this.labelControl11.Location = new System.Drawing.Point(432, 2);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(9, 14);
             this.labelControl11.StyleController = this.layoutControl1;
@@ -210,7 +217,7 @@
             // deDtTo
             // 
             this.deDtTo.EditValue = null;
-            this.deDtTo.Location = new System.Drawing.Point(495, 2);
+            this.deDtTo.Location = new System.Drawing.Point(445, 2);
             this.deDtTo.Name = "deDtTo";
             this.deDtTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -224,19 +231,20 @@
             this.deDtTo.Properties.NullText = "선택";
             this.deDtTo.Size = new System.Drawing.Size(96, 20);
             this.deDtTo.StyleController = this.layoutControl1;
-            this.deDtTo.TabIndex = 4;
+            this.deDtTo.TabIndex = 5;
             // 
             // teCd_E
             // 
-            this.teCd_E.Location = new System.Drawing.Point(495, 29);
+            this.teCd_E.Location = new System.Drawing.Point(445, 29);
             this.teCd_E.Name = "teCd_E";
             this.teCd_E.Size = new System.Drawing.Size(96, 20);
             this.teCd_E.StyleController = this.layoutControl1;
-            this.teCd_E.TabIndex = 4;
+            this.teCd_E.TabIndex = 3;
+            this.teCd_E.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teCd_E_KeyDown);
             // 
             // labelControl111
             // 
-            this.labelControl111.Location = new System.Drawing.Point(482, 27);
+            this.labelControl111.Location = new System.Drawing.Point(432, 27);
             this.labelControl111.Name = "labelControl111";
             this.labelControl111.Size = new System.Drawing.Size(9, 14);
             this.labelControl111.StyleController = this.layoutControl1;
@@ -254,14 +262,14 @@
             this.emptySpaceItem4,
             this.lcReceiptNo1,
             this.lcReceiptNo3,
-            this.layoutControlItem50,
             this.layoutControlItem1,
             this.emptySpaceItem3,
             this.layoutControlItem7,
             this.layoutControlItem10,
             this.layoutControlItem9,
             this.layoutControlItem3,
-            this.lcReceiptNo2});
+            this.lcReceiptNo2,
+            this.layoutControlItem50});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.Root.Size = new System.Drawing.Size(888, 55);
@@ -276,10 +284,10 @@
             this.lcReleaseCategory2.CustomizationFormText = "입고번호";
             this.lcReleaseCategory2.ImageOptions.Image = global::WareHousingMaster.Properties.Resources.bullet_black;
             this.lcReleaseCategory2.Location = new System.Drawing.Point(0, 0);
-            this.lcReleaseCategory2.MaxSize = new System.Drawing.Size(300, 25);
-            this.lcReleaseCategory2.MinSize = new System.Drawing.Size(300, 25);
+            this.lcReleaseCategory2.MaxSize = new System.Drawing.Size(250, 25);
+            this.lcReleaseCategory2.MinSize = new System.Drawing.Size(250, 25);
             this.lcReleaseCategory2.Name = "lcReleaseCategory2";
-            this.lcReleaseCategory2.Size = new System.Drawing.Size(300, 25);
+            this.lcReleaseCategory2.Size = new System.Drawing.Size(250, 25);
             this.lcReleaseCategory2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lcReleaseCategory2.Text = "점 코드명";
             this.lcReleaseCategory2.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -289,9 +297,9 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(773, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(823, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(115, 25);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(65, 25);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -299,10 +307,10 @@
             this.layoutControlItem2.Control = this.rgCategory;
             this.layoutControlItem2.ImageOptions.Image = global::WareHousingMaster.Properties.Resources.bullet_black;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 25);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(300, 0);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(300, 30);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(250, 0);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(250, 30);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(300, 30);
+            this.layoutControlItem2.Size = new System.Drawing.Size(250, 30);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "구분";
             this.layoutControlItem2.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -312,7 +320,7 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(758, 25);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(736, 25);
             this.emptySpaceItem4.MaxSize = new System.Drawing.Size(20, 0);
             this.emptySpaceItem4.MinSize = new System.Drawing.Size(20, 10);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
@@ -328,7 +336,7 @@
             this.lcReceiptNo1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lcReceiptNo1.CustomizationFormText = "접수번호";
             this.lcReceiptNo1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lcReceiptNo1.ImageOptions.Image")));
-            this.lcReceiptNo1.Location = new System.Drawing.Point(300, 25);
+            this.lcReceiptNo1.Location = new System.Drawing.Point(250, 25);
             this.lcReceiptNo1.MaxSize = new System.Drawing.Size(180, 0);
             this.lcReceiptNo1.MinSize = new System.Drawing.Size(180, 25);
             this.lcReceiptNo1.Name = "lcReceiptNo1";
@@ -347,11 +355,11 @@
             this.lcReceiptNo3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lcReceiptNo3.CustomizationFormText = "접수번호";
             this.lcReceiptNo3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lcReceiptNo3.ImageOptions.Image")));
-            this.lcReceiptNo3.Location = new System.Drawing.Point(593, 25);
+            this.lcReceiptNo3.Location = new System.Drawing.Point(543, 25);
             this.lcReceiptNo3.MaxSize = new System.Drawing.Size(250, 0);
             this.lcReceiptNo3.MinSize = new System.Drawing.Size(100, 25);
             this.lcReceiptNo3.Name = "lcReceiptNo3";
-            this.lcReceiptNo3.Size = new System.Drawing.Size(165, 30);
+            this.lcReceiptNo3.Size = new System.Drawing.Size(193, 30);
             this.lcReceiptNo3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lcReceiptNo3.Text = "구분명";
             this.lcReceiptNo3.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -364,11 +372,11 @@
             this.layoutControlItem50.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem50.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem50.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem50.ImageOptions.Image")));
-            this.layoutControlItem50.Location = new System.Drawing.Point(778, 25);
+            this.layoutControlItem50.Location = new System.Drawing.Point(723, 0);
             this.layoutControlItem50.MaxSize = new System.Drawing.Size(100, 0);
             this.layoutControlItem50.MinSize = new System.Drawing.Size(100, 25);
             this.layoutControlItem50.Name = "layoutControlItem50";
-            this.layoutControlItem50.Size = new System.Drawing.Size(100, 30);
+            this.layoutControlItem50.Size = new System.Drawing.Size(100, 25);
             this.layoutControlItem50.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem50.Text = "layoutControlItem14";
             this.layoutControlItem50.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -382,7 +390,7 @@
             this.layoutControlItem1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem1.CustomizationFormText = "정가 변경일";
             this.layoutControlItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem1.ImageOptions.Image")));
-            this.layoutControlItem1.Location = new System.Drawing.Point(300, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(250, 0);
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(180, 0);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(180, 25);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -396,9 +404,9 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(878, 25);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(756, 25);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(10, 30);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(132, 30);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
@@ -407,7 +415,7 @@
             this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem7.CustomizationFormText = "정가 변경일";
             this.layoutControlItem7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem7.ImageOptions.Image")));
-            this.layoutControlItem7.Location = new System.Drawing.Point(593, 0);
+            this.layoutControlItem7.Location = new System.Drawing.Point(543, 0);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(180, 0);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(180, 25);
             this.layoutControlItem7.Name = "layoutControlItem7";
@@ -423,7 +431,7 @@
             this.layoutControlItem10.Control = this.labelControl11;
             this.layoutControlItem10.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
-            this.layoutControlItem10.Location = new System.Drawing.Point(480, 0);
+            this.layoutControlItem10.Location = new System.Drawing.Point(430, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(13, 25);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
@@ -437,7 +445,7 @@
             this.layoutControlItem9.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem9.CustomizationFormText = "입고번호";
             this.layoutControlItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem9.ImageOptions.Image")));
-            this.layoutControlItem9.Location = new System.Drawing.Point(493, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(443, 0);
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(100, 0);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(100, 25);
             this.layoutControlItem9.Name = "layoutControlItem9";
@@ -454,7 +462,7 @@
             this.layoutControlItem3.Control = this.labelControl111;
             this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem10";
-            this.layoutControlItem3.Location = new System.Drawing.Point(480, 25);
+            this.layoutControlItem3.Location = new System.Drawing.Point(430, 25);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(13, 30);
             this.layoutControlItem3.Text = "layoutControlItem10";
@@ -469,7 +477,7 @@
             this.lcReceiptNo2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lcReceiptNo2.CustomizationFormText = "접수번호";
             this.lcReceiptNo2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lcReceiptNo2.ImageOptions.Image")));
-            this.lcReceiptNo2.Location = new System.Drawing.Point(493, 25);
+            this.lcReceiptNo2.Location = new System.Drawing.Point(443, 25);
             this.lcReceiptNo2.MaxSize = new System.Drawing.Size(180, 25);
             this.lcReceiptNo2.MinSize = new System.Drawing.Size(100, 25);
             this.lcReceiptNo2.Name = "lcReceiptNo2";

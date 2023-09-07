@@ -96,6 +96,12 @@
             // 
             // gvList
             // 
+            this.gvList.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gvList.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.BackColor = System.Drawing.SystemColors.Control;
+            this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
@@ -145,7 +151,6 @@
             this.gcCheck.MaxWidth = 35;
             this.gcCheck.MinWidth = 35;
             this.gcCheck.Name = "gcCheck";
-            this.gcCheck.OptionsColumn.ReadOnly = true;
             this.gcCheck.Visible = true;
             this.gcCheck.VisibleIndex = 0;
             this.gcCheck.Width = 35;
@@ -181,14 +186,14 @@
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "도서명";
             this.gridColumn4.FieldName = "BOOKNM";
-            this.gridColumn4.MinWidth = 100;
+            this.gridColumn4.MinWidth = 150;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "TITLE", "{0:N0}")});
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
-            this.gridColumn4.Width = 114;
+            this.gridColumn4.Width = 150;
             // 
             // gcReleaseCnt
             // 

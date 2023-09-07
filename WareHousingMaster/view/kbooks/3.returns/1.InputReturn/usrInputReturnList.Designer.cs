@@ -72,6 +72,7 @@
             this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.rileOrderRatio = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.riseCnt = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gcCheck = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -85,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rileReturnType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rileReturnReason)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rileOrderRatio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riseCnt)).BeginInit();
             this.SuspendLayout();
             // 
             // gcList
@@ -100,7 +102,8 @@
             this.rilePurchCd,
             this.rileOrderRatio,
             this.rileReturnReason,
-            this.rileReturnType});
+            this.rileReturnType,
+            this.riseCnt});
             this.gcList.Size = new System.Drawing.Size(1103, 502);
             this.gcList.TabIndex = 8;
             this.gcList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -108,6 +111,12 @@
             // 
             // gvList
             // 
+            this.gvList.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gvList.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.BackColor = System.Drawing.SystemColors.Control;
+            this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvList.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.gridBand2,
             this.gridBand3,
@@ -159,7 +168,13 @@
             // 
             // gridBand2
             // 
-            this.gridBand2.Caption = "gridBand2";
+            this.gridBand2.AppearanceHeader.BackColor = System.Drawing.Color.Silver;
+            this.gridBand2.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand2.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand2.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand2.Caption = "도서정보";
             this.gridBand2.Columns.Add(this.gridColumn21);
             this.gridBand2.Columns.Add(this.bandedGridColumn1);
             this.gridBand2.Columns.Add(this.gridColumn23);
@@ -312,7 +327,13 @@
             // 
             // gridBand3
             // 
-            this.gridBand3.Caption = "gridBand3";
+            this.gridBand3.AppearanceHeader.BackColor = System.Drawing.Color.Silver;
+            this.gridBand3.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand3.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand3.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand3.Caption = "위탁매입율/수량";
             this.gridBand3.Columns.Add(this.gridColumn4);
             this.gridBand3.Columns.Add(this.gcStore1);
             this.gridBand3.Columns.Add(this.gcStore2);
@@ -333,7 +354,7 @@
             this.gridColumn4.AppearanceHeader.Options.UseBackColor = true;
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn4.Caption = "위1";
+            this.gridColumn4.Caption = "1";
             this.gridColumn4.DisplayFormat.FormatString = "N0";
             this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "RATE11";
@@ -351,12 +372,13 @@
             this.gcStore1.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore1.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore1.Caption = "위2";
+            this.gcStore1.Caption = "2";
             this.gcStore1.DisplayFormat.FormatString = "N0";
             this.gcStore1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore1.FieldName = "RATE12";
             this.gcStore1.MinWidth = 35;
             this.gcStore1.Name = "gcStore1";
+            this.gcStore1.OptionsColumn.ReadOnly = true;
             this.gcStore1.Visible = true;
             this.gcStore1.Width = 35;
             // 
@@ -368,12 +390,13 @@
             this.gcStore2.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore2.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore2.Caption = "위3";
+            this.gcStore2.Caption = "3";
             this.gcStore2.DisplayFormat.FormatString = "N0";
             this.gcStore2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore2.FieldName = "RATE13";
             this.gcStore2.MinWidth = 35;
             this.gcStore2.Name = "gcStore2";
+            this.gcStore2.OptionsColumn.ReadOnly = true;
             this.gcStore2.Visible = true;
             this.gcStore2.Width = 35;
             // 
@@ -385,12 +408,13 @@
             this.gcStore4.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore4.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore4.Caption = "위4";
+            this.gcStore4.Caption = "4";
             this.gcStore4.DisplayFormat.FormatString = "N0";
             this.gcStore4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore4.FieldName = "RATE14";
             this.gcStore4.MinWidth = 35;
             this.gcStore4.Name = "gcStore4";
+            this.gcStore4.OptionsColumn.ReadOnly = true;
             this.gcStore4.Visible = true;
             this.gcStore4.Width = 35;
             // 
@@ -402,12 +426,13 @@
             this.gcStore3.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore3.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore3.Caption = "매1";
+            this.gcStore3.Caption = "N1";
             this.gcStore3.DisplayFormat.FormatString = "N0";
             this.gcStore3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore3.FieldName = "STOCK11";
             this.gcStore3.MinWidth = 35;
             this.gcStore3.Name = "gcStore3";
+            this.gcStore3.OptionsColumn.ReadOnly = true;
             this.gcStore3.RowIndex = 1;
             this.gcStore3.Visible = true;
             this.gcStore3.Width = 35;
@@ -420,12 +445,13 @@
             this.gcStore5.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore5.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore5.Caption = "매2";
+            this.gcStore5.Caption = "N2";
             this.gcStore5.DisplayFormat.FormatString = "N0";
             this.gcStore5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore5.FieldName = "STOCK12";
             this.gcStore5.MinWidth = 35;
             this.gcStore5.Name = "gcStore5";
+            this.gcStore5.OptionsColumn.ReadOnly = true;
             this.gcStore5.RowIndex = 1;
             this.gcStore5.Visible = true;
             this.gcStore5.Width = 35;
@@ -438,12 +464,13 @@
             this.gcStore6.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore6.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore6.Caption = "매3";
+            this.gcStore6.Caption = "N3";
             this.gcStore6.DisplayFormat.FormatString = "N0";
             this.gcStore6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore6.FieldName = "STOCK13";
             this.gcStore6.MinWidth = 35;
             this.gcStore6.Name = "gcStore6";
+            this.gcStore6.OptionsColumn.ReadOnly = true;
             this.gcStore6.RowIndex = 1;
             this.gcStore6.Visible = true;
             this.gcStore6.Width = 35;
@@ -456,19 +483,26 @@
             this.gcStore7.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore7.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore7.Caption = "매4";
+            this.gcStore7.Caption = "N4";
             this.gcStore7.DisplayFormat.FormatString = "N0";
             this.gcStore7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore7.FieldName = "STOCK14";
             this.gcStore7.MinWidth = 35;
             this.gcStore7.Name = "gcStore7";
+            this.gcStore7.OptionsColumn.ReadOnly = true;
             this.gcStore7.RowIndex = 1;
             this.gcStore7.Visible = true;
             this.gcStore7.Width = 35;
             // 
             // gridBand4
             // 
-            this.gridBand4.Caption = "gridBand4";
+            this.gridBand4.AppearanceHeader.BackColor = System.Drawing.Color.Silver;
+            this.gridBand4.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand4.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand4.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand4.Caption = "현매매입율/수량";
             this.gridBand4.Columns.Add(this.gcStore8);
             this.gridBand4.Columns.Add(this.gcStore9);
             this.gridBand4.Columns.Add(this.gcStore10);
@@ -489,12 +523,13 @@
             this.gcStore8.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore8.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore8.Caption = "현1";
+            this.gcStore8.Caption = "1";
             this.gcStore8.DisplayFormat.FormatString = "N0";
             this.gcStore8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore8.FieldName = "RATE21";
             this.gcStore8.MinWidth = 35;
             this.gcStore8.Name = "gcStore8";
+            this.gcStore8.OptionsColumn.ReadOnly = true;
             this.gcStore8.Visible = true;
             this.gcStore8.Width = 35;
             // 
@@ -506,12 +541,13 @@
             this.gcStore9.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore9.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore9.Caption = "현2";
+            this.gcStore9.Caption = "2";
             this.gcStore9.DisplayFormat.FormatString = "N0";
             this.gcStore9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore9.FieldName = "RATE22";
             this.gcStore9.MinWidth = 35;
             this.gcStore9.Name = "gcStore9";
+            this.gcStore9.OptionsColumn.ReadOnly = true;
             this.gcStore9.Visible = true;
             this.gcStore9.Width = 35;
             // 
@@ -523,12 +559,13 @@
             this.gcStore10.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore10.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore10.Caption = "현3";
+            this.gcStore10.Caption = "3";
             this.gcStore10.DisplayFormat.FormatString = "N0";
             this.gcStore10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore10.FieldName = "RATE23";
             this.gcStore10.MinWidth = 35;
             this.gcStore10.Name = "gcStore10";
+            this.gcStore10.OptionsColumn.ReadOnly = true;
             this.gcStore10.Visible = true;
             this.gcStore10.Width = 35;
             // 
@@ -540,12 +577,13 @@
             this.gcStore11.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore11.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore11.Caption = "현4";
+            this.gcStore11.Caption = "4";
             this.gcStore11.DisplayFormat.FormatString = "N0";
             this.gcStore11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore11.FieldName = "RATE24";
             this.gcStore11.MinWidth = 35;
             this.gcStore11.Name = "gcStore11";
+            this.gcStore11.OptionsColumn.ReadOnly = true;
             this.gcStore11.Visible = true;
             this.gcStore11.Width = 35;
             // 
@@ -557,12 +595,13 @@
             this.gcStore12.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore12.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore12.Caption = "맵1";
+            this.gcStore12.Caption = "N1";
             this.gcStore12.DisplayFormat.FormatString = "N0";
             this.gcStore12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore12.FieldName = "STOCK21";
             this.gcStore12.MinWidth = 35;
             this.gcStore12.Name = "gcStore12";
+            this.gcStore12.OptionsColumn.ReadOnly = true;
             this.gcStore12.RowIndex = 1;
             this.gcStore12.Visible = true;
             this.gcStore12.Width = 35;
@@ -575,12 +614,13 @@
             this.gcStore13.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore13.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore13.Caption = "맵2";
+            this.gcStore13.Caption = "N2";
             this.gcStore13.DisplayFormat.FormatString = "N0";
             this.gcStore13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore13.FieldName = "STOCK22";
             this.gcStore13.MinWidth = 35;
             this.gcStore13.Name = "gcStore13";
+            this.gcStore13.OptionsColumn.ReadOnly = true;
             this.gcStore13.RowIndex = 1;
             this.gcStore13.Visible = true;
             this.gcStore13.Width = 35;
@@ -593,12 +633,13 @@
             this.gcStore14.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore14.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore14.Caption = "맵3";
+            this.gcStore14.Caption = "N3";
             this.gcStore14.DisplayFormat.FormatString = "N0";
             this.gcStore14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore14.FieldName = "STOCK23";
             this.gcStore14.MinWidth = 35;
             this.gcStore14.Name = "gcStore14";
+            this.gcStore14.OptionsColumn.ReadOnly = true;
             this.gcStore14.RowIndex = 1;
             this.gcStore14.Visible = true;
             this.gcStore14.Width = 35;
@@ -611,19 +652,26 @@
             this.gcStore15.AppearanceHeader.Options.UseBackColor = true;
             this.gcStore15.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStore15.Caption = "맵4";
+            this.gcStore15.Caption = "N4";
             this.gcStore15.DisplayFormat.FormatString = "N0";
             this.gcStore15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcStore15.FieldName = "STOCK24";
             this.gcStore15.MinWidth = 35;
             this.gcStore15.Name = "gcStore15";
+            this.gcStore15.OptionsColumn.ReadOnly = true;
             this.gcStore15.RowIndex = 1;
             this.gcStore15.Visible = true;
             this.gcStore15.Width = 35;
             // 
             // gridBand5
             // 
-            this.gridBand5.Caption = "gridBand5";
+            this.gridBand5.AppearanceHeader.BackColor = System.Drawing.Color.Silver;
+            this.gridBand5.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand5.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand5.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand5.Caption = "반품정보";
             this.gridBand5.Columns.Add(this.bandedGridColumn11);
             this.gridBand5.Columns.Add(this.bandedGridColumn9);
             this.gridBand5.Columns.Add(this.bandedGridColumn7);
@@ -698,6 +746,7 @@
             this.bandedGridColumn5.FieldName = "RET_PLAN_CNT";
             this.bandedGridColumn5.MinWidth = 100;
             this.bandedGridColumn5.Name = "bandedGridColumn5";
+            this.bandedGridColumn5.OptionsColumn.ReadOnly = true;
             this.bandedGridColumn5.Visible = true;
             this.bandedGridColumn5.Width = 100;
             // 
@@ -769,6 +818,7 @@
             this.bandedGridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandedGridColumn4.Caption = "반품수량";
+            this.bandedGridColumn4.ColumnEdit = this.riseCnt;
             this.bandedGridColumn4.DisplayFormat.FormatString = "n0";
             this.bandedGridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.bandedGridColumn4.FieldName = "RETURN_CNT";
@@ -778,9 +828,21 @@
             this.bandedGridColumn4.Visible = true;
             this.bandedGridColumn4.Width = 100;
             // 
+            // riseCnt
+            // 
+            this.riseCnt.AutoHeight = false;
+            this.riseCnt.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riseCnt.Name = "riseCnt";
+            this.riseCnt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.riseCnt_KeyDown);
+            // 
             // gridBand1
             // 
-            this.gridBand1.Caption = "gridBand1";
+            this.gridBand1.AppearanceHeader.BackColor = System.Drawing.Color.Silver;
+            this.gridBand1.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand1.Caption = "기타";
             this.gridBand1.Columns.Add(this.gridColumn6);
             this.gridBand1.Columns.Add(this.gcCheck);
             this.gridBand1.Columns.Add(this.gcEtc);
@@ -841,6 +903,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rileReturnType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rileReturnReason)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rileOrderRatio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riseCnt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -895,5 +958,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rileOrderRatio;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rileReturnType;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rileReturnReason;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit riseCnt;
     }
 }

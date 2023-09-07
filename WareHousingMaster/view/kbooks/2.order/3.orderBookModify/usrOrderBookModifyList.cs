@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json.Linq;
 using System;
@@ -78,6 +80,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             _dt.Columns.Add(new DataColumn("PURCHCD", typeof(long)));
             _dt.Columns.Add(new DataColumn("PUBSHCD", typeof(long)));
             _dt.Columns.Add(new DataColumn("INP_GROUPCD", typeof(int)));
+            //_dt.Columns.Add(new DataColumn("ORD_GROUPCD", typeof(int)));
+            //_dt.Columns.Add(new DataColumn("GROUPCD", typeof(int)));
             _dt.Columns.Add(new DataColumn("STANDCD", typeof(int)));
 
 
@@ -291,12 +295,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     column = column + "_O";
                     int cnt = ConvertUtil.ToInt32(_currentRow[column]);
 
-                    gvList.FocusedColumn.OptionsColumn.ReadOnly = (cnt == 0);
+                    //gvList.FocusedColumn.OptionsColumn.ReadOnly = (cnt == 0);
                 }
             }
             else
             {
-                gvList.FocusedColumn.OptionsColumn.ReadOnly = true;
+                //gvList.FocusedColumn.OptionsColumn.ReadOnly = true;
             }
         }
 
@@ -470,7 +474,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         else if (colType == 2)
                         {
                            
-                            for (int i = start; i < modifEnd; i++)
+                            for (int i = start; i <= modifEnd; i++)
                             {
                                 total += ConvertUtil.ToInt32(obj[$"STORE{i}"]);
                                 dr[$"STORE{i}"] = ConvertUtil.ToInt32(obj[$"STORE{i}"]);
@@ -486,7 +490,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         }
                         else if(colType == 3)
                         {
-                            for (int i = 0; i < arrGcCol.Length -1; i++)
+                            for (int i = 0; i < arrGcCol.Length; i++)
                             {
                                 total += ConvertUtil.ToInt32(obj[$"STORE{i+1}"]);
                                 dr[$"STORE{i + 1}"] = ConvertUtil.ToInt32(obj[$"STORE{i + 1}"]);
@@ -510,6 +514,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
                     if (_dt.Rows.Count < 1)
                         Dangol.Info("검색 결과가 없습니다.");
+                }
+                else
+                {
+                    Dangol.Info("검색 결과가 없습니다.");
                 }
             }
             else
@@ -592,6 +600,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         public void confirm()
         {
+            int rowhandle = gvList.FocusedRowHandle;
+            gvList.FocusedRowHandle = -2147483646;
+            gvList.FocusedRowHandle = rowhandle;
+
             if (_dt.Rows.Count < 1)
                 Dangol.Warining("확정할 데이터가 없습니다.");
             else
@@ -707,6 +719,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         jdata.Add("ORD_DATE", _orderDt);
                         jdata.Add("TRADE_ITEM", _tradeItem);
                         jdata.Add("BOOKCD", ConvertUtil.ToInt64(row["BOOKCD"]));
+                        //jdata.Add("BOOKNM", ConvertUtil.ToString(row["BOOKNM"]));
+                        //jdata.Add("PURCHCD", ConvertUtil.ToInt64(row["PURCHCD"]));
+                        //jdata.Add("ORD_GROUPCD", ConvertUtil.ToInt32(row["ORD_GROUPCD"]));
+                        //jdata.Add("GROUPCD", ConvertUtil.ToInt32(row["GROUPCD"]));
+                        //jdata.Add("STANDCD", ConvertUtil.ToInt32(row["STANDCD"]));
 
                         jArray.Add(jdata);
                     }
@@ -1121,6 +1138,40 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             //        }
             //    }
             //}
+        }
+
+        private void gcList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                e.Handled = true;
+            }
+        }
+
+        public void setFocus()
+        {
+            gvList.Focus();
+        }
+
+        public void clear()
+        {
+            gvList.BeginDataUpdate();
+            _dt.Clear();
+            gvList.EndDataUpdate();
+        }
+
+        public void SetColFocus(string col, int rowHandle = 0)
+        {
+            ColumnView View = (ColumnView)gcList.FocusedView;
+            GridColumn column = View.Columns[col];
+            if (column != null)
+            {
+                if (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    View.FocusedRowHandle = rowHandle;
+                    View.FocusedColumn = column;
+                }
+            }
         }
     }
 }

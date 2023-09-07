@@ -96,6 +96,12 @@
             // 
             // gvList
             // 
+            this.gvList.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gvList.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.BackColor = System.Drawing.SystemColors.Control;
+            this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
@@ -221,6 +227,7 @@
             this.gridColumn1.FieldName = "AUTHOR2";
             this.gridColumn1.MinWidth = 60;
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 4;
@@ -238,6 +245,7 @@
             this.gcPublisher.FieldName = "PUBSHNM";
             this.gcPublisher.MaxWidth = 300;
             this.gcPublisher.Name = "gcPublisher";
+            this.gcPublisher.OptionsColumn.AllowEdit = false;
             this.gcPublisher.OptionsColumn.ReadOnly = true;
             this.gcPublisher.Visible = true;
             this.gcPublisher.VisibleIndex = 5;
@@ -365,6 +373,7 @@
             this.gcSalePrice.MaxWidth = 80;
             this.gcSalePrice.MinWidth = 80;
             this.gcSalePrice.Name = "gcSalePrice";
+            this.gcSalePrice.OptionsColumn.AllowEdit = false;
             this.gcSalePrice.OptionsColumn.ReadOnly = true;
             this.gcSalePrice.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "RETURN_CNT", "{0:N0}")});
@@ -387,6 +396,7 @@
             this.gcDeliveryCnt.MaxWidth = 80;
             this.gcDeliveryCnt.MinWidth = 80;
             this.gcDeliveryCnt.Name = "gcDeliveryCnt";
+            this.gcDeliveryCnt.OptionsColumn.AllowEdit = false;
             this.gcDeliveryCnt.OptionsColumn.ReadOnly = true;
             this.gcDeliveryCnt.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "DELIVERY_CNT", "{0:n0}")});
@@ -409,6 +419,7 @@
             this.gcDes.MaxWidth = 80;
             this.gcDes.MinWidth = 80;
             this.gcDes.Name = "gcDes";
+            this.gcDes.OptionsColumn.AllowEdit = false;
             this.gcDes.OptionsColumn.ReadOnly = true;
             this.gcDes.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STOCK", "{0:n0}")});

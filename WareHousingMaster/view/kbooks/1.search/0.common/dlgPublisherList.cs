@@ -77,5 +77,18 @@ namespace WareHousingMaster.view.kbooks.search.common
         {
             this.DialogResult = DialogResult.Cancel;
         }
+
+        private void dlgPublisherList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F10 || e.KeyCode == Keys.F9)
+            {
+                this.DialogResult = DialogResult.Cancel;
+            }
+        }
+
+        private void dlgPublisherList_Shown(object sender, EventArgs e)
+        {
+            usrPublishList1.SetFocus();
+        }
     }
 }

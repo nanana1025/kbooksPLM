@@ -40,7 +40,7 @@
             this.biConsigned = new DevExpress.XtraBars.BarButtonItem();
             this.biWarehousing = new DevExpress.XtraBars.BarButtonItem();
             this.biWarehousingConsigned = new DevExpress.XtraBars.BarButtonItem();
-            this.bsiDBName = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiDate = new DevExpress.XtraBars.BarStaticItem();
             this.bsiVersion = new DevExpress.XtraBars.BarStaticItem();
             this.rgbiSkins = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.biHome = new DevExpress.XtraBars.BarButtonItem();
@@ -177,7 +177,7 @@
             this.biConsigned,
             this.biWarehousing,
             this.biWarehousingConsigned,
-            this.bsiDBName,
+            this.bsiDate,
             this.bsiVersion,
             this.rgbiSkins,
             this.biHome,
@@ -371,12 +371,12 @@
             this.biWarehousingConsigned.Name = "biWarehousingConsigned";
             this.biWarehousingConsigned.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.biWarehousingConsigned_ItemClick);
             // 
-            // bsiDBName
+            // bsiDate
             // 
-            this.bsiDBName.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.bsiDBName.Caption = "barStaticItem1";
-            this.bsiDBName.Id = 6;
-            this.bsiDBName.Name = "bsiDBName";
+            this.bsiDate.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiDate.Caption = "barStaticItem1";
+            this.bsiDate.Id = 6;
+            this.bsiDate.Name = "bsiDate";
             // 
             // bsiVersion
             // 
@@ -1359,7 +1359,7 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.ItemLinks.Add(this.bsiDBName);
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiDate);
             this.ribbonStatusBar.ItemLinks.Add(this.bsiVersion);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 676);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
@@ -1435,7 +1435,7 @@
         private DevExpress.XtraBars.BarButtonItem biWarehousingConsigned;
         private DevExpress.XtraBars.Ribbon.RibbonPage rpSearch;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgWarehousing;
-        private DevExpress.XtraBars.BarStaticItem bsiDBName;
+        private DevExpress.XtraBars.BarStaticItem bsiDate;
         private DevExpress.XtraBars.BarStaticItem bsiVersion;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem rgbiSkins;
         private DevExpress.XtraBars.Ribbon.RibbonPage rpStype;

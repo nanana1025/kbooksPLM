@@ -1,4 +1,7 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
@@ -259,6 +262,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             gvList.RefreshData();
         }
 
+        public void clear()
+        {
+            gvList.BeginDataUpdate();
+            _dt.Clear();
+            gvList.EndDataUpdate();
+        }
+
         public bool saveReleaseReceiptItem()
         {
             bool isSuccess = false;
@@ -435,6 +445,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             return isSuccess;
         }
 
+        public void setFocus()
+        {
+            gvList.Focus();
+        }
+
         public void gvList_CustomButtonChecked()
         {
             Common.gridViewButtonChecked(gvList, _dt);
@@ -455,6 +470,20 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
                     if (state == 1)
                         _currentRow["STATE"] = 2;
+                }
+            }
+        }
+
+        public void SetColFocus(string col, int rowHandle = 0)
+        {
+            ColumnView View = (ColumnView)gcList.FocusedView;
+            GridColumn column = View.Columns[col];
+            if (column != null)
+            {
+                if (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    View.FocusedRowHandle = rowHandle;
+                    View.FocusedColumn = column;
                 }
             }
         }

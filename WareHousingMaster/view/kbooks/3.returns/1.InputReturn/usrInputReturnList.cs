@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json.Linq;
@@ -334,6 +336,7 @@ namespace WareHousingMaster.view.kbooks.returns
             _dicOrderRatioTable.Clear();
         }
 
+     
         public void setTableEditable(bool isEditable)
         {
             gvList.OptionsBehavior.Editable = isEditable;
@@ -929,14 +932,17 @@ namespace WareHousingMaster.view.kbooks.returns
                 }
                 else
                 {
-                    getBookList(0, title);
+                    //getBookList(0, title);
+
+                    if (getBookList(0, title))
+                        SetColFocus("RETURN_CNT", gvList.FocusedRowHandle);
                     //this.gvList.PostEditor();
                     //this.gvList.SetFocusedRowCellValue("PURCHCD", null);
                 }
             }
         }
 
-        private void getBookList(long bookCd, string bookNm)
+        private bool getBookList(long bookCd, string bookNm)
         {
             //JObject jData = getSearchInfoHandler();
 
@@ -961,17 +967,20 @@ namespace WareHousingMaster.view.kbooks.returns
                         bookNm = ConvertUtil.ToString(objBook["BOOKNM"]);
                         bookCd = ConvertUtil.ToInt64(objBook["BOOKCD"]);
 
-                        setSearchBook(shopCd, bookCd, bookNm, 1);
+                        return setSearchBook(shopCd, bookCd, bookNm, 1);
+
                     }
+                    else
+                        return false;
                 }
             }
             else
             {
-                setSearchBook(shopCd, bookCd, bookNm, 2);
+                return setSearchBook(shopCd, bookCd, bookNm, 2);
             }
         }
 
-        private void setSearchBook(int shopCd, long bookCd, string bookNm, int flag)
+        private bool setSearchBook(int shopCd, long bookCd, string bookNm, int flag)
         {
             JObject jResult = new JObject();
             JObject jobj = new JObject();
@@ -1074,6 +1083,8 @@ namespace WareHousingMaster.view.kbooks.returns
                             _currentRow["PUR_PROCESS"] = maxOrder;
                             setPurchInfo(bookCd, maxOrder);
                             _currentRow.EndEdit();
+
+                            return true;
                         }
                         else
                         {
@@ -1085,6 +1096,8 @@ namespace WareHousingMaster.view.kbooks.returns
                             _currentRow["PUR_PROCESS"] = maxOrder;
                             setPurchInfo(bookCd, maxOrder);
                             _currentRow.EndEdit();
+
+                            return true;
                         }
                     }
                     else
@@ -1095,6 +1108,8 @@ namespace WareHousingMaster.view.kbooks.returns
                             Dangol.Warining($"도서코드['{bookCd}']에 대한 매입처가 없습니다. 주문할 수 없습니다.");
                         _currentRow["STATE"] = -1;
 
+                        return false;
+
                     }
                 }
                 else
@@ -1103,11 +1118,14 @@ namespace WareHousingMaster.view.kbooks.returns
                         Dangol.Warining($"도서명 ['{bookNm}']가 점별도서테이블에 존재하지 않습니다.");
                     else
                         Dangol.Warining($"도서코드 ['{bookCd}']가 점별도서테이블에 존재하지 않습니다.");
+
+                    return false;
                 }
             }
             else
             {
                 Dangol.Error(jResult["MSG"]);
+                return false;
             }
         }
 
@@ -1224,6 +1242,26 @@ namespace WareHousingMaster.view.kbooks.returns
         {
 
         }
+
+        public void SetFocus()
+        {
+            gvList.Focus();
+        }
+
+        public void SetColFocus(string col, int rowHandle = 0)
+        {
+            ColumnView View = (ColumnView)gcList.FocusedView;
+            GridColumn column = View.Columns[col];
+            if (column != null)
+            {
+                if (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    View.FocusedRowHandle = rowHandle;
+                    View.FocusedColumn = column;
+                }
+            }
+        }
+
         private void getOrderRatio()
         { 
             //long bookCd = ConvertUtil.ToInt64(_currentRow["BOOKCD"]);
@@ -1502,6 +1540,16 @@ namespace WareHousingMaster.view.kbooks.returns
                 _currentRow["RATE_KBN"] = -1;
 
             _currentRow.EndEdit();
+        }
+
+        private void riseCnt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int rowHandle = gvList.FocusedRowHandle;
+                if (rowHandle < 29)
+                    SetColFocus("BOOKNM", rowHandle + 1);
+            }
         }
     }
 }

@@ -226,6 +226,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             }
         }
 
+        public void SetFocus()
+        {
+            gvList.Focus();
+        }
         public bool editingCheck()
         {
             int rowhandle = gvList.FocusedRowHandle;

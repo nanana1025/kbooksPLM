@@ -95,6 +95,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 Dangol.Message(jData["MSG"]);
         }
 
+        public void Search()
+        {
+            JObject jData = new JObject();
+            bool isSuccess = checkSearch(ref jData);
+
+            if (isSuccess)
+                searchHandler(jData);
+            else
+                Dangol.Message(jData["MSG"]);
+        }
+
         private bool checkSearch(ref JObject jData)
         {
             jData.Add("SHOPCD", ConvertUtil.ToInt32(leShopCd.EditValue));
@@ -328,9 +339,32 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             }    
         }
 
+        public void setFocus()
+        {
+            teStoreCd_S.Focus();
+        }
+
+        public void clear()
+        {
+            teStoreCd_S.Text = "";
+            teStoreCd_E.Text = "";
+        }
+
         private void sbSave_Click(object sender, EventArgs e)
         {
             saveHandler();
+        }
+
+        private void teStoreCd_S_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
+        }
+
+        private void teStoreCd_E_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
         }
     }
 }

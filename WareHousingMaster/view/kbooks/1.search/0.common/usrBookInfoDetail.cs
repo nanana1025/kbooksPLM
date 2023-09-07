@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WareHousingMaster.view.common;
 
@@ -61,6 +62,12 @@ namespace WareHousingMaster.view.kbooks.search.common
 
             teBookCd.ReadOnly = !isEditable;
         }
+
+        public void setFocus()
+        {
+            teBookCd.Focus();
+        }
+
         private void setXtratabinitialize()
         {
             for (int i = 0; i < _arrXtraTabPage.Length; i++)
@@ -277,21 +284,82 @@ namespace WareHousingMaster.view.kbooks.search.common
         {
             if (e.KeyCode == Keys.Enter)
             {
-                TextEdit textEditor = (TextEdit)sender;
-                string data = textEditor.Text;
-                long bookCd = ConvertUtil.ToInt64(data);
-
-                if (bookCd < 1)
-                {
-                    Dangol.Warining("도서코드를 입력하세요");
-                }
-                else
-                {
-                    JObject jobj = new JObject();
-                    jobj.Add("BOOKCD", bookCd);
-                    searchHandler(jobj);
-                }
+                //TextEdit textEditor = (TextEdit)sender;
+                //string data = textEditor.Text;
+                searchBook();
             }
+        }
+
+        public void searchBook()
+        {
+            string data = teBookCd.Text.Trim();
+            string strNum = Regex.Replace(data, @"\D", "");
+
+            if (string.IsNullOrWhiteSpace(strNum))
+            {
+                Dangol.Warining("도서코드를 입력하세요");
+                teBookCd.Text = "";
+            }
+            else
+            {
+                long bookCd = ConvertUtil.ToInt64(strNum);
+
+                JObject jobj = new JObject();
+                jobj.Add("BOOKCD", bookCd);
+                searchHandler(jobj);
+            }
+        }
+
+        public void clear()
+        {
+            teBookCd.Text = "";
+            teBookNm.Text = "";
+            tePublisherCd.Text = "";
+            tePublisher.Text = "";
+            sePrice.EditValue = "";
+            teAuthor1.Text = "";
+            teAuthor2.Text = "";
+            teEditor.Text = "";
+            teAbstract.Text = "";
+            teTax.Text = "";
+            deFirstIssue.EditValue = "";
+
+
+            teDeptCd.Text = "";
+            teDeptNm.Text = "";
+
+            teGroupCd.Text = "";
+            teGroupNm.Text = "";
+
+            teStandCd.Text = "";
+            teStandNm.Text = "";
+
+            teProductCd.Text = "";
+            teProductNm.Text = "";
+
+            sePrvPrice.EditValue = "";
+            dePrvPriceDt.EditValue = "";
+            seStock.EditValue = "";
+            seStandStock.EditValue = "";
+            teOutBookFlag.Text = "";
+            teSaleFlag.Text = "";
+            teISBN.Text = "";
+            teBarcodeYn.Text = "";
+            sePlanCount.EditValue = "";
+            deFirstStore.EditValue = "";
+            deLastStore.EditValue = "";
+
+            deFirstSales.EditValue = "";
+            deLastSales.EditValue = "";
+
+            teAddSign.Text = "";
+            teSaleFront.Text = "";
+
+            teSpecialNo.Text = "";
+            teSpecialNm.Text = "";
+
+            teBookCd.Focus();
+
         }
     }
 }

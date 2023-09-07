@@ -90,6 +90,12 @@
             // 
             // gvList
             // 
+            this.gvList.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gvList.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.BackColor = System.Drawing.SystemColors.Control;
+            this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
@@ -133,7 +139,6 @@
             this.gcCheck.MaxWidth = 35;
             this.gcCheck.MinWidth = 35;
             this.gcCheck.Name = "gcCheck";
-            this.gcCheck.OptionsColumn.ReadOnly = true;
             this.gcCheck.Visible = true;
             this.gcCheck.VisibleIndex = 0;
             this.gcCheck.Width = 35;
@@ -169,14 +174,14 @@
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "도서명";
             this.gridColumn4.FieldName = "BOOKNM";
-            this.gridColumn4.MinWidth = 100;
+            this.gridColumn4.MinWidth = 150;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "TITLE", "{0:N0}")});
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
-            this.gridColumn4.Width = 141;
+            this.gridColumn4.Width = 174;
             // 
             // gcReleaseCnt
             // 
@@ -194,7 +199,7 @@
             this.gcReleaseCnt.OptionsColumn.ReadOnly = true;
             this.gcReleaseCnt.Visible = true;
             this.gcReleaseCnt.VisibleIndex = 3;
-            this.gcReleaseCnt.Width = 91;
+            this.gcReleaseCnt.Width = 89;
             // 
             // gridColumn2
             // 
@@ -211,7 +216,7 @@
             this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 4;
-            this.gridColumn2.Width = 77;
+            this.gridColumn2.Width = 72;
             // 
             // gridColumn23
             // 
@@ -229,7 +234,7 @@
             this.gridColumn23.OptionsColumn.ReadOnly = true;
             this.gridColumn23.Visible = true;
             this.gridColumn23.VisibleIndex = 5;
-            this.gridColumn23.Width = 122;
+            this.gridColumn23.Width = 115;
             // 
             // gcCode
             // 
@@ -265,7 +270,7 @@
             this.gcCodeNm.OptionsColumn.ReadOnly = true;
             this.gcCodeNm.Visible = true;
             this.gcCodeNm.VisibleIndex = 7;
-            this.gcCodeNm.Width = 94;
+            this.gcCodeNm.Width = 89;
             // 
             // gcComponent
             // 
@@ -288,7 +293,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PRICE", "{0:N0}")});
             this.gcComponent.Visible = true;
             this.gcComponent.VisibleIndex = 8;
-            this.gcComponent.Width = 98;
+            this.gcComponent.Width = 93;
             // 
             // gcCpu
             // 
@@ -311,7 +316,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STOCK", "{0:N0}")});
             this.gcCpu.Visible = true;
             this.gcCpu.VisibleIndex = 9;
-            this.gcCpu.Width = 88;
+            this.gcCpu.Width = 95;
             // 
             // gcStg
             // 
@@ -341,7 +346,7 @@
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 10;
-            this.gridColumn1.Width = 157;
+            this.gridColumn1.Width = 140;
             // 
             // rileComponentCd
             // 

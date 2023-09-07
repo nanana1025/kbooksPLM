@@ -30,12 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usrModifReturnSearch));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.sbSearch = new DevExpress.XtraEditors.SimpleButton();
             this.leShopCd = new DevExpress.XtraEditors.LookUpEdit();
             this.rgGSType = new DevExpress.XtraEditors.RadioGroup();
@@ -49,9 +43,13 @@
             this.leStoreCd = new DevExpress.XtraEditors.LookUpEdit();
             this.leGroupCd = new DevExpress.XtraEditors.LookUpEdit();
             this.lePurchaseCd = new DevExpress.XtraEditors.LookUpEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lcReleaseCategory2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lcReceiptNo6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem50 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -64,12 +62,6 @@
             this.lcReceiptNo7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leShopCd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgGSType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgPurchaseRange.Properties)).BeginInit();
@@ -79,9 +71,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.leStoreCd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leGroupCd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lePurchaseCd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcReleaseCategory2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcReceiptNo6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem50)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -112,86 +108,16 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(888, 146);
+            this.layoutControl1.Size = new System.Drawing.Size(700, 130);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.lcReleaseCategory2,
-            this.emptySpaceItem2,
-            this.emptySpaceItem1,
-            this.lcReceiptNo6,
-            this.emptySpaceItem4,
-            this.layoutControlItem5,
-            this.emptySpaceItem3,
-            this.layoutControlItem8,
-            this.layoutControlItem50,
-            this.layoutControlItem2,
-            this.layoutControlItem4,
-            this.layoutControlItem11,
-            this.emptySpaceItem5,
-            this.lcTypeNm,
-            this.layoutControlItem9,
-            this.layoutControlItem1,
-            this.lcType,
-            this.lcReceiptNo7});
-            this.Root.Name = "Root";
-            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(888, 146);
-            this.Root.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(735, 0);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(153, 130);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 130);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(273, 16);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(635, 26);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(100, 26);
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(330, 0);
-            this.emptySpaceItem3.MaxSize = new System.Drawing.Size(25, 0);
-            this.emptySpaceItem3.MinSize = new System.Drawing.Size(25, 10);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(25, 130);
-            this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem5
-            // 
-            this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(273, 130);
-            this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(615, 16);
-            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // sbSearch
             // 
             this.sbSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch.ImageOptions.Image")));
-            this.sbSearch.Location = new System.Drawing.Point(637, 2);
+            this.sbSearch.Location = new System.Drawing.Point(572, 2);
             this.sbSearch.Name = "sbSearch";
             this.sbSearch.Size = new System.Drawing.Size(96, 22);
             this.sbSearch.StyleController = this.layoutControl1;
@@ -204,12 +130,16 @@
             this.leShopCd.EditValue = "01";
             this.leShopCd.Location = new System.Drawing.Point(112, 2);
             this.leShopCd.Name = "leShopCd";
+            this.leShopCd.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.leShopCd.Properties.Appearance.Options.UseBackColor = true;
             this.leShopCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leShopCd.Properties.NullText = "선택";
+            this.leShopCd.Properties.ReadOnly = true;
             this.leShopCd.Size = new System.Drawing.Size(216, 20);
             this.leShopCd.StyleController = this.layoutControl1;
             this.leShopCd.TabIndex = 4;
+            this.leShopCd.TabStop = false;
             // 
             // rgGSType
             // 
@@ -221,7 +151,7 @@
             this.rgGSType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "전체"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "개별")});
-            this.rgGSType.Size = new System.Drawing.Size(166, 26);
+            this.rgGSType.Size = new System.Drawing.Size(101, 26);
             this.rgGSType.StyleController = this.layoutControl1;
             this.rgGSType.TabIndex = 8;
             this.rgGSType.SelectedIndexChanged += new System.EventHandler(this.rgGSType_SelectedIndexChanged);
@@ -236,7 +166,7 @@
             this.rgPurchaseRange.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "전체"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "개별")});
-            this.rgPurchaseRange.Size = new System.Drawing.Size(166, 26);
+            this.rgPurchaseRange.Size = new System.Drawing.Size(101, 26);
             this.rgPurchaseRange.StyleController = this.layoutControl1;
             this.rgPurchaseRange.TabIndex = 8;
             this.rgPurchaseRange.SelectedIndexChanged += new System.EventHandler(this.rgPurchaseRange_SelectedIndexChanged);
@@ -253,8 +183,9 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "매장단위")});
             this.rgSearchType.Size = new System.Drawing.Size(216, 26);
             this.rgSearchType.StyleController = this.layoutControl1;
-            this.rgSearchType.TabIndex = 8;
+            this.rgSearchType.TabIndex = 1;
             this.rgSearchType.SelectedIndexChanged += new System.EventHandler(this.rgSearchType_SelectedIndexChanged);
+            this.rgSearchType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rgSearchType_KeyDown);
             // 
             // rgType
             // 
@@ -266,7 +197,7 @@
             this.rgType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "과", true, "RATE"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "조", true, "GROUP")});
-            this.rgType.Size = new System.Drawing.Size(166, 26);
+            this.rgType.Size = new System.Drawing.Size(101, 26);
             this.rgType.StyleController = this.layoutControl1;
             this.rgType.TabIndex = 8;
             this.rgType.SelectedIndexChanged += new System.EventHandler(this.rgType_SelectedIndexChanged);
@@ -274,7 +205,7 @@
             // sbSearch1
             // 
             this.sbSearch1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch1.ImageOptions.Image")));
-            this.sbSearch1.Location = new System.Drawing.Point(637, 106);
+            this.sbSearch1.Location = new System.Drawing.Point(572, 106);
             this.sbSearch1.Name = "sbSearch1";
             this.sbSearch1.Size = new System.Drawing.Size(96, 22);
             this.sbSearch1.StyleController = this.layoutControl1;
@@ -285,7 +216,7 @@
             // sbSearch2
             // 
             this.sbSearch2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch2.ImageOptions.Image")));
-            this.sbSearch2.Location = new System.Drawing.Point(637, 80);
+            this.sbSearch2.Location = new System.Drawing.Point(572, 80);
             this.sbSearch2.Name = "sbSearch2";
             this.sbSearch2.Size = new System.Drawing.Size(96, 22);
             this.sbSearch2.StyleController = this.layoutControl1;
@@ -296,7 +227,7 @@
             // sbSearch3
             // 
             this.sbSearch3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch3.ImageOptions.Image")));
-            this.sbSearch3.Location = new System.Drawing.Point(637, 54);
+            this.sbSearch3.Location = new System.Drawing.Point(572, 54);
             this.sbSearch3.Name = "sbSearch3";
             this.sbSearch3.Size = new System.Drawing.Size(96, 22);
             this.sbSearch3.StyleController = this.layoutControl1;
@@ -314,7 +245,7 @@
             this.rgSearchType1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "도서단위"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "매입처단위")});
-            this.rgSearchType1.Size = new System.Drawing.Size(166, 26);
+            this.rgSearchType1.Size = new System.Drawing.Size(101, 26);
             this.rgSearchType1.StyleController = this.layoutControl1;
             this.rgSearchType1.TabIndex = 8;
             // 
@@ -328,7 +259,7 @@
             this.leStoreCd.Properties.NullText = "";
             this.leStoreCd.Size = new System.Drawing.Size(216, 20);
             this.leStoreCd.StyleController = this.layoutControl1;
-            this.leStoreCd.TabIndex = 4;
+            this.leStoreCd.TabIndex = 2;
             this.leStoreCd.EditValueChanged += new System.EventHandler(this.leStoreCd_EditValueChanged);
             // 
             // leGroupCd
@@ -341,7 +272,7 @@
             this.leGroupCd.Properties.NullText = "";
             this.leGroupCd.Size = new System.Drawing.Size(216, 20);
             this.leGroupCd.StyleController = this.layoutControl1;
-            this.leGroupCd.TabIndex = 4;
+            this.leGroupCd.TabIndex = 3;
             this.leGroupCd.EditValueChanged += new System.EventHandler(this.leGroupCd_EditValueChanged);
             // 
             // lePurchaseCd
@@ -354,6 +285,32 @@
             this.lePurchaseCd.Size = new System.Drawing.Size(216, 20);
             this.lePurchaseCd.StyleController = this.layoutControl1;
             this.lePurchaseCd.TabIndex = 4;
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.lcReleaseCategory2,
+            this.emptySpaceItem2,
+            this.lcReceiptNo6,
+            this.emptySpaceItem4,
+            this.layoutControlItem5,
+            this.emptySpaceItem3,
+            this.layoutControlItem8,
+            this.layoutControlItem50,
+            this.layoutControlItem2,
+            this.layoutControlItem4,
+            this.layoutControlItem11,
+            this.lcTypeNm,
+            this.layoutControlItem9,
+            this.layoutControlItem1,
+            this.lcType,
+            this.lcReceiptNo7});
+            this.Root.Name = "Root";
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.Root.Size = new System.Drawing.Size(700, 130);
+            this.Root.TextVisible = false;
             // 
             // lcReleaseCategory2
             // 
@@ -374,6 +331,14 @@
             this.lcReleaseCategory2.TextSize = new System.Drawing.Size(100, 20);
             this.lcReleaseCategory2.TextToControlDistance = 10;
             // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(670, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(30, 130);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // lcReceiptNo6
             // 
             this.lcReceiptNo6.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -392,6 +357,14 @@
             this.lcReceiptNo6.TextSize = new System.Drawing.Size(100, 20);
             this.lcReceiptNo6.TextToControlDistance = 10;
             // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(570, 26);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(100, 26);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.rgPurchaseRange;
@@ -402,13 +375,24 @@
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(0, 30);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(215, 30);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(280, 30);
+            this.layoutControlItem5.Size = new System.Drawing.Size(215, 30);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "매입처 범위";
             this.layoutControlItem5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(100, 20);
             this.layoutControlItem5.TextToControlDistance = 10;
             this.layoutControlItem5.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(330, 0);
+            this.emptySpaceItem3.MaxSize = new System.Drawing.Size(25, 0);
+            this.emptySpaceItem3.MinSize = new System.Drawing.Size(25, 10);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(25, 130);
+            this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
             // 
@@ -433,7 +417,7 @@
             this.layoutControlItem50.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem50.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem50.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem50.ImageOptions.Image")));
-            this.layoutControlItem50.Location = new System.Drawing.Point(635, 0);
+            this.layoutControlItem50.Location = new System.Drawing.Point(570, 0);
             this.layoutControlItem50.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem50.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem50.Name = "layoutControlItem50";
@@ -451,7 +435,7 @@
             this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem2.ImageOptions.Image")));
-            this.layoutControlItem2.Location = new System.Drawing.Point(635, 104);
+            this.layoutControlItem2.Location = new System.Drawing.Point(570, 104);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -462,6 +446,7 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextToControlDistance = 0;
             this.layoutControlItem2.TextVisible = false;
+            this.layoutControlItem2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem4
             // 
@@ -469,7 +454,7 @@
             this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem4.ImageOptions.Image")));
-            this.layoutControlItem4.Location = new System.Drawing.Point(635, 78);
+            this.layoutControlItem4.Location = new System.Drawing.Point(570, 78);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -480,6 +465,7 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
+            this.layoutControlItem4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem11
             // 
@@ -487,7 +473,7 @@
             this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem11.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem11.ImageOptions.Image")));
-            this.layoutControlItem11.Location = new System.Drawing.Point(635, 52);
+            this.layoutControlItem11.Location = new System.Drawing.Point(570, 52);
             this.layoutControlItem11.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem11.Name = "layoutControlItem11";
@@ -528,7 +514,7 @@
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(0, 30);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(50, 30);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(280, 40);
+            this.layoutControlItem9.Size = new System.Drawing.Size(215, 40);
             this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem9.Text = "구분";
             this.layoutControlItem9.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -546,7 +532,7 @@
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 30);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(215, 30);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(280, 30);
+            this.layoutControlItem1.Size = new System.Drawing.Size(215, 30);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "처리구분";
             this.layoutControlItem1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -564,7 +550,7 @@
             this.lcType.MaxSize = new System.Drawing.Size(0, 30);
             this.lcType.MinSize = new System.Drawing.Size(215, 30);
             this.lcType.Name = "lcType";
-            this.lcType.Size = new System.Drawing.Size(280, 30);
+            this.lcType.Size = new System.Drawing.Size(215, 30);
             this.lcType.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lcType.Text = "과 구분";
             this.lcType.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -595,18 +581,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.MaximumSize = new System.Drawing.Size(0, 146);
-            this.MinimumSize = new System.Drawing.Size(888, 146);
+            this.MaximumSize = new System.Drawing.Size(0, 130);
+            this.MinimumSize = new System.Drawing.Size(700, 130);
             this.Name = "usrModifReturnSearch";
-            this.Size = new System.Drawing.Size(888, 146);
+            this.Size = new System.Drawing.Size(700, 130);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leShopCd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgGSType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgPurchaseRange.Properties)).EndInit();
@@ -616,9 +596,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.leStoreCd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leGroupCd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lePurchaseCd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcReleaseCategory2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcReceiptNo6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem50)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -644,7 +628,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControlItem lcReceiptNo7;
         private DevExpress.XtraLayout.LayoutControlItem lcTypeNm;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.LayoutControlItem lcReceiptNo6;
         private DevExpress.XtraEditors.RadioGroup rgGSType;
@@ -656,7 +639,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraEditors.RadioGroup rgType;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraEditors.SimpleButton sbSearch1;
         private DevExpress.XtraEditors.SimpleButton sbSearch2;
         private DevExpress.XtraEditors.SimpleButton sbSearch3;

@@ -1,4 +1,7 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
@@ -283,6 +286,38 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             gvList.RefreshData();
         }
+
+        public DataRow[] getCheckedList()
+        {
+            if(_dt.Rows.Count > 0)
+            {
+                int rowhandle = gvList.FocusedRowHandle;
+                gvList.FocusedRowHandle = -2147483646;
+                gvList.FocusedRowHandle = rowhandle;
+
+                DataRow[] rows = _dt.Select("CHECK = TRUE");
+
+                if (rows.Length > 0)
+                    return rows;
+                else
+                {
+                    if(_currentRow == null)
+                        return null;
+                    else
+                    {
+                        _currentRow.BeginEdit();
+                        _currentRow["CHECK"] = true;
+                        _currentRow.EndEdit();
+
+                        return _dt.Select("CHECK = TRUE");
+                    }
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
         public void showBookInfoDetail()
         {
             if (_currentRow == null)
@@ -520,6 +555,20 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             if (e.KeyCode == Keys.Enter)
             {
                 showBookInfoDetail();
+            }
+        }
+
+        public void SetColFocus(string col, int rowHandle = 0)
+        {
+            ColumnView View = (ColumnView)gcList.FocusedView;
+            GridColumn column = View.Columns[col];
+            if (column != null)
+            {
+                if (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    View.FocusedRowHandle = rowHandle;
+                    View.FocusedColumn = column;
+                }
             }
         }
     }

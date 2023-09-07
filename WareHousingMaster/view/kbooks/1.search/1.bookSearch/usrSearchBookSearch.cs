@@ -21,6 +21,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         string _publiser;
 
+        bool _isGetPublisherCd;
+
         //Dictionary<Keys, int> _dicKeys;
         public usrSearchBookSearch()
         {
@@ -36,6 +38,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             //_searchType = -1;
 
             _publiser = "-1";
+
+            _isGetPublisherCd = false;
         }
 
         public void setInitLoad()
@@ -167,7 +171,16 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         //    //}
         //}
 
-     
+        public void clear()
+        {
+            teTitle.Text = "";
+            teAuthor.Text = "";
+            tePublisherCd.Text = "";
+            tePublisher.Text = "";
+
+            teTitle.Focus();
+        }
+
         public JObject getSearch()
         {
             JObject jData = new JObject();
@@ -181,13 +194,18 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         private void sbSearch_Click(object sender, EventArgs e)
         {
+            search();
+        }
+
+        private void search()
+        {
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 
             if (isSuccess)
                 searchHandler(jData);
-            ////else
-            ////    Dangol.Message(jData["MSG"]);
+            //else
+            //    Dangol.Message(jData["MSG"]);
         }
 
         private bool checkSearch(ref JObject jData)
@@ -247,16 +265,25 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string publisher = tePublisher.Text.Trim();
-                if (string.IsNullOrWhiteSpace(publisher) || _publiser.Equals(publisher))
+                if(_isGetPublisherCd)
                 {
-                    sbSearch.Focus();
+                    search();
                 }
                 else
                 {
-                    getPubliser();
-                    sbSearch.Focus();
+                    string publisher = tePublisher.Text.Trim();
+                    if (string.IsNullOrWhiteSpace(publisher) || _publiser.Equals(publisher))
+                    {
+                        sbSearch.Focus();
+                    }
+                    else
+                    {
+                        getPubliser();
+                        sbSearch.Focus();
+                    }
+                    
                 }
+               
             }
         }
 
@@ -275,8 +302,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 {
                     tePublisherCd.Text = ConvertUtil.ToString(publisherList._drv["PUBSHCD"]);
                     tePublisher.Text = _publiser = ConvertUtil.ToString(publisherList._drv["PUBSHNM"]);
-
-
+                    _isGetPublisherCd = true;
                 }
             }
         }
@@ -284,19 +310,28 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         private void teTitle_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                teAuthor.Focus();
+            {
+                search();
+            }
+                //teAuthor.Focus();
         }
 
         private void teAuthor_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                tePublisherCd.Focus();
+            {
+                search();
+            }
+                //tePublisherCd.Focus();
         }
 
         private void tePublisherCd_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                tePublisher.Focus();
+            {
+                search();
+            }
+                //tePublisher.Focus();
         }
 
         private void usrSearchBookSearch_KeyDown(object sender, KeyEventArgs e)

@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json.Linq;
@@ -46,19 +48,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         string _orderDt;
         string _inpDt;
 
-
-
-
-
         Dictionary<long, LookUpEdit> _dicLookUpEdit;
         Dictionary<long, DataTable> _dicPurchCdTable;
         Dictionary<string, DataTable> _dicOrderRatioTable;
 
         Dictionary<int, string> _dicPurchNm;
         Dictionary<int, int> _dicPurchGroupCd;
-
-
-
 
         long _representativeId;
         string _representativeIdCol;
@@ -274,6 +269,48 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             gvList.EndDataUpdate();
         }
 
+        public void setTableInitialize(DataTable dtPreOrder)
+        {
+            int index = 0;
+
+            gvList.BeginDataUpdate();
+            _dt.Clear();
+
+            foreach (DataRow row in dtPreOrder.Rows)
+            {
+                DataRow dr = _dt.NewRow();
+
+                dr["NO"] = index + 1;
+                dr["ID"] = index + 1;
+
+                dr["BOOKCD"] = ConvertUtil.ToInt64(row["BOOKCD"]);
+                dr["BOOKNM"] = ConvertUtil.ToString(row["BOOKNM"]);
+                dr["PURCHCD"] = ConvertUtil.ToInt64(row["PURCHCD"]);
+
+                setPreBookOrder(dr);
+
+                dr["STATE"] = 1; //0:default, 1:create, 2:available, 3:complete, -1:notavailable
+                dr["CHECK"] = false;
+                _dt.Rows.Add(dr);
+
+                index++;
+            }
+
+            for (int i = index; i < 30; i++)
+            {
+                DataRow dr = _dt.NewRow();
+
+                dr["NO"] = i + 1;
+                dr["ID"] = i + 1;
+
+                dr["STATE"] = 0; //0:default, 1:create, 2:available, 3:complete, -1:notavailable
+                dr["CHECK"] = false;
+                _dt.Rows.Add(dr);
+            }
+
+            gvList.EndDataUpdate();
+        }
+
         public void setTableEditable(bool isEditable)
         {
             gvList.OptionsBehavior.Editable = isEditable;
@@ -292,7 +329,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 _currentRow = null;
             }
 
-            //focusedRowObjectChangeHandler(_currentRow);
+            focusedRowObjectChangeHandler(_currentRow);
         }
         private void gvList_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
@@ -331,26 +368,29 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             }
         }
 
-        public void insertOrder()
+        public bool insertOrder()
         {
             DataRow[] rows = _dt.Select("STATE <> 0");
 
             if (rows.Length < 1)
+            {
                 Dangol.Warining("주문건이 없습니다.");
+                return false;
+            }
             else
             {
                 if (dataVerification())
                 {
                     if (Dangol.MessageYN("주문건을 저장하시겠습니까?") == DialogResult.Yes)
-                        insertData();
+                        return insertData();
                 }
                 else
                 {
                     if (Dangol.MessageYN("완료되지 않은 주문건이 있습니다. 그래도 진행하시겠습니까?") == DialogResult.Yes)
-                    {
-                        insertData();
-                    }
+                        return insertData();
                 }
+
+                return false;
             }
         }
         private bool dataVerification()
@@ -383,7 +423,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             return faultCnt == 0;
         }
 
-        private void insertData()
+        private bool insertData()
         {
             JObject jResult = new JObject();
             JObject jobj = new JObject();
@@ -450,10 +490,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             if (DBConnect.getRequest(jobj, ref jResult, url))
             {
                 Dangol.Message($"{rows.Length}개의 데이터가 확정되었습니다.");
+                return true;
             }
             else
             {
                 Dangol.Error(jResult["MSG"]);
+                return false;
             }
         }
 
@@ -588,176 +630,25 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             bool isSuccess = false;
 
-            //int rowhandle = gvList.FocusedRowHandle;
-            //gvList.FocusedRowHandle = -2147483646;
-            //gvList.FocusedRowHandle = rowhandle;
-
-            ////DataRow[] rows = _dt.Select("CHECK = TRUE"); //shlee
-            ////if (rows.Length < 1)
-            ////{
-            ////    Dangol.Message("선택된 아이템이 없습니다.");
-            ////    return isSuccess;
-            ////}
-
-            //DataRow[] rows = _dt.Select("CHECK = TRUE AND STATE = 2");  //shlee
-            //if (rows.Length < 1)
-            //{
-            //    Dangol.Message("수정 가능한 아이템이 없습니다.");
-            //    return isSuccess;
-            //}
-
-            //if (Dangol.MessageYN("선택한 아이템 수정하시겠습니까?") == DialogResult.Yes)
-            //{
-            //    JObject jResult = new JObject();
-            //    JObject jobj = new JObject();
-            //    string url = "/Nrelease/updateReleaseItemReceipt.json";
-
-            //    Dangol.ShowSplash();
-
-            //    var jArrayProduct = new JArray();
-
-            //    foreach (DataRow row in rows)
-            //    {
-            //        JObject jdata = new JObject();
-            //        jdata.Add("ITEM_ID", ConvertUtil.ToInt64(row["ITEM_ID"]));
-            //        jdata.Add("USED_YN", ConvertUtil.ToInt32(row["USED_YN"]));
-            //        jdata.Add("RECEIPT_CNT", ConvertUtil.ToInt32(row["RECEIPT_CNT"]));
-            //        jdata.Add("DES", ConvertUtil.ToString(row["DES"]));
-
-            //        jdata.Add("TABLE_NM", _tableNm);
-
-            //        jArrayProduct.Add(jdata);
-            //    }
-
-            //    jobj.Add("DATA", jArrayProduct);
-
-            //    if (DBConnect.getRequest(jobj, ref jResult, url))
-            //    {
-            //        isSuccess = true;
-
-            //        gvList.BeginDataUpdate();
-            //        foreach (DataRow row in rows)
-            //            row["STATE"] = 1;
-
-            //        gvList.EndDataUpdate();
-            //        Dangol.CloseSplash();
-            //        Dangol.Message("처리되었습니다");
-            //    }
-            //    else
-            //    {
-            //        Dangol.CloseSplash();
-            //        Dangol.Error(jResult["MSG"]);
-            //    }
-            //}
-
             return isSuccess;
         }
-
-        public void createReleaseReceiptItemt(long releaseId)
+        public void SetFocus()
         {
-            //using (DlgCreateCandidateItem createCandidateItem = new DlgCreateCandidateItem(releaseId))
-            //{
-            //    if (createCandidateItem.ShowDialog(this) == DialogResult.OK)
-            //    {
-            //        Dangol.ShowSplash();
-
-            //        gvList.BeginDataUpdate();
-            //        DataRow dr = _dt.NewRow();
-
-            //        dr["NO"] = 0;
-
-            //        dr["ITEM_ID"] = ConvertUtil.ToInt64(createCandidateItem._jobject["ITEM_ID"]);
-            //        dr["MODEL_ID"] = ConvertUtil.ToInt64(createCandidateItem._jobject["MODEL_ID"]);
-
-            //        dr["COMPONENT_CD"] = ConvertUtil.ToString(createCandidateItem._jobject["COMPONENT_CD"]);
-            //        dr["USED_YN"] = ConvertUtil.ToInt32(createCandidateItem._jobject["USED_YN"]);
-            //        dr["MODEL_NM"] = ConvertUtil.ToString(createCandidateItem._jobject["MODEL_NM"]);
-
-            //        //dr["CPU_MODEL_ID"] = ConvertUtil.ToInt64(createCandidateItem._jobject["CPU_MODEL_ID"]);
-            //        //dr["CPU"] = ConvertUtil.ToString(createCandidateItem._jobject["CPU"]);
-            //        //dr["MEM"] = ConvertUtil.ToInt32(createCandidateItem._jobject["MEM"]);
-            //        //dr["CPU_DETAIL"] = ConvertUtil.ToInt32(createCandidateItem._jobject["CPU_DETAIL"]);
-            //        //dr["STG"] = ConvertUtil.ToInt32(createCandidateItem._jobject["STG"]);
-
-            //        dr["RECEIPT_CNT"] = ConvertUtil.ToInt32(createCandidateItem._jobject["RECEIPT_CNT"]);
-            //        dr["DES"] = ConvertUtil.ToString(createCandidateItem._jobject["DES"]);
-
-            //        dr["STATE"] = 1;
-            //        dr["CHECK"] = false;
-            //        _dt.Rows.Add(dr);
-
-            //        Common.setGridViewNo(gvList);
-
-            //        gvList.EndDataUpdate();
-
-            //        Dangol.CloseSplash();
-
-            //        Dangol.Message("추가되었습니다.");
-            //    }
-            //}
+            gvList.Focus();
         }
 
-        public bool DeleteReleaseReceiptItem()
+        public void SetColFocus(string col, int rowHandle = 0)
         {
-            bool isSuccess = false;
-
-            //int rowhandle = gvList.FocusedRowHandle;
-            //gvList.FocusedRowHandle = -2147483646;
-            //gvList.FocusedRowHandle = rowhandle;
-
-            //DataRow[] rows = _dt.Select("CHECK = TRUE"); //shlee
-            //if (rows.Length < 1)
-            //{
-            //    Dangol.Message("선택된 아이템이 없습니다.");
-            //}
-            //else
-            //{
-            //    if (Dangol.MessageYN("선택한 아이템을 삭제하시겠습니까?") == DialogResult.Yes)
-            //    {
-            //        JObject jResult = new JObject();
-            //        JObject jobj = new JObject();
-            //        string url = "/Nrelease/deleteReleaseReceiptItem.json";
-
-            //        var jArrayProduct = new JArray();
-            //        List<long> listItemId = new List<long>();
-            //        foreach (DataRow row in rows)
-            //            listItemId.Add(ConvertUtil.ToInt64(row["ITEM_ID"]));
-
-            //        //jobj.Add("PRODUCT_YN", 1);
-            //        jobj.Add("LIST_ITEM_ID", string.Join(",", listItemId));
-            //        //jobj.Add(_representativeIdCol, _representativeId);
-            //        //jobj.Add("REPRESENTATIVE_ID_COL", _representativeIdCol);
-            //        //jobj.Add("REPRESENTATIVE_ID", _representativeId);
-            //        //jobj.Add("PROCESS_TYPE", _processType);
-            //        //jobj.Add("TABLE_NM", _tableNm);
-
-            //        Dangol.ShowSplash();
-
-            //        if (DBConnect.getRequest(jobj, ref jResult, url))
-            //        {
-            //            isSuccess = true;
-            //            DBNRelease.wirteUpdateLog(_representativeId, 0, "접수 제품 정보 삭제");
-
-            //            gvList.BeginDataUpdate();
-
-            //            foreach (DataRow row in rows)
-            //                row.Delete();
-
-            //            Common.setGridViewNo(gvList);
-
-            //            gvList.EndDataUpdate();
-            //            Dangol.CloseSplash();
-            //            Dangol.Message("처리되었습니다.");
-            //        }
-            //        else
-            //        {
-            //            Dangol.CloseSplash();
-            //            Dangol.Error(jResult["MSG"]);
-            //        }
-            //    }
-            //}
-
-            return isSuccess;
+            ColumnView View = (ColumnView)gcList.FocusedView;
+            GridColumn column = View.Columns[col];
+            if (column != null)
+            {
+                if (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    View.FocusedRowHandle = rowHandle;
+                    View.FocusedColumn = column;
+                }
+            }
         }
 
         public void gvList_CustomButtonChecked()
@@ -770,6 +661,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             Common.gridViewButtonUnchecked(gvList, _dt);
         }
 
+       
         private void gvList_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             if (_currentRow != null)
@@ -803,9 +695,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 }
                 else
                 {
-                    getBookList(bookCd, "");
-                    this.gvList.PostEditor();
-                    this.gvList.SetFocusedRowCellValue("ORDER_CNT", null);
+                    if(getBookList(bookCd, ""))
+                        SetColFocus("ORDER_CNT", gvList.FocusedRowHandle);
+
+                    //this.gvList.PostEditor();
+
+                    //this.gvList.SetFocusedRowCellValue("ORDER_CNT", null);
                 }
             }
         }
@@ -823,14 +718,16 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 }
                 else
                 {
-                    getBookList(0, title);
-                    this.gvList.PostEditor();
-                    this.gvList.SetFocusedRowCellValue("ORDER_CNT", null);
+                    if(getBookList(0, title))
+                        SetColFocus("ORDER_CNT", gvList.FocusedRowHandle);
+
+                    //this.gvList.PostEditor();
+                    //this.gvList.SetFocusedRowCellValue("ORDER_CNT", null);
                 }
             }
         }
 
-        private void getBookList(long bookCd, string bookNm)
+        private bool getBookList(long bookCd, string bookNm)
         {
             JObject jData = getSearchInfoHandler();
 
@@ -893,7 +790,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                         {
                                             purchCdT = ConvertUtil.ToInt32(obj["PURCHCD"]);
                                             purchNmT = ConvertUtil.ToString(obj["PURCHNM"]);
-                                            ordGroupCd = ConvertUtil.ToInt32(obj["ORD_GROUPCD"]); 
+                                            ordGroupCd = ConvertUtil.ToInt32(obj["ORD_GROUPCD"]);
 
                                             DataRow dr = _dtPurchCd.NewRow();
 
@@ -918,7 +815,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                                 _dicPurchGroupCd.Add(purchCdT, ordGroupCd);
                                         }
 
-                                        if(index == 1)
+                                        if (index == 1)
                                         {
                                             firstPurchCd = purchCd;
                                             index++;
@@ -931,19 +828,38 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                     _dicPurchCdTable.Add(bookCd, dtPurchCd);
 
                                     _currentRow.BeginEdit();
-                                    _currentRow["BOOKCD"] = firstPurchCd;
+                                    _currentRow["PURCHCD"] = firstPurchCd;
                                     _currentRow.EndEdit();
-                                    getOrderRatio();
+                                    return getOrderRatio();
+
                                 }
                                 else
                                 {
                                     Dangol.Warining($"도서명['{bookNm}']에 대한 매입처가 없습니다. 주문할수없습니다.");
                                     _currentRow["STATE"] = -1;
+                                    return false;
                                     //_currentRow["BOOKNM"] = "12312121231231";
                                 }
                             }
                         }
+                        else
+                        {
+                            DataTable dtPurchcd = _dicPurchCdTable[bookCd];
+
+                            if (dtPurchcd.Rows.Count > 0)
+                            {
+                                purchCd = ConvertUtil.ToInt64(dtPurchcd.Rows[0]["KEY"]);
+                                _currentRow.BeginEdit();
+                                _currentRow["PURCHCD"] = purchCd;
+                                _currentRow.EndEdit();
+                                getOrderRatio();
+                            }
+
+                            return true;
+                        }
                     }
+                    else
+                        return false;
                 }
             }
             else
@@ -1039,26 +955,185 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                     _currentRow.BeginEdit();
                                     _currentRow["PURCHCD"] = firstPurchCd;
                                     _currentRow.EndEdit();
-                                    getOrderRatio();
+                                    return getOrderRatio();
                                 }
                                 else
                                 {
                                     Dangol.Warining($"도서코드['{bookCd}']에 대한 매입처가 없습니다. 주문할수없습니다.");
                                     _currentRow["STATE"] = -1;
+                                    return false;
                                     
                                 }
                             }
+                        }
+                        else
+                        {
+                            DataTable dtPurchcd = _dicPurchCdTable[bookCd];
+
+                            if (dtPurchcd.Rows.Count > 0)
+                            {
+                                purchCd = ConvertUtil.ToInt64(dtPurchcd.Rows[0]["KEY"]);
+                                _currentRow.BeginEdit();
+                                _currentRow["PURCHCD"] = purchCd;
+                                _currentRow.EndEdit();
+                                getOrderRatio();
+                            }
+
+                            return true;
                         }
                     }
                     else
                     {
                         Dangol.Warining($"도서코드 ['{bookCd}']가 점별도서테이블에 존재하지 않습니다.");
+                        return false;
                     }
                 }
                 else
                 {
                     Dangol.Error(jResult["MSG"]);
+                    return false;
                 }
+            }
+
+            return true;
+        }
+
+        private bool setPreBookOrder(DataRow row)
+        {
+            long bookCd = ConvertUtil.ToInt64(row["BOOKCD"]);
+            string bookNm = ConvertUtil.ToString(row["BOOKNM"]);
+
+            //JObject jData = getSearchInfoHandler();
+
+            //int shopCd = ConvertUtil.ToInt32(jData["SHOPCD"]);
+            long prePurchCd = ConvertUtil.ToInt32(row["PURCHCD"]);
+
+            JObject jResult = new JObject();
+            JObject jobj = new JObject();
+            jobj.Add("BOOKCD", bookCd);
+            jobj.Add("SHOPCD", _shopCd);
+
+            string url = "/search/getBookList.json";
+
+            if (DBConnect.getRequest(jobj, ref jResult, url))
+            {
+                if (Convert.ToBoolean(jResult["EXIST"]))
+                {
+                    JArray jArray = JArray.Parse(jResult["DATA"].ToString());
+
+                    foreach (JObject obj in jArray.Children<JObject>())
+                    {
+                        insertOrderBook(row, obj);
+                        break;
+                    }
+
+                    if (!_dicLookUpEdit.ContainsKey(bookCd))
+                    {
+                        url = "/search/getPurchaseList4Order.json";
+
+                        if (DBConnect.getRequest(jobj, ref jResult, url))
+                        {
+                            if (Convert.ToBoolean(jResult["EXIST"]))
+                            {
+                                DataTable dtPurchCd;
+                                dtPurchCd = new DataTable();
+                                dtPurchCd.Columns.Add(new DataColumn("KEY", typeof(int)));
+                                dtPurchCd.Columns.Add(new DataColumn("VALUE", typeof(string)));
+
+                                jArray = JArray.Parse(jResult["DATA"].ToString());
+
+                                DataRow[] rows;
+                                int purchCdT;
+                                string purchNmT;
+                                int ordGroupCd;
+
+                                long firstPurchCd = -1;
+                                int index = 1;
+                                long purchCd;
+
+                                foreach (JObject obj in jArray.Children<JObject>())
+                                {
+                                    purchCd = ConvertUtil.ToInt64(obj["PURCHCD"]);
+
+                                    rows = _dtPurchCd.Select($"BOOKCD = {bookCd} AND KEY = {purchCd}");
+                                    if (rows.Length == 0)
+                                    {
+                                        purchCdT = ConvertUtil.ToInt32(obj["PURCHCD"]);
+                                        purchNmT = ConvertUtil.ToString(obj["PURCHNM"]);
+                                        ordGroupCd = ConvertUtil.ToInt32(obj["ORD_GROUPCD"]);
+
+                                        DataRow dr = _dtPurchCd.NewRow();
+
+                                        dr["BOOKCD"] = bookCd;
+                                        dr["KEY"] = purchCdT;
+                                        dr["VALUE"] = purchNmT;
+
+                                        _dtPurchCd.Rows.Add(dr);
+
+                                        DataRow dr1 = dtPurchCd.NewRow();
+
+                                        dr["BOOKCD"] = bookCd;
+                                        dr1["KEY"] = purchCdT;
+                                        dr1["VALUE"] = purchNmT;
+
+                                        dtPurchCd.Rows.Add(dr1);
+
+                                        if (!_dicPurchNm.ContainsKey(purchCdT))
+                                            _dicPurchNm.Add(purchCdT, purchNmT);
+
+                                        if (!_dicPurchGroupCd.ContainsKey(purchCdT))
+                                            _dicPurchGroupCd.Add(purchCdT, ordGroupCd);
+                                    }
+
+                                    if (index == 1)
+                                    {
+                                        firstPurchCd = purchCd;
+                                        index++;
+                                    }
+                                }
+
+                                LookUpEdit editor = new LookUpEdit();
+                                Util.LookupEditHelper(editor, dtPurchCd, "KEY", "VALUE");
+                                _dicLookUpEdit.Add(bookCd, editor);
+                                _dicPurchCdTable.Add(bookCd, dtPurchCd);
+
+                                row["PURCHCD"] = prePurchCd > 0 ? prePurchCd : firstPurchCd;
+                                return getOrderRatio(row);
+                            }
+                            else
+                            {
+                                //Dangol.Warining($"도서코드['{bookCd}']에 대한 매입처가 없습니다. 주문할수없습니다.");
+                                //_currentRow["STATE"] = -1;
+                                return false;
+
+                            }
+                        }
+                        else
+                            return false;
+                    }
+                    else
+                    {
+                        DataTable dtPurchcd = _dicPurchCdTable[bookCd];
+                        if (dtPurchcd.Rows.Count > 0)
+                        {
+                            long purchCd = ConvertUtil.ToInt64(dtPurchcd.Rows[0]["KEY"]);
+                            row["PURCHCD"] = prePurchCd > 0 ? prePurchCd : purchCd;
+
+                            getOrderRatio(row);
+                        }
+                        return true;
+                    }
+                }
+                else
+                {
+                    //Dangol.Warining($"도서코드 ['{bookCd}']가 점별도서테이블에 존재하지 않습니다.");
+                    return false;
+                }
+            }
+            else
+            {
+                Dangol.Error(jResult["MSG"]);
+                return false;
             }
         }
 
@@ -1094,7 +1169,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             _currentRow["BOOKCD"] = ConvertUtil.ToInt64(obj["BOOKCD"]);
             _currentRow["BOOKNM"] = ConvertUtil.ToString(obj["BOOKNM"]);
-            _currentRow["AUTHOR"] = ConvertUtil.ToString(obj["AUTHOR1"]);
+            _currentRow["AUTHOR"] = ConvertUtil.ToString(obj["AUTHORNM"]);
             _currentRow["PUBSHNM"] = ConvertUtil.ToString(obj["PUBSHNM"]);
             _currentRow["PRICE"] = ConvertUtil.ToInt32(obj["PRICE"]);
 
@@ -1110,6 +1185,28 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             _currentRow["STOCK_CNT"] = 0;
             _currentRow["STATE"] = 1;   //0:default, 1:create, 2:available, 3:complete, -1:notavailable
+        }
+
+        private void insertOrderBook(DataRow row, JObject obj)
+        {
+            row["BOOKCD"] = ConvertUtil.ToInt64(obj["BOOKCD"]);
+            row["BOOKNM"] = ConvertUtil.ToString(obj["BOOKNM"]);
+            row["AUTHOR"] = ConvertUtil.ToString(obj["AUTHORNM"]);
+            row["PUBSHNM"] = ConvertUtil.ToString(obj["PUBSHNM"]);
+            row["PRICE"] = ConvertUtil.ToInt32(obj["PRICE"]);
+
+            row["GROUPCD"] = ConvertUtil.ToInt32(obj["GROUPCD"]);
+            row["STANDCD"] = ConvertUtil.ToInt32(obj["STANDCD"]);
+
+
+            row["INP_CNT"] = 0;
+            row["RETURN_CNT"] = 0;
+
+            row["ORD_CNT"] = 0;
+            row["ESTI_CNT"] = 0;
+
+            row["STOCK_CNT"] = 0;
+            row["STATE"] = 1;   //0:default, 1:create, 2:available, 3:complete, -1:notavailable
         }
 
         private void gcList_DoubleClick(object sender, EventArgs e)
@@ -1161,7 +1258,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
 
         }
-        private void getOrderRatio()
+        private bool getOrderRatio()
         { 
             long bookCd = ConvertUtil.ToInt64(_currentRow["BOOKCD"]);
             int purchCd = ConvertUtil.ToInt32(_currentRow["PURCHCD"]);
@@ -1175,7 +1272,20 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             string key = $"{_shopCd}/{bookCd}/{purchCd}";
 
-            if (!_dicOrderRatioTable.ContainsKey(key) && bookCd > 0 && purchCd > 0)
+            if (_dicOrderRatioTable.ContainsKey(key))
+            {
+                DataTable dtRatio = _dicOrderRatioTable[key];
+                if (dtRatio.Rows.Count > 0)
+                {
+                    _currentRow.BeginEdit();
+                    _currentRow["ORDER_RATIO"] = ConvertUtil.ToInt32(dtRatio.Rows[0]["KEY"]);
+                    _currentRow.EndEdit();
+                }
+
+                return true;
+            }
+
+            if (bookCd > 0 && purchCd > 0)
             {
                 if (_orderCondition == 1)
                 {
@@ -1232,12 +1342,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
                             dtOrderRatioTable.Rows.Add(dr1);
 
-                            if(index == 1)
+                            if (index == 1)
                             {
                                 firstRate = rate;
                                 index++;
                             }
-                            
+
                         }
 
                         _dicOrderRatioTable.Add(key, dtOrderRatioTable);
@@ -1246,15 +1356,138 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         _currentRow["ORDER_RATIO"] = firstRate;
                         _currentRow.EndEdit();
 
+                        return true;
                     }
                     else
+                    {
                         Dangol.Warining($"도서코드 ['{bookCd}']에 {_conditionString} 해당하는 매입율이 없습니다. 주문할 수 없습니다.");
+                        return false;
+                    }
+
                 }
                 else
                 {
                     Dangol.Error(jResult["MSG"]);
+                    return false;
                 }
-            }   
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool getOrderRatio(DataRow row)
+        {
+            long bookCd = ConvertUtil.ToInt64(row["BOOKCD"]);
+            int purchCd = ConvertUtil.ToInt32(row["PURCHCD"]);
+
+            JObject jResult = new JObject();
+            JObject jobj = new JObject();
+
+            jobj.Add("BOOKCD", bookCd);
+            jobj.Add("PURCHCD", purchCd);
+            jobj.Add("SHOPCD", _shopCd);
+
+            string key = $"{_shopCd}/{bookCd}/{purchCd}";
+
+            if (_dicOrderRatioTable.ContainsKey(key))
+            {
+                DataTable dtRatio = _dicOrderRatioTable[key];
+                if(dtRatio.Rows.Count > 0)
+                    row["ORDER_RATIO"] = ConvertUtil.ToInt32(dtRatio.Rows[0]["KEY"]);
+
+                return true;
+            }
+
+            if (bookCd > 0 && purchCd > 0)
+            {
+                if (_orderCondition == 1)
+                {
+                    jobj.Add("RATE_KBN_S", 10);
+                    jobj.Add("RATE_KBN_E", 20);
+                }
+                else
+                {
+                    jobj.Add("RATE_KBN_S", 20);
+                    jobj.Add("RATE_KBN_E", 30);
+                }
+
+                string url = "/search/getOrderBookPurchRate.json";
+
+                if (DBConnect.getRequest(jobj, ref jResult, url))
+                {
+                    if (Convert.ToBoolean(jResult["EXIST"]))
+                    {
+                        DataTable dtOrderRatioTable;
+                        dtOrderRatioTable = new DataTable();
+                        dtOrderRatioTable.Columns.Add(new DataColumn("KEY", typeof(int)));
+                        dtOrderRatioTable.Columns.Add(new DataColumn("VALUE", typeof(string)));
+
+                        JArray jArray = JArray.Parse(jResult["DATA"].ToString());
+
+                        int rate = 0;
+                        DataRow[] rows;
+
+                        int firstRate = -1;
+                        int index = 1;
+
+                        foreach (JObject obj in jArray.Children<JObject>())
+                        {
+                            rate = ConvertUtil.ToInt32(obj["RATE"]);
+
+                            rows = _dtPurchCd.Select($"KEY = {rate}");
+
+                            if (rows.Length == 0)
+                            {
+                                DataRow dr = _dtOrderRatio.NewRow();
+
+                                //dr["CD"] = key;
+                                dr["KEY"] = rate;
+                                dr["VALUE"] = ConvertUtil.ToString(rate);
+
+                                _dtOrderRatio.Rows.Add(dr);
+                            }
+
+                            DataRow dr1 = dtOrderRatioTable.NewRow();
+
+                            //dr1["CD"] = bookCd;
+                            dr1["KEY"] = rate;
+                            dr1["VALUE"] = ConvertUtil.ToString(rate);
+
+                            dtOrderRatioTable.Rows.Add(dr1);
+
+                            if (index == 1)
+                            {
+                                firstRate = rate;
+                                index++;
+                            }
+
+                        }
+
+                        _dicOrderRatioTable.Add(key, dtOrderRatioTable);
+
+                        row["ORDER_RATIO"] = firstRate;
+
+                        return true;
+                    }
+                    else
+                    {
+                        //Dangol.Warining($"도서코드 ['{bookCd}']에 {_conditionString} 해당하는 매입율이 없습니다. 주문할 수 없습니다.");
+                        return false;
+                    }
+
+                }
+                else
+                {
+                    //Dangol.Error(jResult["MSG"]);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void setOrderCount(long bookCd, int purchCd, int orderRate)
@@ -1304,6 +1537,24 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             int orderRatio = ConvertUtil.ToInt32(_currentRow["ORDER_RATIO"]);
 
             setOrderCount(bookCd, purchCd, orderRatio);
+        }
+
+        private void gcList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F3)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void riseCnt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int rowHandle = gvList.FocusedRowHandle;
+                if(rowHandle < 29)
+                    SetColFocus("BOOKNM", rowHandle+1);
+            }
         }
     }
 }

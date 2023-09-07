@@ -1,4 +1,7 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Data;
@@ -240,6 +243,38 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             //}
         }
 
+        public DataRow[] getCheckedList()
+        {
+            if (_dt.Rows.Count > 0)
+            {
+                int rowhandle = gvList.FocusedRowHandle;
+                gvList.FocusedRowHandle = -2147483646;
+                gvList.FocusedRowHandle = rowhandle;
+
+                DataRow[] rows = _dt.Select("CHECK = TRUE");
+
+                if (rows.Length > 0)
+                    return rows;
+                else
+                {
+                    if (_currentRow == null)
+                        return null;
+                    else
+                    {
+                        _currentRow.BeginEdit();
+                        _currentRow["CHECK"] = true;
+                        _currentRow.EndEdit();
+
+                        return _dt.Select("CHECK = TRUE");
+                    }
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public bool editingCheck()
         {
             int rowhandle = gvList.FocusedRowHandle;
@@ -255,6 +290,18 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         public DataTable getTable()
         {
             return _dt;
+        }
+
+        public void setFocus()
+        {
+            gvList.Focus();
+        }
+
+        public void clear()
+        {
+            gvList.BeginDataUpdate();
+            _dt.Clear();
+            gvList.EndDataUpdate();
         }
 
         public void receiptRefresh()
@@ -487,6 +534,20 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
                     if (state == 1)
                         _currentRow["STATE"] = 2;
+                }
+            }
+        }
+
+        public void SetColFocus(string col, int rowHandle = 0)
+        {
+            ColumnView View = (ColumnView)gcList.FocusedView;
+            GridColumn column = View.Columns[col];
+            if (column != null)
+            {
+                if (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    View.FocusedRowHandle = rowHandle;
+                    View.FocusedColumn = column;
                 }
             }
         }

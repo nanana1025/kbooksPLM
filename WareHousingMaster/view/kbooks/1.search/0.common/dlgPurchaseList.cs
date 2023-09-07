@@ -109,5 +109,18 @@ namespace WareHousingMaster.view.kbooks.search.common
         {
             this.DialogResult = DialogResult.Cancel;
         }
+
+        private void dlgPurchaseList_Shown(object sender, EventArgs e)
+        {
+            usrPurchaseList1.SetFocus();
+        }
+
+        private void dlgPurchaseList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F10 || e.KeyCode == Keys.F9)
+            {
+                this.DialogResult = DialogResult.Cancel;
+            }
+        }
     }
 }

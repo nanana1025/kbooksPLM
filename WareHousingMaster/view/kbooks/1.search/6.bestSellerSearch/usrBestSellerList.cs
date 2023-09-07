@@ -1,4 +1,7 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Data;
@@ -124,7 +127,18 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
       
         private void gvList_FocusedRowObjectChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventArgs e)
         {
+            bool isValidRow = (e.FocusedRowHandle >= 0 && gvList.RowCount > 0);
 
+            if (isValidRow)
+            {
+                _currentRow = e.Row as DataRowView;
+            }
+            else
+            {
+                _currentRow = null;
+            }
+
+            focusedRowObjectChangeHandler(_currentRow);
         }
         private void gvList_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
@@ -224,6 +238,50 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             DataRow[] rows = _dt.Select("STATE = 2");  //shlee
 
             return rows.Length > 0;
+        }
+
+        public DataRow[] getCheckedList()
+        {
+            if (_dt.Rows.Count > 0)
+            {
+                int rowhandle = gvList.FocusedRowHandle;
+                gvList.FocusedRowHandle = -2147483646;
+                gvList.FocusedRowHandle = rowhandle;
+
+                DataRow[] rows = _dt.Select("CHECK = TRUE");
+
+                if (rows.Length > 0)
+                    return rows;
+                else
+                {
+                    if (_currentRow == null)
+                        return null;
+                    else
+                    {
+                        _currentRow.BeginEdit();
+                        _currentRow["CHECK"] = true;
+                        _currentRow.EndEdit();
+
+                        return _dt.Select("CHECK = TRUE");
+                    }
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public void clear()
+        {
+            gvList.BeginDataUpdate();
+            _dt.Clear();
+            gvList.EndDataUpdate();
+        }
+
+        public void setFocus()
+        {
+            gvList.Focus();
         }
 
 
@@ -455,6 +513,20 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         private void gvList_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
 
+        }
+
+        public void SetColFocus(string col, int rowHandle = 0)
+        {
+            ColumnView View = (ColumnView)gcList.FocusedView;
+            GridColumn column = View.Columns[col];
+            if (column != null)
+            {
+                if (rowHandle != GridControl.InvalidRowHandle)
+                {
+                    View.FocusedRowHandle = rowHandle;
+                    View.FocusedColumn = column;
+                }
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 using WareHousingMaster.view.common;
 using Enum = WareHousingMaster.view.common.Enum;
 
@@ -76,6 +77,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         private void sbSearch_Click(object sender, EventArgs e)
         {
+            Search();
+        }
+
+        public void Search()
+        {
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 
@@ -111,6 +117,28 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             }
 
             return true;
+        }
+        public void clear()
+        {
+            teNm.Text = "";
+            teCd.Text = "";
+        }
+
+        public void setFocus()
+        {
+            teNm.Focus();
+        }
+
+        private void teNm_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
+        }
+
+        private void teCd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
         }
     }
 }

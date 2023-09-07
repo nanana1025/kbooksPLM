@@ -226,6 +226,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             gvList.FocusedRowObjectChanged += gvList_FocusedRowObjectChanged;
         }
 
+        public void SetFocus()
+        {
+            gvList.Focus();
+        }
         public void viewRefresh()
         {
             gvList.RefreshData();

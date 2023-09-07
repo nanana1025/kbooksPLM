@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 using WareHousingMaster.view.common;
 
 namespace WareHousingMaster.view.kbooks.search.booksearch
@@ -75,6 +76,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         }
 
         private void sbSearch_Click(object sender, EventArgs e)
+        {
+            JObject jData = new JObject();
+            bool isSuccess = checkSearch(ref jData);
+
+            if (isSuccess)
+                searchHandler(jData);
+            else
+                Dangol.Message(jData["MSG"]);
+        }
+
+        public void Search()
         {
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
@@ -215,6 +227,36 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             }
 
             return true;
+        }
+
+        public void setFocus()
+        {
+            teCd_S.Focus();
+        }
+
+        public void clear()
+        {
+            teCd_S.Text = "";
+            teCd_E.Text = "";
+            teName.Text = "";
+        }
+
+        private void teCd_S_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
+        }
+
+        private void teCd_E_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
+        }
+
+        private void teName_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
         }
     }
 }

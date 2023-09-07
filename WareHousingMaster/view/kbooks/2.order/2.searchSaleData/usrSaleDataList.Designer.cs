@@ -47,6 +47,7 @@
             this.gcOrdRate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rileOrderRatio = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gcOrderCnt = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rileCnt = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rileOrderRatio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rileCnt)).BeginInit();
             this.SuspendLayout();
             // 
             // gcList
@@ -68,14 +70,22 @@
             this.gcList.MainView = this.gvList;
             this.gcList.Name = "gcList";
             this.gcList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.rileOrderRatio});
+            this.rileOrderRatio,
+            this.rileCnt});
             this.gcList.Size = new System.Drawing.Size(1499, 502);
             this.gcList.TabIndex = 7;
             this.gcList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvList});
+            this.gcList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gcList_KeyDown);
             // 
             // gvList
             // 
+            this.gvList.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gvList.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.BackColor = System.Drawing.SystemColors.Control;
+            this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
@@ -420,6 +430,7 @@
             this.gcOrderCnt.AppearanceHeader.Options.UseTextOptions = true;
             this.gcOrderCnt.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcOrderCnt.Caption = "주문수량";
+            this.gcOrderCnt.ColumnEdit = this.rileCnt;
             this.gcOrderCnt.DisplayFormat.FormatString = "n0";
             this.gcOrderCnt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gcOrderCnt.FieldName = "ORDER_CNT";
@@ -431,6 +442,14 @@
             this.gcOrderCnt.Visible = true;
             this.gcOrderCnt.VisibleIndex = 14;
             this.gcOrderCnt.Width = 60;
+            // 
+            // rileCnt
+            // 
+            this.rileCnt.AutoHeight = false;
+            this.rileCnt.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rileCnt.Name = "rileCnt";
+            this.rileCnt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rileCnt_KeyDown);
             // 
             // gridColumn11
             // 
@@ -456,11 +475,11 @@
             this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn10.Caption = "도서코드";
             this.gridColumn10.FieldName = "BOOKCD";
-            this.gridColumn10.MinWidth = 60;
+            this.gridColumn10.MinWidth = 80;
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 16;
-            this.gridColumn10.Width = 62;
+            this.gridColumn10.Width = 80;
             // 
             // gridColumn9
             // 
@@ -576,6 +595,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rileOrderRatio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rileCnt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -610,5 +630,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rileOrderRatio;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit rileCnt;
     }
 }

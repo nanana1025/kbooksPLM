@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usrSearchPurchaseAndPublisher));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.sbSearch = new DevExpress.XtraEditors.SimpleButton();
             this.leShopCd = new DevExpress.XtraEditors.LookUpEdit();
             this.teNm = new DevExpress.XtraEditors.TextEdit();
             this.teCd = new DevExpress.XtraEditors.TextEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lcStore = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lcNm = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem50 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcCd = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leShopCd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teNm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teCd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcStore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcNm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem50)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcCd)).BeginInit();
@@ -62,10 +62,56 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl1.Root = this.Root;
             this.layoutControl1.Size = new System.Drawing.Size(888, 26);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // sbSearch
+            // 
+            this.sbSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch.ImageOptions.Image")));
+            this.sbSearch.Location = new System.Drawing.Point(716, 2);
+            this.sbSearch.Name = "sbSearch";
+            this.sbSearch.Size = new System.Drawing.Size(96, 22);
+            this.sbSearch.StyleController = this.layoutControl1;
+            this.sbSearch.TabIndex = 3;
+            this.sbSearch.Text = "검색";
+            this.sbSearch.Click += new System.EventHandler(this.sbSearch_Click);
+            // 
+            // leShopCd
+            // 
+            this.leShopCd.EditValue = 1;
+            this.leShopCd.Location = new System.Drawing.Point(122, 2);
+            this.leShopCd.Name = "leShopCd";
+            this.leShopCd.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.leShopCd.Properties.Appearance.Options.UseBackColor = true;
+            this.leShopCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.leShopCd.Properties.NullText = "선택";
+            this.leShopCd.Properties.ReadOnly = true;
+            this.leShopCd.Size = new System.Drawing.Size(110, 20);
+            this.leShopCd.StyleController = this.layoutControl1;
+            this.leShopCd.TabIndex = 4;
+            this.leShopCd.TabStop = false;
+            // 
+            // teNm
+            // 
+            this.teNm.Location = new System.Drawing.Point(506, 2);
+            this.teNm.Name = "teNm";
+            this.teNm.Size = new System.Drawing.Size(206, 20);
+            this.teNm.StyleController = this.layoutControl1;
+            this.teNm.TabIndex = 2;
+            this.teNm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teNm_KeyDown);
+            // 
+            // teCd
+            // 
+            this.teCd.Location = new System.Drawing.Point(326, 2);
+            this.teCd.Name = "teCd";
+            this.teCd.Size = new System.Drawing.Size(86, 20);
+            this.teCd.StyleController = this.layoutControl1;
+            this.teCd.TabIndex = 1;
+            this.teCd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teCd_KeyDown);
             // 
             // Root
             // 
@@ -81,53 +127,6 @@
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.Root.Size = new System.Drawing.Size(888, 26);
             this.Root.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(814, 0);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(74, 26);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // sbSearch
-            // 
-            this.sbSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch.ImageOptions.Image")));
-            this.sbSearch.Location = new System.Drawing.Point(716, 2);
-            this.sbSearch.Name = "sbSearch";
-            this.sbSearch.Size = new System.Drawing.Size(96, 22);
-            this.sbSearch.StyleController = this.layoutControl1;
-            this.sbSearch.TabIndex = 5;
-            this.sbSearch.Text = "검색";
-            this.sbSearch.Click += new System.EventHandler(this.sbSearch_Click);
-            // 
-            // leShopCd
-            // 
-            this.leShopCd.EditValue = 1;
-            this.leShopCd.Location = new System.Drawing.Point(122, 2);
-            this.leShopCd.Name = "leShopCd";
-            this.leShopCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.leShopCd.Properties.NullText = "선택";
-            this.leShopCd.Size = new System.Drawing.Size(110, 20);
-            this.leShopCd.StyleController = this.layoutControl1;
-            this.leShopCd.TabIndex = 4;
-            // 
-            // teNm
-            // 
-            this.teNm.Location = new System.Drawing.Point(506, 2);
-            this.teNm.Name = "teNm";
-            this.teNm.Size = new System.Drawing.Size(206, 20);
-            this.teNm.StyleController = this.layoutControl1;
-            this.teNm.TabIndex = 4;
-            // 
-            // teCd
-            // 
-            this.teCd.Location = new System.Drawing.Point(326, 2);
-            this.teCd.Name = "teCd";
-            this.teCd.Size = new System.Drawing.Size(86, 20);
-            this.teCd.StyleController = this.layoutControl1;
-            this.teCd.TabIndex = 4;
             // 
             // lcStore
             // 
@@ -147,6 +146,14 @@
             this.lcStore.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.lcStore.TextSize = new System.Drawing.Size(110, 20);
             this.lcStore.TextToControlDistance = 10;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(814, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(74, 26);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lcNm
             // 
@@ -215,12 +222,12 @@
             this.Size = new System.Drawing.Size(888, 26);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leShopCd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teNm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teCd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcStore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcNm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem50)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcCd)).EndInit();

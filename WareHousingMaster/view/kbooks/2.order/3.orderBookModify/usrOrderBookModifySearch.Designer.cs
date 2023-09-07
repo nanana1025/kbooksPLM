@@ -33,7 +33,6 @@
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -80,7 +79,6 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
@@ -148,8 +146,9 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(888, 202);
+            this.layoutControl1.Size = new System.Drawing.Size(888, 190);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -169,7 +168,6 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lcReleaseCategory2,
             this.emptySpaceItem2,
-            this.emptySpaceItem1,
             this.lcReceiptNo6,
             this.lcType,
             this.emptySpaceItem4,
@@ -194,7 +192,7 @@
             this.layoutControlItem11});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(888, 202);
+            this.Root.Size = new System.Drawing.Size(888, 190);
             this.Root.TextVisible = false;
             // 
             // emptySpaceItem2
@@ -204,14 +202,6 @@
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(103, 190);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 190);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(888, 12);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
@@ -246,9 +236,9 @@
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(355, 141);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(355, 140);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(330, 49);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(330, 50);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // sbSearch
@@ -258,7 +248,7 @@
             this.sbSearch.Name = "sbSearch";
             this.sbSearch.Size = new System.Drawing.Size(96, 22);
             this.sbSearch.StyleController = this.layoutControl1;
-            this.sbSearch.TabIndex = 5;
+            this.sbSearch.TabIndex = 14;
             this.sbSearch.Text = "검색";
             this.sbSearch.Click += new System.EventHandler(this.sbSearch_Click);
             // 
@@ -267,21 +257,25 @@
             this.leShopCd.EditValue = "01";
             this.leShopCd.Location = new System.Drawing.Point(112, 2);
             this.leShopCd.Name = "leShopCd";
+            this.leShopCd.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.leShopCd.Properties.Appearance.Options.UseBackColor = true;
             this.leShopCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leShopCd.Properties.NullText = "선택";
+            this.leShopCd.Properties.ReadOnly = true;
             this.leShopCd.Size = new System.Drawing.Size(216, 20);
             this.leShopCd.StyleController = this.layoutControl1;
             this.leShopCd.TabIndex = 4;
+            this.leShopCd.TabStop = false;
             // 
             // tePurchaseCd
             // 
-            this.tePurchaseCd.Location = new System.Drawing.Point(467, 118);
+            this.tePurchaseCd.Location = new System.Drawing.Point(467, 117);
             this.tePurchaseCd.Name = "tePurchaseCd";
             this.tePurchaseCd.Properties.ReadOnly = true;
             this.tePurchaseCd.Size = new System.Drawing.Size(66, 20);
             this.tePurchaseCd.StyleController = this.layoutControl1;
-            this.tePurchaseCd.TabIndex = 4;
+            this.tePurchaseCd.TabIndex = 12;
             // 
             // teGSCD
             // 
@@ -290,7 +284,7 @@
             this.teGSCD.Properties.ReadOnly = true;
             this.teGSCD.Size = new System.Drawing.Size(66, 20);
             this.teGSCD.StyleController = this.layoutControl1;
-            this.teGSCD.TabIndex = 4;
+            this.teGSCD.TabIndex = 6;
             // 
             // teGSNm
             // 
@@ -299,16 +293,16 @@
             this.teGSNm.Properties.ReadOnly = true;
             this.teGSNm.Size = new System.Drawing.Size(146, 20);
             this.teGSNm.StyleController = this.layoutControl1;
-            this.teGSNm.TabIndex = 4;
+            this.teGSNm.TabIndex = 7;
             // 
             // tePurchaseNm
             // 
-            this.tePurchaseNm.Location = new System.Drawing.Point(537, 118);
+            this.tePurchaseNm.Location = new System.Drawing.Point(537, 117);
             this.tePurchaseNm.Name = "tePurchaseNm";
             this.tePurchaseNm.Properties.ReadOnly = true;
             this.tePurchaseNm.Size = new System.Drawing.Size(146, 20);
             this.tePurchaseNm.StyleController = this.layoutControl1;
-            this.tePurchaseNm.TabIndex = 4;
+            this.tePurchaseNm.TabIndex = 13;
             this.tePurchaseNm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.teStand_KeyDown);
             // 
             // teStoreCd_S
@@ -318,7 +312,7 @@
             this.teStoreCd_S.Properties.ReadOnly = true;
             this.teStoreCd_S.Size = new System.Drawing.Size(86, 20);
             this.teStoreCd_S.StyleController = this.layoutControl1;
-            this.teStoreCd_S.TabIndex = 4;
+            this.teStoreCd_S.TabIndex = 2;
             // 
             // rgGSType
             // 
@@ -332,7 +326,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "개별")});
             this.rgGSType.Size = new System.Drawing.Size(216, 26);
             this.rgGSType.StyleController = this.layoutControl1;
-            this.rgGSType.TabIndex = 8;
+            this.rgGSType.TabIndex = 5;
             this.rgGSType.SelectedIndexChanged += new System.EventHandler(this.rgGSType_SelectedIndexChanged);
             // 
             // rgOrderCondition
@@ -348,7 +342,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "매절")});
             this.rgOrderCondition.Size = new System.Drawing.Size(216, 26);
             this.rgOrderCondition.StyleController = this.layoutControl1;
-            this.rgOrderCondition.TabIndex = 8;
+            this.rgOrderCondition.TabIndex = 9;
             // 
             // deDtOrder
             // 
@@ -367,12 +361,12 @@
             this.deDtOrder.Properties.MaskSettings.Set("mask", "yyyy-MM-dd");
             this.deDtOrder.Size = new System.Drawing.Size(216, 20);
             this.deDtOrder.StyleController = this.layoutControl1;
-            this.deDtOrder.TabIndex = 7;
+            this.deDtOrder.TabIndex = 10;
             // 
             // rgPurchaseRange
             // 
             this.rgPurchaseRange.EditValue = 1;
-            this.rgPurchaseRange.Location = new System.Drawing.Point(467, 88);
+            this.rgPurchaseRange.Location = new System.Drawing.Point(467, 87);
             this.rgPurchaseRange.Name = "rgPurchaseRange";
             this.rgPurchaseRange.Properties.Columns = 2;
             this.rgPurchaseRange.Properties.FlowLayoutItemHorzIndent = 20;
@@ -381,7 +375,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "개별")});
             this.rgPurchaseRange.Size = new System.Drawing.Size(216, 26);
             this.rgPurchaseRange.StyleController = this.layoutControl1;
-            this.rgPurchaseRange.TabIndex = 8;
+            this.rgPurchaseRange.TabIndex = 11;
             this.rgPurchaseRange.SelectedIndexChanged += new System.EventHandler(this.rgPurchaseRange_SelectedIndexChanged);
             // 
             // deDtWork
@@ -415,8 +409,9 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "매장단위")});
             this.rgSearchType.Size = new System.Drawing.Size(216, 26);
             this.rgSearchType.StyleController = this.layoutControl1;
-            this.rgSearchType.TabIndex = 8;
+            this.rgSearchType.TabIndex = 1;
             this.rgSearchType.SelectedIndexChanged += new System.EventHandler(this.rgSearchType_SelectedIndexChanged);
+            this.rgSearchType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rgSearchType_KeyDown);
             // 
             // teStoreCd_E
             // 
@@ -425,7 +420,7 @@
             this.teStoreCd_E.Properties.ReadOnly = true;
             this.teStoreCd_E.Size = new System.Drawing.Size(113, 20);
             this.teStoreCd_E.StyleController = this.layoutControl1;
-            this.teStoreCd_E.TabIndex = 4;
+            this.teStoreCd_E.TabIndex = 3;
             // 
             // rgType
             // 
@@ -439,7 +434,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "조", true, "GROUP")});
             this.rgType.Size = new System.Drawing.Size(216, 26);
             this.rgType.StyleController = this.layoutControl1;
-            this.rgType.TabIndex = 8;
+            this.rgType.TabIndex = 4;
             this.rgType.SelectedIndexChanged += new System.EventHandler(this.rgType_SelectedIndexChanged);
             // 
             // rgOrderType
@@ -464,6 +459,7 @@
             this.sbSearch1.Size = new System.Drawing.Size(96, 22);
             this.sbSearch1.StyleController = this.layoutControl1;
             this.sbSearch1.TabIndex = 5;
+            this.sbSearch1.TabStop = false;
             this.sbSearch1.Text = "확정";
             this.sbSearch1.Click += new System.EventHandler(this.sbSearch1_Click);
             // 
@@ -475,6 +471,7 @@
             this.sbSearch2.Size = new System.Drawing.Size(96, 22);
             this.sbSearch2.StyleController = this.layoutControl1;
             this.sbSearch2.TabIndex = 5;
+            this.sbSearch2.TabStop = false;
             this.sbSearch2.Text = "행삭제";
             this.sbSearch2.Click += new System.EventHandler(this.sbSearch2_Click);
             // 
@@ -486,6 +483,7 @@
             this.sbSearch3.Size = new System.Drawing.Size(96, 22);
             this.sbSearch3.StyleController = this.layoutControl1;
             this.sbSearch3.TabIndex = 5;
+            this.sbSearch3.TabStop = false;
             this.sbSearch3.Text = "실적조회";
             this.sbSearch3.Click += new System.EventHandler(this.sbSearch3_Click);
             // 
@@ -496,6 +494,7 @@
             this.lcReleaseCategory2.Control = this.leShopCd;
             this.lcReleaseCategory2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lcReleaseCategory2.CustomizationFormText = "입고번호";
+            this.lcReleaseCategory2.ImageOptions.Image = global::WareHousingMaster.Properties.Resources.bullet_black;
             this.lcReleaseCategory2.Location = new System.Drawing.Point(0, 0);
             this.lcReleaseCategory2.MaxSize = new System.Drawing.Size(330, 25);
             this.lcReleaseCategory2.MinSize = new System.Drawing.Size(330, 25);
@@ -609,7 +608,7 @@
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(330, 0);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(330, 25);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(330, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(330, 25);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "주문일자";
             this.layoutControlItem7.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -622,7 +621,7 @@
             this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem5.CustomizationFormText = "구분";
             this.layoutControlItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem5.ImageOptions.Image")));
-            this.layoutControlItem5.Location = new System.Drawing.Point(355, 86);
+            this.layoutControlItem5.Location = new System.Drawing.Point(355, 85);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(0, 30);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(215, 30);
             this.layoutControlItem5.Name = "layoutControlItem5";
@@ -641,7 +640,7 @@
             this.lcReceiptNo7.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lcReceiptNo7.CustomizationFormText = "접수번호";
             this.lcReceiptNo7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lcReceiptNo7.ImageOptions.Image")));
-            this.lcReceiptNo7.Location = new System.Drawing.Point(355, 116);
+            this.lcReceiptNo7.Location = new System.Drawing.Point(355, 115);
             this.lcReceiptNo7.MaxSize = new System.Drawing.Size(180, 25);
             this.lcReceiptNo7.MinSize = new System.Drawing.Size(180, 25);
             this.lcReceiptNo7.Name = "lcReceiptNo7";
@@ -659,7 +658,7 @@
             this.lcReceiptNo5.Control = this.tePurchaseNm;
             this.lcReceiptNo5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lcReceiptNo5.CustomizationFormText = "접수번호";
-            this.lcReceiptNo5.Location = new System.Drawing.Point(535, 116);
+            this.lcReceiptNo5.Location = new System.Drawing.Point(535, 115);
             this.lcReceiptNo5.MaxSize = new System.Drawing.Size(200, 25);
             this.lcReceiptNo5.MinSize = new System.Drawing.Size(100, 25);
             this.lcReceiptNo5.Name = "lcReceiptNo5";
@@ -794,6 +793,7 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextToControlDistance = 0;
             this.layoutControlItem2.TextVisible = false;
+            this.layoutControlItem2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem4
             // 
@@ -812,6 +812,7 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
+            this.layoutControlItem4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem11
             // 
@@ -830,22 +831,22 @@
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextToControlDistance = 0;
             this.layoutControlItem11.TextVisible = false;
+            this.layoutControlItem11.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // usrOrderBookModifySearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.MaximumSize = new System.Drawing.Size(0, 202);
-            this.MinimumSize = new System.Drawing.Size(888, 202);
+            this.MaximumSize = new System.Drawing.Size(0, 190);
+            this.MinimumSize = new System.Drawing.Size(888, 190);
             this.Name = "usrOrderBookModifySearch";
-            this.Size = new System.Drawing.Size(888, 202);
+            this.Size = new System.Drawing.Size(888, 190);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             this.layoutControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
@@ -907,7 +908,6 @@
         private DevExpress.XtraEditors.TextEdit tePurchaseNm;
         private DevExpress.XtraLayout.LayoutControlItem lcReceiptNo4;
         private DevExpress.XtraLayout.LayoutControlItem lcReceiptNo5;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraEditors.TextEdit teStoreCd_S;
         private DevExpress.XtraLayout.LayoutControlItem lcReceiptNo6;

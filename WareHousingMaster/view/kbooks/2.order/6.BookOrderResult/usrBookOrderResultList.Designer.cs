@@ -40,6 +40,7 @@
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcComponent = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riseCnt = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.gcCpu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcReceiptCnt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDes = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,6 +51,7 @@
             this.riteTitle = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riseCnt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riteTitle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,8 @@
             this.gcList.MainView = this.gvList;
             this.gcList.Name = "gcList";
             this.gcList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.riteTitle});
+            this.riteTitle,
+            this.riseCnt});
             this.gcList.Size = new System.Drawing.Size(1019, 502);
             this.gcList.TabIndex = 7;
             this.gcList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -68,6 +71,12 @@
             // 
             // gvList
             // 
+            this.gvList.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gvList.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.BackColor = System.Drawing.SystemColors.Control;
+            this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
@@ -251,18 +260,26 @@
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "주문수량";
+            this.gridColumn4.ColumnEdit = this.riseCnt;
             this.gridColumn4.DisplayFormat.FormatString = "N0";
             this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "ORD_COUNT";
             this.gridColumn4.MaxWidth = 80;
             this.gridColumn4.MinWidth = 60;
             this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ORD_COUNT", "{0:N0}")});
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 8;
             this.gridColumn4.Width = 60;
+            // 
+            // riseCnt
+            // 
+            this.riseCnt.AutoHeight = false;
+            this.riseCnt.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riseCnt.Name = "riseCnt";
+            this.riseCnt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.riseCnt_KeyDown);
             // 
             // gcCpu
             // 
@@ -391,8 +408,10 @@
             this.Controls.Add(this.gcList);
             this.Name = "usrBookOrderResultList";
             this.Size = new System.Drawing.Size(1019, 502);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usrBookOrderResultList_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riseCnt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riteTitle)).EndInit();
             this.ResumeLayout(false);
 
@@ -420,5 +439,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit riteTitle;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit riseCnt;
     }
 }

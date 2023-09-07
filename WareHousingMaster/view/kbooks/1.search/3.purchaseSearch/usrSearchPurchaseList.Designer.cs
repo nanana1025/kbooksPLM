@@ -89,6 +89,12 @@
             // 
             // gvList
             // 
+            this.gvList.Appearance.FocusedCell.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.gvList.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.BackColor = System.Drawing.SystemColors.Control;
+            this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
@@ -166,13 +172,13 @@
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "매입처 명";
             this.gridColumn4.FieldName = "PURCHNM";
-            this.gridColumn4.MaxWidth = 300;
-            this.gridColumn4.MinWidth = 100;
+            this.gridColumn4.MaxWidth = 450;
+            this.gridColumn4.MinWidth = 150;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
-            this.gridColumn4.Width = 100;
+            this.gridColumn4.Width = 172;
             // 
             // gcReleaseCnt
             // 
@@ -192,7 +198,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "CNT", "{0:N0}")});
             this.gcReleaseCnt.Visible = true;
             this.gcReleaseCnt.VisibleIndex = 3;
-            this.gcReleaseCnt.Width = 60;
+            this.gcReleaseCnt.Width = 61;
             // 
             // gridColumn23
             // 
@@ -202,7 +208,7 @@
             this.gridColumn23.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn23.Caption = "담당자";
             this.gridColumn23.FieldName = "RPNM";
-            this.gridColumn23.MaxWidth = 100;
+            this.gridColumn23.MaxWidth = 200;
             this.gridColumn23.MinWidth = 80;
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.OptionsColumn.AllowEdit = false;
@@ -210,7 +216,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "COMPONENT_CD", "{0:N0}")});
             this.gridColumn23.Visible = true;
             this.gridColumn23.VisibleIndex = 4;
-            this.gridColumn23.Width = 100;
+            this.gridColumn23.Width = 98;
             // 
             // gridColumn2
             // 
@@ -223,6 +229,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 5;
+            this.gridColumn2.Width = 77;
             // 
             // gcStg
             // 
@@ -234,13 +241,12 @@
             this.gcStg.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStg.Caption = "행선지";
             this.gcStg.FieldName = "TRADE_NM";
-            this.gcStg.MaxWidth = 400;
             this.gcStg.MinWidth = 200;
             this.gcStg.Name = "gcStg";
             this.gcStg.OptionsColumn.AllowEdit = false;
             this.gcStg.Visible = true;
             this.gcStg.VisibleIndex = 6;
-            this.gcStg.Width = 200;
+            this.gcStg.Width = 207;
             // 
             // gcComponent
             // 
@@ -257,7 +263,7 @@
             this.gcComponent.OptionsColumn.AllowEdit = false;
             this.gcComponent.Visible = true;
             this.gcComponent.VisibleIndex = 7;
-            this.gcComponent.Width = 88;
+            this.gcComponent.Width = 90;
             // 
             // gcCpu
             // 
@@ -274,7 +280,7 @@
             this.gcCpu.OptionsColumn.AllowEdit = false;
             this.gcCpu.Visible = true;
             this.gcCpu.VisibleIndex = 8;
-            this.gcCpu.Width = 70;
+            this.gcCpu.Width = 71;
             // 
             // gridColumn3
             // 
@@ -291,6 +297,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 9;
+            this.gridColumn3.Width = 77;
             // 
             // gridColumn1
             // 
@@ -303,6 +310,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 10;
+            this.gridColumn1.Width = 94;
             // 
             // rileComponentCd
             // 
@@ -384,14 +392,14 @@
             this.rileUsedYn.Name = "rileUsedYn";
             this.rileUsedYn.NullText = "";
             // 
-            // usrSearchSellerList
+            // usrSearchPurchaseList
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gcList);
-            this.Name = "usrSearchSellerList";
+            this.Name = "usrSearchPurchaseList";
             this.Size = new System.Drawing.Size(1019, 502);
             ((System.ComponentModel.ISupportInitialize)(this.gcList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvList)).EndInit();

@@ -614,6 +614,12 @@
     <Compile Include="view\kbooks\1.search\0.common\dlgPublisherList.Designer.cs">
       <DependentUpon>dlgPublisherList.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgBookOutCome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgBookOutCome.Designer.cs">
+      <DependentUpon>dlgBookOutCome.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\kbooks\1.search\0.common\dlgPurchaseList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -788,6 +794,12 @@
     <Compile Include="view\kbooks\1.search\0.common\dlgBookSearch.Designer.cs">
       <DependentUpon>dlgBookSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\kbooks\2.order\1.bookOrder\usrPreOrderBookList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\1.bookOrder\usrPreOrderBookList.Designer.cs">
+      <DependentUpon>usrPreOrderBookList.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -877,6 +889,18 @@
     </Compile>
     <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReportSearch.Designer.cs">
       <DependentUpon>usrOrderBookReportSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\0.common\usrReturnModifNotice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\0.common\usrReturnModifNotice.Designer.cs">
+      <DependentUpon>usrReturnModifNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\0.common\usrReturnNotice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.returns\0.common\usrReturnNotice.Designer.cs">
+      <DependentUpon>usrReturnNotice.cs</DependentUpon>
     </Compile>
     <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturn.cs">
       <SubType>Form</SubType>
@@ -1943,6 +1967,9 @@
     <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgPublisherList.resx">
       <DependentUpon>dlgPublisherList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgBookOutCome.resx">
+      <DependentUpon>dlgBookOutCome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgPurchaseList.resx">
       <DependentUpon>dlgPurchaseList.cs</DependentUpon>
     </EmbeddedResource>
@@ -2030,6 +2057,9 @@
     <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgBookSearch.resx">
       <DependentUpon>dlgBookSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\1.bookOrder\usrPreOrderBookList.resx">
+      <DependentUpon>usrPreOrderBookList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\2.order\2.searchSaleData\usrSaleData.resx">
       <DependentUpon>usrSaleData.cs</DependentUpon>
     </EmbeddedResource>
@@ -2074,6 +2104,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\2.order\7.report\usrOrderBookReportSearch.resx">
       <DependentUpon>usrOrderBookReportSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.returns\0.common\usrReturnModifNotice.resx">
+      <DependentUpon>usrReturnModifNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.returns\0.common\usrReturnNotice.resx">
+      <DependentUpon>usrReturnNotice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\3.returns\1.modifReturn\usrModifReturn.resx">
       <DependentUpon>usrModifReturn.cs</DependentUpon>
