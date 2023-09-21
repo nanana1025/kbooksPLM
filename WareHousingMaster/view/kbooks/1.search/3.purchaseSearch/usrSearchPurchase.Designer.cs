@@ -133,10 +133,10 @@
             // usrSideCheck1
             // 
             this.usrSideCheck1.Location = new System.Drawing.Point(3, 3);
-            this.usrSideCheck1.MaximumSize = new System.Drawing.Size(80, 0);
-            this.usrSideCheck1.MinimumSize = new System.Drawing.Size(80, 417);
+            this.usrSideCheck1.MaximumSize = new System.Drawing.Size(85, 0);
+            this.usrSideCheck1.MinimumSize = new System.Drawing.Size(85, 417);
             this.usrSideCheck1.Name = "usrSideCheck1";
-            this.usrSideCheck1.Size = new System.Drawing.Size(80, 567);
+            this.usrSideCheck1.Size = new System.Drawing.Size(85, 567);
             this.usrSideCheck1.TabIndex = 4;
             // 
             // layoutControlGroup3
@@ -162,19 +162,21 @@
             // layoutControl3
             // 
             this.layoutControl3.Controls.Add(this.xtcSellerList);
-            this.layoutControl3.Location = new System.Drawing.Point(3, 40);
+            this.layoutControl3.Location = new System.Drawing.Point(3, 43);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.lgcList;
-            this.layoutControl3.Size = new System.Drawing.Size(1058, 536);
+            this.layoutControl3.Size = new System.Drawing.Size(1058, 533);
             this.layoutControl3.TabIndex = 5;
             this.layoutControl3.Text = "layoutControl3";
             // 
             // xtcSellerList
             // 
+            this.xtcSellerList.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtcSellerList.Appearance.Options.UseFont = true;
             this.xtcSellerList.Location = new System.Drawing.Point(3, 3);
             this.xtcSellerList.Name = "xtcSellerList";
             this.xtcSellerList.SelectedTabPage = this.xtPurchasedList;
-            this.xtcSellerList.Size = new System.Drawing.Size(1052, 530);
+            this.xtcSellerList.Size = new System.Drawing.Size(1052, 527);
             this.xtcSellerList.TabIndex = 4;
             this.xtcSellerList.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtPurchasedList,
@@ -186,9 +188,11 @@
             // 
             // xtPurchasedList
             // 
+            this.xtPurchasedList.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtPurchasedList.Appearance.Header.Options.UseFont = true;
             this.xtPurchasedList.Controls.Add(this.layoutControl5);
             this.xtPurchasedList.Name = "xtPurchasedList";
-            this.xtPurchasedList.Size = new System.Drawing.Size(1050, 504);
+            this.xtPurchasedList.Size = new System.Drawing.Size(1050, 499);
             this.xtPurchasedList.Text = "조회결과";
             // 
             // layoutControl5
@@ -198,7 +202,7 @@
             this.layoutControl5.Location = new System.Drawing.Point(0, 0);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup4;
-            this.layoutControl5.Size = new System.Drawing.Size(1050, 504);
+            this.layoutControl5.Size = new System.Drawing.Size(1050, 499);
             this.layoutControl5.TabIndex = 0;
             this.layoutControl5.Text = "layoutControl5";
             // 
@@ -209,7 +213,7 @@
             this.usrSearchPurchaseList1.Appearance.Options.UseBackColor = true;
             this.usrSearchPurchaseList1.Location = new System.Drawing.Point(3, 3);
             this.usrSearchPurchaseList1.Name = "usrSearchPurchaseList1";
-            this.usrSearchPurchaseList1.Size = new System.Drawing.Size(1044, 498);
+            this.usrSearchPurchaseList1.Size = new System.Drawing.Size(1044, 493);
             this.usrSearchPurchaseList1.TabIndex = 4;
             // 
             // layoutControlGroup4
@@ -220,7 +224,7 @@
             this.layoutControlItem6});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(1050, 504);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(1050, 499);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem6
@@ -228,15 +232,17 @@
             this.layoutControlItem6.Control = this.usrSearchPurchaseList1;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(1048, 502);
+            this.layoutControlItem6.Size = new System.Drawing.Size(1048, 497);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // xtPurchasedDetail
             // 
+            this.xtPurchasedDetail.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtPurchasedDetail.Appearance.Header.Options.UseFont = true;
             this.xtPurchasedDetail.Controls.Add(this.layoutControl6);
             this.xtPurchasedDetail.Name = "xtPurchasedDetail";
-            this.xtPurchasedDetail.Size = new System.Drawing.Size(1050, 504);
+            this.xtPurchasedDetail.Size = new System.Drawing.Size(1050, 502);
             this.xtPurchasedDetail.Text = "매입처상세";
             // 
             // layoutControl6
@@ -246,7 +252,7 @@
             this.layoutControl6.Location = new System.Drawing.Point(0, 0);
             this.layoutControl6.Name = "layoutControl6";
             this.layoutControl6.Root = this.layoutControlGroup5;
-            this.layoutControl6.Size = new System.Drawing.Size(1050, 504);
+            this.layoutControl6.Size = new System.Drawing.Size(1050, 502);
             this.layoutControl6.TabIndex = 0;
             this.layoutControl6.Text = "layoutControl6";
             // 
@@ -256,7 +262,7 @@
             this.usrSearchPurchaseDetail1.Location = new System.Drawing.Point(3, 3);
             this.usrSearchPurchaseDetail1.MinimumSize = new System.Drawing.Size(888, 251);
             this.usrSearchPurchaseDetail1.Name = "usrSearchPurchaseDetail1";
-            this.usrSearchPurchaseDetail1.Size = new System.Drawing.Size(1044, 498);
+            this.usrSearchPurchaseDetail1.Size = new System.Drawing.Size(1044, 496);
             this.usrSearchPurchaseDetail1.TabIndex = 4;
             // 
             // layoutControlGroup5
@@ -267,7 +273,7 @@
             this.layoutControlItem7});
             this.layoutControlGroup5.Name = "layoutControlGroup5";
             this.layoutControlGroup5.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup5.Size = new System.Drawing.Size(1050, 504);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(1050, 502);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // layoutControlItem7
@@ -275,15 +281,17 @@
             this.layoutControlItem7.Control = this.usrSearchPurchaseDetail1;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(1048, 502);
+            this.layoutControlItem7.Size = new System.Drawing.Size(1048, 500);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
             // xtBook
             // 
+            this.xtBook.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtBook.Appearance.Header.Options.UseFont = true;
             this.xtBook.Controls.Add(this.layoutControl7);
             this.xtBook.Name = "xtBook";
-            this.xtBook.Size = new System.Drawing.Size(1050, 504);
+            this.xtBook.Size = new System.Drawing.Size(1050, 502);
             this.xtBook.Text = "매입처별도서일람";
             // 
             // layoutControl7
@@ -293,7 +301,7 @@
             this.layoutControl7.Location = new System.Drawing.Point(0, 0);
             this.layoutControl7.Name = "layoutControl7";
             this.layoutControl7.Root = this.layoutControlGroup6;
-            this.layoutControl7.Size = new System.Drawing.Size(1050, 504);
+            this.layoutControl7.Size = new System.Drawing.Size(1050, 502);
             this.layoutControl7.TabIndex = 0;
             this.layoutControl7.Text = "layoutControl7";
             // 
@@ -304,7 +312,7 @@
             this.usrSearchBookSearchList1.Appearance.Options.UseBackColor = true;
             this.usrSearchBookSearchList1.Location = new System.Drawing.Point(3, 3);
             this.usrSearchBookSearchList1.Name = "usrSearchBookSearchList1";
-            this.usrSearchBookSearchList1.Size = new System.Drawing.Size(1044, 498);
+            this.usrSearchBookSearchList1.Size = new System.Drawing.Size(1044, 496);
             this.usrSearchBookSearchList1.TabIndex = 4;
             // 
             // layoutControlGroup6
@@ -315,7 +323,7 @@
             this.layoutControlItem8});
             this.layoutControlGroup6.Name = "layoutControlGroup6";
             this.layoutControlGroup6.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup6.Size = new System.Drawing.Size(1050, 504);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(1050, 502);
             this.layoutControlGroup6.TextVisible = false;
             // 
             // layoutControlItem8
@@ -323,15 +331,17 @@
             this.layoutControlItem8.Control = this.usrSearchBookSearchList1;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(1048, 502);
+            this.layoutControlItem8.Size = new System.Drawing.Size(1048, 500);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // xtPerformance
             // 
+            this.xtPerformance.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtPerformance.Appearance.Header.Options.UseFont = true;
             this.xtPerformance.Controls.Add(this.layoutControl8);
             this.xtPerformance.Name = "xtPerformance";
-            this.xtPerformance.Size = new System.Drawing.Size(1050, 504);
+            this.xtPerformance.Size = new System.Drawing.Size(1050, 502);
             this.xtPerformance.Text = "도서별 실적일람(단위:수량)";
             // 
             // layoutControl8
@@ -341,7 +351,7 @@
             this.layoutControl8.Location = new System.Drawing.Point(0, 0);
             this.layoutControl8.Name = "layoutControl8";
             this.layoutControl8.Root = this.layoutControlGroup7;
-            this.layoutControl8.Size = new System.Drawing.Size(1050, 504);
+            this.layoutControl8.Size = new System.Drawing.Size(1050, 502);
             this.layoutControl8.TabIndex = 0;
             this.layoutControl8.Text = "layoutControl8";
             // 
@@ -352,7 +362,7 @@
             this.usrSearchPublisherOutcome1.Appearance.Options.UseBackColor = true;
             this.usrSearchPublisherOutcome1.Location = new System.Drawing.Point(3, 3);
             this.usrSearchPublisherOutcome1.Name = "usrSearchPublisherOutcome1";
-            this.usrSearchPublisherOutcome1.Size = new System.Drawing.Size(1044, 498);
+            this.usrSearchPublisherOutcome1.Size = new System.Drawing.Size(1044, 496);
             this.usrSearchPublisherOutcome1.TabIndex = 4;
             // 
             // layoutControlGroup7
@@ -363,7 +373,7 @@
             this.layoutControlItem9});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
             this.layoutControlGroup7.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup7.Size = new System.Drawing.Size(1050, 504);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(1050, 502);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem9
@@ -371,7 +381,7 @@
             this.layoutControlItem9.Control = this.usrSearchPublisherOutcome1;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(1048, 502);
+            this.layoutControlItem9.Size = new System.Drawing.Size(1048, 500);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
@@ -383,7 +393,7 @@
             this.layoutControlItem5});
             this.lgcList.Name = "lgcList";
             this.lgcList.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.lgcList.Size = new System.Drawing.Size(1058, 536);
+            this.lgcList.Size = new System.Drawing.Size(1058, 533);
             this.lgcList.TextVisible = false;
             // 
             // layoutControlItem5
@@ -391,7 +401,7 @@
             this.layoutControlItem5.Control = this.xtcSellerList;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1056, 534);
+            this.layoutControlItem5.Size = new System.Drawing.Size(1056, 531);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -401,7 +411,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(3, 3);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(1058, 33);
+            this.layoutControl2.Size = new System.Drawing.Size(1058, 36);
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -410,9 +420,9 @@
             this.usrSearchSellerAndPublisher1._releaseCategory = 0;
             this.usrSearchSellerAndPublisher1.Location = new System.Drawing.Point(3, 3);
             this.usrSearchSellerAndPublisher1.MaximumSize = new System.Drawing.Size(0, 26);
-            this.usrSearchSellerAndPublisher1.MinimumSize = new System.Drawing.Size(888, 26);
+            this.usrSearchSellerAndPublisher1.MinimumSize = new System.Drawing.Size(888, 30);
             this.usrSearchSellerAndPublisher1.Name = "usrSearchSellerAndPublisher1";
-            this.usrSearchSellerAndPublisher1.Size = new System.Drawing.Size(1052, 26);
+            this.usrSearchSellerAndPublisher1.Size = new System.Drawing.Size(1052, 30);
             this.usrSearchSellerAndPublisher1.TabIndex = 4;
             // 
             // layoutControlGroup1
@@ -423,7 +433,7 @@
             this.layoutControlItem4});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1058, 33);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1058, 36);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem4
@@ -431,7 +441,7 @@
             this.layoutControlItem4.Control = this.usrSearchSellerAndPublisher1;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1056, 31);
+            this.layoutControlItem4.Size = new System.Drawing.Size(1056, 34);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -452,10 +462,10 @@
             // 
             this.layoutControlItem1.Control = this.layoutControl2;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 37);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(916, 37);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 40);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(916, 40);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1062, 37);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1062, 40);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -463,9 +473,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.layoutControl3;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 37);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 40);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1062, 540);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1062, 537);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 

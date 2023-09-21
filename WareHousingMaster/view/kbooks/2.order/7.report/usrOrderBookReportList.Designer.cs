@@ -81,6 +81,7 @@
             this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
             this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.gvList.ColumnPanelRowHeight = 22;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
@@ -109,10 +110,10 @@
             this.gvList.GridControl = this.gcList;
             this.gvList.Name = "gvList";
             this.gvList.OptionsView.AllowCellMerge = true;
-            this.gvList.OptionsView.ShowAutoFilterRow = true;
             this.gvList.OptionsView.ShowFooter = true;
             this.gvList.OptionsView.ShowGroupPanel = false;
             this.gvList.OptionsView.ShowIndicator = false;
+            this.gvList.RowHeight = 22;
             this.gvList.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvList_RowCellStyle);
             this.gvList.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.gvList_FocusedRowObjectChanged);
             this.gvList.FocusedColumnChanged += new DevExpress.XtraGrid.Views.Base.FocusedColumnChangedEventHandler(this.gvList_FocusedColumnChanged);
@@ -162,8 +163,12 @@
             // 
             // gcReleaseCnt
             // 
+            this.gcReleaseCnt.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcReleaseCnt.AppearanceCell.Options.UseFont = true;
             this.gcReleaseCnt.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcReleaseCnt.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcReleaseCnt.AppearanceHeader.Options.UseBackColor = true;
+            this.gcReleaseCnt.AppearanceHeader.Options.UseFont = true;
             this.gcReleaseCnt.AppearanceHeader.Options.UseTextOptions = true;
             this.gcReleaseCnt.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcReleaseCnt.Caption = "매입처명";
@@ -180,10 +185,14 @@
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceCell.Options.UseFont = true;
             this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn1.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
             this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.Caption = "매입처코드";
@@ -200,8 +209,12 @@
             // 
             // gridColumn23
             // 
+            this.gridColumn23.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn23.AppearanceCell.Options.UseFont = true;
             this.gridColumn23.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn23.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn23.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn23.AppearanceHeader.Options.UseFont = true;
             this.gridColumn23.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn23.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn23.Caption = "도서명";
@@ -249,10 +262,14 @@
             // 
             // gridColumn4
             // 
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn4.AppearanceCell.Options.UseFont = true;
             this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn4.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn4.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "주문합계";
@@ -273,10 +290,14 @@
             // 
             // gcStore1
             // 
+            this.gcStore1.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore1.AppearanceCell.Options.UseFont = true;
             this.gcStore1.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore1.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore1.AppearanceHeader.Options.UseFont = true;
             this.gcStore1.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore1.Caption = "1매장";
@@ -297,10 +318,14 @@
             // 
             // gcStore2
             // 
+            this.gcStore2.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore2.AppearanceCell.Options.UseFont = true;
             this.gcStore2.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore2.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore2.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore2.AppearanceHeader.Options.UseFont = true;
             this.gcStore2.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore2.Caption = "2매장";
@@ -321,10 +346,14 @@
             // 
             // gcStore4
             // 
+            this.gcStore4.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore4.AppearanceCell.Options.UseFont = true;
             this.gcStore4.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore4.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore4.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore4.AppearanceHeader.Options.UseFont = true;
             this.gcStore4.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore4.Caption = "4매장";
@@ -345,10 +374,14 @@
             // 
             // gcStore3
             // 
+            this.gcStore3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore3.AppearanceCell.Options.UseFont = true;
             this.gcStore3.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore3.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore3.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore3.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore3.AppearanceHeader.Options.UseFont = true;
             this.gcStore3.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore3.Caption = "3매장";
@@ -369,10 +402,14 @@
             // 
             // gcStore5
             // 
+            this.gcStore5.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore5.AppearanceCell.Options.UseFont = true;
             this.gcStore5.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore5.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore5.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore5.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore5.AppearanceHeader.Options.UseFont = true;
             this.gcStore5.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore5.Caption = "5매장";
@@ -393,10 +430,14 @@
             // 
             // gcStore6
             // 
+            this.gcStore6.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore6.AppearanceCell.Options.UseFont = true;
             this.gcStore6.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore6.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore6.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore6.AppearanceHeader.Options.UseFont = true;
             this.gcStore6.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore6.Caption = "6매장";
@@ -417,10 +458,14 @@
             // 
             // gcStore7
             // 
+            this.gcStore7.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore7.AppearanceCell.Options.UseFont = true;
             this.gcStore7.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore7.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore7.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore7.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore7.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore7.AppearanceHeader.Options.UseFont = true;
             this.gcStore7.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore7.Caption = "7매장";
@@ -441,10 +486,14 @@
             // 
             // gcStore8
             // 
+            this.gcStore8.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore8.AppearanceCell.Options.UseFont = true;
             this.gcStore8.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore8.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore8.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore8.AppearanceHeader.Options.UseFont = true;
             this.gcStore8.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore8.Caption = "8매장";
@@ -465,10 +514,14 @@
             // 
             // gcStore9
             // 
+            this.gcStore9.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore9.AppearanceCell.Options.UseFont = true;
             this.gcStore9.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore9.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore9.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore9.AppearanceHeader.Options.UseFont = true;
             this.gcStore9.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore9.Caption = "9매장";
@@ -489,10 +542,14 @@
             // 
             // gcStore10
             // 
+            this.gcStore10.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore10.AppearanceCell.Options.UseFont = true;
             this.gcStore10.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore10.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore10.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore10.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore10.AppearanceHeader.Options.UseFont = true;
             this.gcStore10.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore10.Caption = "10매장";
@@ -513,10 +570,14 @@
             // 
             // gcStore11
             // 
+            this.gcStore11.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore11.AppearanceCell.Options.UseFont = true;
             this.gcStore11.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore11.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore11.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore11.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore11.AppearanceHeader.Options.UseFont = true;
             this.gcStore11.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore11.Caption = "11매장";
@@ -537,10 +598,14 @@
             // 
             // gcStore12
             // 
+            this.gcStore12.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStore12.AppearanceCell.Options.UseFont = true;
             this.gcStore12.AppearanceCell.Options.UseTextOptions = true;
             this.gcStore12.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcStore12.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStore12.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStore12.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStore12.AppearanceHeader.Options.UseFont = true;
             this.gcStore12.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStore12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStore12.Caption = "12매장";
@@ -579,8 +644,6 @@
             this.gcStore13.OptionsColumn.ReadOnly = true;
             this.gcStore13.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE13", "{0:N0}")});
-            this.gcStore13.Visible = true;
-            this.gcStore13.VisibleIndex = 16;
             this.gcStore13.Width = 50;
             // 
             // gcStore14
@@ -603,8 +666,6 @@
             this.gcStore14.OptionsColumn.ReadOnly = true;
             this.gcStore14.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE14", "{0:N0}")});
-            this.gcStore14.Visible = true;
-            this.gcStore14.VisibleIndex = 17;
             this.gcStore14.Width = 50;
             // 
             // gcStore15
@@ -627,14 +688,16 @@
             this.gcStore15.OptionsColumn.ReadOnly = true;
             this.gcStore15.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE15", "{0:N0}")});
-            this.gcStore15.Visible = true;
-            this.gcStore15.VisibleIndex = 18;
             this.gcStore15.Width = 50;
             // 
             // gcEtc
             // 
+            this.gcEtc.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcEtc.AppearanceCell.Options.UseFont = true;
             this.gcEtc.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcEtc.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcEtc.AppearanceHeader.Options.UseBackColor = true;
+            this.gcEtc.AppearanceHeader.Options.UseFont = true;
             this.gcEtc.AppearanceHeader.Options.UseTextOptions = true;
             this.gcEtc.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcEtc.Caption = "기타";
@@ -644,7 +707,7 @@
             this.gcEtc.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gcEtc.OptionsColumn.ReadOnly = true;
             this.gcEtc.Visible = true;
-            this.gcEtc.VisibleIndex = 19;
+            this.gcEtc.VisibleIndex = 16;
             this.gcEtc.Width = 20;
             // 
             // usrOrderBookReportList

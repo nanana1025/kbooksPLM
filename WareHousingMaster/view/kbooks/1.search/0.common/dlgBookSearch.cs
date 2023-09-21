@@ -34,6 +34,7 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.Icon = ProjectInfo.ProjectIcon;
 
             usrBookSearchList1.focusedRowObjectChangeHandler += new usrBookSearchList.FocusedRowObjectChangeHandler(FocusedRowObjectChangeHandler);
+            usrBookSearchList1.doubleClickHandler += new usrBookSearchList.DoubleClickHandler(doubleClickHandler);
             usrBookSearchList1.setInitLoad();
 
             JObject jobj = new JObject();
@@ -61,17 +62,24 @@ namespace WareHousingMaster.view.kbooks.search.common
             _drv = drv;
         }
 
-        private void sbOk_Click(object sender, EventArgs e)
+        private void doubleClickHandler()
         {
-            if(_drv == null)
+            if (_drv == null)
             {
                 Dangol.Warining("선택한 도서가 없습니다.");
             }
             else
             {
-                if(Dangol.MessageYN("선택한 도서를 적용하시겠습니까?") == DialogResult.Yes)
+                if (Dangol.MessageYN("선택한 도서를 적용하시겠습니까?") == DialogResult.Yes)
                     this.DialogResult = DialogResult.OK;
             }
+        }
+
+        
+
+        private void sbOk_Click(object sender, EventArgs e)
+        {
+            doubleClickHandler();
         }
 
         private void sbCancel_Click(object sender, EventArgs e)

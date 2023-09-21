@@ -31,6 +31,7 @@
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions1 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usrBestSeller));
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions2 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions3 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.usrSideCheck1 = new WareHousingMaster.view.kbooks.search.booksearch.usrSideCheck();
@@ -94,10 +95,10 @@
             // usrSideCheck1
             // 
             this.usrSideCheck1.Location = new System.Drawing.Point(2, 2);
-            this.usrSideCheck1.MaximumSize = new System.Drawing.Size(80, 0);
-            this.usrSideCheck1.MinimumSize = new System.Drawing.Size(80, 417);
+            this.usrSideCheck1.MaximumSize = new System.Drawing.Size(85, 0);
+            this.usrSideCheck1.MinimumSize = new System.Drawing.Size(85, 417);
             this.usrSideCheck1.Name = "usrSideCheck1";
-            this.usrSideCheck1.Size = new System.Drawing.Size(80, 569);
+            this.usrSideCheck1.Size = new System.Drawing.Size(85, 569);
             this.usrSideCheck1.TabIndex = 4;
             // 
             // layoutControlGroup3
@@ -114,27 +115,31 @@
             // layoutControl3
             // 
             this.layoutControl3.Controls.Add(this.usrBestSellerList1);
-            this.layoutControl3.Location = new System.Drawing.Point(3, 98);
+            this.layoutControl3.Location = new System.Drawing.Point(3, 103);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.lcgBestSellerList;
-            this.layoutControl3.Size = new System.Drawing.Size(1058, 478);
+            this.layoutControl3.Size = new System.Drawing.Size(1058, 473);
             this.layoutControl3.TabIndex = 5;
             this.layoutControl3.Text = "layoutControl3";
             // 
             // lcgBestSellerList
             // 
+            this.lcgBestSellerList.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcgBestSellerList.AppearanceGroup.Options.UseFont = true;
             buttonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions1.Image")));
             buttonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions2.Image")));
+            buttonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("buttonImageOptions3.Image")));
             this.lcgBestSellerList.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("새로고침", true, buttonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, false, 1, -1),
-            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("상세정보", true, buttonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, false, 2, -1)});
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("상세정보", true, buttonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, false, 2, -1),
+            new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("엑셀저장", true, buttonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, 3, -1)});
             this.lcgBestSellerList.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.lcgBestSellerList.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
             this.lcgBestSellerList.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem5});
             this.lcgBestSellerList.Name = "lcgBestSellerList";
             this.lcgBestSellerList.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.lcgBestSellerList.Size = new System.Drawing.Size(1058, 478);
+            this.lcgBestSellerList.Size = new System.Drawing.Size(1058, 473);
             this.lcgBestSellerList.Text = "베스트셀러리스트";
             this.lcgBestSellerList.CustomButtonClick += new DevExpress.XtraBars.Docking2010.BaseButtonEventHandler(this.lcgBestSellerList_CustomButtonClick);
             // 
@@ -144,7 +149,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(3, 3);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(1058, 91);
+            this.layoutControl2.Size = new System.Drawing.Size(1058, 96);
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -156,7 +161,7 @@
             this.layoutControlItem4});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1041, 92);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1058, 96);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // Root
@@ -176,10 +181,10 @@
             // 
             this.layoutControlItem1.Control = this.layoutControl2;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 95);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(971, 95);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 100);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(971, 100);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1062, 95);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1062, 100);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -187,9 +192,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.layoutControl3;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 95);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 100);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1062, 482);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1062, 477);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -222,7 +227,7 @@
             this.usrBestSellerList1.Appearance.Options.UseBackColor = true;
             this.usrBestSellerList1.Location = new System.Drawing.Point(4, 23);
             this.usrBestSellerList1.Name = "usrBestSellerList1";
-            this.usrBestSellerList1.Size = new System.Drawing.Size(1050, 451);
+            this.usrBestSellerList1.Size = new System.Drawing.Size(1050, 446);
             this.usrBestSellerList1.TabIndex = 4;
             // 
             // layoutControlItem5
@@ -230,7 +235,7 @@
             this.layoutControlItem5.Control = this.usrBestSellerList1;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1054, 455);
+            this.layoutControlItem5.Size = new System.Drawing.Size(1054, 450);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -238,9 +243,10 @@
             // 
             this.usrBestSellerSearch1._releaseCategory = 0;
             this.usrBestSellerSearch1.Location = new System.Drawing.Point(3, 3);
+            this.usrBestSellerSearch1.MaximumSize = new System.Drawing.Size(0, 100);
             this.usrBestSellerSearch1.MinimumSize = new System.Drawing.Size(888, 51);
             this.usrBestSellerSearch1.Name = "usrBestSellerSearch1";
-            this.usrBestSellerSearch1.Size = new System.Drawing.Size(1035, 86);
+            this.usrBestSellerSearch1.Size = new System.Drawing.Size(1052, 90);
             this.usrBestSellerSearch1.TabIndex = 4;
             // 
             // layoutControlItem4
@@ -248,7 +254,7 @@
             this.layoutControlItem4.Control = this.usrBestSellerSearch1;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1039, 90);
+            this.layoutControlItem4.Size = new System.Drawing.Size(1056, 94);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 

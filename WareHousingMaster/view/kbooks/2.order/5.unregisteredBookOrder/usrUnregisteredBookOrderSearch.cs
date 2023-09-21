@@ -9,6 +9,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 {
     public partial class usrUnregisteredBookOrderSearch : DevExpress.XtraEditors.XtraUserControl
     {
+        int _count;
         public int _releaseCategory { get; set; }
 
         int _viewType;
@@ -27,6 +28,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             InitializeComponent();
 
             _searchType = -1;
+            _count = 0;
         }
 
         public void setInitLoad()
@@ -34,6 +36,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             setInfoBox();
             setinitialize();
         }
+
+
 
 
         private void setInfoBox()
@@ -50,7 +54,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             var today = DateTime.Today;
             //var pastDate = today.AddDays(-7);
 
-            deDtOrder.EditValue = today;
+            deDtOrder.EditValue = today.AddDays(1);
             //deDtOrder.EditValue = Convert.ToDateTime("2023-03-10");
         }
 
@@ -260,7 +264,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         private void sbDelete_Click(object sender, EventArgs e)
         {
-            deleteHandler();
+            //deleteHandler();
+
+            if (_count++ % 2 == 0)
+                Language.SwitchToKorean();
+            else
+                Language.SwitchToEnglish();
+
         }
 
         private void sbConfirm_Click(object sender, EventArgs e)

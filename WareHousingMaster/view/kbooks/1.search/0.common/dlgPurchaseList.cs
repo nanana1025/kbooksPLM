@@ -32,6 +32,7 @@ namespace WareHousingMaster.view.kbooks.search.common
 
             usrPurchaseList1.focusedRowObjectChangeHandler += new usrPurchaseList.FocusedRowObjectChangeHandler(FocusedRowObjectChangeHandler); 
             usrPurchaseList1.selectHandler += new usrPurchaseList.SelectHandler(select);
+            usrPurchaseList1.doubleClickHandler += new usrPurchaseList.DoubleClickHandler(doubleClickHandler);
             usrPurchaseList1.setInitLoad();
 
 
@@ -79,17 +80,14 @@ namespace WareHousingMaster.view.kbooks.search.common
 
         }
 
+        private void doubleClickHandler()
+        {
+            select();
+        }
+
         private void sbOk_Click(object sender, EventArgs e)
         {
-            if(_drv == null)
-            {
-                Dangol.Warining("선택한 매입처가 없습니다.");
-            }
-            else
-            {
-                if(Dangol.MessageYN("선택한 매입처를 적용하시겠습니까?") == DialogResult.Yes)
-                    this.DialogResult = DialogResult.OK;
-            }
+            select();
         }
 
         private void select()

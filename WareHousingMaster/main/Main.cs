@@ -1,6 +1,7 @@
 ﻿using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Helpers;
+using DevExpress.XtraBars.Ribbon;
 //using WareHousingMaster.view.release;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
@@ -51,6 +52,9 @@ namespace WareHousingMaster.view.main
     {
         Dictionary<BarButtonItem, XtraForm> ribbonTabs = new Dictionary<BarButtonItem, XtraForm>();
 
+        public static Dictionary<string, BarButtonItem> _MENU_VIEW;
+        public static Dictionary<string, RibbonPage> _MENU_CATEGORY;
+
         public Main()
         {
             InitializeComponent();
@@ -65,6 +69,28 @@ namespace WareHousingMaster.view.main
                 SkinHelper.InitSkinGallery(rgbiSkins);
             }
             //SkinHelper.InitSkinGallery(rgbiSkins);
+
+            _MENU_CATEGORY = new Dictionary<string, RibbonPage>()
+            {
+                {"bhcrf",bhcrf },
+                {"bhcor",    bhcor},
+                {"bhcre",   bhcre},
+                //{"rpRelease",   rpRelease},
+            };
+
+            //_MENU_VIEW = new Dictionary<string, BarButtonItem>()
+            //{
+            //    {"biWarehousing",biWarehousing},
+            //    {"bbiInventoryCheckNew",bbiInventoryCheckNew},
+            //    {"bbiWarehousingList",bbiWarehousingList},
+            //    {"bbiCheckStatisticsNew",bbiCheckStatisticsNew},
+            //    {"bbiExamineResult",bbiExamineResult},
+            //    {"biWarehousingSwap",biWarehousingSwap},
+            //    {"bbiWarehousingStatistics",bbiWarehousingStatistics},
+                
+
+
+            //};
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -97,6 +123,23 @@ namespace WareHousingMaster.view.main
             ProjectInfo._ribbonTabs = ribbonTabs;
 
             ProjectInfo._bbiOrderCartInfo = bbiOrderCartInfo;
+
+
+
+            if(!Util.GetUserAuthority())
+            {
+                Dangol.Error("사용자 화면 구성중 오류가 발생했습니다.");
+                Util.ExitProgram();
+            }
+
+
+            if (ProjectInfo._USER_TYPE.Equals("ADMIN"))
+            {
+
+            }
+
+
+
 
             //if (ProjectInfo._userType.Equals("M"))
             //    rptest.Visible = true;
@@ -448,9 +491,15 @@ namespace WareHousingMaster.view.main
 
         private void bbiOrderModifyOrder_ItemClick(object sender, ItemClickEventArgs e)
         {
+            string tabName = "주문도서조회수정";
+            usrOrderBookModifyUser orderBookModifyUser = new usrOrderBookModifyUser();
+            setRibbonTabs(orderBookModifyUser, tabName, bbiOrderModifyOrder);
+        }
+        private void bbiOrderModifyOrder_admin_ItemClick(object sender, ItemClickEventArgs e)
+        {
             string tabName = "주문도서조회수정확정";
             usrOrderBookModify orderBookModify = new usrOrderBookModify();
-            setRibbonTabs(orderBookModify, tabName, bbiOrderModifyOrder);
+            setRibbonTabs(orderBookModify, tabName, bbiOrderModifyOrder_admin);
         }
 
         private void bbiOrderNonRegisterOrder_ItemClick(object sender, ItemClickEventArgs e)

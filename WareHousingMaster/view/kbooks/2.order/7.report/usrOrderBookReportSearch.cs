@@ -53,7 +53,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             //deDtWork.EditValue = today;
             //var pastDate = today.AddDays(-7);
 
-            deDtOrder.EditValue = today;
+            deDtOrder.EditValue = today.AddDays(1);
             //deDtWarehousing.EditValue = today;
 
             //deDtOrder.EditValue = Convert.ToDateTime("2023-03-10");

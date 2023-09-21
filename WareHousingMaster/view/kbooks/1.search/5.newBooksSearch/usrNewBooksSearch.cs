@@ -136,17 +136,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             //jData.Add("DT_TO", dtTo);
 
 
-            string dtWork = "";
-            if (deDtWork.EditValue != null && !string.IsNullOrEmpty(deDtWork.EditValue.ToString()))
-                dtWork = $"{deDtWork.Text} 00:00:00";
+            //string dtWork = "";
+            //if (deDtWork.EditValue != null && !string.IsNullOrEmpty(deDtWork.EditValue.ToString()))
+            //    dtWork = $"{deDtWork.Text} 00:00:00";
            
-            if(string.IsNullOrWhiteSpace(dtWork))
-            {
-                jData.Add("MSG", "영업일을 선택하세요.");
-                return false;
-            }
-            else
-                jData.Add("DT_WORK", dtWork);
+            //if(string.IsNullOrWhiteSpace(dtWork))
+            //{
+            //    jData.Add("MSG", "영업일을 선택하세요.");
+            //    return false;
+            //}
+            //else
+            //    jData.Add("DT_WORK", dtWork);
 
 
             jData.Add("SHOPCD", ConvertUtil.ToInt32(leShopCd.EditValue));
@@ -161,68 +161,78 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             //else if (category == 3)
             //    colNm = "STAND";
 
-            string codeS = teCd_S.Text.Trim();
-            string codeE = teCd_E.Text.Trim();
-            string name = teName.Text.Trim();
-
+            jData.Add($"CATEGORY", category);
             jData.Add($"COLNM", $"{ colNm}CD");
             jData.Add($"SELECTED_TYPE", rgCategory.Properties.Items[rgCategory.SelectedIndex].Description);
-            if (string.IsNullOrWhiteSpace(codeS) && string.IsNullOrWhiteSpace(codeE))
+
+            if (category == 0)
             {
-                if (string.IsNullOrWhiteSpace(name))
-                {
-                    jData.Add("MSG", $"{rgCategory.Text}코드 또는 이름을 입력하세요.");
-                    return false;
-                }
-                else
-                {
-                    jData.Add("SEARCH_TYPE", "SINGLE");
-                    jData.Add($"{colNm}_NM", name);
-                }
+                jData.Add("SEARCH_TYPE", "ALL");
+                //jData.Add($"SELECTED_TYPE", "부");
             }
             else
             {
-               
-                if (!string.IsNullOrWhiteSpace(codeS) && string.IsNullOrWhiteSpace(codeE))
-                {
-                    jData.Add("SEARCH_TYPE", "SINGLE");
-                    jData.Add($"{colNm}CD", ConvertUtil.ToInt32(codeS));
+                string codeS = teCd_S.Text.Trim();
+                string codeE = teCd_E.Text.Trim();
+                string name = teName.Text.Trim();
 
-                    if (!string.IsNullOrWhiteSpace(name))
-                        jData.Add($"{colNm}_NM", name);
-                }
-                else if (string.IsNullOrWhiteSpace(codeS) && !string.IsNullOrWhiteSpace(codeE))
+                if (string.IsNullOrWhiteSpace(codeS) && string.IsNullOrWhiteSpace(codeE))
                 {
-                    jData.Add("SEARCH_TYPE", "SINGLE");
-                    jData.Add($"{colNm}CD", ConvertUtil.ToInt32(codeE));
-
-                    if (!string.IsNullOrWhiteSpace(name))
-                        jData.Add($"{colNm}_NM", name);
-                }
-                else if (codeS.Equals(codeE))
-                {
-                    jData.Add("SEARCH_TYPE", "SINGLE");
-                    jData.Add($"{colNm}CD", ConvertUtil.ToInt32(codeE));
-
-                    if (!string.IsNullOrWhiteSpace(name))
-                        jData.Add($"{colNm}_NM", name);
-                }
-                else
-                {
-                    int start = ConvertUtil.ToInt32(codeS);
-                    int end = ConvertUtil.ToInt32(codeE);
-
-                    jData.Add("SEARCH_TYPE", "MULTI");
-                    if(start > end)
+                    if (string.IsNullOrWhiteSpace(name))
                     {
-                        jData.Add($"{colNm}CD_S", end);
-                        jData.Add($"{colNm}CD_E", start);
+                        jData.Add("MSG", $"{rgCategory.Text}코드 또는 이름을 입력하세요.");
+                        return false;
                     }
                     else
                     {
-                        jData.Add($"{colNm}CD_S", start);
-                        jData.Add($"{colNm}CD_E", end);
-                    } 
+                        jData.Add("SEARCH_TYPE", "SINGLE");
+                        jData.Add($"{colNm}_NM", name);
+                    }
+                }
+                else
+                {
+
+                    if (!string.IsNullOrWhiteSpace(codeS) && string.IsNullOrWhiteSpace(codeE))
+                    {
+                        jData.Add("SEARCH_TYPE", "SINGLE");
+                        jData.Add($"{colNm}CD", ConvertUtil.ToInt32(codeS));
+
+                        if (!string.IsNullOrWhiteSpace(name))
+                            jData.Add($"{colNm}_NM", name);
+                    }
+                    else if (string.IsNullOrWhiteSpace(codeS) && !string.IsNullOrWhiteSpace(codeE))
+                    {
+                        jData.Add("SEARCH_TYPE", "SINGLE");
+                        jData.Add($"{colNm}CD", ConvertUtil.ToInt32(codeE));
+
+                        if (!string.IsNullOrWhiteSpace(name))
+                            jData.Add($"{colNm}_NM", name);
+                    }
+                    else if (codeS.Equals(codeE))
+                    {
+                        jData.Add("SEARCH_TYPE", "SINGLE");
+                        jData.Add($"{colNm}CD", ConvertUtil.ToInt32(codeE));
+
+                        if (!string.IsNullOrWhiteSpace(name))
+                            jData.Add($"{colNm}_NM", name);
+                    }
+                    else
+                    {
+                        int start = ConvertUtil.ToInt32(codeS);
+                        int end = ConvertUtil.ToInt32(codeE);
+
+                        jData.Add("SEARCH_TYPE", "MULTI");
+                        if (start > end)
+                        {
+                            jData.Add($"{colNm}CD_S", end);
+                            jData.Add($"{colNm}CD_E", start);
+                        }
+                        else
+                        {
+                            jData.Add($"{colNm}CD_S", start);
+                            jData.Add($"{colNm}CD_E", end);
+                        }
+                    }
                 }
             }
 
@@ -231,7 +241,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         public void setFocus()
         {
-            teCd_S.Focus();
+            //teCd_S.Focus();
+            deDtFrom.Focus();
         }
 
         public void clear()
@@ -239,6 +250,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             teCd_S.Text = "";
             teCd_E.Text = "";
             teName.Text = "";
+
+            rgCategory.EditValue = 0;
         }
 
         private void teCd_S_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -257,6 +270,19 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             if (e.KeyCode == Keys.Enter)
                 Search();
+        }
+
+        private void rgCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int category = ConvertUtil.ToInt32(rgCategory.EditValue);
+
+            teCd_S.Text = "";
+            teCd_E.Text = "";
+            teName.Text = "";
+
+            teCd_S.ReadOnly = category == 0;
+            teCd_E.ReadOnly = category == 0;
+            teName.ReadOnly = category == 0;
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -145,6 +146,54 @@ namespace WareHousingMaster.view.common
 
 
             return true;
+        }
+
+        public static bool GetUserAuthority()
+        {
+            if (ProjectInfo._LIST_USER_AUTHORTY_TAB == null) ProjectInfo._LIST_USER_AUTHORTY_TAB = new List<string>();
+            else ProjectInfo._LIST_USER_AUTHORTY_TAB.Clear();
+
+            if (ProjectInfo._LIST_USER_AUTHORTY == null) ProjectInfo._LIST_USER_AUTHORTY = new List<string>();
+            else ProjectInfo._LIST_USER_AUTHORTY.Clear();
+
+            ProjectInfo._USER_TYPE = "";
+
+            DataTable dtUserInfo = getTable("ID_PASS", "USER_ID,PROGRAM_ID", $"USER_ID = '{ProjectInfo._userId}'", "PROGRAM_ID ASC");
+
+            if (dtUserInfo.Rows.Count > 0)
+            {
+                string programId;
+                string programTabId;
+
+                ProjectInfo._USER_TYPE = "USER";
+
+                foreach (DataRow row in dtUserInfo.Rows)
+                {
+                    programId = ConvertUtil.ToString(row["PROGRAM_ID"]);
+
+                    if (string.IsNullOrWhiteSpace(programId))
+                    {
+                        ProjectInfo._USER_TYPE = "ADMIN";
+                        break;
+                    }
+                    else
+                    {
+                        programTabId = Regex.Replace(programId, @"\d", "");//문자 추출
+
+                        if (!ProjectInfo._LIST_USER_AUTHORTY_TAB.Contains(programTabId))
+                            ProjectInfo._LIST_USER_AUTHORTY_TAB.Add(programTabId);
+
+                        if (!ProjectInfo._LIST_USER_AUTHORTY.Contains(programId))
+                            ProjectInfo._LIST_USER_AUTHORTY.Add(programId);
+                    }
+                }
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static void IgnoreBadCertificates()

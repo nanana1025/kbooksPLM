@@ -89,10 +89,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     usrOrderBookModifySearch1.Search();
                     break;
                 case 2:
-                    searchPerformanceHandler();
+                    deleteRowHandler();
                     break;
                 case 3:
-                    deleteRowHandler();
+                    searchPerformanceHandler();
                     break;
                 case 4:
                     break;
@@ -106,7 +106,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     usrOrderBookModifySearch1.setFocus();
                     break;
                 case 8:
-                    confirmHandler();
+                    confirmHandler(0);
                     break;
                 case 9:
                     this.Close();
@@ -130,9 +130,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             usrOrderBookModifyList1.deleteRow();
         }
 
-        private void confirmHandler()
+        private void confirmHandler(int userType)
         {
-            usrOrderBookModifyList1.confirm();
+            usrOrderBookModifyList1.confirm(userType);
         }
 
         private void usrOrderBookModify_Shown(object sender, EventArgs e)

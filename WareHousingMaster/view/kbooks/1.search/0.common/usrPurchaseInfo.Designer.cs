@@ -101,13 +101,13 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(484, 188);
+            this.layoutControl1.Size = new System.Drawing.Size(468, 188);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // tePurchaseCd
             // 
-            this.tePurchaseCd.Location = new System.Drawing.Point(78, 3);
+            this.tePurchaseCd.Location = new System.Drawing.Point(88, 3);
             this.tePurchaseCd.Name = "tePurchaseCd";
             this.tePurchaseCd.Size = new System.Drawing.Size(51, 20);
             this.tePurchaseCd.StyleController = this.layoutControl1;
@@ -115,7 +115,7 @@
             // 
             // gcList
             // 
-            this.gcList.Location = new System.Drawing.Point(133, 27);
+            this.gcList.Location = new System.Drawing.Point(143, 27);
             this.gcList.MainView = this.gvList;
             this.gcList.Name = "gcList";
             this.gcList.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -128,7 +128,7 @@
             this.rileOs,
             this.rileLanguage,
             this.rileUsedYn});
-            this.gcList.Size = new System.Drawing.Size(348, 158);
+            this.gcList.Size = new System.Drawing.Size(322, 158);
             this.gcList.TabIndex = 8;
             this.gcList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvList});
@@ -165,6 +165,7 @@
             this.gvList.OptionsMenu.ShowGroupSortSummaryItems = false;
             this.gvList.OptionsView.ShowGroupPanel = false;
             this.gvList.OptionsView.ShowIndicator = false;
+            this.gvList.RowHeight = 21;
             // 
             // gridColumn6
             // 
@@ -339,10 +340,14 @@
             // 
             // gcPrice
             // 
+            this.gcPrice.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcPrice.AppearanceCell.Options.UseFont = true;
             this.gcPrice.AppearanceCell.Options.UseTextOptions = true;
-            this.gcPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gcPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcPrice.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcPrice.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcPrice.AppearanceHeader.Options.UseBackColor = true;
+            this.gcPrice.AppearanceHeader.Options.UseFont = true;
             this.gcPrice.AppearanceHeader.Options.UseTextOptions = true;
             this.gcPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcPrice.Caption = " ";
@@ -353,14 +358,18 @@
             this.gcPrice.OptionsColumn.ReadOnly = true;
             this.gcPrice.Visible = true;
             this.gcPrice.VisibleIndex = 0;
-            this.gcPrice.Width = 66;
+            this.gcPrice.Width = 50;
             // 
             // gcReleasePrice
             // 
+            this.gcReleasePrice.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcReleasePrice.AppearanceCell.Options.UseFont = true;
             this.gcReleasePrice.AppearanceCell.Options.UseTextOptions = true;
             this.gcReleasePrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcReleasePrice.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcReleasePrice.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcReleasePrice.AppearanceHeader.Options.UseBackColor = true;
+            this.gcReleasePrice.AppearanceHeader.Options.UseFont = true;
             this.gcReleasePrice.AppearanceHeader.Options.UseTextOptions = true;
             this.gcReleasePrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcReleasePrice.Caption = "매입율";
@@ -373,14 +382,18 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PRICE", "{0:n0}")});
             this.gcReleasePrice.Visible = true;
             this.gcReleasePrice.VisibleIndex = 1;
-            this.gcReleasePrice.Width = 80;
+            this.gcReleasePrice.Width = 52;
             // 
             // gcSalePrice
             // 
+            this.gcSalePrice.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcSalePrice.AppearanceCell.Options.UseFont = true;
             this.gcSalePrice.AppearanceCell.Options.UseTextOptions = true;
             this.gcSalePrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcSalePrice.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcSalePrice.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcSalePrice.AppearanceHeader.Options.UseBackColor = true;
+            this.gcSalePrice.AppearanceHeader.Options.UseFont = true;
             this.gcSalePrice.AppearanceHeader.Options.UseTextOptions = true;
             this.gcSalePrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcSalePrice.Caption = "원단가";
@@ -392,14 +405,18 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SALE_PRICE", "{0:N0}")});
             this.gcSalePrice.Visible = true;
             this.gcSalePrice.VisibleIndex = 2;
-            this.gcSalePrice.Width = 80;
+            this.gcSalePrice.Width = 62;
             // 
             // gcMarginCost
             // 
+            this.gcMarginCost.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcMarginCost.AppearanceCell.Options.UseFont = true;
             this.gcMarginCost.AppearanceCell.Options.UseTextOptions = true;
             this.gcMarginCost.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcMarginCost.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcMarginCost.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcMarginCost.AppearanceHeader.Options.UseBackColor = true;
+            this.gcMarginCost.AppearanceHeader.Options.UseFont = true;
             this.gcMarginCost.AppearanceHeader.Options.UseTextOptions = true;
             this.gcMarginCost.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcMarginCost.Caption = "현재고";
@@ -411,14 +428,18 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "MARGIN_COST", "{0:n0}")});
             this.gcMarginCost.Visible = true;
             this.gcMarginCost.VisibleIndex = 3;
-            this.gcMarginCost.Width = 80;
+            this.gcMarginCost.Width = 62;
             // 
             // gcDes
             // 
+            this.gcDes.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcDes.AppearanceCell.Options.UseFont = true;
             this.gcDes.AppearanceCell.Options.UseTextOptions = true;
             this.gcDes.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcDes.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcDes.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcDes.AppearanceHeader.Options.UseBackColor = true;
+            this.gcDes.AppearanceHeader.Options.UseFont = true;
             this.gcDes.AppearanceHeader.Options.UseTextOptions = true;
             this.gcDes.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcDes.Caption = "반품예정수량";
@@ -430,7 +451,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STOCK", "{0:n0}")});
             this.gcDes.Visible = true;
             this.gcDes.VisibleIndex = 4;
-            this.gcDes.Width = 80;
+            this.gcDes.Width = 94;
             // 
             // rileComponentCd
             // 
@@ -514,9 +535,9 @@
             // 
             // tePurchaseNm
             // 
-            this.tePurchaseNm.Location = new System.Drawing.Point(133, 3);
+            this.tePurchaseNm.Location = new System.Drawing.Point(143, 3);
             this.tePurchaseNm.Name = "tePurchaseNm";
-            this.tePurchaseNm.Size = new System.Drawing.Size(348, 20);
+            this.tePurchaseNm.Size = new System.Drawing.Size(322, 20);
             this.tePurchaseNm.StyleController = this.layoutControl1;
             this.tePurchaseNm.TabIndex = 9;
             // 
@@ -527,7 +548,7 @@
             0,
             0,
             0});
-            this.tePriority.Location = new System.Drawing.Point(77, 27);
+            this.tePriority.Location = new System.Drawing.Point(87, 27);
             this.tePriority.Name = "tePriority";
             this.tePriority.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -548,31 +569,33 @@
             this.emptySpaceItem1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.Root.Size = new System.Drawing.Size(484, 188);
+            this.Root.Size = new System.Drawing.Size(468, 188);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gcList;
-            this.layoutControlItem1.Location = new System.Drawing.Point(130, 24);
+            this.layoutControlItem1.Location = new System.Drawing.Point(140, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(352, 162);
+            this.layoutControlItem1.Size = new System.Drawing.Size(326, 162);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
+            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem2.Control = this.tePurchaseCd;
             this.layoutControlItem2.ImageOptions.Image = global::WareHousingMaster.Properties.Resources.bullet_black;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(130, 24);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(130, 24);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(140, 24);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(140, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(130, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(140, 24);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "매입처";
             this.layoutControlItem2.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(70, 20);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(80, 20);
             this.layoutControlItem2.TextToControlDistance = 5;
             // 
             // layoutControlItem3
@@ -580,28 +603,30 @@
             this.layoutControlItem3.Control = this.tePurchaseNm;
             this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem3.Location = new System.Drawing.Point(130, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(140, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(352, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(326, 24);
             this.layoutControlItem3.Text = "layoutControlItem2";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
+            this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem4.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem4.Control = this.tePriority;
             this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem4.ImageOptions.Image = global::WareHousingMaster.Properties.Resources.bullet_black;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(130, 24);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(130, 24);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(140, 24);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(140, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(130, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(140, 24);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "처리순위";
             this.layoutControlItem4.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(70, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(80, 14);
             this.layoutControlItem4.TextToControlDistance = 4;
             // 
             // emptySpaceItem1
@@ -609,7 +634,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 48);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(130, 138);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(140, 138);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // usrPurchaseInfo
@@ -620,7 +645,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Name = "usrPurchaseInfo";
-            this.Size = new System.Drawing.Size(484, 188);
+            this.Size = new System.Drawing.Size(468, 188);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tePurchaseCd.Properties)).EndInit();

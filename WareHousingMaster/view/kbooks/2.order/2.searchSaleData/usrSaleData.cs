@@ -84,12 +84,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     //usrSearchBookSearchList1.showBookInfoDetail();
                     break;
                 case 7:
-                    usrSaleDataSearch1.clear();
-                    usrSaleDataList1.clear();
-                    usrSaleDataSearch1.setFocus();
+                    clear();
                     break;
                 case 8:
                     save();
+                    clear();
                     break;
                 case 9:
                     this.Close();
@@ -108,6 +107,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         private void save()
         {
             usrSaleDataList1.save();
+        }
+
+        private void clear()
+        {
+            usrSaleDataSearch1.clear();
+            usrSaleDataList1.clear();
+            usrSaleDataSearch1.setFocus();
         }
 
         private void usrSaleData_Shown(object sender, EventArgs e)

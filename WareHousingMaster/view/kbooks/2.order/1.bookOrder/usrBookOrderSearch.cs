@@ -55,8 +55,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             var today = DateTime.Today;
             //var pastDate = today.AddDays(-7);
 
-            deDtOrder.EditValue = today;
-            deDtWarehousing.EditValue = today;
+            deDtOrder.EditValue = today.AddDays(1);
+            deDtWarehousing.EditValue = today.AddDays(2);
         }
 
         public void setReleaseStateControl(bool isShow)

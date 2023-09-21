@@ -234,5 +234,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             usrSearchBookSearchList1.gvList_CustomButtonUnchecked();
         }
+
+        private void usrSearchBookSearch1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

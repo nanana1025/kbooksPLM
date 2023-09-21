@@ -11,7 +11,7 @@ namespace WareHousingMaster.view.common
     {
 
         public static int STORES = 1;
-        public static int STOREE = 15;
+        public static int STOREE = ProjectInfo._endStore;
 
 
         static public DataTable checkPurchCd(int shopCd, int purchCd, string purchNm)

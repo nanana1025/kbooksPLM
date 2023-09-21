@@ -421,6 +421,7 @@
     </Compile>
     <Compile Include="view\common\ImageHelper.cs" />
     <Compile Include="view\common\ConsignedInfo.cs" />
+    <Compile Include="view\common\kbooks\Language.cs" />
     <Compile Include="view\common\kbooks\Encrypt.cs" />
     <Compile Include="view\common\kbooks\Order.cs" />
     <Compile Include="view\common\kbooks\Search.cs" />
@@ -818,22 +819,28 @@
     <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataSearch.Designer.cs">
       <DependentUpon>usrSaleDataSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifySearch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifySearch.Designer.cs">
-      <DependentUpon>usrOrderBookModifySearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifyList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifyList.Designer.cs">
-      <DependentUpon>usrOrderBookModifyList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModify.cs">
+    <Compile Include="view\kbooks\2.order\3.5 orderBookModify_user\usrOrderBookModifyUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModify.Designer.cs">
+    <Compile Include="view\kbooks\2.order\3.5 orderBookModify_user\usrOrderBookModifyUser.Designer.cs">
+      <DependentUpon>usrOrderBookModifyUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifySearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifySearch.Designer.cs">
+      <DependentUpon>usrOrderBookModifySearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifyList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifyList.Designer.cs">
+      <DependentUpon>usrOrderBookModifyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModify.Designer.cs">
       <DependentUpon>usrOrderBookModify.cs</DependentUpon>
     </Compile>
     <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.cs">
@@ -2069,13 +2076,16 @@
     <EmbeddedResource Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataSearch.resx">
       <DependentUpon>usrSaleDataSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifySearch.resx">
+    <EmbeddedResource Include="view\kbooks\2.order\3.5 orderBookModify_user\usrOrderBookModifyUser.resx">
+      <DependentUpon>usrOrderBookModifyUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifySearch.resx">
       <DependentUpon>usrOrderBookModifySearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModifyList.resx">
+    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifyList.resx">
       <DependentUpon>usrOrderBookModifyList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify\usrOrderBookModify.resx">
+    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModify.resx">
       <DependentUpon>usrOrderBookModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.resx">

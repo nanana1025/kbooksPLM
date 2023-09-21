@@ -73,6 +73,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             _shopCd = ConvertUtil.ToInt32(jobj["SHOPCD"]);
             //usrBookOrderList1.getList(jobj);
             usrBookOrderList1.setCondition(jobj);
+            //Language.SwitchToKorean();
 
             int rowHandle = 0;
 

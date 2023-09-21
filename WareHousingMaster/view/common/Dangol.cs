@@ -15,27 +15,27 @@ namespace WareHousingMaster.view.common
     {
         static public void Message(string msg)
         {
-            MessageBox.Show(msg, "dangol365ERP");
+            MessageBox.Show(msg, "Kbooks");
         }
 
         static public void Message(object msg)
         {
-            MessageBox.Show(ConvertUtil.ToString(msg), "dangol365ERP");
+            MessageBox.Show(ConvertUtil.ToString(msg), "Kbooks");
         }
 
         static public void Info(object msg)
         {
-            MessageBox.Show(ConvertUtil.ToString(msg), "dangol365ERP");
+            MessageBox.Show(ConvertUtil.ToString(msg), "Kbooks");
         }
 
         static public void Warining(object msg)
         {
-            MessageBox.Show(ConvertUtil.ToString(msg), "dangol365ERP", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(ConvertUtil.ToString(msg), "Kbooks", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         static public void Error(object msg)
         {
-            MessageBox.Show(ConvertUtil.ToString(msg), "dangol365ERP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(ConvertUtil.ToString(msg), "Kbooks", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         static public DialogResult Custom(object msg)
@@ -50,11 +50,11 @@ namespace WareHousingMaster.view.common
         static public DialogResult MessageYN(string msg, string title=null)
         {
             if(title == null)
-                title = "dangol365 PLM";
+                title = "Kbooks";
             return MessageBox.Show(msg, title, MessageBoxButtons.YesNo);
         }
 
-        static public void ShowSplash(string title = "DANGOL365 PLM", string content = "Wait...")
+        static public void ShowSplash(string title = "Kbooks", string content = "Wait...")
         {
             if (SplashScreenManager.Default == null || !SplashScreenManager.Default.IsSplashFormVisible) { }
             else SplashScreenManager.CloseForm();
@@ -65,7 +65,7 @@ namespace WareHousingMaster.view.common
             SplashScreenManager.Default.SetWaitFormDescription(content);
         }
 
-        static public void setSplashContent(string title = "DANGOL365 PLM", string content = "Wait...")
+        static public void setSplashContent(string title = "Kbooks", string content = "Wait...")
         {
             SplashScreenManager.Default.SetWaitFormCaption(title);
             SplashScreenManager.Default.SetWaitFormDescription(content);

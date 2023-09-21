@@ -370,6 +370,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         public bool insertOrder()
         {
+            int rowhandle = gvList.FocusedRowHandle;
+            gvList.FocusedRowHandle = -2147483646;
+            gvList.FocusedRowHandle = rowhandle;
+
             DataRow[] rows = _dt.Select("STATE <> 0");
 
             if (rows.Length < 1)
@@ -616,9 +620,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         public void receiptRefresh()
         {
-            gvList.FocusedRowObjectChanged -= gvList_FocusedRowObjectChanged;
-            getList(_jobj);
-            gvList.FocusedRowObjectChanged += gvList_FocusedRowObjectChanged;
+            //gvList.FocusedRowObjectChanged -= gvList_FocusedRowObjectChanged;
+            //getList(_jobj);
+            //gvList.FocusedRowObjectChanged += gvList_FocusedRowObjectChanged;
         }
 
         public void viewRefresh()
@@ -1552,8 +1556,16 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             if (e.KeyCode == Keys.Enter)
             {
                 int rowHandle = gvList.FocusedRowHandle;
-                if(rowHandle < 29)
-                    SetColFocus("BOOKNM", rowHandle+1);
+
+                if (rowHandle < 29)
+                {
+                    string bookNm = gvList.GetDataRow(rowHandle + 1)["BOOKNM"].ToString();
+
+                    if(string.IsNullOrWhiteSpace(bookNm))
+                        SetColFocus("BOOKNM", rowHandle + 1);
+                    else
+                        SetColFocus("ORDER_CNT", rowHandle + 1);
+                }
             }
         }
     }

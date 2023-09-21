@@ -32,6 +32,8 @@ namespace WareHousingMaster.view.kbooks.search.common
 
             usrPublishList1.focusedRowObjectChangeHandler += new usrPublishList.FocusedRowObjectChangeHandler(FocusedRowObjectChangeHandler);
             usrPublishList1.selectHandler += new usrPublishList.SelectHandler(select);
+            usrPublishList1.doubleClickHandler += new usrPublishList.DoubleClickHandler(doubleClickHandler);
+            
             usrPublishList1.setInitLoad();
 
 
@@ -47,17 +49,14 @@ namespace WareHousingMaster.view.kbooks.search.common
             _drv = drv;
         }
 
+        private void doubleClickHandler()
+        {
+            select();
+        }
+
         private void sbOk_Click(object sender, EventArgs e)
         {
-            if(_drv == null)
-            {
-                Dangol.Warining("선택한 출판사가 없습니다.");
-            }
-            else
-            {
-                if(Dangol.MessageYN("선택한 출판사를 적용하시겠습니까?") == DialogResult.Yes)
-                    this.DialogResult = DialogResult.OK;
-            }
+            select();
         }
 
         private void select()

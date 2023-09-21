@@ -177,6 +177,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             teAuthor.Text = "";
             tePublisherCd.Text = "";
             tePublisher.Text = "";
+            _isGetPublisherCd = false;
 
             teTitle.Focus();
         }
@@ -239,17 +240,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             if (!string.IsNullOrWhiteSpace(tePublisher.Text))
                 jData.Add("PUBSHNM", tePublisher.Text.Trim());
 
-            if (!string.IsNullOrWhiteSpace(teGroupCd.Text))
-                jData.Add("GROUPCD", ConvertUtil.ToInt32(teGroupCd.Text.Trim()));
+            //if (!string.IsNullOrWhiteSpace(teGroupCd.Text))
+            //    jData.Add("GROUPCD", ConvertUtil.ToInt32(teGroupCd.Text.Trim()));
 
-            if (!string.IsNullOrWhiteSpace(teGroup.Text))
-                jData.Add("GROUP_NM", teGroup.Text.Trim());
+            //if (!string.IsNullOrWhiteSpace(teGroup.Text))
+            //    jData.Add("GROUP_NM", teGroup.Text.Trim());
 
-            if (!string.IsNullOrWhiteSpace(teStandCd.Text))
-                jData.Add("STANDCD", ConvertUtil.ToInt32(teStandCd.Text.Trim()));
+            //if (!string.IsNullOrWhiteSpace(teStandCd.Text))
+            //    jData.Add("STANDCD", ConvertUtil.ToInt32(teStandCd.Text.Trim()));
 
-            if (!string.IsNullOrWhiteSpace(teStand.Text))
-                jData.Add("STAND_NM", teStand.Text.Trim());
+            //if (!string.IsNullOrWhiteSpace(teStand.Text))
+            //    jData.Add("STAND_NM", teStand.Text.Trim());
 
 
             //if (date == 0)
@@ -278,8 +279,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     }
                     else
                     {
-                        getPubliser();
-                        sbSearch.Focus();
+                        if(getPubliser())
+                            sbSearch.Focus();
+                        else
+                            tePublisher.Focus();
                     }
                     
                 }
@@ -287,7 +290,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             }
         }
 
-        private void getPubliser()
+        private bool getPubliser()
         {
             int shopCd = ConvertUtil.ToInt32(leShopCd.EditValue);
             string publisher = tePublisher.Text.Trim();
@@ -303,6 +306,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     tePublisherCd.Text = ConvertUtil.ToString(publisherList._drv["PUBSHCD"]);
                     tePublisher.Text = _publiser = ConvertUtil.ToString(publisherList._drv["PUBSHNM"]);
                     _isGetPublisherCd = true;
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }

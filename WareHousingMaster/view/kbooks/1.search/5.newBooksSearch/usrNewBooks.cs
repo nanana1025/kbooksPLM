@@ -25,8 +25,8 @@ namespace WareHousingMaster.view.usedPurchase
             {
                 { Keys.F1, 1 }, { Keys.F2, 2 },{ Keys.F3, 3 },{ Keys.F4, 4 },{ Keys.F5, 5 },{ Keys.F6, 6 },{ Keys.F7, 7 },{ Keys.F8, 8 },{ Keys.F9, 9 },{ Keys.F10, 10 }
             };
-            _arrFunctionText = new string[] { "F1\n조회", "F2\n도서상세정보", "F3", "F4", "F5", "F6", "F7\n선택주문", "F8취소", "F9\n닫기", "F10\n닫기", };
-            _arrFunctionEditable = new bool[] { true, true, false, false, false, false, true, true, true, true };
+            _arrFunctionText = new string[] { "F1\n조회", "F2\n도서상세정보", "F3\n엑셀저장", "F4", "F5", "F6", "F7\n선택주문", "F8\n취소", "F9\n닫기", "F10\n닫기", };
+            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, true, true };
 
         }
 
@@ -73,7 +73,7 @@ namespace WareHousingMaster.view.usedPurchase
                     usrNewBooksList1.showBookInfoDetail();
                     break;
                 case 3:
-                    //usrSearchBookSearchList1.sortList("AUTHOR1");
+                    usrNewBooksList1.exportFile();
                     break;
                 case 4:
                     //usrSearchBookSearchList1.sortList("PUBSHNM");
@@ -158,6 +158,10 @@ namespace WareHousingMaster.view.usedPurchase
             else if (e.Button.Properties.Tag.Equals(2))
             {
                 usrNewBooksList1.showBookInfoDetail();
+            }
+            else if (e.Button.Properties.Tag.Equals(3))
+            {
+                usrNewBooksList1.exportFile();
             }
         }
 

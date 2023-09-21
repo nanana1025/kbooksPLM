@@ -124,14 +124,15 @@
             this.bbiStoreOrderBookList = new DevExpress.XtraBars.BarButtonItem();
             this.bbiReturnList = new DevExpress.XtraBars.BarButtonItem();
             this.bbiReturnMidif = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiOrderModifyOrder_admin = new DevExpress.XtraBars.BarButtonItem();
             this.rpHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpSearch = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.bhcrf = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgWarehousing = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpOrder = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.bhcor = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpReturns = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.bhcre = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpProduce = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgPart = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -262,15 +263,16 @@
             this.bbiOrderBookAllList,
             this.bbiStoreOrderBookList,
             this.bbiReturnList,
-            this.bbiReturnMidif});
+            this.bbiReturnMidif,
+            this.bbiOrderModifyOrder_admin});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 99;
+            this.ribbon.MaxItemId = 100;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHome,
-            this.rpSearch,
-            this.rpOrder,
-            this.rpReturns,
+            this.bhcrf,
+            this.bhcor,
+            this.bhcre,
             this.rpProduce,
             this.rpInventory,
             this.rpTechnicalRequest,
@@ -1177,6 +1179,14 @@
             this.bbiReturnMidif.Name = "bbiReturnMidif";
             this.bbiReturnMidif.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReturnMidif_ItemClick);
             // 
+            // bbiOrderModifyOrder_admin
+            // 
+            this.bbiOrderModifyOrder_admin.Caption = "주문도서수정/확정";
+            this.bbiOrderModifyOrder_admin.Id = 99;
+            this.bbiOrderModifyOrder_admin.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiOrderModifyOrder_admin.ImageOptions.SvgImage")));
+            this.bbiOrderModifyOrder_admin.Name = "bbiOrderModifyOrder_admin";
+            this.bbiOrderModifyOrder_admin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOrderModifyOrder_admin_ItemClick);
+            // 
             // rpHome
             // 
             this.rpHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1191,13 +1201,13 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
-            // rpSearch
+            // bhcrf
             // 
-            this.rpSearch.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.bhcrf.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgWarehousing});
-            this.rpSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpSearch.ImageOptions.Image")));
-            this.rpSearch.Name = "rpSearch";
-            this.rpSearch.Text = "검색관리";
+            this.bhcrf.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpSearch.ImageOptions.Image")));
+            this.bhcrf.Name = "bhcrf";
+            this.bhcrf.Text = "검색관리";
             // 
             // rpgWarehousing
             // 
@@ -1209,14 +1219,14 @@
             this.rpgWarehousing.ItemLinks.Add(this.bbiSearchBookBest);
             this.rpgWarehousing.Name = "rpgWarehousing";
             // 
-            // rpOrder
+            // bhcor
             // 
-            this.rpOrder.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.bhcor.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
             this.ribbonPageGroup5});
-            this.rpOrder.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpOrder.ImageOptions.Image")));
-            this.rpOrder.Name = "rpOrder";
-            this.rpOrder.Text = "주문관리";
+            this.bhcor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpOrder.ImageOptions.Image")));
+            this.bhcor.Name = "bhcor";
+            this.bhcor.Text = "주문관리";
             // 
             // ribbonPageGroup2
             // 
@@ -1224,6 +1234,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiOrderCartInfo);
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiOrderSaleInfo);
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiOrderModifyOrder);
+            this.ribbonPageGroup2.ItemLinks.Add(this.bbiOrderModifyOrder_admin);
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiOrderNonRegisterOrder);
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiOrderBookAllList);
             this.ribbonPageGroup2.ItemLinks.Add(this.bbiStoreOrderBookList);
@@ -1238,13 +1249,13 @@
             this.ribbonPageGroup5.Text = "ribbonPageGroup5";
             this.ribbonPageGroup5.Visible = false;
             // 
-            // rpReturns
+            // bhcre
             // 
-            this.rpReturns.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.bhcre.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup6});
-            this.rpReturns.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpReturns.ImageOptions.Image")));
-            this.rpReturns.Name = "rpReturns";
-            this.rpReturns.Text = "반품관리";
+            this.bhcre.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpReturns.ImageOptions.Image")));
+            this.bhcre.Name = "bhcre";
+            this.bhcre.Text = "반품관리";
             // 
             // ribbonPageGroup6
             // 
@@ -1361,7 +1372,7 @@
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.bsiDate);
             this.ribbonStatusBar.ItemLinks.Add(this.bsiVersion);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 676);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 700);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1388, 23);
@@ -1401,7 +1412,7 @@
             this.Appearance.TextOptions.HotkeyPrefix = DevExpress.Utils.HKeyPrefix.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1388, 699);
+            this.ClientSize = new System.Drawing.Size(1388, 723);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
@@ -1433,7 +1444,7 @@
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
         private DevExpress.XtraBars.BarButtonItem biWarehousing;
         private DevExpress.XtraBars.BarButtonItem biWarehousingConsigned;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rpSearch;
+        private DevExpress.XtraBars.Ribbon.RibbonPage bhcrf;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgWarehousing;
         private DevExpress.XtraBars.BarStaticItem bsiDate;
         private DevExpress.XtraBars.BarStaticItem bsiVersion;
@@ -1473,7 +1484,7 @@
         private DevExpress.XtraBars.BarButtonItem biWarehouseState1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
         private DevExpress.XtraBars.BarButtonItem biProductSwap;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rpOrder;
+        private DevExpress.XtraBars.Ribbon.RibbonPage bhcor;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem biRepair;
         private DevExpress.XtraBars.BarButtonItem biKeyboardTest;
@@ -1542,8 +1553,9 @@
         private DevExpress.XtraBars.BarButtonItem bbiStoreOrderBookList;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem bbiReturnList;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rpReturns;
+        private DevExpress.XtraBars.Ribbon.RibbonPage bhcre;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem bbiReturnMidif;
+        private DevExpress.XtraBars.BarButtonItem bbiOrderModifyOrder_admin;
     }
 }

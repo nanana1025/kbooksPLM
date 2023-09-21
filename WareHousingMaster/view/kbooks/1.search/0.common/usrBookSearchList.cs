@@ -32,6 +32,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         public delegate void FocusedRowObjectChangeHandler(DataRowView drv);
         public event FocusedRowObjectChangeHandler focusedRowObjectChangeHandler;
 
+        public delegate void DoubleClickHandler();
+        public event DoubleClickHandler doubleClickHandler;
+
 
         public usrBookSearchList()
         {
@@ -456,6 +459,14 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     if (state == 1)
                         _currentRow["STATE"] = 2;
                 }
+            }
+        }
+
+        private void gvList_DoubleClick(object sender, EventArgs e)
+        {
+            if (_currentRow != null)
+            {
+                doubleClickHandler();
             }
         }
     }

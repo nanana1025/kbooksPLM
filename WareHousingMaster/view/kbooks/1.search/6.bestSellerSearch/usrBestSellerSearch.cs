@@ -133,17 +133,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             jData.Add("DT_TO", dtto.ToString("yyyyMMdd"));
 
 
-            string dtWork = "";
-            if (deDtWork.EditValue != null && !string.IsNullOrEmpty(deDtWork.EditValue.ToString()))
-                dtWork = $"{deDtWork.Text} 00:00:00";
+            //string dtWork = "";
+            //if (deDtWork.EditValue != null && !string.IsNullOrEmpty(deDtWork.EditValue.ToString()))
+            //    dtWork = $"{deDtWork.Text} 00:00:00";
            
-            if(string.IsNullOrWhiteSpace(dtWork))
-            {
-                jData.Add("MSG", "영업일을 선택하세요.");
-                return false;
-            }
-            else
-                jData.Add("DT_WORK", dtWork);
+            //if(string.IsNullOrWhiteSpace(dtWork))
+            //{
+            //    jData.Add("MSG", "영업일을 선택하세요.");
+            //    return false;
+            //}
+            //else
+            //    jData.Add("DT_WORK", dtWork);
 
 
             jData.Add("SHOPCD", ConvertUtil.ToInt32(leShopCd.EditValue));
@@ -281,7 +281,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         }
         public void setFocus()
         {
-            teCd_S.Focus();
+            //teCd_S.Focus();
+            deDtFrom.Focus();
         }
 
         public void clear()
@@ -289,6 +290,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             teCd_S.Text = "";
             teCd_E.Text = "";
             teName.Text = "";
+
+            rgCategory.EditValue = -1;
         }
 
         private void teCd_S_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -307,6 +310,19 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             if (e.KeyCode == Keys.Enter)
                 Search();
+        }
+
+        private void rgCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int category = ConvertUtil.ToInt32(rgCategory.EditValue);
+
+            teCd_S.Text = "";
+            teCd_E.Text = "";
+            teName.Text = "";
+
+            teCd_S.ReadOnly = category == -1;
+            teCd_E.ReadOnly = category == -1;
+            teName.ReadOnly = category == -1;
         }
     }
 }

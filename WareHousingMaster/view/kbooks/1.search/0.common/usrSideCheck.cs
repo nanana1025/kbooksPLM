@@ -30,11 +30,14 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         private void setinitialize(string[] arrrF, bool[] arrFEditable)
         {
+            Root.BeginUpdate();
+
             for (int i = 0; i < _arrSb.Length; i++)
             {
                 _arrSb[i].Text = arrrF[i];
                 _arrSb[i].Enabled = arrFEditable[i];
             }
+            Root.EndUpdate();
         }
 
         private void sbF_Click(object sender, EventArgs e)

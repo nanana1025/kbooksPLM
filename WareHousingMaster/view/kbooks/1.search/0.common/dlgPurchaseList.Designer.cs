@@ -71,6 +71,8 @@ namespace WareHousingMaster.view.kbooks.search.common
             // 
             // sbCancel
             // 
+            this.sbCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sbCancel.Appearance.Options.UseFont = true;
             this.sbCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbCancel.ImageOptions.Image")));
             this.sbCancel.Location = new System.Drawing.Point(751, 3);
             this.sbCancel.Name = "sbCancel";
@@ -82,10 +84,12 @@ namespace WareHousingMaster.view.kbooks.search.common
             // 
             // sbOk
             // 
+            this.sbOk.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sbOk.Appearance.Options.UseFont = true;
             this.sbOk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbOk.ImageOptions.Image")));
             this.sbOk.Location = new System.Drawing.Point(651, 3);
             this.sbOk.Name = "sbOk";
-            this.sbOk.Size = new System.Drawing.Size(96, 22);
+            this.sbOk.Size = new System.Drawing.Size(96, 24);
             this.sbOk.StyleController = this.layoutControl1;
             this.sbOk.TabIndex = 6;
             this.sbOk.Text = "확인";
@@ -94,10 +98,10 @@ namespace WareHousingMaster.view.kbooks.search.common
             // layoutControl3
             // 
             this.layoutControl3.Controls.Add(this.usrPurchaseList1);
-            this.layoutControl3.Location = new System.Drawing.Point(3, 29);
+            this.layoutControl3.Location = new System.Drawing.Point(3, 31);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup2;
-            this.layoutControl3.Size = new System.Drawing.Size(844, 334);
+            this.layoutControl3.Size = new System.Drawing.Size(844, 332);
             this.layoutControl3.TabIndex = 5;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -108,7 +112,7 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.usrPurchaseList1.Appearance.Options.UseBackColor = true;
             this.usrPurchaseList1.Location = new System.Drawing.Point(3, 3);
             this.usrPurchaseList1.Name = "usrPurchaseList1";
-            this.usrPurchaseList1.Size = new System.Drawing.Size(838, 328);
+            this.usrPurchaseList1.Size = new System.Drawing.Size(838, 326);
             this.usrPurchaseList1.TabIndex = 4;
             // 
             // layoutControlGroup2
@@ -119,7 +123,7 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.layoutControlItem1});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(844, 334);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(844, 332);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem1
@@ -127,7 +131,7 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.layoutControlItem1.Control = this.usrPurchaseList1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(842, 332);
+            this.layoutControlItem1.Size = new System.Drawing.Size(842, 330);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -148,9 +152,9 @@ namespace WareHousingMaster.view.kbooks.search.common
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.layoutControl3;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 28);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(848, 338);
+            this.layoutControlItem2.Size = new System.Drawing.Size(848, 336);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -158,10 +162,10 @@ namespace WareHousingMaster.view.kbooks.search.common
             // 
             this.layoutControlItem3.Control = this.sbOk;
             this.layoutControlItem3.Location = new System.Drawing.Point(648, 0);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(100, 26);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(100, 26);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(100, 28);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(100, 28);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(100, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(100, 28);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -170,10 +174,10 @@ namespace WareHousingMaster.view.kbooks.search.common
             // 
             this.layoutControlItem4.Control = this.sbCancel;
             this.layoutControlItem4.Location = new System.Drawing.Point(748, 0);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(100, 26);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(100, 26);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(100, 28);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(100, 28);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(100, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(100, 28);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
@@ -183,7 +187,7 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(648, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(648, 28);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // dlgPurchaseList

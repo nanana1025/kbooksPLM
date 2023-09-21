@@ -132,7 +132,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             _dt.Columns.Add(new DataColumn("CHECK", typeof(bool)));
 
-            arrGcCol = new GridColumn[] { gcStore1, gcStore2, gcStore3, gcStore4, gcStore5, gcStore6, gcStore7, gcStore8, gcStore9, gcStore10, gcStore11, gcStore12, gcStore13, gcStore14, gcStore15};
+            arrGcCol = new GridColumn[] { gcStore1, gcStore2, gcStore3, gcStore4, gcStore5, gcStore6, gcStore7, gcStore8, gcStore9, gcStore10, gcStore11, gcStore12
+                /*, gcStore13, gcStore14, gcStore15*/};
 
             _bs = new BindingSource();
         }
@@ -247,7 +248,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             if (_searchType == 1)
             {
                 _start = 1;
-                _end = 15;
+                _end = ProjectInfo._endStore;
             }
             else
             {
@@ -381,6 +382,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     start = ConvertUtil.ToInt32(jobj["STORECD_S"]);
                     end = ConvertUtil.ToInt32(jobj["STORECD_E"]);
 
+                    if (end > ProjectInfo._endStore) end = ProjectInfo._endStore;
+
                     for (int i = start-1; i < end; i++)
                     {
                         arrGcCol[i].Visible = false;
@@ -469,6 +472,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     }
 
                     gvList.EndDataUpdate();
+                    Dangol.CloseSplash();
 
                     if (_dt.Rows.Count < 1)
                         Dangol.Info("검색 결과가 없습니다.");
@@ -540,6 +544,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     if (_dt.Rows.Count < 1)
                         Dangol.Info("검색 결과가 없습니다.");
                 }
+
+                Dangol.CloseSplash();
             }
             else
             {
@@ -695,7 +701,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             if (_searchType == 1)
             {
                 start = 1;
-                end = 15;
+                end = ProjectInfo._endStore;
             }
             else
             {

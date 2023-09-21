@@ -200,7 +200,6 @@ namespace WareHousingMaster.view.kbooks.returns
 
         private void setInfoBox()
         {
-
             Util.LookupEditHelper(rilePurchCd, _bsPruchCd, "KEY", "VALUE");
 
             DataTable dt1 = new DataTable();
@@ -214,10 +213,14 @@ namespace WareHousingMaster.view.kbooks.returns
             DataTable dt2 = new DataTable();
             dt2.Columns.Add(new DataColumn("KEY", typeof(int)));
             dt2.Columns.Add(new DataColumn("VALUE", typeof(string)));
-            for (int i = 1; i < 5; i++) Util.insertRow(dt2, i, i.ToString());
-            Util.LookupEditHelper(rileReturnReason, dt2, "KEY", "VALUE");
+            for (int i = 1; i < 3; i++) Util.insertRow(dt2, i, i.ToString());
             Util.LookupEditHelper(rileReturnType, dt2, "KEY", "VALUE");
 
+            DataTable dt3 = new DataTable();
+            dt3.Columns.Add(new DataColumn("KEY", typeof(int)));
+            dt3.Columns.Add(new DataColumn("VALUE", typeof(string)));
+            for (int i = 1; i < 7; i++) Util.insertRow(dt3, i, i.ToString());
+            Util.LookupEditHelper(rileReturnReason, dt3, "KEY", "VALUE");
         }
 
         public void setinitialize()

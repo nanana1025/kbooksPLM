@@ -77,6 +77,7 @@
             this.gvList.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
             this.gvList.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvList.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.gvList.ColumnPanelRowHeight = 22;
             this.gvList.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn6,
             this.gcCheck,
@@ -97,10 +98,10 @@
             this.gridColumn2});
             this.gvList.GridControl = this.gcList;
             this.gvList.Name = "gvList";
-            this.gvList.OptionsView.ShowAutoFilterRow = true;
             this.gvList.OptionsView.ShowFooter = true;
             this.gvList.OptionsView.ShowGroupPanel = false;
             this.gvList.OptionsView.ShowIndicator = false;
+            this.gvList.RowHeight = 22;
             this.gvList.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gvList_RowCellStyle);
             this.gvList.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.gvList_FocusedRowObjectChanged);
             this.gvList.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvList_CellValueChanged);
@@ -126,16 +127,18 @@
             this.gcCheck.MaxWidth = 35;
             this.gcCheck.MinWidth = 35;
             this.gcCheck.Name = "gcCheck";
-            this.gcCheck.Visible = true;
-            this.gcCheck.VisibleIndex = 0;
             this.gcCheck.Width = 35;
             // 
             // gridColumn21
             // 
+            this.gridColumn21.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn21.AppearanceCell.Options.UseFont = true;
             this.gridColumn21.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn21.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn21.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn21.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn21.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn21.AppearanceHeader.Options.UseFont = true;
             this.gridColumn21.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn21.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn21.Caption = "No";
@@ -147,13 +150,17 @@
             this.gridColumn21.Name = "gridColumn21";
             this.gridColumn21.OptionsColumn.AllowEdit = false;
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 1;
+            this.gridColumn21.VisibleIndex = 0;
             this.gridColumn21.Width = 45;
             // 
             // gcReleaseCnt
             // 
+            this.gcReleaseCnt.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcReleaseCnt.AppearanceCell.Options.UseFont = true;
             this.gcReleaseCnt.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcReleaseCnt.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcReleaseCnt.AppearanceHeader.Options.UseBackColor = true;
+            this.gcReleaseCnt.AppearanceHeader.Options.UseFont = true;
             this.gcReleaseCnt.AppearanceHeader.Options.UseTextOptions = true;
             this.gcReleaseCnt.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcReleaseCnt.Caption = "매입처명";
@@ -163,15 +170,19 @@
             this.gcReleaseCnt.Name = "gcReleaseCnt";
             this.gcReleaseCnt.OptionsColumn.AllowEdit = false;
             this.gcReleaseCnt.Visible = true;
-            this.gcReleaseCnt.VisibleIndex = 2;
-            this.gcReleaseCnt.Width = 100;
+            this.gcReleaseCnt.VisibleIndex = 1;
+            this.gcReleaseCnt.Width = 152;
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceCell.Options.UseFont = true;
             this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn1.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
             this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.Caption = "매장코드";
@@ -179,15 +190,19 @@
             this.gridColumn1.MinWidth = 70;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 3;
-            this.gridColumn1.Width = 70;
+            this.gridColumn1.VisibleIndex = 2;
+            this.gridColumn1.Width = 73;
             // 
             // gcPrice
             // 
+            this.gcPrice.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcPrice.AppearanceCell.Options.UseFont = true;
             this.gcPrice.AppearanceCell.Options.UseTextOptions = true;
             this.gcPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gcPrice.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcPrice.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcPrice.AppearanceHeader.Options.UseBackColor = true;
+            this.gcPrice.AppearanceHeader.Options.UseFont = true;
             this.gcPrice.AppearanceHeader.Options.UseTextOptions = true;
             this.gcPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcPrice.Caption = "조명";
@@ -196,15 +211,19 @@
             this.gcPrice.Name = "gcPrice";
             this.gcPrice.OptionsColumn.AllowEdit = false;
             this.gcPrice.Visible = true;
-            this.gcPrice.VisibleIndex = 4;
+            this.gcPrice.VisibleIndex = 3;
             this.gcPrice.Width = 70;
             // 
             // gcStg
             // 
+            this.gcStg.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStg.AppearanceCell.Options.UseFont = true;
             this.gcStg.AppearanceCell.Options.UseTextOptions = true;
             this.gcStg.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gcStg.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcStg.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcStg.AppearanceHeader.Options.UseBackColor = true;
+            this.gcStg.AppearanceHeader.Options.UseFont = true;
             this.gcStg.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStg.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcStg.Caption = "도서코드";
@@ -214,15 +233,19 @@
             this.gcStg.Name = "gcStg";
             this.gcStg.OptionsColumn.AllowEdit = false;
             this.gcStg.Visible = true;
-            this.gcStg.VisibleIndex = 5;
-            this.gcStg.Width = 105;
+            this.gcStg.VisibleIndex = 4;
+            this.gcStg.Width = 90;
             // 
             // gridColumn23
             // 
+            this.gridColumn23.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn23.AppearanceCell.Options.UseFont = true;
             this.gridColumn23.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn23.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn23.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn23.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn23.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn23.AppearanceHeader.Options.UseFont = true;
             this.gridColumn23.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn23.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn23.Caption = "도서명";
@@ -232,15 +255,19 @@
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.OptionsColumn.AllowEdit = false;
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 6;
-            this.gridColumn23.Width = 172;
+            this.gridColumn23.VisibleIndex = 5;
+            this.gridColumn23.Width = 184;
             // 
             // gcComponent
             // 
+            this.gcComponent.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcComponent.AppearanceCell.Options.UseFont = true;
             this.gcComponent.AppearanceCell.Options.UseTextOptions = true;
             this.gcComponent.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gcComponent.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gcComponent.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcComponent.AppearanceHeader.Options.UseBackColor = true;
+            this.gcComponent.AppearanceHeader.Options.UseFont = true;
             this.gcComponent.AppearanceHeader.Options.UseTextOptions = true;
             this.gcComponent.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcComponent.Caption = "저자명";
@@ -248,15 +275,19 @@
             this.gcComponent.Name = "gcComponent";
             this.gcComponent.OptionsColumn.AllowEdit = false;
             this.gcComponent.Visible = true;
-            this.gcComponent.VisibleIndex = 7;
-            this.gcComponent.Width = 110;
+            this.gcComponent.VisibleIndex = 6;
+            this.gcComponent.Width = 86;
             // 
             // gridColumn4
             // 
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn4.AppearanceCell.Options.UseFont = true;
             this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn4.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn4.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn4.Caption = "주문수량";
@@ -270,7 +301,7 @@
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ORD_COUNT", "{0:N0}")});
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 8;
+            this.gridColumn4.VisibleIndex = 7;
             this.gridColumn4.Width = 60;
             // 
             // riseCnt
@@ -278,6 +309,8 @@
             this.riseCnt.AutoHeight = false;
             this.riseCnt.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riseCnt.IsFloatValue = false;
+            this.riseCnt.MaskSettings.Set("mask", "N00");
             this.riseCnt.Name = "riseCnt";
             this.riseCnt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.riseCnt_KeyDown);
             // 
@@ -382,16 +415,20 @@
             // 
             // gridColumn2
             // 
+            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn2.AppearanceCell.Options.UseFont = true;
             this.gridColumn2.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn2.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
             this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn2.Caption = "기타";
             this.gridColumn2.FieldName = "ETC";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 9;
-            this.gridColumn2.Width = 352;
+            this.gridColumn2.VisibleIndex = 8;
+            this.gridColumn2.Width = 257;
             // 
             // riteTitle
             // 

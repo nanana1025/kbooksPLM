@@ -48,7 +48,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             var today = DateTime.Today;
             //var pastDate = today.AddDays(-7);
 
-            deDtOrder.EditValue = today;
+            deDtOrder.EditValue = today.AddDays(1);
 
             //deDtOrder.EditValue = Convert.ToDateTime("2023-03-14");
         }

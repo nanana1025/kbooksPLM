@@ -73,6 +73,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             _dt.Columns.Add(new DataColumn("STOCK", typeof(int)));
             _dt.Columns.Add(new DataColumn("ORD_RATE", typeof(int)));
             _dt.Columns.Add(new DataColumn("ORDER_CNT", typeof(int)));
+            _dt.Columns.Add(new DataColumn("ORDER_CNT_HIDE", typeof(int)));
 
             _dt.Columns.Add(new DataColumn("DEPTCD", typeof(int)));
             _dt.Columns.Add(new DataColumn("BOOKCD", typeof(long)));
@@ -156,7 +157,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             //DataTable dtUsedYn = Util.getCodeList_Int_String("CD0107", "KEY", "VALUE");
             //Util.LookupEditHelper(rileUsedYn, dtUsedYn, "KEY", "VALUE");
 
-            for(int i = 0; i <= 100; i+=5)
+            for(int i = 0; i <= 100; i++)
             {
                 DataRow dr1 = _dtOrderRatio.NewRow();
                 dr1["KEY"] = i;
@@ -419,15 +420,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         dr["RET_SUM"] = ConvertUtil.ToInt32(obj["RET_SUM"]);
                         dr["ORD_SUM"] = ConvertUtil.ToInt32(obj["ORD_SUM"]);
                         dr["ORD_RATE"] = ConvertUtil.ToInt32(obj["RATE"]);
-                        dr["TRADE_ITEM"] = ConvertUtil.ToInt32(obj["TRADE_ITEM"]);
+                        //dr["TRADE_ITEM"] = ConvertUtil.ToInt32(obj["TRADE_ITEM"]);
+                       
+                        dr["TRADE_ITEM"] = 1;
                         dr["INP_SUM"] = ConvertUtil.ToInt32(obj["INP_SUM"]);
 
                         dr["ORDER_CNT_YN"] = ConvertUtil.ToInt32(obj["RATE"]) == 0 ? "Y" : "N";
                         rate = ConvertUtil.ToInt32(obj["RATE"]);
 
-                        if (rate > 0)
+                        if (rate > 0 && !obj.ContainsKey("RATE_EXCEPT"))
                         {
-                            string key = $"{_shopCd}/{bookCd}/{purchCd}";
+                            string key = $"{storeCd}/{bookCd}/{purchCd}";
 
                             if (!_dicOrderRatioTable.ContainsKey(key))
                             {
@@ -495,8 +498,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         dr["SALE_SUM"] = ConvertUtil.ToInt32(obj["SALE_SUM"]);
                         dr["STOCK"] = ConvertUtil.ToInt32(obj["STOCK"]);
 
-                        dr["ORDER_CNT"] = 0;    //주문수량
-
+                        //dr["ORDER_CNT"] = 0;    //주문수량
+                        dr["ORDER_CNT_HIDE"] = 0;    //주문수량
+                        
                         dr["DEPTCD"] = ConvertUtil.ToInt32(obj["DEPTCD"]);
                         dr["BOOKCD"] = bookCd;
 
@@ -534,16 +538,18 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             gvList.FocusedRowHandle = -2147483646;
             gvList.FocusedRowHandle = rowhandle;
 
-            DataRow[] rows = _dt.Select("ORDER_CNT > 0 AND ORD_RATE > 0");
+            //DataRow[] rows = _dt.Select("ORDER_CNT > 0 AND ORD_RATE > 0"); 
+            DataRow[] rows = _dt.Select("ORDER_CNT_HIDE > 0 AND ORD_RATE > 0");
 
-            if(rows.Length < 1)
+            if (rows.Length < 1)
             {
                 Dangol.Warining("확정할 데이터가 없습니다.");
                 return false;
             }
             else
             {
-                DataRow[] rowsExcept = _dt.Select("ORDER_CNT <= 0 OR ORD_RATE = 0");
+                //DataRow[] rowsExcept = _dt.Select("ORDER_CNT <= 0 OR ORD_RATE = 0");
+                DataRow[] rowsExcept = _dt.Select("ORDER_CNT_HIDE <= 0 OR ORD_RATE = 0");
 
                 bool isContinue = false;
 
@@ -570,10 +576,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         jdata.Add("SHOPCD", _shopCd);
                         jdata.Add("STORECD", ConvertUtil.ToInt32(row["STORECD"]));
                         int inpGroupCd = ConvertUtil.ToInt32(_jobj["INP_GROUPCD"]);
-                        if(inpGroupCd == 1)
+
+                        if (inpGroupCd == 1)
                             jdata.Add("INP_GROUPCD", 99);
                         else
                             jdata.Add("INP_GROUPCD", ConvertUtil.ToInt32(_jobj["GROUPCD"]));
+
+                        //jdata.Add("INP_GROUPCD", ConvertUtil.ToInt32(row["GROUPCD"]));
 
                         jdata.Add("ORD_DATE", ConvertUtil.ToString(_jobj["ORDER_DATE"])); 
                         jdata.Add("INP_DATE", ConvertUtil.ToString(_jobj["INP_DATE"]));
@@ -683,6 +692,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
                     if (state == 1)
                         _currentRow["STATE"] = 2;
+
+                    if (e.Column.FieldName.Equals("ORDER_CNT"))
+                    {
+                        int cnt = ConvertUtil.ToInt32(_currentRow["ORDER_CNT"]);
+                        _currentRow["ORDER_CNT_HIDE"] = cnt;
+                    }
                 }
             }
         }
@@ -720,10 +735,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 getOrderRatio();
 
                 LookUpEdit editor = (LookUpEdit)view.ActiveEditor;
+                long storeCd = ConvertUtil.ToInt64(view.GetFocusedRowCellValue("STORECD"));
                 long bookCd = ConvertUtil.ToInt64(view.GetFocusedRowCellValue("BOOKCD"));
                 int purchCd = ConvertUtil.ToInt32(view.GetFocusedRowCellValue("PURCHCD"));
 
-                string key = $"{_shopCd}/{bookCd}/{purchCd}";
+                string key = $"{storeCd}/{bookCd}/{purchCd}";
 
                 if (_dicOrderRatioTable.ContainsKey(key))
                     editor.Properties.DataSource = _dicOrderRatioTable[key];
@@ -733,6 +749,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         }
         private void getOrderRatio()
         {
+            //int shopCd = ConvertUtil.ToInt32(_currentRow["SHOP_CD"]);
+            long storeCd = ConvertUtil.ToInt64(_currentRow["STORECD"]);
             long bookCd = ConvertUtil.ToInt64(_currentRow["BOOKCD"]);
             int purchCd = ConvertUtil.ToInt32(_currentRow["PURCHCD"]);
 
@@ -745,7 +763,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             jobj.Add("RATE_KBN", 1);
             
 
-            string key = $"{_shopCd}/{bookCd}/{purchCd}";
+            string key = $"{storeCd}/{bookCd}/{purchCd}";
 
             if (!_dicOrderRatioTable.ContainsKey(key) && bookCd > 0 && purchCd > 0)
             {

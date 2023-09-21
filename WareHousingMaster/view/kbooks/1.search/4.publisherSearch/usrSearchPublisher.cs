@@ -31,7 +31,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             {
                 { Keys.F1, 1 }, { Keys.F2, 2 },{ Keys.F3, 3 },{ Keys.F4, 4 },{ Keys.F5, 5 },{ Keys.F6, 6 },{ Keys.F7, 7 },{ Keys.F8, 8 },{ Keys.F9, 9 },{ Keys.F10, 10 }
             };
-            _arrFunctionText = new string[] { "F1\n조회", "F2", "F3", "F4", "F5", "F6", "F7\n선택주문", "F8취소", "F9\n닫기", "F10\n닫기", };
+            _arrFunctionText = new string[] { "F1\n조회", "F2", "F3", "F4", "F5", "F6", "F7\n선택주문", "F8\n취소", "F9\n닫기", "F10\n닫기", };
             _arrFunctionEditable = new bool[] { true, false, false, false, false, false, true, true, true, true };
 
             _shopCd = 1;

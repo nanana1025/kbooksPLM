@@ -45,7 +45,12 @@ namespace WareHousingMaster.view.common
         public static BarButtonItem _bbiOrderCartInfo;
 
 
+        public static int _endStore = 12;
 
+        public static List<string> _LIST_USER_AUTHORTY_TAB;
+        public static List<string> _LIST_USER_AUTHORTY;
+
+        public static string _USER_TYPE; //ADMIN, USER
 
 
 

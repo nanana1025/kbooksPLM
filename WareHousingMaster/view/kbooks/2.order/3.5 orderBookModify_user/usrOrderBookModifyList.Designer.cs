@@ -109,7 +109,6 @@
             this.gcEtc});
             this.gvList.GridControl = this.gcList;
             this.gvList.Name = "gvList";
-            this.gvList.OptionsView.ShowAutoFilterRow = true;
             this.gvList.OptionsView.ShowFooter = true;
             this.gvList.OptionsView.ShowGroupPanel = false;
             this.gvList.OptionsView.ShowIndicator = false;
@@ -139,8 +138,6 @@
             this.gcCheck.MaxWidth = 35;
             this.gcCheck.MinWidth = 35;
             this.gcCheck.Name = "gcCheck";
-            this.gcCheck.Visible = true;
-            this.gcCheck.VisibleIndex = 0;
             this.gcCheck.Width = 35;
             // 
             // gridColumn21
@@ -161,7 +158,7 @@
             this.gridColumn21.OptionsColumn.AllowEdit = false;
             this.gridColumn21.OptionsColumn.ReadOnly = true;
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 1;
+            this.gridColumn21.VisibleIndex = 0;
             this.gridColumn21.Width = 45;
             // 
             // gcReleaseCnt
@@ -178,7 +175,7 @@
             this.gcReleaseCnt.OptionsColumn.AllowEdit = false;
             this.gcReleaseCnt.OptionsColumn.ReadOnly = true;
             this.gcReleaseCnt.Visible = true;
-            this.gcReleaseCnt.VisibleIndex = 2;
+            this.gcReleaseCnt.VisibleIndex = 1;
             this.gcReleaseCnt.Width = 150;
             // 
             // gridColumn23
@@ -198,7 +195,7 @@
             this.gridColumn23.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "BOOKNM", "{0:N0}")});
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 3;
+            this.gridColumn23.VisibleIndex = 2;
             this.gridColumn23.Width = 264;
             // 
             // riteTitle
@@ -226,7 +223,7 @@
             this.gcDes.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STOCK", "{0:N0}")});
             this.gcDes.Visible = true;
-            this.gcDes.VisibleIndex = 4;
+            this.gcDes.VisibleIndex = 3;
             this.gcDes.Width = 60;
             // 
             // gridColumn4
@@ -248,7 +245,7 @@
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TOTAL", "{0:N0}")});
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 5;
+            this.gridColumn4.VisibleIndex = 4;
             this.gridColumn4.Width = 60;
             // 
             // gcStore1
@@ -269,7 +266,7 @@
             this.gcStore1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE1", "{0:n0}")});
             this.gcStore1.Visible = true;
-            this.gcStore1.VisibleIndex = 6;
+            this.gcStore1.VisibleIndex = 5;
             this.gcStore1.Width = 70;
             // 
             // gcStore2
@@ -290,7 +287,7 @@
             this.gcStore2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE2", "{0:n0}")});
             this.gcStore2.Visible = true;
-            this.gcStore2.VisibleIndex = 7;
+            this.gcStore2.VisibleIndex = 6;
             this.gcStore2.Width = 70;
             // 
             // gcStore4
@@ -311,7 +308,7 @@
             this.gcStore4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE4", "{0:N0}")});
             this.gcStore4.Visible = true;
-            this.gcStore4.VisibleIndex = 9;
+            this.gcStore4.VisibleIndex = 8;
             this.gcStore4.Width = 70;
             // 
             // gcStore3
@@ -332,7 +329,7 @@
             this.gcStore3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE3", "{0:N0}")});
             this.gcStore3.Visible = true;
-            this.gcStore3.VisibleIndex = 8;
+            this.gcStore3.VisibleIndex = 7;
             this.gcStore3.Width = 70;
             // 
             // gcStore5
@@ -353,7 +350,7 @@
             this.gcStore5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE5", "{0:N0}")});
             this.gcStore5.Visible = true;
-            this.gcStore5.VisibleIndex = 10;
+            this.gcStore5.VisibleIndex = 9;
             this.gcStore5.Width = 70;
             // 
             // gcStore6
@@ -374,7 +371,7 @@
             this.gcStore6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE6", "{0:N0}")});
             this.gcStore6.Visible = true;
-            this.gcStore6.VisibleIndex = 11;
+            this.gcStore6.VisibleIndex = 10;
             this.gcStore6.Width = 58;
             // 
             // gcStore7
@@ -395,7 +392,7 @@
             this.gcStore7.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE7", "{0:n0}")});
             this.gcStore7.Visible = true;
-            this.gcStore7.VisibleIndex = 12;
+            this.gcStore7.VisibleIndex = 11;
             this.gcStore7.Width = 70;
             // 
             // gcStore8
@@ -416,7 +413,7 @@
             this.gcStore8.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE8", "{0:N0}")});
             this.gcStore8.Visible = true;
-            this.gcStore8.VisibleIndex = 13;
+            this.gcStore8.VisibleIndex = 12;
             this.gcStore8.Width = 55;
             // 
             // gcStore9
@@ -437,7 +434,7 @@
             this.gcStore9.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE9", "{0:N0}")});
             this.gcStore9.Visible = true;
-            this.gcStore9.VisibleIndex = 14;
+            this.gcStore9.VisibleIndex = 13;
             this.gcStore9.Width = 65;
             // 
             // gcStore10
@@ -458,7 +455,7 @@
             this.gcStore10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE10", "{0:N0}")});
             this.gcStore10.Visible = true;
-            this.gcStore10.VisibleIndex = 15;
+            this.gcStore10.VisibleIndex = 14;
             this.gcStore10.Width = 70;
             // 
             // gcStore11
@@ -479,7 +476,7 @@
             this.gcStore11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE11", "{0:N0}")});
             this.gcStore11.Visible = true;
-            this.gcStore11.VisibleIndex = 16;
+            this.gcStore11.VisibleIndex = 15;
             this.gcStore11.Width = 70;
             // 
             // gcStore12
@@ -500,7 +497,7 @@
             this.gcStore12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE12", "{0:N0}")});
             this.gcStore12.Visible = true;
-            this.gcStore12.VisibleIndex = 17;
+            this.gcStore12.VisibleIndex = 16;
             this.gcStore12.Width = 70;
             // 
             // gcStore13
@@ -521,7 +518,7 @@
             this.gcStore13.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE13", "{0:N0}")});
             this.gcStore13.Visible = true;
-            this.gcStore13.VisibleIndex = 18;
+            this.gcStore13.VisibleIndex = 17;
             this.gcStore13.Width = 70;
             // 
             // gcStore14
@@ -542,7 +539,7 @@
             this.gcStore14.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE14", "{0:N0}")});
             this.gcStore14.Visible = true;
-            this.gcStore14.VisibleIndex = 19;
+            this.gcStore14.VisibleIndex = 18;
             this.gcStore14.Width = 70;
             // 
             // gcStore15
@@ -563,7 +560,7 @@
             this.gcStore15.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STORE15", "{0:N0}")});
             this.gcStore15.Visible = true;
-            this.gcStore15.VisibleIndex = 20;
+            this.gcStore15.VisibleIndex = 19;
             this.gcStore15.Width = 70;
             // 
             // gcStore99
@@ -593,7 +590,7 @@
             this.gcEtc.MinWidth = 10;
             this.gcEtc.Name = "gcEtc";
             this.gcEtc.Visible = true;
-            this.gcEtc.VisibleIndex = 21;
+            this.gcEtc.VisibleIndex = 20;
             this.gcEtc.Width = 534;
             // 
             // usrOrderBookModifyList

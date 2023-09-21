@@ -64,37 +64,41 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(505, 55);
+            this.layoutControl1.Size = new System.Drawing.Size(580, 55);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // layoutControl3
             // 
             this.layoutControl3.Controls.Add(this.labelControl11);
-            this.layoutControl3.Location = new System.Drawing.Point(113, 2);
+            this.layoutControl3.Location = new System.Drawing.Point(117, 2);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup2;
-            this.layoutControl3.Size = new System.Drawing.Size(390, 51);
+            this.layoutControl3.Size = new System.Drawing.Size(461, 51);
             this.layoutControl3.TabIndex = 5;
             this.layoutControl3.Text = "layoutControl3";
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(22, 28);
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Appearance.Options.UseFont = true;
+            this.labelControl11.Location = new System.Drawing.Point(11, 26);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(346, 14);
+            this.labelControl11.Size = new System.Drawing.Size(439, 18);
             this.labelControl11.StyleController = this.layoutControl3;
             this.labelControl11.TabIndex = 4;
             this.labelControl11.Text = "1.과다재고   2.시기물   3.파본   4.판매금지   5.출판사요청   6.구판도서";
             // 
             // layoutControlGroup2
             // 
+            this.layoutControlGroup2.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup2.AppearanceGroup.Options.UseFont = true;
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem4});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(390, 51);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(461, 51);
             this.layoutControlGroup2.Text = "반품사유";
             // 
             // layoutControlItem4
@@ -106,7 +110,7 @@
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem3";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(386, 28);
+            this.layoutControlItem4.Size = new System.Drawing.Size(457, 28);
             this.layoutControlItem4.Text = "layoutControlItem3";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
@@ -117,27 +121,31 @@
             this.layoutControl2.Location = new System.Drawing.Point(2, 2);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(107, 51);
+            this.layoutControl2.Size = new System.Drawing.Size(111, 51);
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(18, 28);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(11, 26);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(70, 14);
+            this.labelControl1.Size = new System.Drawing.Size(88, 18);
             this.labelControl1.StyleController = this.layoutControl2;
             this.labelControl1.TabIndex = 4;
             this.labelControl1.Text = "1.위탁  2.현매";
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup1.AppearanceGroup.Options.UseFont = true;
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem3});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(107, 51);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(111, 51);
             this.layoutControlGroup1.Text = "반품구분";
             // 
             // layoutControlItem3
@@ -147,7 +155,7 @@
             this.layoutControlItem3.Control = this.labelControl1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(103, 28);
+            this.layoutControlItem3.Size = new System.Drawing.Size(107, 28);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -160,17 +168,17 @@
             this.layoutControlItem2});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(505, 55);
+            this.Root.Size = new System.Drawing.Size(580, 55);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.layoutControl2;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(111, 55);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(111, 55);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(115, 55);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(115, 55);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(111, 55);
+            this.layoutControlItem1.Size = new System.Drawing.Size(115, 55);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -178,9 +186,12 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.layoutControl3;
-            this.layoutControlItem2.Location = new System.Drawing.Point(111, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(115, 0);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(0, 55);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(451, 55);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(394, 55);
+            this.layoutControlItem2.Size = new System.Drawing.Size(465, 55);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -190,9 +201,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.MaximumSize = new System.Drawing.Size(505, 55);
-            this.MinimumSize = new System.Drawing.Size(505, 55);
+            this.MinimumSize = new System.Drawing.Size(580, 55);
             this.Name = "usrReturnNotice";
-            this.Size = new System.Drawing.Size(505, 55);
+            this.Size = new System.Drawing.Size(580, 55);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();

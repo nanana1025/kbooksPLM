@@ -33,6 +33,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         public delegate void SelectHandler();
         public event SelectHandler selectHandler;
 
+        public delegate void DoubleClickHandler();
+        public event DoubleClickHandler doubleClickHandler;
+
 
         public usrPublishList()
         {
@@ -51,8 +54,6 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         
 
         }
-
-
 
         public void setInitLoad()
         {
@@ -284,6 +285,14 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             {
                 if (_currentRow != null)
                     selectHandler();
+            }
+        }
+
+        private void gvList_DoubleClick(object sender, EventArgs e)
+        {
+            if (_currentRow != null)
+            {
+                doubleClickHandler();
             }
         }
     }
