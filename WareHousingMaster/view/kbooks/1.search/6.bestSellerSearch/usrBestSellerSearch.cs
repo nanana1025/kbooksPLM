@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using WareHousingMaster.view.common;
+using Enum = WareHousingMaster.view.common.Enum;
 
 namespace WareHousingMaster.view.kbooks.search.booksearch
 {
@@ -15,6 +16,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         int _searchType;
         public delegate void SearchHandler(JObject jData);
         public event SearchHandler searchHandler;
+
+        public delegate void ClearHandler();
+        public event ClearHandler clearHandler;
 
         public usrBestSellerSearch()
         {
@@ -40,10 +44,18 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         private void setinitialize()
         {
             var today = DateTime.Today;
-            //var pastDate = today.AddDays(-7);
+            var pastDate = today.AddDays(-15);
+            if (ProjectInfo._userType.Equals("U"))
+            {
+                string value = Util.getValue((int)Enum.VALUE_MGNT_TYPE.SEARCH, (int)Enum.VALUE_MGNT_SEARCH.BEST);
+                if (!string.IsNullOrEmpty(value))
+                    pastDate = today.AddDays(ConvertUtil.ToInt32(value) * -1);
+                else
+                    pastDate = today.AddDays(-7);
+            }
 
             deDtWork.EditValue = today;
-            deDtFrom.EditValue = today;
+            deDtFrom.EditValue = pastDate;
             deDtTo.EditValue = today;
         }
 
@@ -64,30 +76,26 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
   
      
-        public JObject getSearch()
-        {
-            JObject jData = new JObject();
-            bool isSuccess = checkSearch(ref jData);
+        //public JObject getSearch()
+        //{
+        //    JObject jData = new JObject();
+        //    bool isSuccess = checkSearch(ref jData);
 
-            if (isSuccess)
-                return jData;
-            else
-                return null;
-        }
+        //    if (isSuccess)
+        //        return jData;
+        //    else
+        //        return null;
+        //}
 
         private void sbSearch_Click(object sender, EventArgs e)
         {
-            JObject jData = new JObject();
-            bool isSuccess = checkSearch(ref jData);
-
-            if (isSuccess)
-                searchHandler(jData);
-            else
-                Dangol.Message(jData["MSG"]);
+            Search();
         }
 
         public void Search()
         {
+            clearHandler();
+
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 
@@ -107,36 +115,44 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             if (deDtTo.EditValue != null && !string.IsNullOrEmpty(deDtTo.EditValue.ToString()))
                 dtTo = $"{deDtTo.Text} 23:59:59";
 
-            DateTime dtfrom;
-            DateTime dtto;
-            dtfrom = Convert.ToDateTime(dtFrom);
-            dtto = Convert.ToDateTime(dtTo);
+            try 
+            { 
+                DateTime dtfrom;
+                DateTime dtto;
+                dtfrom = Convert.ToDateTime(dtFrom);
+                dtto = Convert.ToDateTime(dtTo);
 
-            int result = DateTime.Compare(dtfrom, dtto);
+                int result = DateTime.Compare(dtfrom, dtto);
 
-            if (result > 0)
+                if (result > 0)
+                {
+                    jData.Add("MSG", "종료날짜는 시작날짜보다 커야합니다.");
+                    return false;
+                }
+
+                TimeSpan TS = dtto - dtfrom;
+                int diffDay = TS.Days;
+
+                if (diffDay > 365)
+                {
+                    jData.Add("MSG", "검색 기간은 1년(365일)을 초과할 수 없습니다.");
+                    return false;
+                }
+
+                jData.Add("DT_FROM", dtfrom.ToString("yyyyMMdd"));
+                jData.Add("DT_TO", dtto.ToString("yyyyMMdd"));
+            }
+            catch (FormatException ex)
             {
-                jData.Add("MSG", "종료날짜는 시작날짜보다 커야합니다.");
+                jData.Add("MSG", "날짜 형식을 확인하세요.");
                 return false;
             }
-
-            TimeSpan TS = dtto - dtfrom;
-            int diffDay = TS.Days;
-
-            if (diffDay > 365)
-            {
-                jData.Add("MSG", "검색 기간은 1년(365일)을 초과할 수 없습니다.");
-                return false;
-            }
-
-            jData.Add("DT_FROM", dtfrom.ToString("yyyyMMdd"));
-            jData.Add("DT_TO", dtto.ToString("yyyyMMdd"));
 
 
             //string dtWork = "";
             //if (deDtWork.EditValue != null && !string.IsNullOrEmpty(deDtWork.EditValue.ToString()))
             //    dtWork = $"{deDtWork.Text} 00:00:00";
-           
+
             //if(string.IsNullOrWhiteSpace(dtWork))
             //{
             //    jData.Add("MSG", "영업일을 선택하세요.");

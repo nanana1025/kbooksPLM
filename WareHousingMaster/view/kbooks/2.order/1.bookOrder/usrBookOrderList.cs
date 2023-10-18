@@ -755,6 +755,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
                         bookNm = ConvertUtil.ToString(objBook["BOOKNM"]);
                         bookCd = ConvertUtil.ToInt64(objBook["BOOKCD"]);
+
                         insertOrderBook(objBook);
 
                         if (!_dicLookUpEdit.ContainsKey(bookCd))
@@ -834,6 +835,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                     _currentRow.BeginEdit();
                                     _currentRow["PURCHCD"] = firstPurchCd;
                                     _currentRow.EndEdit();
+
+                                    getBookOrdInfo(bookCd, ConvertUtil.ToInt32(firstPurchCd));
+
                                     return getOrderRatio();
 
                                 }
@@ -856,6 +860,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                 _currentRow.BeginEdit();
                                 _currentRow["PURCHCD"] = purchCd;
                                 _currentRow.EndEdit();
+
+                                getBookOrdInfo(bookCd, ConvertUtil.ToInt32(purchCd));
+
                                 getOrderRatio();
                             }
 
@@ -884,6 +891,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         foreach (JObject obj in jArray.Children<JObject>())
                         {
                             insertOrderBook(obj);
+
                             break;
                         }
 
@@ -959,6 +967,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                     _currentRow.BeginEdit();
                                     _currentRow["PURCHCD"] = firstPurchCd;
                                     _currentRow.EndEdit();
+
+                                    getBookOrdInfo(bookCd, ConvertUtil.ToInt32(firstPurchCd));
+
                                     return getOrderRatio();
                                 }
                                 else
@@ -980,6 +991,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                 _currentRow.BeginEdit();
                                 _currentRow["PURCHCD"] = purchCd;
                                 _currentRow.EndEdit();
+
+                                getBookOrdInfo(bookCd, ConvertUtil.ToInt32(purchCd));
+
                                 getOrderRatio();
                             }
 
@@ -1102,6 +1116,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                 _dicPurchCdTable.Add(bookCd, dtPurchCd);
 
                                 row["PURCHCD"] = prePurchCd > 0 ? prePurchCd : firstPurchCd;
+
+                                getBookOrdInfo(bookCd, ConvertUtil.ToInt32(row["PURCHCD"]));
+
                                 return getOrderRatio(row);
                             }
                             else
@@ -1156,13 +1173,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             _currentRow["GROUPCD"] = ConvertUtil.ToInt32(obj["GROUPCD"]);
             _currentRow["STANDCD"] = ConvertUtil.ToInt32(obj["STANDCD"]);
 
+            _currentRow["INP_CNT"] = DBNull.Value;
+            _currentRow["RETURN_CNT"] = DBNull.Value;
 
-            _currentRow["INP_CNT"] = 0;
-            _currentRow["RETURN_CNT"] = 0;
+            _currentRow["ORD_CNT"] = DBNull.Value;
+            _currentRow["ESTI_CNT"] = DBNull.Value;
 
-            _currentRow["ORD_CNT"] = 0;
-            _currentRow["ESTI_CNT"] = 0;
-            _currentRow["STOCK_CNT"] = 0;
+            _currentRow["STOCK_CNT"] = ConvertUtil.ToInt32(obj["STOCK"]);
             _currentRow["STATE"] = 1;   //0:default, 1:create, 2:available, 3:complete, -1:notavailable
 
             _currentRow.EndEdit();
@@ -1180,14 +1197,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             _currentRow["GROUPCD"] = ConvertUtil.ToInt32(obj["GROUPCD"]);
             _currentRow["STANDCD"] = ConvertUtil.ToInt32(obj["STANDCD"]);
 
+            _currentRow["INP_CNT"] = DBNull.Value;
+            _currentRow["RETURN_CNT"] = DBNull.Value;
 
-            _currentRow["INP_CNT"] = 0;
-            _currentRow["RETURN_CNT"] = 0;
+            _currentRow["ORD_CNT"] = DBNull.Value;
+            _currentRow["ESTI_CNT"] = DBNull.Value;
 
-            _currentRow["ORD_CNT"] = 0;
-            _currentRow["ESTI_CNT"] = 0;
-
-            _currentRow["STOCK_CNT"] = 0;
+            _currentRow["STOCK_CNT"] = ConvertUtil.ToInt32(obj["STOCK"]);
             _currentRow["STATE"] = 1;   //0:default, 1:create, 2:available, 3:complete, -1:notavailable
         }
 
@@ -1202,14 +1218,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             row["GROUPCD"] = ConvertUtil.ToInt32(obj["GROUPCD"]);
             row["STANDCD"] = ConvertUtil.ToInt32(obj["STANDCD"]);
 
+            row["INP_CNT"] = DBNull.Value;
+            row["RETURN_CNT"] = DBNull.Value;
 
-            row["INP_CNT"] = 0;
-            row["RETURN_CNT"] = 0;
+            row["ORD_CNT"] = DBNull.Value;
+            row["ESTI_CNT"] = DBNull.Value;
 
-            row["ORD_CNT"] = 0;
-            row["ESTI_CNT"] = 0;
-
-            row["STOCK_CNT"] = 0;
+            row["STOCK_CNT"] = ConvertUtil.ToInt32(obj["STOCK"]);
             row["STATE"] = 1;   //0:default, 1:create, 2:available, 3:complete, -1:notavailable
         }
 
@@ -1260,7 +1275,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         private void rilePurchCd_EditValueChanged(object sender, EventArgs e)
         {
+            //int purchCd = ConvertUtil.ToInt32(gvList.GetFocusedRowCellValue("PURCHCD"));
 
+            LookUpEdit lookUpEdit = (LookUpEdit)sender;
+            var purchCd = lookUpEdit.EditValue;
+
+            getBookOrdInfo(ConvertUtil.ToInt64(_currentRow["BOOKCD"]), ConvertUtil.ToInt32(purchCd));
         }
         private bool getOrderRatio()
         { 
@@ -1367,7 +1387,6 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         Dangol.Warining($"도서코드 ['{bookCd}']에 {_conditionString} 해당하는 매입율이 없습니다. 주문할 수 없습니다.");
                         return false;
                     }
-
                 }
                 else
                 {
@@ -1531,6 +1550,71 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 {
                     Dangol.Error(jResult["MSG"]);
                 }
+            }
+        }
+
+        private void getBookOrdInfo(long bookCd, int purchCd)
+        {
+            if (bookCd > 0 && purchCd > 0)
+            {
+                JObject jResult = new JObject();
+                JObject jobj = new JObject();
+
+                jobj.Add("SHOPCD", _shopCd);
+                jobj.Add("BOOKCD", bookCd);
+                jobj.Add("STORECD", _storeCd);
+                jobj.Add("INP_GROUPCD", _inpGroupCd);
+                jobj.Add("ORD_DATE", _orderDt);
+                jobj.Add("TRADE_ITEM", _tradeItem);
+                jobj.Add("PURCHCD", purchCd);
+
+                string url = "/order/getBookOrderInfo.json";
+
+                if (DBConnect.getRequest(jobj, ref jResult, url))
+                {
+                    int cnt;
+                    _currentRow.BeginEdit();
+                    cnt = ConvertUtil.ToInt32(jResult["INP_CNT"]);
+                    if (cnt != 0) _currentRow["INP_CNT"] = cnt;
+                    else _currentRow["INP_CNT"] = DBNull.Value;
+
+                    cnt = ConvertUtil.ToInt32(jResult["RET_CNT"]);
+                    if (cnt != 0) _currentRow["RETURN_CNT"] = cnt;
+                    else _currentRow["RETURN_CNT"] = DBNull.Value;
+
+                    cnt = ConvertUtil.ToInt32(jResult["ORD_CNT"]);
+                    if (cnt != 0) _currentRow["ORD_CNT"] = cnt;
+                    else _currentRow["ORD_CNT"] = DBNull.Value;
+
+                    cnt = ConvertUtil.ToInt32(jResult["ESTI_CNT"]);
+                    if (cnt != 0) _currentRow["ESTI_CNT"] = cnt;
+                    else _currentRow["ESTI_CNT"] = DBNull.Value;
+                    _currentRow.EndEdit();
+                }
+                else
+                {
+                    _currentRow.BeginEdit();
+                    _currentRow["INP_CNT"] = DBNull.Value;
+                    _currentRow["RETURN_CNT"] = DBNull.Value;
+
+                    _currentRow["ORD_CNT"] = DBNull.Value;
+                    _currentRow["ESTI_CNT"] = DBNull.Value;
+
+                    //_currentRow["STOCK_CNT"] = DBNull.Value;
+                    _currentRow.EndEdit();
+                }
+            }
+            else
+            {
+                _currentRow.BeginEdit();
+                _currentRow["INP_CNT"] = DBNull.Value;
+                _currentRow["RETURN_CNT"] = DBNull.Value;
+
+                _currentRow["ORD_CNT"] = DBNull.Value;
+                _currentRow["ESTI_CNT"] = DBNull.Value;
+
+                //_currentRow["STOCK_CNT"] = DBNull.Value;
+                _currentRow.EndEdit();
             }
         }
 

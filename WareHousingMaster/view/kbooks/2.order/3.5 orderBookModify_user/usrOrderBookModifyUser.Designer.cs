@@ -121,10 +121,10 @@
             // layoutControl3
             // 
             this.layoutControl3.Controls.Add(this.usrOrderBookModifyList1);
-            this.layoutControl3.Location = new System.Drawing.Point(3, 223);
+            this.layoutControl3.Location = new System.Drawing.Point(3, 203);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup2;
-            this.layoutControl3.Size = new System.Drawing.Size(1058, 353);
+            this.layoutControl3.Size = new System.Drawing.Size(1058, 373);
             this.layoutControl3.TabIndex = 5;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -135,7 +135,7 @@
             this.usrOrderBookModifyList1.Appearance.Options.UseBackColor = true;
             this.usrOrderBookModifyList1.Location = new System.Drawing.Point(3, 3);
             this.usrOrderBookModifyList1.Name = "usrOrderBookModifyList1";
-            this.usrOrderBookModifyList1.Size = new System.Drawing.Size(1052, 347);
+            this.usrOrderBookModifyList1.Size = new System.Drawing.Size(1052, 367);
             this.usrOrderBookModifyList1.TabIndex = 4;
             // 
             // layoutControlGroup2
@@ -146,7 +146,7 @@
             this.layoutControlItem4});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1058, 353);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1058, 373);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem4
@@ -154,7 +154,7 @@
             this.layoutControlItem4.Control = this.usrOrderBookModifyList1;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1056, 351);
+            this.layoutControlItem4.Size = new System.Drawing.Size(1056, 371);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -164,7 +164,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(3, 3);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(1058, 216);
+            this.layoutControl2.Size = new System.Drawing.Size(1058, 196);
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -175,7 +175,7 @@
             this.usrOrderBookModifySearch1.MaximumSize = new System.Drawing.Size(0, 220);
             this.usrOrderBookModifySearch1.MinimumSize = new System.Drawing.Size(888, 51);
             this.usrOrderBookModifySearch1.Name = "usrOrderBookModifySearch1";
-            this.usrOrderBookModifySearch1.Size = new System.Drawing.Size(1052, 210);
+            this.usrOrderBookModifySearch1.Size = new System.Drawing.Size(1052, 190);
             this.usrOrderBookModifySearch1.TabIndex = 4;
             // 
             // layoutControlGroup1
@@ -186,7 +186,7 @@
             this.layoutControlItem5});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1058, 216);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1058, 196);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem5
@@ -194,7 +194,7 @@
             this.layoutControlItem5.Control = this.usrOrderBookModifySearch1;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1056, 214);
+            this.layoutControlItem5.Size = new System.Drawing.Size(1056, 194);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -215,10 +215,10 @@
             // 
             this.layoutControlItem1.Control = this.layoutControl2;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 220);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(916, 220);
+            this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 200);
+            this.layoutControlItem1.MinSize = new System.Drawing.Size(916, 200);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1062, 220);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1062, 200);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -226,9 +226,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.layoutControl3;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 220);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 200);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1062, 357);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1062, 377);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 

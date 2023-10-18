@@ -84,7 +84,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(85, 461);
+            this.layoutControl1.Size = new System.Drawing.Size(85, 460);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -246,7 +246,7 @@
             this.layoutControlItem9});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(85, 461);
+            this.Root.Size = new System.Drawing.Size(85, 460);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem50
@@ -272,7 +272,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 450);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(85, 11);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(85, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem1
@@ -445,7 +445,7 @@
             this.MaximumSize = new System.Drawing.Size(85, 0);
             this.MinimumSize = new System.Drawing.Size(85, 460);
             this.Name = "usrSideCheck";
-            this.Size = new System.Drawing.Size(85, 461);
+            this.Size = new System.Drawing.Size(85, 460);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();

@@ -8,17 +8,33 @@ namespace WareHousingMaster.view.kbooks.user
 {
     public partial class dlgUserPassword : DevExpress.XtraEditors.XtraForm
     {
-        string _password = "-1";
-        public dlgUserPassword()
+        string _userId = "-1";
+        public string _password { get; set; }
+        public JObject _jobj { get; set; }
+
+        bool _isAdmin;
+
+        public dlgUserPassword(string userId, string passwd, bool isAdmin = false)
         {
             InitializeComponent();
+
+            _jobj = new JObject();
+
+            _userId = userId;
+            _password = passwd;
+
+            _isAdmin = isAdmin;
+
         }
         private void dlgUserPassword_Load(object sender, EventArgs e)
         {
             this.Icon = ProjectInfo.ProjectIcon;
             //getRepNo();
 
-            teUserId.Text = ProjectInfo._userId;
+            
+
+            teUserId.Text = _userId;
+            tePassword.ReadOnly = _isAdmin;
 
         }
 
@@ -41,6 +57,18 @@ namespace WareHousingMaster.view.kbooks.user
 
         private void sbSave_Click(object sender, EventArgs e)
         {
+
+            if (!_isAdmin)
+            {
+                string passwd = Encrypt.Password(_userId, tePassword.Text);
+
+                if (!passwd.Equals(_password))
+                {
+                    Dangol.Message("현재 비밀번호를 정확히 입력해 주세요.");
+                    return;
+                }
+            }
+
             if (teNewPassword.Text.Length < 4)
             {
                 Dangol.Message("비밀번호는 4자리 이상으로 구성해야합니다.");
@@ -53,24 +81,47 @@ namespace WareHousingMaster.view.kbooks.user
                 return;
             }
 
+
             if (Dangol.MessageYN($"비밀번호를 수정하시겠습니까?") == DialogResult.Yes)
             {
-                JObject jPartInfo = new JObject();
                 JObject jResult = new JObject();
-                string url = "/user/changePassword.json";
+               
+                string url = "/common/execute.json";
 
-                jPartInfo.Add("PASSWD", Encrypt.Password(ProjectInfo._userId, tePassword.Text));
-                jPartInfo.Add("NEW_PASSWD", Encrypt.Password(ProjectInfo._userId, teNewPassword.Text));
+                string passwd = Encrypt.Password(_userId, teNewPasswordConfirm.Text);
 
-                if (DBConnect.getRequest(jPartInfo, ref jResult, url))
+                string query = $"UPDATE TN_USER_MST SET PASSWD = '{passwd}' WHERE USER_ID = '{_userId}'";
+
+                _jobj.Add("QUERY", query);
+
+                if (DBConnect.getRequest(_jobj, ref jResult, url))
                 {
-                    this.DialogResult = DialogResult.OK;
+                    _password = passwd;
                     Dangol.Message("수정되었습니다.");
+                    this.DialogResult = DialogResult.OK;
+                    
                 }
                 else
                 {
                     Dangol.Message(jResult["MSG"]);
                 }
+
+                //JObject jPartInfo = new JObject();
+                //JObject jResult = new JObject();
+                //string url = "/user/changePassword.json";
+
+                //jPartInfo.Add("PASSWD", Encrypt.Password(ProjectInfo._userId, tePassword.Text));
+                //jPartInfo.Add("NEW_PASSWD", Encrypt.Password(ProjectInfo._userId, teNewPassword.Text));
+
+                //if (DBConnect.getRequest(jPartInfo, ref jResult, url))
+                //{
+                //    this.DialogResult = DialogResult.OK;
+                //    Dangol.Message("수정되었습니다.");
+                //}
+                //else
+                //{
+                //    Dangol.Message(jResult["MSG"]);
+                //}
             }
 
         }

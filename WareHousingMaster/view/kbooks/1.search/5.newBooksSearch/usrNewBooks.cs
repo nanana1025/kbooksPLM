@@ -25,8 +25,8 @@ namespace WareHousingMaster.view.usedPurchase
             {
                 { Keys.F1, 1 }, { Keys.F2, 2 },{ Keys.F3, 3 },{ Keys.F4, 4 },{ Keys.F5, 5 },{ Keys.F6, 6 },{ Keys.F7, 7 },{ Keys.F8, 8 },{ Keys.F9, 9 },{ Keys.F10, 10 }
             };
-            _arrFunctionText = new string[] { "F1\n조회", "F2\n도서상세정보", "F3\n엑셀저장", "F4", "F5", "F6", "F7\n선택주문", "F8\n취소", "F9\n닫기", "F10\n닫기", };
-            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, true, true };
+            _arrFunctionText = new string[] { "F1\n조회", "F2\n도서상세정보", "F3\n엑셀저장", "F4", "F5", "F6", "F7\n선택주문", "F8\n취소", "F9", "F10\n닫기", };
+            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, false, true };
 
         }
 
@@ -37,6 +37,7 @@ namespace WareHousingMaster.view.usedPurchase
 
             usrSideCheck1.processHandler += new usrSideCheck.ProcessHandler(processHandler);
             usrNewBooksSearch1.searchHandler += new usrNewBooksSearch.SearchHandler(searchList);
+            usrNewBooksSearch1.clearHandler += new usrNewBooksSearch.ClearHandler(clear);
             usrNewBooksList1.focusedRowObjectChangeHandler += new usrNewBooksList.FocusedRowObjectChangeHandler(FocusedRowObjectChangeHandler);
             
 
@@ -92,7 +93,7 @@ namespace WareHousingMaster.view.usedPurchase
                     usrNewBooksSearch1.setFocus();
                     break;
                 case 9:
-                    this.Close();
+                    //this.Close();
                     break;
                 case 10:
                     this.Close();
@@ -105,7 +106,10 @@ namespace WareHousingMaster.view.usedPurchase
 
             }
         }
-
+        private void clear()
+        {
+            usrNewBooksList1.clear();
+        }
         private void goOrderBook()
         {
             DataRow[] rows = usrNewBooksList1.getCheckedList();

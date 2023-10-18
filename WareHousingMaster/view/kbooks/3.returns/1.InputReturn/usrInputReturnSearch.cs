@@ -28,6 +28,9 @@ namespace WareHousingMaster.view.kbooks.returns
         public delegate void ConfirmHandler();
         public event ConfirmHandler confirmHandler;
 
+        public delegate void ClearHandler();
+        public event ClearHandler clearHandler;
+
         public usrInputReturnSearch()
         {
             InitializeComponent();
@@ -86,6 +89,8 @@ namespace WareHousingMaster.view.kbooks.returns
 
         public void Search()
         {
+            clearHandler();
+
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 
@@ -124,34 +129,66 @@ namespace WareHousingMaster.view.kbooks.returns
                 if (!string.IsNullOrWhiteSpace(codeS) && string.IsNullOrWhiteSpace(codeE))
                 {
                     jData.Add("STORE_TYPE", "SINGLE");
-                    jData.Add($"STORECD", ConvertUtil.ToInt32(codeS));
+                    if (Util.checkOnlyNumeric(codeS))
+                    {
+                        jData.Add($"STORECD", ConvertUtil.ToInt32(codeS));
+                    }
+                    else
+                    {
+                        jData.Add("MSG", "매장코드를 확인하세요.");
+                        return false;
+                    }
                 }
                 else if (string.IsNullOrWhiteSpace(codeS) && !string.IsNullOrWhiteSpace(codeE))
                 {
                     jData.Add("STORE_TYPE", "SINGLE");
-                    jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
+                    if (Util.checkOnlyNumeric(codeE))
+                    {
+                        jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
+                    }
+                    else
+                    {
+                        jData.Add("MSG", "매장코드를 확인하세요.");
+                        return false;
+                    }
 
                 }
                 else if (codeS.Equals(codeE))
                 {
                     jData.Add("STORE_TYPE", "SINGLE");
-                    jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
-                }
-                else
-                {
-                    int start = ConvertUtil.ToInt32(codeS);
-                    int end = ConvertUtil.ToInt32(codeE);
-
-                    jData.Add("STORE_TYPE", "MULTI");
-                    if (start > end)
+                    if (Util.checkOnlyNumeric(codeE))
                     {
-                        jData.Add($"STORECD_S", end);
-                        jData.Add($"STORECD_E", start);
+                        jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
                     }
                     else
                     {
-                        jData.Add($"STORECD_S", start);
-                        jData.Add($"STORECD_E", end);
+                        jData.Add("MSG", "매장코드를 확인하세요.");
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (Util.checkOnlyNumeric(codeS) && Util.checkOnlyNumeric(codeE))
+                    {
+                        int start = ConvertUtil.ToInt32(codeS);
+                        int end = ConvertUtil.ToInt32(codeE);
+
+                        jData.Add("STORE_TYPE", "MULTI");
+                        if (start > end)
+                        {
+                            jData.Add($"STORECD_S", end);
+                            jData.Add($"STORECD_E", start);
+                        }
+                        else
+                        {
+                            jData.Add($"STORECD_S", start);
+                            jData.Add($"STORECD_E", end);
+                        }
+                    }
+                    else
+                    {
+                        jData.Add("MSG", "매장코드를 확인하세요.");
+                        return false;
                     }
                 }
 
@@ -175,6 +212,14 @@ namespace WareHousingMaster.view.kbooks.returns
                     }
                     else
                     {
+                        string colText = ConvertUtil.ToString(rgType.Properties.Items[rgType.SelectedIndex].Description);
+
+                        if (!string.IsNullOrWhiteSpace(GSCd) && !Util.checkOnlyNumeric(GSCd))
+                        {
+                            jData.Add("MSG", $"{colText}코드를 확인하세요.");
+                            return false;
+                        }
+
                         if (!string.IsNullOrWhiteSpace(GSCd))
                             jData.Add($"{colNm}CD", ConvertUtil.ToInt32(GSCd));
 
@@ -206,6 +251,12 @@ namespace WareHousingMaster.view.kbooks.returns
                 }
                 else
                 {
+                    if (!string.IsNullOrWhiteSpace(purchaseTCd) && !Util.checkOnlyNumeric(purchaseTCd))
+                    {
+                        jData.Add("MSG", $"매입처 코드를 확인하세요.");
+                        return false;
+                    }
+
                     if (!string.IsNullOrWhiteSpace(purchaseTCd))
                         jData.Add($"PURCHCD", ConvertUtil.ToInt32(purchaseTCd));
 

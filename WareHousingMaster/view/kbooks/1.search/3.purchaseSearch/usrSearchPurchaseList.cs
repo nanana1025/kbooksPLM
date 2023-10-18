@@ -50,7 +50,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             _dt.Columns.Add(new DataColumn("RET_NM", typeof(string)));
             _dt.Columns.Add(new DataColumn("RPNM", typeof(string)));
             _dt.Columns.Add(new DataColumn("TRADE_NM", typeof(string)));
-            _dt.Columns.Add(new DataColumn("STD_RATE", typeof(double)));
+            _dt.Columns.Add(new DataColumn("STD_RATE", typeof(int)));
             _dt.Columns.Add(new DataColumn("ETC", typeof(string)));
             _dt.Columns.Add(new DataColumn("STATE", typeof(int)));
             _dt.Columns.Add(new DataColumn("CHECK", typeof(bool)));
@@ -190,7 +190,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     {
                         JArray jArray = JArray.Parse(jResult["DATA"].ToString());
                         int index = 1;
-
+                        int cnt;
                         gvList.BeginDataUpdate();
 
                         foreach (JObject obj in jArray.Children<JObject>())
@@ -207,7 +207,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                             dr["RET_NM"] = ConvertUtil.ToString(obj["RET_NM"]);
                             dr["RPNM"] = ConvertUtil.ToString(obj["RPNM"]);
                             dr["TRADE_NM"] = ConvertUtil.ToString(obj["TRADE_NM"]);
-                            dr["STD_RATE"] = ConvertUtil.ToDouble(obj["STD_RATE"]);
+                            cnt = ConvertUtil.ToInt32(obj["STD_RATE"]);
+                            if (cnt != 0) dr["STD_RATE"] = cnt;
+                            else dr["STD_RATE"] = DBNull.Value;
                           
                             dr["ETC"] = "";
                           
@@ -217,6 +219,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         }
 
                         gvList.EndDataUpdate();
+                    }
+                    else
+                    {
+                        Dangol.Info("검색 결과가 없습니다.");
                     }
 
                     Dangol.CloseSplash();

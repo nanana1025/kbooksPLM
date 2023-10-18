@@ -91,67 +91,67 @@ namespace ScreenCopy
         }
 
 
-        public static Image[] GetImgFromDangol(int type, bool isProduct, string barcode, ref string[] filePaths)
-        {
-            JObject jobj = new JObject();
-            JObject jResult = new JObject();
+        //public static Image[] GetImgFromDangol(int type, bool isProduct, string barcode, ref string[] filePaths)
+        //{
+        //    JObject jobj = new JObject();
+        //    JObject jResult = new JObject();
 
-            jobj.Add("BARCODE_TYPE", type);
-            if(type == 1 && isProduct)
-                jobj.Add("DEVICE_GROUP", "Y");
-            else
-                jobj.Add("DEVICE_GROUP", "N");
-            jobj.Add("BARCODE_NUM", barcode);
+        //    jobj.Add("BARCODE_TYPE", type);
+        //    if(type == 1 && isProduct)
+        //        jobj.Add("DEVICE_GROUP", "Y");
+        //    else
+        //        jobj.Add("DEVICE_GROUP", "N");
+        //    jobj.Add("BARCODE_NUM", barcode);
 
-            if (DBInventory.getImgListInfo(jobj, ref jResult))
-            {
-                if (ConvertUtil.ToBoolean(jResult["DATA_EXIST"]))
-                {
-                    string path;
-                    string fullPath;
-                    string[] arrStr;
-                    int cnt = ConvertUtil.ToInt32(jResult["CNT"]);
-                    int index = 0;
-                    Image[] imgs = new Image[cnt];
-                    Image img;
-                    filePaths = new string[cnt];
+        //    if (DBInventory.getImgListInfo(jobj, ref jResult))
+        //    {
+        //        if (ConvertUtil.ToBoolean(jResult["DATA_EXIST"]))
+        //        {
+        //            string path;
+        //            string fullPath;
+        //            string[] arrStr;
+        //            int cnt = ConvertUtil.ToInt32(jResult["CNT"]);
+        //            int index = 0;
+        //            Image[] imgs = new Image[cnt];
+        //            Image img;
+        //            filePaths = new string[cnt];
 
-                    JArray jArray = JArray.Parse(jResult["DATA"].ToString());
+        //            JArray jArray = JArray.Parse(jResult["DATA"].ToString());
                     
-                    foreach (JObject obj in jArray.Children<JObject>())
-                    {
-                        path = ConvertUtil.ToString(obj["BARCODE_PHOTO"]);
-                        arrStr = path.Split('/');
+        //            foreach (JObject obj in jArray.Children<JObject>())
+        //            {
+        //                path = ConvertUtil.ToString(obj["BARCODE_PHOTO"]);
+        //                arrStr = path.Split('/');
 
-                        if (arrStr.Length > 0)
-                            filePaths[index] = arrStr[arrStr.Length - 1];
-                        else
-                            filePaths[index] = "shlee.shlee";
+        //                if (arrStr.Length > 0)
+        //                    filePaths[index] = arrStr[arrStr.Length - 1];
+        //                else
+        //                    filePaths[index] = "shlee.shlee";
 
-                        fullPath = $"{ProjectInfo._asisUrl}{path}";
+        //                fullPath = $"{ProjectInfo._asisUrl}{path}";
 
-                        img = GetUrlImage($"{fullPath}");
-                        imgs[index++] = img;
+        //                img = GetUrlImage($"{fullPath}");
+        //                imgs[index++] = img;
                         
                        
-                    }
+        //            }
 
-                    return imgs;
-                }
-                else
-                {
-                    //Dangol.Warining("이미지가 없습니다.");
-                    return null;
-                }
-            }
-            else
-            {
-                Dangol.Warining(ConvertUtil.ToString(jResult["MSG"]));
-                return null;
-            }
+        //            return imgs;
+        //        }
+        //        else
+        //        {
+        //            //Dangol.Warining("이미지가 없습니다.");
+        //            return null;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Dangol.Warining(ConvertUtil.ToString(jResult["MSG"]));
+        //        return null;
+        //    }
 
 
-        }
+        //}
 
         public static Image GetCaptureImg(string directory, string outputFilename)
         {

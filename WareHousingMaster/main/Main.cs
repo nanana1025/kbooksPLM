@@ -21,30 +21,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WareHousingMaster.main;
 using WareHousingMaster.UtilTest;
-using WareHousingMaster.view.adjustment;
 using WareHousingMaster.view.board;
-using WareHousingMaster.view.check;
 using WareHousingMaster.view.common;
-using WareHousingMaster.view.common.kbooks;
-using WareHousingMaster.view.consigned;
 using WareHousingMaster.view.kbooks.returns;
 using WareHousingMaster.view.kbooks.search.bookDetail;
 using WareHousingMaster.view.kbooks.search.booksearch;
 using WareHousingMaster.view.kbooks.user;
 using WareHousingMaster.view.login;
 using WareHousingMaster.view.PreView;
-using WareHousingMaster.view.price.ntb;
-using WareHousingMaster.view.price.partPriceMapping;
-using WareHousingMaster.view.produce;
-using WareHousingMaster.view.QC;
-using WareHousingMaster.view.release;
-using WareHousingMaster.view.release.External;
-using WareHousingMaster.view.repair;
-using WareHousingMaster.view.search;
-using WareHousingMaster.view.statistics;
 using WareHousingMaster.view.usedPurchase;
-using WareHousingMaster.view.warehousing;
-using WareHousingMaster.view.warehousingManagement;
 
 namespace WareHousingMaster.view.main
 {
@@ -72,25 +57,37 @@ namespace WareHousingMaster.view.main
 
             _MENU_CATEGORY = new Dictionary<string, RibbonPage>()
             {
-                {"bhcrf",bhcrf },
-                {"bhcor",    bhcor},
-                {"bhcre",   bhcre},
-                //{"rpRelease",   rpRelease},
+                {"bhcrf", bhcrf },
+                {"bhcor", bhcor},
+                {"bhcre", bhcre},
+                {"rpSetting", rpSetting},
             };
 
-            //_MENU_VIEW = new Dictionary<string, BarButtonItem>()
-            //{
-            //    {"biWarehousing",biWarehousing},
-            //    {"bbiInventoryCheckNew",bbiInventoryCheckNew},
-            //    {"bbiWarehousingList",bbiWarehousingList},
-            //    {"bbiCheckStatisticsNew",bbiCheckStatisticsNew},
-            //    {"bbiExamineResult",bbiExamineResult},
-            //    {"biWarehousingSwap",biWarehousingSwap},
-            //    {"bbiWarehousingStatistics",bbiWarehousingStatistics},
-                
+            _MENU_VIEW = new Dictionary<string, BarButtonItem>()
+            {
+                {"bbiSearchBookInfo",bbiSearchBookInfo},
+                {"bbiSearchBookInfoDetail",bbiSearchBookInfoDetail},
+                {"bbiSearchCreditorInfo",bbiSearchCreditorInfo},
+                {"bbiSearchPublisherInfo",bbiSearchPublisherInfo},
+                {"bbiSearchNewBook",bbiSearchNewBook},
+                {"bbiSearchBookBest",bbiSearchBookBest},
 
+                {"bbiOrderCartInfo",bbiOrderCartInfo},
+                {"bbiOrderSaleInfo",bbiOrderSaleInfo},
+                {"bbiOrderModifyOrder",bbiOrderModifyOrder},
+                {"bbiOrderModifyOrder_admin",bbiOrderModifyOrder_admin},
+                {"bbiOrderNonRegisterOrder",bbiOrderNonRegisterOrder},
+                {"bbiOrderBookAllList",bbiOrderBookAllList},
+                {"bbiStoreOrderBookList",bbiStoreOrderBookList},
 
-            //};
+                {"bbiReturnList",bbiReturnList},
+                {"bbiReturnMidif",bbiReturnMidif},
+
+                {"biUserManagement",biUserManagement},
+                {"bbiViewManagement",bbiViewManagement},
+                {"bbiValuSetting",bbiValuSetting},
+
+            };
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -100,6 +97,7 @@ namespace WareHousingMaster.view.main
             //externalIPCheck();
             login();
             setLoginInitialize();
+            setViewInitialize();
             //checkVersion();
             //setInitData();
             //showMain();
@@ -126,135 +124,18 @@ namespace WareHousingMaster.view.main
 
 
 
-            if(!Util.GetUserAuthority())
-            {
-                Dangol.Error("사용자 화면 구성중 오류가 발생했습니다.");
-                Util.ExitProgram();
-            }
-
-
-            if (ProjectInfo._USER_TYPE.Equals("ADMIN"))
-            {
-
-            }
-
-
-
-
-            //if (ProjectInfo._userType.Equals("M"))
-            //    rptest.Visible = true;
-            //else
-            //    rptest.Visible = false;
-
-            //rpgAdjustmentExcel.Visible = false;
-            //rpgAdjustmentStatistics.Visible = false;
-
-            //if (ProjectInfo._userType.Equals("E"))
+            //if(!Util.GetUserAuthority())
             //{
-            //    rpWarehousing.Visible = false;
-            //    rpProduce.Visible = false;
-            //    rpRepair.Visible = false;
-            //    rpInventory.Visible = false;
-            //    rpCheck.Visible = false;
-            //    rpWarehousingManagement.Visible = false;
-            //    rpUsedPurchase.Visible = false;
-            //    rpPrice.Visible = false;
-            //    rpAdjustment.Visible = false;
-            //    rpScreen.Visible = false;
-            //    rpAdjustment.Visible = false;
-            //    rpgConsigned.Visible = false;
-            //    rpEtc.Visible = false;
-            //    rpgJob.Visible = false;
-            //    rpRelease.Visible = false;
-            //    rpgStatistics.Visible = false;
+            //    Dangol.Error("사용자 화면 구성중 오류가 발생했습니다.");
+            //    Util.ExitProgram();
+            //}
 
 
-
-            //    biAdjustment.Visibility = BarItemVisibility.Never;
-            //    biAdjustmentExamine.Visibility = BarItemVisibility.Never;
-            //    bbiAdjustmentComplete.Visibility = BarItemVisibility.Never;
-            //    biAdjustmentUpdate.Visibility = BarItemVisibility.Never;
-            //    biAdjustmentReceiptList.Visibility = BarItemVisibility.Never;            
-            //    biCustomerPaymentState.Visibility = BarItemVisibility.Never;
-            //    bbiConsignedReleasePart.Visibility = BarItemVisibility.Never;
-            //    bbiCompanyModelList.Visibility = BarItemVisibility.Never;
+            //if (ProjectInfo._USER_TYPE.Equals("ADMIN"))
+            //{
 
             //}
-            //else
-            //{
-            //    rpWarehousing.Visible = true;
-            //    rpProduce.Visible = true;
-            //    rpRepair.Visible = true;
-            //    rpInventory.Visible = true;
-            //    rpCheck.Visible = true;
-            //    rpWarehousingManagement.Visible = true;
-            //    rpUsedPurchase.Visible = true;
-            //    //rpUsedPurchase.Visible = false;
-            //    rpScreen.Visible = true;
-            //    rpgConsigned.Visible = true;
-            //    rpEtc.Visible = true;
-            //    rpgJob.Visible = true;
-            //    rpRelease.Visible = true;
-            //    rpgStatistics.Visible = true;
 
-            //    //if (ProjectInfo._userType.Equals("M") || ProjectInfo._userType.Equals("S"))
-
-            //    //else
-            //    //    rpUsedPurchase.Visible = false;
-
-            //    bbiConsignedReleasePart.Visibility = BarItemVisibility.Always;
-
-            //    if (ProjectInfo._userType.Equals("M") || ProjectInfo._userType.Equals("S"))
-            //    {
-            //        biAdjustment.Visibility = BarItemVisibility.Always;                   
-            //        biCustomerPaymentState.Visibility = BarItemVisibility.Always;
-            //        bbiCompanyModelList.Visibility = BarItemVisibility.Always;
-            //        prgCustomerPaymentState.Visible = true;
-
-            //    }
-            //    else
-            //    {
-            //        biAdjustment.Visibility = BarItemVisibility.Never;                  
-            //        biCustomerPaymentState.Visibility = BarItemVisibility.Never;
-            //        bbiCompanyModelList.Visibility = BarItemVisibility.Never;
-            //        prgCustomerPaymentState.Visible = false;
-
-            //        if (ProjectInfo._userId.Equals("123"))
-            //            biCustomerPaymentState.Visibility = BarItemVisibility.Always;
-            //    }
-
-            //    if (ProjectInfo._userType.Equals("M") || ProjectInfo._userType.Equals("S") || ProjectInfo._userType.Equals("G"))
-            //    {
-
-            //        rpAdjustment.Visible = true;
-            //        biAdjustmentExamine.Visibility = BarItemVisibility.Always;
-            //        bbiAdjustmentComplete.Visibility = BarItemVisibility.Always;
-
-            //        if (ProjectInfo._lisAllowUser.Contains(ProjectInfo._userId) || ProjectInfo._userType.Equals("M"))
-            //        {
-            //            rpPrice.Visible = true;
-            //            biAdjustmentUpdate.Visibility = BarItemVisibility.Always;
-            //            biAdjustmentReceiptList.Visibility = BarItemVisibility.Always;
-            //            rpgAdjustmentExcel.Visible = true;
-            //            rpgAdjustmentStatistics.Visible = true;
-            //        }
-            //        else
-            //        {
-            //            rpPrice.Visible = false;
-            //            biAdjustmentUpdate.Visibility = BarItemVisibility.Never;
-            //            biAdjustmentReceiptList.Visibility = BarItemVisibility.Never;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        rpPrice.Visible = false;
-            //        rpAdjustment.Visible = false;
-
-            //        biAdjustmentExamine.Visibility = BarItemVisibility.Never;
-            //        biAdjustmentUpdate.Visibility = BarItemVisibility.Never;
-            //        biAdjustmentReceiptList.Visibility = BarItemVisibility.Never;
-            //    }
-            //}
         }
 
         private void internalIPCheck()
@@ -294,7 +175,7 @@ namespace WareHousingMaster.view.main
                 //if (ConvertUtil.ToInt32(rows[0]["LOCATION"]) == 1)
                 //    ProjectInfo._IPType = "I";
                 //else
-                    ProjectInfo._IPType = "E";
+                    //ProjectInfo._IPType = "E";
             }
             catch (Exception e)
             {
@@ -319,7 +200,6 @@ namespace WareHousingMaster.view.main
                 {
                     ProjectInfo._userId = login._userId;
                     ProjectInfo._userPasswd = login._userPasswd;
-                    ProjectInfo._userType = "M";
                 }
                 else
                     Util.ExitProgram();
@@ -341,14 +221,16 @@ namespace WareHousingMaster.view.main
                     {
                         ProjectInfo._userId = login._userId;
                         ProjectInfo._userPasswd = login._userPasswd;
-                        ProjectInfo._userType = "M";
                     }
                     else
                         Util.ExitProgram();
                 }
             }
         }
-
+        private void clockTimer_Tick(object sender, EventArgs e)
+        {
+            bsiDate.Caption = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
         private void checkVersion()
         {
             Assembly assemObj = Assembly.GetExecutingAssembly();
@@ -370,6 +252,44 @@ namespace WareHousingMaster.view.main
             LoginCheck.checkVersion(version, latestVersion, 0, content);
         }
 
+        private void setViewInitialize()
+        {
+            DataTable dtCategory = new DataTable();
+            DataTable dtView = new DataTable();
+            Util.getViewType(dtCategory, dtView);
+
+            string name;
+            int viewYn;
+            RibbonPage rp;
+            foreach (DataRow row in dtCategory.Rows)
+            {
+                name = ConvertUtil.ToString(row["NAME"]);
+                viewYn = ConvertUtil.ToInt32(row["VIEW_YN"]);
+
+                if (_MENU_CATEGORY.ContainsKey(name))
+                {
+                    rp = _MENU_CATEGORY[name];
+                    rp.Visible = viewYn == 1;
+                }
+            }
+
+            BarButtonItem bb;
+            foreach (DataRow row in dtView.Rows)
+            {
+                name = ConvertUtil.ToString(row["NAME"]);
+                viewYn = ConvertUtil.ToInt32(row["VIEW_YN"]);
+
+                if (_MENU_VIEW.ContainsKey(name))
+                {
+                    bb = _MENU_VIEW[name];
+                    if (viewYn == 1) bb.Visibility = BarItemVisibility.Always;
+                    else bb.Visibility = BarItemVisibility.Never;
+
+                }
+            }
+
+        }
+
 
         private void setInitData()
         {
@@ -378,9 +298,9 @@ namespace WareHousingMaster.view.main
             SplashWaitForm._overlayLabel = new OverlayTextPainter();
             SplashWaitForm._overlayButton = new OverlayImagePainter(SplashWaitForm.buttonImage, SplashWaitForm.hotButtonImage, SplashWaitForm.OnCancelButtonClick);
 
-            ProjectInfo._isExistNtbCheckWarehousing = false;
-            ProjectInfo._isExistNtbCheckRelease = false;
-            ProjectInfo._isExistNtbCheckRepair = false;
+            //ProjectInfo._isExistNtbCheckWarehousing = false;
+            //ProjectInfo._isExistNtbCheckRelease = false;
+            //ProjectInfo._isExistNtbCheckRepair = false;
 
         }
 
@@ -394,9 +314,13 @@ namespace WareHousingMaster.view.main
 
             if (login.ShowDialog(this) == DialogResult.OK)
             {
+                documentManager.View.Controller.CloseAll();
+                showMain();
+
                 ProjectInfo._userId = login._userId;
                 ProjectInfo._userPasswd = login._userPasswd;
                 setLoginInitialize();
+                setViewInitialize();
             }
         }
 
@@ -537,123 +461,148 @@ namespace WareHousingMaster.view.main
             setRibbonTabs(modifReturn, tabName, bbiReturnMidif);
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         private void biUserManagement_ItemClick(object sender, ItemClickEventArgs e)
         {
             string tabName = "유저관리";
             usrUserManagement userManagement = new usrUserManagement();
             setRibbonTabs(userManagement, tabName, biUserManagement);
         }
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            dlgUserPassword dlgPasswd = new dlgUserPassword(ProjectInfo._userId, ProjectInfo._userPasswd);
+
+            //dlgCreateUser.StartPosition = FormStartPosition.Manual;
+            //dlgCreateUser.Location = new Point(this.Location.X + (this.Size.Width / 2) - (dlgCreateUser.Size.Width / 2),
+            //this.Location.Y + (this.Size.Height / 2) - (dlgCreateUser.Size.Height / 2));
+
+            if (dlgPasswd.ShowDialog(this) == DialogResult.OK)
+            {
+                ProjectInfo._userPasswd = ConvertUtil.ToString(dlgPasswd._password);
+                Util.setPasswd(ProjectInfo._userPasswd);
+            }
+        }
+
+        private void bbiViewMgmt_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "화면관리";
+            usrView view = new usrView();
+            setRibbonTabs(view, tabName, bbiViewManagement);
+        }
+
+        private void bbiValuSetting_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "설정값관리";
+            usrValueManagement valueManagement = new usrValueManagement();
+            setRibbonTabs(valueManagement, tabName, bbiValuSetting);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void biWarehousing_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "입고";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                OnRunTaskItemClick();
+            //string tabName = "입고";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    OnRunTaskItemClick();
 
-                usrWarehousing warehousing = new usrWarehousing();
-                warehousing.Tag = tabName;
-                warehousing.MdiParent = this;
-                warehousing.Show();
-                if(!ribbonTabs.ContainsKey(biWarehousing))
-                    ribbonTabs.Add(biWarehousing, warehousing);
-                else
-                {
-                    ribbonTabs.Remove(biWarehousing);
-                    ribbonTabs.Add(biWarehousing, warehousing);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehousing]);
-            }
+            //    usrWarehousing warehousing = new usrWarehousing();
+            //    warehousing.Tag = tabName;
+            //    warehousing.MdiParent = this;
+            //    warehousing.Show();
+            //    if(!ribbonTabs.ContainsKey(biWarehousing))
+            //        ribbonTabs.Add(biWarehousing, warehousing);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehousing);
+            //        ribbonTabs.Add(biWarehousing, warehousing);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehousing]);
+            //}
         }
 
         private void biWarehousingConsigned_ItemClick(object sender, ItemClickEventArgs e)
@@ -663,369 +612,369 @@ namespace WareHousingMaster.view.main
 
         private void biProduce_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "제품생산";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                OnRunTaskItemClick();
+            //string tabName = "제품생산";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    OnRunTaskItemClick();
 
-                usrProductProduceStandard ProductProduce = new usrProductProduceStandard();
-                ProductProduce.Tag = tabName;
-                ProductProduce.MdiParent = this;
-                ProductProduce.Show();
-                if (!ribbonTabs.ContainsKey(biProduce))
-                    ribbonTabs.Add(biProduce, ProductProduce);
-                else
-                {
-                    ribbonTabs.Remove(biProduce);
-                    ribbonTabs.Add(biProduce, ProductProduce);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biProduce]);
-            } 
+            //    usrProductProduceStandard ProductProduce = new usrProductProduceStandard();
+            //    ProductProduce.Tag = tabName;
+            //    ProductProduce.MdiParent = this;
+            //    ProductProduce.Show();
+            //    if (!ribbonTabs.ContainsKey(biProduce))
+            //        ribbonTabs.Add(biProduce, ProductProduce);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biProduce);
+            //        ribbonTabs.Add(biProduce, ProductProduce);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biProduce]);
+            //} 
         }
 
         private void bbiProductProductList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "제품생산 리스트";
-            usrProductProduceList productProduceList = new usrProductProduceList();
-            setRibbonTabs(productProduceList, tabName, bbiProductProductList);
+            //string tabName = "제품생산 리스트";
+            //usrProductProduceList productProduceList = new usrProductProduceList();
+            //setRibbonTabs(productProduceList, tabName, bbiProductProductList);
         }
 
         private void bbiQc_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "QC";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                OnRunTaskItemClick();
+            //string tabName = "QC";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    OnRunTaskItemClick();
 
-                usrQualityControl qualityControl = new usrQualityControl();
-                qualityControl.Tag = tabName;
-                qualityControl.MdiParent = this;
-                qualityControl.Show();
-                if (!ribbonTabs.ContainsKey(bbiQc))
-                    ribbonTabs.Add(bbiQc, qualityControl);
-                else
-                {
-                    ribbonTabs.Remove(bbiQc);
-                    ribbonTabs.Add(bbiQc, qualityControl);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[bbiQc]);
-            }
+            //    usrQualityControl qualityControl = new usrQualityControl();
+            //    qualityControl.Tag = tabName;
+            //    qualityControl.MdiParent = this;
+            //    qualityControl.Show();
+            //    if (!ribbonTabs.ContainsKey(bbiQc))
+            //        ribbonTabs.Add(bbiQc, qualityControl);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(bbiQc);
+            //        ribbonTabs.Add(bbiQc, qualityControl);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[bbiQc]);
+            //}
         }
 
 
         private void bbiQCProductList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "QC제품 리스트";
-            usrProduceProductCheckList produceProductCheckList = new usrProduceProductCheckList();
-            setRibbonTabs(produceProductCheckList, tabName, bbiQCProductList);
+            //string tabName = "QC제품 리스트";
+            //usrProduceProductCheckList produceProductCheckList = new usrProduceProductCheckList();
+            //setRibbonTabs(produceProductCheckList, tabName, bbiQCProductList);
         }
 
 
 
         private void biRepair_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "repair";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                OnRunTaskItemClick();
+            //string tabName = "repair";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    OnRunTaskItemClick();
 
-                usrRepairStandard repair = new usrRepairStandard();
-                repair.Tag = tabName;
-                repair.MdiParent = this;
-                repair.Show();
-                if (!ribbonTabs.ContainsKey(biRepair))
-                    ribbonTabs.Add(biRepair, repair);
-                else
-                {
-                    ribbonTabs.Remove(biRepair);
-                    ribbonTabs.Add(biRepair, repair);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biRepair]);
-            }
+            //    usrRepairStandard repair = new usrRepairStandard();
+            //    repair.Tag = tabName;
+            //    repair.MdiParent = this;
+            //    repair.Show();
+            //    if (!ribbonTabs.ContainsKey(biRepair))
+            //        ribbonTabs.Add(biRepair, repair);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biRepair);
+            //        ribbonTabs.Add(biRepair, repair);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biRepair]);
+            //}
         }
 
         private void biConsigned_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "생산대행출고";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                OnRunTaskItemClickWOMatchingInfo();
+            //string tabName = "생산대행출고";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    OnRunTaskItemClickWOMatchingInfo();
 
-                usrReleaseConsigned consigned = new usrReleaseConsigned();
-                consigned.Tag = tabName;
-                consigned.MdiParent = this;
-                consigned.Show();
-                if (!ribbonTabs.ContainsKey(biConsigned))
-                    ribbonTabs.Add(biConsigned, consigned);
-                else
-                {
-                    ribbonTabs.Remove(biConsigned);
-                    ribbonTabs.Add(biConsigned, consigned);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biConsigned]);
-            }
+            //    usrReleaseConsigned consigned = new usrReleaseConsigned();
+            //    consigned.Tag = tabName;
+            //    consigned.MdiParent = this;
+            //    consigned.Show();
+            //    if (!ribbonTabs.ContainsKey(biConsigned))
+            //        ribbonTabs.Add(biConsigned, consigned);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biConsigned);
+            //        ribbonTabs.Add(biConsigned, consigned);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biConsigned]);
+            //}
         }
 
         private void bbiExportReceipt_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "출고접수";
-            usrReleaseReceipt releaseReceipt = new usrReleaseReceipt();
-            setRibbonTabs(releaseReceipt, tabName, bbiExportReceipt);
+            //string tabName = "출고접수";
+            //usrReleaseReceipt releaseReceipt = new usrReleaseReceipt();
+            //setRibbonTabs(releaseReceipt, tabName, bbiExportReceipt);
         }
 
         private void bbiReleaseReceiptList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "출고접수리스트";
-            usrReleaseReceiptList releaseReceiptList = new usrReleaseReceiptList();
-            setRibbonTabs(releaseReceiptList, tabName, bbiReleaseReceiptList);
+            //string tabName = "출고접수리스트";
+            //usrReleaseReceiptList releaseReceiptList = new usrReleaseReceiptList();
+            //setRibbonTabs(releaseReceiptList, tabName, bbiReleaseReceiptList);
         }
 
         private void biComponentKeep_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "Stock Movement";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrComponentKeep componentKeep = new usrComponentKeep();
-                componentKeep.Tag = tabName;
-                componentKeep.MdiParent = this;
-                componentKeep.Show();
-                if (!ribbonTabs.ContainsKey(biComponentKeep))
-                    ribbonTabs.Add(biComponentKeep, componentKeep);
-                else
-                {
-                    ribbonTabs.Remove(biComponentKeep);
-                    ribbonTabs.Add(biComponentKeep, componentKeep);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biComponentKeep]);
-            }
+            //string tabName = "Stock Movement";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrComponentKeep componentKeep = new usrComponentKeep();
+            //    componentKeep.Tag = tabName;
+            //    componentKeep.MdiParent = this;
+            //    componentKeep.Show();
+            //    if (!ribbonTabs.ContainsKey(biComponentKeep))
+            //        ribbonTabs.Add(biComponentKeep, componentKeep);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biComponentKeep);
+            //        ribbonTabs.Add(biComponentKeep, componentKeep);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biComponentKeep]);
+            //}
         }
 
         private void biWarehouseMovementStatus_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "Stock Movement Status";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrWarehouseMovementStatus warehouseMovementStatus = new usrWarehouseMovementStatus();
-                warehouseMovementStatus.Tag = tabName;
-                warehouseMovementStatus.MdiParent = this;
-                warehouseMovementStatus.Show();
-                if (!ribbonTabs.ContainsKey(biWarehouseMovementStatus))
-                    ribbonTabs.Add(biWarehouseMovementStatus, warehouseMovementStatus);
-                else
-                {
-                    ribbonTabs.Remove(biWarehouseMovementStatus);
-                    ribbonTabs.Add(biWarehouseMovementStatus, warehouseMovementStatus);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehouseMovementStatus]);
-            }
+            //string tabName = "Stock Movement Status";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrWarehouseMovementStatus warehouseMovementStatus = new usrWarehouseMovementStatus();
+            //    warehouseMovementStatus.Tag = tabName;
+            //    warehouseMovementStatus.MdiParent = this;
+            //    warehouseMovementStatus.Show();
+            //    if (!ribbonTabs.ContainsKey(biWarehouseMovementStatus))
+            //        ribbonTabs.Add(biWarehouseMovementStatus, warehouseMovementStatus);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehouseMovementStatus);
+            //        ribbonTabs.Add(biWarehouseMovementStatus, warehouseMovementStatus);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehouseMovementStatus]);
+            //}
         }
 
         private void biWarehouseState_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "Warehouse Stock Status";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrWarehouseState warehouseState = new usrWarehouseState();
-                warehouseState.Tag = tabName;
-                warehouseState.MdiParent = this;
-                warehouseState.Show();
-                if (!ribbonTabs.ContainsKey(biWarehouseState))
-                    ribbonTabs.Add(biWarehouseState, warehouseState);
-                else
-                {
-                    ribbonTabs.Remove(biWarehouseState);
-                    ribbonTabs.Add(biWarehouseState, warehouseState);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehouseState]);
-            }
+            //string tabName = "Warehouse Stock Status";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrWarehouseState warehouseState = new usrWarehouseState();
+            //    warehouseState.Tag = tabName;
+            //    warehouseState.MdiParent = this;
+            //    warehouseState.Show();
+            //    if (!ribbonTabs.ContainsKey(biWarehouseState))
+            //        ribbonTabs.Add(biWarehouseState, warehouseState);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehouseState);
+            //        ribbonTabs.Add(biWarehouseState, warehouseState);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehouseState]);
+            //}
         }
 
         private void biComponentKeep1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "Stock Movement";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrComponentKeep componentKeep = new usrComponentKeep();
-                componentKeep.Tag = tabName;
-                componentKeep.MdiParent = this;
-                componentKeep.Show();
-                if (!ribbonTabs.ContainsKey(biComponentKeep))
-                    ribbonTabs.Add(biComponentKeep, componentKeep);
-                else
-                {
-                    ribbonTabs.Remove(biComponentKeep);
-                    ribbonTabs.Add(biComponentKeep, componentKeep);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biComponentKeep]);
-            }
+            //string tabName = "Stock Movement";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrComponentKeep componentKeep = new usrComponentKeep();
+            //    componentKeep.Tag = tabName;
+            //    componentKeep.MdiParent = this;
+            //    componentKeep.Show();
+            //    if (!ribbonTabs.ContainsKey(biComponentKeep))
+            //        ribbonTabs.Add(biComponentKeep, componentKeep);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biComponentKeep);
+            //        ribbonTabs.Add(biComponentKeep, componentKeep);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biComponentKeep]);
+            //}
         }
 
         private void biWarehouseMovementStatus1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "Stock Movement Status";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrWarehouseMovementStatus warehouseMovementStatus = new usrWarehouseMovementStatus();
-                warehouseMovementStatus.Tag = tabName;
-                warehouseMovementStatus.MdiParent = this;
-                warehouseMovementStatus.Show();
-                if (!ribbonTabs.ContainsKey(biWarehouseMovementStatus))
-                    ribbonTabs.Add(biWarehouseMovementStatus, warehouseMovementStatus);
-                else
-                {
-                    ribbonTabs.Remove(biWarehouseMovementStatus);
-                    ribbonTabs.Add(biWarehouseMovementStatus, warehouseMovementStatus);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehouseMovementStatus]);
-            }
+            //string tabName = "Stock Movement Status";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrWarehouseMovementStatus warehouseMovementStatus = new usrWarehouseMovementStatus();
+            //    warehouseMovementStatus.Tag = tabName;
+            //    warehouseMovementStatus.MdiParent = this;
+            //    warehouseMovementStatus.Show();
+            //    if (!ribbonTabs.ContainsKey(biWarehouseMovementStatus))
+            //        ribbonTabs.Add(biWarehouseMovementStatus, warehouseMovementStatus);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehouseMovementStatus);
+            //        ribbonTabs.Add(biWarehouseMovementStatus, warehouseMovementStatus);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehouseMovementStatus]);
+            //}
         }
 
         private void biWarehouseState1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "Warehouse Stock Status";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrWarehouseState warehouseState = new usrWarehouseState();
-                warehouseState.Tag = tabName;
-                warehouseState.MdiParent = this;
-                warehouseState.Show();
-                if (!ribbonTabs.ContainsKey(biWarehouseState))
-                    ribbonTabs.Add(biWarehouseState, warehouseState);
-                else
-                {
-                    ribbonTabs.Remove(biWarehouseState);
-                    ribbonTabs.Add(biWarehouseState, warehouseState);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehouseState]);
-            }
+            //string tabName = "Warehouse Stock Status";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrWarehouseState warehouseState = new usrWarehouseState();
+            //    warehouseState.Tag = tabName;
+            //    warehouseState.MdiParent = this;
+            //    warehouseState.Show();
+            //    if (!ribbonTabs.ContainsKey(biWarehouseState))
+            //        ribbonTabs.Add(biWarehouseState, warehouseState);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehouseState);
+            //        ribbonTabs.Add(biWarehouseState, warehouseState);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehouseState]);
+            //}
         }
 
         private void bbiCompanyModelList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "업체 모델 리스트";
-            usrConsignedCompanyModelList consignedCompanyModelList = new usrConsignedCompanyModelList();
-            setRibbonTabs(consignedCompanyModelList, tabName, bbiCompanyModelList);
+            //string tabName = "업체 모델 리스트";
+            //usrConsignedCompanyModelList consignedCompanyModelList = new usrConsignedCompanyModelList();
+            //setRibbonTabs(consignedCompanyModelList, tabName, bbiCompanyModelList);
         }
 
         private void biConsignedCompanyInventory_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "consigned company inventory";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrConsignedCompanyInventory consignedCompanyInventory = new usrConsignedCompanyInventory();
-                consignedCompanyInventory.Tag = tabName;
-                consignedCompanyInventory.MdiParent = this;
-                consignedCompanyInventory.Show();
-                if (!ribbonTabs.ContainsKey(biConsignedCompanyInventory))
-                    ribbonTabs.Add(biConsignedCompanyInventory, consignedCompanyInventory);
-                else
-                {
-                    ribbonTabs.Remove(biConsignedCompanyInventory);
-                    ribbonTabs.Add(biConsignedCompanyInventory, consignedCompanyInventory);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biConsignedCompanyInventory]);
-            }
+            //string tabName = "consigned company inventory";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrConsignedCompanyInventory consignedCompanyInventory = new usrConsignedCompanyInventory();
+            //    consignedCompanyInventory.Tag = tabName;
+            //    consignedCompanyInventory.MdiParent = this;
+            //    consignedCompanyInventory.Show();
+            //    if (!ribbonTabs.ContainsKey(biConsignedCompanyInventory))
+            //        ribbonTabs.Add(biConsignedCompanyInventory, consignedCompanyInventory);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biConsignedCompanyInventory);
+            //        ribbonTabs.Add(biConsignedCompanyInventory, consignedCompanyInventory);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biConsignedCompanyInventory]);
+            //}
         }
 
         private void biAdjustment_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "consigned Adjustment";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrConsignedAdjustment consignedAdjustment = new usrConsignedAdjustment();
-                consignedAdjustment.Tag = tabName;
-                consignedAdjustment.MdiParent = this;
-                consignedAdjustment.Show();
-                if (!ribbonTabs.ContainsKey(biAdjustment))
-                    ribbonTabs.Add(biAdjustment, consignedAdjustment);
-                else
-                {
-                    ribbonTabs.Remove(biAdjustment);
-                    ribbonTabs.Add(biAdjustment, consignedAdjustment);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biAdjustment]);
-            }
+            //string tabName = "consigned Adjustment";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrConsignedAdjustment consignedAdjustment = new usrConsignedAdjustment();
+            //    consignedAdjustment.Tag = tabName;
+            //    consignedAdjustment.MdiParent = this;
+            //    consignedAdjustment.Show();
+            //    if (!ribbonTabs.ContainsKey(biAdjustment))
+            //        ribbonTabs.Add(biAdjustment, consignedAdjustment);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biAdjustment);
+            //        ribbonTabs.Add(biAdjustment, consignedAdjustment);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biAdjustment]);
+            //}
         }
 
         private void biAdjustmentReceiptList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "adjustment receipt list";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrAdjustmentReceiptList adjustmentReceiptList = new usrAdjustmentReceiptList();
-                adjustmentReceiptList.Tag = tabName;
-                adjustmentReceiptList.MdiParent = this;
-                adjustmentReceiptList.Show();
-                if (!ribbonTabs.ContainsKey(biAdjustmentReceiptList))
-                    ribbonTabs.Add(biAdjustmentReceiptList, adjustmentReceiptList);
-                else
-                {
-                    ribbonTabs.Remove(biAdjustmentReceiptList);
-                    ribbonTabs.Add(biAdjustmentReceiptList, adjustmentReceiptList);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biAdjustmentReceiptList]);
-            }
+            //string tabName = "adjustment receipt list";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrAdjustmentReceiptList adjustmentReceiptList = new usrAdjustmentReceiptList();
+            //    adjustmentReceiptList.Tag = tabName;
+            //    adjustmentReceiptList.MdiParent = this;
+            //    adjustmentReceiptList.Show();
+            //    if (!ribbonTabs.ContainsKey(biAdjustmentReceiptList))
+            //        ribbonTabs.Add(biAdjustmentReceiptList, adjustmentReceiptList);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biAdjustmentReceiptList);
+            //        ribbonTabs.Add(biAdjustmentReceiptList, adjustmentReceiptList);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biAdjustmentReceiptList]);
+            //}
         }
         private void biAdjustmentUpdate_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "consigned Adjustment update";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrAdjustmentUpdateList adjustmentUpdateList = new usrAdjustmentUpdateList();
-                adjustmentUpdateList.Tag = tabName;
-                adjustmentUpdateList.MdiParent = this;
-                adjustmentUpdateList.Show();
-                if (!ribbonTabs.ContainsKey(biAdjustmentUpdate))
-                    ribbonTabs.Add(biAdjustmentUpdate, adjustmentUpdateList);
-                else
-                {
-                    ribbonTabs.Remove(biAdjustmentUpdate);
-                    ribbonTabs.Add(biAdjustmentUpdate, adjustmentUpdateList);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biAdjustmentUpdate]);
-            }
+            //string tabName = "consigned Adjustment update";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrAdjustmentUpdateList adjustmentUpdateList = new usrAdjustmentUpdateList();
+            //    adjustmentUpdateList.Tag = tabName;
+            //    adjustmentUpdateList.MdiParent = this;
+            //    adjustmentUpdateList.Show();
+            //    if (!ribbonTabs.ContainsKey(biAdjustmentUpdate))
+            //        ribbonTabs.Add(biAdjustmentUpdate, adjustmentUpdateList);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biAdjustmentUpdate);
+            //        ribbonTabs.Add(biAdjustmentUpdate, adjustmentUpdateList);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biAdjustmentUpdate]);
+            //}
         }
 
         private void biProductCheck_ItemClick(object sender, ItemClickEventArgs e)
@@ -1050,272 +999,272 @@ namespace WareHousingMaster.view.main
             //    documentManager.View.ActivateDocument(ribbonTabs[biProductCheck]);
             //}
 
-            string tabName = "product Cheke Management";
-            usrWarehousingProductCheck productCheck = new usrWarehousingProductCheck();
-            setRibbonTabs(productCheck, tabName, biProductCheck);
+            //string tabName = "product Cheke Management";
+            //usrWarehousingProductCheck productCheck = new usrWarehousingProductCheck();
+            //setRibbonTabs(productCheck, tabName, biProductCheck);
         }
 
 
         private void biProduceProductCheck_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "produce product Cheke Management";
-            usrProduceProductCheck procudeProductCheck = new usrProduceProductCheck();
-            setRibbonTabs(procudeProductCheck, tabName, biProduceProductCheck);
+            //    string tabName = "produce product Cheke Management";
+            //    usrProduceProductCheck procudeProductCheck = new usrProduceProductCheck();
+            //    setRibbonTabs(procudeProductCheck, tabName, biProduceProductCheck);
         }
 
 
 
-        private void biUsedPurchaseStatus_ItemClick(object sender, ItemClickEventArgs e)
+    private void biUsedPurchaseStatus_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "used Purchase";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                Dangol.ShowSplash();
-                usrUsedPurchaseStatus usedPurchaseStatus = new usrUsedPurchaseStatus();
-                usedPurchaseStatus.Tag = tabName;
-                usedPurchaseStatus.MdiParent = this;
-                usedPurchaseStatus.Show();
-                Dangol.CloseSplash();
-                if (!ribbonTabs.ContainsKey(biUsedPurchaseStatus))
-                    ribbonTabs.Add(biUsedPurchaseStatus, usedPurchaseStatus);
-                else
-                {
-                    ribbonTabs.Remove(biUsedPurchaseStatus);
-                    ribbonTabs.Add(biUsedPurchaseStatus, usedPurchaseStatus);
-                }
-            }
-            else
-            {
-                Dangol.ShowSplash();
-                documentManager.View.ActivateDocument(ribbonTabs[biUsedPurchaseStatus]);
-                Dangol.CloseSplash();
-            }
+            //string tabName = "used Purchase";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    Dangol.ShowSplash();
+            //    usrUsedPurchaseStatus usedPurchaseStatus = new usrUsedPurchaseStatus();
+            //    usedPurchaseStatus.Tag = tabName;
+            //    usedPurchaseStatus.MdiParent = this;
+            //    usedPurchaseStatus.Show();
+            //    Dangol.CloseSplash();
+            //    if (!ribbonTabs.ContainsKey(biUsedPurchaseStatus))
+            //        ribbonTabs.Add(biUsedPurchaseStatus, usedPurchaseStatus);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biUsedPurchaseStatus);
+            //        ribbonTabs.Add(biUsedPurchaseStatus, usedPurchaseStatus);
+            //    }
+            //}
+            //else
+            //{
+            //    Dangol.ShowSplash();
+            //    documentManager.View.ActivateDocument(ribbonTabs[biUsedPurchaseStatus]);
+            //    Dangol.CloseSplash();
+            //}
         }
 
         private void biUsedPurchaseRelease_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "used Purchase release";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                Dangol.ShowSplash();
-                usrUsedPurchaseReturnList usedPurchaseReturnList = new usrUsedPurchaseReturnList();
-                usedPurchaseReturnList.Tag = tabName;
-                usedPurchaseReturnList.MdiParent = this;
-                usedPurchaseReturnList.Show();
-                Dangol.CloseSplash();
-                if (!ribbonTabs.ContainsKey(biUsedPurchaseStatus))
-                    ribbonTabs.Add(biUsedPurchaseRelease, usedPurchaseReturnList);
-                else
-                {
-                    ribbonTabs.Remove(biUsedPurchaseRelease);
-                    ribbonTabs.Add(biUsedPurchaseRelease, usedPurchaseReturnList);
-                }
-            }
-            else
-            {
-                Dangol.ShowSplash();
-                documentManager.View.ActivateDocument(ribbonTabs[biUsedPurchaseRelease]);
-                Dangol.CloseSplash();
-            }
+            //string tabName = "used Purchase release";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    Dangol.ShowSplash();
+            //    usrUsedPurchaseReturnList usedPurchaseReturnList = new usrUsedPurchaseReturnList();
+            //    usedPurchaseReturnList.Tag = tabName;
+            //    usedPurchaseReturnList.MdiParent = this;
+            //    usedPurchaseReturnList.Show();
+            //    Dangol.CloseSplash();
+            //    if (!ribbonTabs.ContainsKey(biUsedPurchaseStatus))
+            //        ribbonTabs.Add(biUsedPurchaseRelease, usedPurchaseReturnList);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biUsedPurchaseRelease);
+            //        ribbonTabs.Add(biUsedPurchaseRelease, usedPurchaseReturnList);
+            //    }
+            //}
+            //else
+            //{
+            //    Dangol.ShowSplash();
+            //    documentManager.View.ActivateDocument(ribbonTabs[biUsedPurchaseRelease]);
+            //    Dangol.CloseSplash();
+            //}
         }
 
         private void biCustomerPaymentState_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "used purchase payment";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                Dangol.ShowSplash();
-                usrCustomerPaymentState customerPaymentState = new usrCustomerPaymentState();
-                customerPaymentState.Tag = tabName;
-                customerPaymentState.MdiParent = this;
-                customerPaymentState.Show();
-                Dangol.CloseSplash();
-                if (!ribbonTabs.ContainsKey(biCustomerPaymentState))
-                    ribbonTabs.Add(biCustomerPaymentState, customerPaymentState);
-                else
-                {
-                    ribbonTabs.Remove(biCustomerPaymentState);
-                    ribbonTabs.Add(biCustomerPaymentState, customerPaymentState);
-                }
-            }
-            else
-            {
-                Dangol.ShowSplash();
-                documentManager.View.ActivateDocument(ribbonTabs[biCustomerPaymentState]);
-                Dangol.CloseSplash();
-            }
+            //string tabName = "used purchase payment";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    Dangol.ShowSplash();
+            //    usrCustomerPaymentState customerPaymentState = new usrCustomerPaymentState();
+            //    customerPaymentState.Tag = tabName;
+            //    customerPaymentState.MdiParent = this;
+            //    customerPaymentState.Show();
+            //    Dangol.CloseSplash();
+            //    if (!ribbonTabs.ContainsKey(biCustomerPaymentState))
+            //        ribbonTabs.Add(biCustomerPaymentState, customerPaymentState);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biCustomerPaymentState);
+            //        ribbonTabs.Add(biCustomerPaymentState, customerPaymentState);
+            //    }
+            //}
+            //else
+            //{
+            //    Dangol.ShowSplash();
+            //    documentManager.View.ActivateDocument(ribbonTabs[biCustomerPaymentState]);
+            //    Dangol.CloseSplash();
+            //}
         }
 
         private void biWarehousingPartDetail1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "warehousingPart Management1";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrWarehousingManagement1 warehousingManagement = new usrWarehousingManagement1();
-                warehousingManagement.Tag = tabName;
-                warehousingManagement.MdiParent = this;
-                warehousingManagement.Show();
-                if (!ribbonTabs.ContainsKey(biWarehousingPartDetail1))
-                    ribbonTabs.Add(biWarehousingPartDetail1, warehousingManagement);
-                else
-                {
-                    ribbonTabs.Remove(biWarehousingPartDetail1);
-                    ribbonTabs.Add(biWarehousingPartDetail1, warehousingManagement);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehousingPartManagement]);
-            }
+            //string tabName = "warehousingPart Management1";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrWarehousingManagement1 warehousingManagement = new usrWarehousingManagement1();
+            //    warehousingManagement.Tag = tabName;
+            //    warehousingManagement.MdiParent = this;
+            //    warehousingManagement.Show();
+            //    if (!ribbonTabs.ContainsKey(biWarehousingPartDetail1))
+            //        ribbonTabs.Add(biWarehousingPartDetail1, warehousingManagement);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehousingPartDetail1);
+            //        ribbonTabs.Add(biWarehousingPartDetail1, warehousingManagement);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehousingPartManagement]);
+            //}
         }
 
         private void biWarehousingPartManagementNew_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "warehousingPart Management New";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                Dangol.ShowSplash();
+            //string tabName = "warehousingPart Management New";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    Dangol.ShowSplash();
 
-                usrInventoryCheck inventoryCheck = new usrInventoryCheck();
-                inventoryCheck.Tag = tabName;
-                inventoryCheck.MdiParent = this;
-                inventoryCheck.Show();
-                Dangol.CloseSplash();
-                if (!ribbonTabs.ContainsKey(biWarehousingPartManagementNew))
-                    ribbonTabs.Add(biWarehousingPartManagementNew, inventoryCheck);
-                else
-                {
-                    ribbonTabs.Remove(biWarehousingPartManagementNew);
-                    ribbonTabs.Add(biWarehousingPartManagementNew, inventoryCheck);
-                }
-            }
-            else
-            {
-                Dangol.ShowSplash();
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehousingPartManagementNew]);
-                Dangol.CloseSplash();
-            }
+            //    usrInventoryCheck inventoryCheck = new usrInventoryCheck();
+            //    inventoryCheck.Tag = tabName;
+            //    inventoryCheck.MdiParent = this;
+            //    inventoryCheck.Show();
+            //    Dangol.CloseSplash();
+            //    if (!ribbonTabs.ContainsKey(biWarehousingPartManagementNew))
+            //        ribbonTabs.Add(biWarehousingPartManagementNew, inventoryCheck);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehousingPartManagementNew);
+            //        ribbonTabs.Add(biWarehousingPartManagementNew, inventoryCheck);
+            //    }
+            //}
+            //else
+            //{
+            //    Dangol.ShowSplash();
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehousingPartManagementNew]);
+            //    Dangol.CloseSplash();
+            //}
         }
 
        
 
         private void biWarehousingPartManagement_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "warehousingPart Management";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrWarehousingManagement warehousingManagement = new usrWarehousingManagement();
-                warehousingManagement.Tag = tabName;
-                warehousingManagement.MdiParent = this;
-                warehousingManagement.Show();
-                if (!ribbonTabs.ContainsKey(biWarehousingPartManagement))
-                    ribbonTabs.Add(biWarehousingPartManagement, warehousingManagement);
-                else
-                {
-                    ribbonTabs.Remove(biWarehousingPartManagement);
-                    ribbonTabs.Add(biWarehousingPartManagement, warehousingManagement);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehousingPartManagement]);
-            }  
+            //string tabName = "warehousingPart Management";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrWarehousingManagement warehousingManagement = new usrWarehousingManagement();
+            //    warehousingManagement.Tag = tabName;
+            //    warehousingManagement.MdiParent = this;
+            //    warehousingManagement.Show();
+            //    if (!ribbonTabs.ContainsKey(biWarehousingPartManagement))
+            //        ribbonTabs.Add(biWarehousingPartManagement, warehousingManagement);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehousingPartManagement);
+            //        ribbonTabs.Add(biWarehousingPartManagement, warehousingManagement);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehousingPartManagement]);
+            //}  
         }
 
         private void biWarehousingProduct_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "warehousingProduct Management";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrWarehousingProductManagement warehousingProductManagement = new usrWarehousingProductManagement();
-                warehousingProductManagement.Tag = tabName;
-                warehousingProductManagement.MdiParent = this;
-                warehousingProductManagement.Show();
-                if (!ribbonTabs.ContainsKey(biWarehousingProduct))
-                    ribbonTabs.Add(biWarehousingProduct, warehousingProductManagement);
-                else
-                {
-                    ribbonTabs.Remove(biWarehousingProduct);
-                    ribbonTabs.Add(biWarehousingProduct, warehousingProductManagement);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehousingProduct]);
-            }
+            //string tabName = "warehousingProduct Management";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrWarehousingProductManagement warehousingProductManagement = new usrWarehousingProductManagement();
+            //    warehousingProductManagement.Tag = tabName;
+            //    warehousingProductManagement.MdiParent = this;
+            //    warehousingProductManagement.Show();
+            //    if (!ribbonTabs.ContainsKey(biWarehousingProduct))
+            //        ribbonTabs.Add(biWarehousingProduct, warehousingProductManagement);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehousingProduct);
+            //        ribbonTabs.Add(biWarehousingProduct, warehousingProductManagement);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehousingProduct]);
+            //}
         }
 
         private void biWarehousingSwap_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "warehousing Part Swap";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrWarehousingSwap warehousingSwap = new usrWarehousingSwap();
-                warehousingSwap.Tag = tabName;
-                warehousingSwap.MdiParent = this;
-                warehousingSwap.Show();
-                if (!ribbonTabs.ContainsKey(biWarehousingSwap))
-                    ribbonTabs.Add(biWarehousingSwap, warehousingSwap);
-                else
-                {
-                    ribbonTabs.Remove(biWarehousingSwap);
-                    ribbonTabs.Add(biWarehousingSwap, warehousingSwap);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biWarehousingSwap]);
-            }
+            //string tabName = "warehousing Part Swap";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrWarehousingSwap warehousingSwap = new usrWarehousingSwap();
+            //    warehousingSwap.Tag = tabName;
+            //    warehousingSwap.MdiParent = this;
+            //    warehousingSwap.Show();
+            //    if (!ribbonTabs.ContainsKey(biWarehousingSwap))
+            //        ribbonTabs.Add(biWarehousingSwap, warehousingSwap);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biWarehousingSwap);
+            //        ribbonTabs.Add(biWarehousingSwap, warehousingSwap);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biWarehousingSwap]);
+            //}
         }
 
         private void biProductSwap_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "product Swap";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrProductSwap productSwap = new usrProductSwap();
-                productSwap.Tag = tabName;
-                productSwap.MdiParent = this;
-                productSwap.Show();
-                if (!ribbonTabs.ContainsKey(biProductSwap))
-                    ribbonTabs.Add(biProductSwap, productSwap);
-                else
-                {
-                    ribbonTabs.Remove(biProductSwap);
-                    ribbonTabs.Add(biProductSwap, productSwap);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biProductSwap]);
-            }
+            //string tabName = "product Swap";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrProductSwap productSwap = new usrProductSwap();
+            //    productSwap.Tag = tabName;
+            //    productSwap.MdiParent = this;
+            //    productSwap.Show();
+            //    if (!ribbonTabs.ContainsKey(biProductSwap))
+            //        ribbonTabs.Add(biProductSwap, productSwap);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biProductSwap);
+            //        ribbonTabs.Add(biProductSwap, productSwap);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biProductSwap]);
+            //}
         }
 
         private void biExamPartList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "warehousingPart Examine";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                Dangol.ShowSplash();
-                usrUsedPurchaseExamine usedPurchaseExamine = new usrUsedPurchaseExamine();
-                usedPurchaseExamine.Tag = tabName;
-                usedPurchaseExamine.MdiParent = this;
-                usedPurchaseExamine.Show();
-                Dangol.CloseSplash();
-                if (!ribbonTabs.ContainsKey(biExamPartList))
-                    ribbonTabs.Add(biExamPartList, usedPurchaseExamine);
-                else
-                {
-                    ribbonTabs.Remove(biExamPartList);
-                    ribbonTabs.Add(biExamPartList, usedPurchaseExamine);
-                }
-            }
-            else
-            {
-                Dangol.ShowSplash();
-                documentManager.View.ActivateDocument(ribbonTabs[biExamPartList]);
-                Dangol.CloseSplash();
-            }
+            //string tabName = "warehousingPart Examine";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    Dangol.ShowSplash();
+            //    usrUsedPurchaseExamine usedPurchaseExamine = new usrUsedPurchaseExamine();
+            //    usedPurchaseExamine.Tag = tabName;
+            //    usedPurchaseExamine.MdiParent = this;
+            //    usedPurchaseExamine.Show();
+            //    Dangol.CloseSplash();
+            //    if (!ribbonTabs.ContainsKey(biExamPartList))
+            //        ribbonTabs.Add(biExamPartList, usedPurchaseExamine);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biExamPartList);
+            //        ribbonTabs.Add(biExamPartList, usedPurchaseExamine);
+            //    }
+            //}
+            //else
+            //{
+            //    Dangol.ShowSplash();
+            //    documentManager.View.ActivateDocument(ribbonTabs[biExamPartList]);
+            //    Dangol.CloseSplash();
+            //}
         }
         
         private void biKeyboardTest_ItemClick(object sender, ItemClickEventArgs e)
@@ -1408,279 +1357,279 @@ namespace WareHousingMaster.view.main
 
         private void biReceipt_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "Consigned Receipt";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrConsignedReceipt consignedReceipt = new usrConsignedReceipt();
-                consignedReceipt.Tag = tabName;
-                consignedReceipt.MdiParent = this;
-                consignedReceipt.Show();
-                if (!ribbonTabs.ContainsKey(biReceipt))
-                    ribbonTabs.Add(biReceipt, consignedReceipt);
-                else
-                {
-                    ribbonTabs.Remove(biReceipt);
-                    ribbonTabs.Add(biReceipt, consignedReceipt);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biReceipt]);
-            }
+            //string tabName = "Consigned Receipt";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrConsignedReceipt consignedReceipt = new usrConsignedReceipt();
+            //    consignedReceipt.Tag = tabName;
+            //    consignedReceipt.MdiParent = this;
+            //    consignedReceipt.Show();
+            //    if (!ribbonTabs.ContainsKey(biReceipt))
+            //        ribbonTabs.Add(biReceipt, consignedReceipt);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biReceipt);
+            //        ribbonTabs.Add(biReceipt, consignedReceipt);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biReceipt]);
+            //}
         }
 
         private void biInventory_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "Inventory List";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrInventoryList inventoryList = new usrInventoryList();
-                inventoryList.Tag = tabName;
-                inventoryList.MdiParent = this;
-                inventoryList.Show();
-                if (!ribbonTabs.ContainsKey(biInventory))
-                    ribbonTabs.Add(biInventory, inventoryList);
-                else
-                {
-                    ribbonTabs.Remove(biInventory);
-                    ribbonTabs.Add(biInventory, inventoryList);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biInventory]);
-            }
+            //string tabName = "Inventory List";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrInventoryList inventoryList = new usrInventoryList();
+            //    inventoryList.Tag = tabName;
+            //    inventoryList.MdiParent = this;
+            //    inventoryList.Show();
+            //    if (!ribbonTabs.ContainsKey(biInventory))
+            //        ribbonTabs.Add(biInventory, inventoryList);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biInventory);
+            //        ribbonTabs.Add(biInventory, inventoryList);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biInventory]);
+            //}
         }
 
         private void bbiInventorySearch_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "부품 리스트 검색";
-            usrInventorySearchList inventorySearchList = new usrInventorySearchList();
-            setRibbonTabs(inventorySearchList, tabName, bbiInventorySearch);
+            //string tabName = "부품 리스트 검색";
+            //usrInventorySearchList inventorySearchList = new usrInventorySearchList();
+            //setRibbonTabs(inventorySearchList, tabName, bbiInventorySearch);
         }
 
         private void bbiTebletSearch_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "태블릿 검색";
-            usrTabletCheckSearchList TabletCheckSearchList = new usrTabletCheckSearchList();
-            setRibbonTabs(TabletCheckSearchList, tabName, bbiTebletSearch);
+            //string tabName = "태블릿 검색";
+            //usrTabletCheckSearchList TabletCheckSearchList = new usrTabletCheckSearchList();
+            //setRibbonTabs(TabletCheckSearchList, tabName, bbiTebletSearch);
         }
 
         private void biConsignedAllList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "consigned All List";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                Dangol.ShowSplash();
-                usrConsignedList consignedList = new usrConsignedList();
-                consignedList.Tag = tabName;
-                consignedList.MdiParent = this;
-                consignedList.Show();
-                Dangol.CloseSplash();
-                if (!ribbonTabs.ContainsKey(biConsignedAllList))
-                    ribbonTabs.Add(biConsignedAllList, consignedList);
-                else
-                {
-                    ribbonTabs.Remove(biConsignedAllList);
-                    ribbonTabs.Add(biConsignedAllList, consignedList);
-                }
-            }
-            else
-            {
-                Dangol.ShowSplash();
-                documentManager.View.ActivateDocument(ribbonTabs[biConsignedAllList]);
-                Dangol.CloseSplash();
-            }
+            //string tabName = "consigned All List";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    Dangol.ShowSplash();
+            //    usrConsignedList consignedList = new usrConsignedList();
+            //    consignedList.Tag = tabName;
+            //    consignedList.MdiParent = this;
+            //    consignedList.Show();
+            //    Dangol.CloseSplash();
+            //    if (!ribbonTabs.ContainsKey(biConsignedAllList))
+            //        ribbonTabs.Add(biConsignedAllList, consignedList);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biConsignedAllList);
+            //        ribbonTabs.Add(biConsignedAllList, consignedList);
+            //    }
+            //}
+            //else
+            //{
+            //    Dangol.ShowSplash();
+            //    documentManager.View.ActivateDocument(ribbonTabs[biConsignedAllList]);
+            //    Dangol.CloseSplash();
+            //}
         }
 
         private void bbiConsignedReturnList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "생산대행 반품 리스트";
-            usrConsignedReturnList consignedReturnList = new usrConsignedReturnList();
-            setRibbonTabs(consignedReturnList, tabName, bbiConsignedReturnList);
+            //string tabName = "생산대행 반품 리스트";
+            //usrConsignedReturnList consignedReturnList = new usrConsignedReturnList();
+            //setRibbonTabs(consignedReturnList, tabName, bbiConsignedReturnList);
         }
 
         private void biConsignedSummaryList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "consigned Summary List";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                Dangol.ShowSplash();
-                usrConsignedSummaryList consignedSummaryList = new usrConsignedSummaryList();
-                consignedSummaryList.Tag = tabName;
-                consignedSummaryList.MdiParent = this;
-                consignedSummaryList.Show();
-                Dangol.CloseSplash();
-                if (!ribbonTabs.ContainsKey(biConsignedSummaryList))
-                    ribbonTabs.Add(biConsignedSummaryList, consignedSummaryList);
-                else
-                {
-                    ribbonTabs.Remove(biConsignedSummaryList);
-                    ribbonTabs.Add(biConsignedSummaryList, consignedSummaryList);
-                }
-            }
-            else
-            {
-                Dangol.ShowSplash();
-                documentManager.View.ActivateDocument(ribbonTabs[biConsignedSummaryList]);
-                Dangol.CloseSplash();
-            }
+            //string tabName = "consigned Summary List";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    Dangol.ShowSplash();
+            //    usrConsignedSummaryList consignedSummaryList = new usrConsignedSummaryList();
+            //    consignedSummaryList.Tag = tabName;
+            //    consignedSummaryList.MdiParent = this;
+            //    consignedSummaryList.Show();
+            //    Dangol.CloseSplash();
+            //    if (!ribbonTabs.ContainsKey(biConsignedSummaryList))
+            //        ribbonTabs.Add(biConsignedSummaryList, consignedSummaryList);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biConsignedSummaryList);
+            //        ribbonTabs.Add(biConsignedSummaryList, consignedSummaryList);
+            //    }
+            //}
+            //else
+            //{
+            //    Dangol.ShowSplash();
+            //    documentManager.View.ActivateDocument(ribbonTabs[biConsignedSummaryList]);
+            //    Dangol.CloseSplash();
+            //}
         }
 
         private void biConsignedSummaryListResult_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "consigned Summary List Result";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                Dangol.ShowSplash();
-                usrConsignedSummaryListResult consignedSummaryListResult = new usrConsignedSummaryListResult();
-                consignedSummaryListResult.Tag = tabName;
-                consignedSummaryListResult.MdiParent = this;
-                consignedSummaryListResult.Show();
-                Dangol.CloseSplash();
-                if (!ribbonTabs.ContainsKey(biConsignedSummaryListResult))
-                    ribbonTabs.Add(biConsignedSummaryListResult, consignedSummaryListResult);
-                else
-                {
-                    ribbonTabs.Remove(biConsignedSummaryListResult);
-                    ribbonTabs.Add(biConsignedSummaryListResult, consignedSummaryListResult);
-                }
-            }
-            else
-            {
-                Dangol.ShowSplash();
-                documentManager.View.ActivateDocument(ribbonTabs[biConsignedSummaryListResult]);
-                Dangol.CloseSplash();
-            }
+            //string tabName = "consigned Summary List Result";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    Dangol.ShowSplash();
+            //    usrConsignedSummaryListResult consignedSummaryListResult = new usrConsignedSummaryListResult();
+            //    consignedSummaryListResult.Tag = tabName;
+            //    consignedSummaryListResult.MdiParent = this;
+            //    consignedSummaryListResult.Show();
+            //    Dangol.CloseSplash();
+            //    if (!ribbonTabs.ContainsKey(biConsignedSummaryListResult))
+            //        ribbonTabs.Add(biConsignedSummaryListResult, consignedSummaryListResult);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biConsignedSummaryListResult);
+            //        ribbonTabs.Add(biConsignedSummaryListResult, consignedSummaryListResult);
+            //    }
+            //}
+            //else
+            //{
+            //    Dangol.ShowSplash();
+            //    documentManager.View.ActivateDocument(ribbonTabs[biConsignedSummaryListResult]);
+            //    Dangol.CloseSplash();
+            //}
         }
 
 
         private void biRequest_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "request Board";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrRequest request = new usrRequest();
-                request.Tag = tabName;
-                request.MdiParent = this;
-                request.Show();
-                if (!ribbonTabs.ContainsKey(biRequest))
-                    ribbonTabs.Add(biRequest, request);
-                else
-                {
-                    ribbonTabs.Remove(biRequest);
-                    ribbonTabs.Add(biRequest, request);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biRequest]);
-            }
+            //string tabName = "request Board";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrRequest request = new usrRequest();
+            //    request.Tag = tabName;
+            //    request.MdiParent = this;
+            //    request.Show();
+            //    if (!ribbonTabs.ContainsKey(biRequest))
+            //        ribbonTabs.Add(biRequest, request);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biRequest);
+            //        ribbonTabs.Add(biRequest, request);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biRequest]);
+            //}
         }
         private void biNtbPrice_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "notbook price";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                usrNtbPrice ntbPrice = new usrNtbPrice();
-                ntbPrice.Tag = tabName;
-                ntbPrice.MdiParent = this;
-                ntbPrice.Show();
-                if (!ribbonTabs.ContainsKey(biNtbPrice))
-                    ribbonTabs.Add(biNtbPrice, ntbPrice);
-                else
-                {
-                    ribbonTabs.Remove(biNtbPrice);
-                    ribbonTabs.Add(biNtbPrice, ntbPrice);
-                }
-            }
-            else
-            {
-                documentManager.View.ActivateDocument(ribbonTabs[biNtbPrice]);
-            }
+            //string tabName = "notbook price";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    usrNtbPrice ntbPrice = new usrNtbPrice();
+            //    ntbPrice.Tag = tabName;
+            //    ntbPrice.MdiParent = this;
+            //    ntbPrice.Show();
+            //    if (!ribbonTabs.ContainsKey(biNtbPrice))
+            //        ribbonTabs.Add(biNtbPrice, ntbPrice);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biNtbPrice);
+            //        ribbonTabs.Add(biNtbPrice, ntbPrice);
+            //    }
+            //}
+            //else
+            //{
+            //    documentManager.View.ActivateDocument(ribbonTabs[biNtbPrice]);
+            //}
         }
 
 
         private void biAdjustmentExamine_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "adjustment Examine List";
-            if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
-            {
-                Dangol.ShowSplash();
-                usrAdjustmentExamineList adjustmentExamineList = new usrAdjustmentExamineList();
-                adjustmentExamineList.Tag = tabName;
-                adjustmentExamineList.MdiParent = this;
-                adjustmentExamineList.Show();
-                Dangol.CloseSplash();
-                if (!ribbonTabs.ContainsKey(biAdjustmentExamine))
-                    ribbonTabs.Add(biAdjustmentExamine, adjustmentExamineList);
-                else
-                {
-                    ribbonTabs.Remove(biAdjustmentExamine);
-                    ribbonTabs.Add(biAdjustmentExamine, adjustmentExamineList);
-                }
-            }
-            else
-            {
-                Dangol.ShowSplash();
-                documentManager.View.ActivateDocument(ribbonTabs[biAdjustmentExamine]);
-                Dangol.CloseSplash();
-            }
+            //string tabName = "adjustment Examine List";
+            //if (!(tabbedView1.Documents.Any(x => x.Form.Tag.ToString() == tabName) || tabbedView1.FloatDocuments.Any(x => x.Form.Tag.ToString() == tabName)))
+            //{
+            //    Dangol.ShowSplash();
+            //    usrAdjustmentExamineList adjustmentExamineList = new usrAdjustmentExamineList();
+            //    adjustmentExamineList.Tag = tabName;
+            //    adjustmentExamineList.MdiParent = this;
+            //    adjustmentExamineList.Show();
+            //    Dangol.CloseSplash();
+            //    if (!ribbonTabs.ContainsKey(biAdjustmentExamine))
+            //        ribbonTabs.Add(biAdjustmentExamine, adjustmentExamineList);
+            //    else
+            //    {
+            //        ribbonTabs.Remove(biAdjustmentExamine);
+            //        ribbonTabs.Add(biAdjustmentExamine, adjustmentExamineList);
+            //    }
+            //}
+            //else
+            //{
+            //    Dangol.ShowSplash();
+            //    documentManager.View.ActivateDocument(ribbonTabs[biAdjustmentExamine]);
+            //    Dangol.CloseSplash();
+            //}
         }
 
         private void bbiAdjustmentComplete_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "정산완료리스트";
-            usrAdjustmentCompleteList adjustmentCompleteList = new usrAdjustmentCompleteList();
-            setRibbonTabs(adjustmentCompleteList, tabName, bbiAdjustmentComplete);
+            //string tabName = "정산완료리스트";
+            //usrAdjustmentCompleteList adjustmentCompleteList = new usrAdjustmentCompleteList();
+            //setRibbonTabs(adjustmentCompleteList, tabName, bbiAdjustmentComplete);
         }
 
         private void bbiProduceCheckByBarcode_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "정산대기검색";
-            usrAdjustmentExamineListByBarcode adjustmentExamineListByBarcode = new usrAdjustmentExamineListByBarcode();
-            setRibbonTabs(adjustmentExamineListByBarcode, tabName, bbiProduceCheckByBarcode);
+            //string tabName = "정산대기검색";
+            //usrAdjustmentExamineListByBarcode adjustmentExamineListByBarcode = new usrAdjustmentExamineListByBarcode();
+            //setRibbonTabs(adjustmentExamineListByBarcode, tabName, bbiProduceCheckByBarcode);
         }
 
         private void biTabletCheck_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "tablet check list";
-            usrTabletCheckList tabletCheckList = new usrTabletCheckList();
-            setRibbonTabs(tabletCheckList, tabName, biTabletCheck);
+            //string tabName = "tablet check list";
+            //usrTabletCheckList tabletCheckList = new usrTabletCheckList();
+            //setRibbonTabs(tabletCheckList, tabName, biTabletCheck);
         }
 
         private void biInvoiceManagement_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "생산대행 운송장번호 관리";
-            usrConsignedInvoiceManagement consignedInvoiceManagement = new usrConsignedInvoiceManagement();
-            setRibbonTabs(consignedInvoiceManagement, tabName, biInvoiceManagement);
+            //string tabName = "생산대행 운송장번호 관리";
+            //usrConsignedInvoiceManagement consignedInvoiceManagement = new usrConsignedInvoiceManagement();
+            //setRibbonTabs(consignedInvoiceManagement, tabName, biInvoiceManagement);
         }
 
         private void bbiConsignedReleasePart_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "생산대행 출고부품 관리";
-            usrConsignedReleaseManagement consignedReleaseManagement = new usrConsignedReleaseManagement();
-            setRibbonTabs(consignedReleaseManagement, tabName, bbiConsignedReleasePart);
+            //string tabName = "생산대행 출고부품 관리";
+            //usrConsignedReleaseManagement consignedReleaseManagement = new usrConsignedReleaseManagement();
+            //setRibbonTabs(consignedReleaseManagement, tabName, bbiConsignedReleasePart);
         }
 
         private void biPartPriceList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "부품 가격 매핑 리스트";
-            usrPartMappingList partMappingList = new usrPartMappingList();
-            setRibbonTabs(partMappingList, tabName, biPartPriceList);
+            //string tabName = "부품 가격 매핑 리스트";
+            //usrPartMappingList partMappingList = new usrPartMappingList();
+            //setRibbonTabs(partMappingList, tabName, biPartPriceList);
         }
         private void bbiWmPartMappingList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "W사 부품 매핑 리스트";
-            usrWMParList WMParList = new usrWMParList();
-            setRibbonTabs(WMParList, tabName, bbiWmPartMappingList);
+            //string tabName = "W사 부품 매핑 리스트";
+            //usrWMParList WMParList = new usrWMParList();
+            //setRibbonTabs(WMParList, tabName, bbiWmPartMappingList);
         }
 
         private void bbiJob_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "작업내용";
-            usrJob usrJob = new usrJob();
-            setRibbonTabs(usrJob, tabName, bbiJob);
+            //string tabName = "작업내용";
+            //usrJob usrJob = new usrJob();
+            //setRibbonTabs(usrJob, tabName, bbiJob);
         }
 
 
@@ -1723,40 +1672,40 @@ namespace WareHousingMaster.view.main
 
         void OnRunTaskItemClick()
         {
-            IOverlaySplashScreenHandle overlayHandle = SplashScreenManager.ShowOverlayForm(this, customPainter: new OverlayWindowCompositePainter(SplashWaitForm._overlayLabel, SplashWaitForm._overlayButton));
-            try
-            {
-                if (ProjectInfo._getComponentInformationYn == 0)
-                {
-                    Util.GetSystemInfo();
-                    ProjectInfo._getComponentInformationYn = 1;
+            //IOverlaySplashScreenHandle overlayHandle = SplashScreenManager.ShowOverlayForm(this, customPainter: new OverlayWindowCompositePainter(SplashWaitForm._overlayLabel, SplashWaitForm._overlayButton));
+            //try
+            //{
+            //    if (ProjectInfo._getComponentInformationYn == 0)
+            //    {
+            //        Util.GetSystemInfo();
+            //        ProjectInfo._getComponentInformationYn = 1;
 
-                    //SplashScreenManager.CloseForm(false);
-                }
-            }
-            finally
-            {
-                SplashScreenManager.CloseOverlayForm(overlayHandle);
-            }
+            //        //SplashScreenManager.CloseForm(false);
+            //    }
+            //}
+            //finally
+            //{
+            //    SplashScreenManager.CloseOverlayForm(overlayHandle);
+            //}
         }
 
         void OnRunTaskItemClickWOMatchingInfo()
         {
-            IOverlaySplashScreenHandle overlayHandle = SplashScreenManager.ShowOverlayForm(this, customPainter: new OverlayWindowCompositePainter(SplashWaitForm._overlayLabel, SplashWaitForm._overlayButton));
-            try
-            {
-                if (ProjectInfo._getComponentInformationYn == 0)
-                {
-                    Util.GetSystemInfoWOMatchingInfo();
-                    ProjectInfo._getComponentInformationYn = 1;
+            //IOverlaySplashScreenHandle overlayHandle = SplashScreenManager.ShowOverlayForm(this, customPainter: new OverlayWindowCompositePainter(SplashWaitForm._overlayLabel, SplashWaitForm._overlayButton));
+            //try
+            //{
+            //    if (ProjectInfo._getComponentInformationYn == 0)
+            //    {
+            //        Util.GetSystemInfoWOMatchingInfo();
+            //        ProjectInfo._getComponentInformationYn = 1;
 
-                    //SplashScreenManager.CloseForm(false);
-                }
-            }
-            finally
-            {
-                SplashScreenManager.CloseOverlayForm(overlayHandle);
-            }
+            //        //SplashScreenManager.CloseForm(false);
+            //    }
+            //}
+            //finally
+            //{
+            //    SplashScreenManager.CloseOverlayForm(overlayHandle);
+            //}
         }
 
 
@@ -1809,88 +1758,88 @@ namespace WareHousingMaster.view.main
 
         private void bbiCheckStatistics_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "노트북 검수 통계";
-            usrNtbCheckStatistics ntbCheckStatistics = new usrNtbCheckStatistics();
-            setRibbonTabs(ntbCheckStatistics, tabName, bbiCheckStatistics);
+            //string tabName = "노트북 검수 통계";
+            //usrNtbCheckStatistics ntbCheckStatistics = new usrNtbCheckStatistics();
+            //setRibbonTabs(ntbCheckStatistics, tabName, bbiCheckStatistics);
         }
 
         private void bbiConsignedReturnStatistics_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "생산대행반품통계";
-            usrConsignedReturnStatistics consignedReturnStatistics = new usrConsignedReturnStatistics();
-            setRibbonTabs(consignedReturnStatistics, tabName, bbiConsignedReturnStatistics);
+            //string tabName = "생산대행반품통계";
+            //usrConsignedReturnStatistics consignedReturnStatistics = new usrConsignedReturnStatistics();
+            //setRibbonTabs(consignedReturnStatistics, tabName, bbiConsignedReturnStatistics);
         }
 
         private void bbiWarehousingProduce_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "직접 생산";
-            usrWarehousingProduce warehousingProduce = new usrWarehousingProduce();
-            setRibbonTabs(warehousingProduce, tabName, bbiWarehousingProduce);
+            //string tabName = "직접 생산";
+            //usrWarehousingProduce warehousingProduce = new usrWarehousingProduce();
+            //setRibbonTabs(warehousingProduce, tabName, bbiWarehousingProduce);
         }
 
         private void bbiWarehousingProductCheckFull_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "product Cheke ManagementFull";
-            usrWarehousingProductCheckFull productCheck = new usrWarehousingProductCheckFull();
-            setRibbonTabs(productCheck, tabName, bbiWarehousingProductCheckFull);
+            //string tabName = "product Cheke ManagementFull";
+            //usrWarehousingProductCheckFull productCheck = new usrWarehousingProductCheckFull();
+            //setRibbonTabs(productCheck, tabName, bbiWarehousingProductCheckFull);
         }
 
         private void bbiReleaseCheck_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "releaseList";
-            usrReleaseList releaseList = new usrReleaseList();
-            setRibbonTabs(releaseList, tabName, bbiSearchBookInfo);
+            //string tabName = "releaseList";
+            //usrReleaseList releaseList = new usrReleaseList();
+            //setRibbonTabs(releaseList, tabName, bbiSearchBookInfo);
         }
 
         private void bbiProduceCheck_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "release product check";
-            usrReleaseCheck releaseCheck = new usrReleaseCheck();
-            setRibbonTabs(releaseCheck, tabName, bbiOrderCartInfo);
+            //string tabName = "release product check";
+            //usrReleaseCheck releaseCheck = new usrReleaseCheck();
+            //setRibbonTabs(releaseCheck, tabName, bbiOrderCartInfo);
         }
 
         private void bbiReleaseStatistics_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "release statistics";
-            usrReleaseStatistics releaseStatistics = new usrReleaseStatistics();
-            setRibbonTabs(releaseStatistics, tabName, bbiSearchBookInfoDetail);
+            //string tabName = "release statistics";
+            //usrReleaseStatistics releaseStatistics = new usrReleaseStatistics();
+            //setRibbonTabs(releaseStatistics, tabName, bbiSearchBookInfoDetail);
         }
 
         private void bbiReleaseCheckStatistics_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "release check statistics";
-            usrReleaseCheckStatistics releaseCheckStatistics = new usrReleaseCheckStatistics();
-            setRibbonTabs(releaseCheckStatistics, tabName, bbiOrderRegistBookInfo);
+            //string tabName = "release check statistics";
+            //usrReleaseCheckStatistics releaseCheckStatistics = new usrReleaseCheckStatistics();
+            //setRibbonTabs(releaseCheckStatistics, tabName, bbiOrderRegistBookInfo);
         }
 
         private void bbiExternalOrder_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "external part order";
-            usrReleaseOrder releaseOrder = new usrReleaseOrder();
-            setRibbonTabs(releaseOrder, tabName, bbiExternalOrder);
+            //string tabName = "external part order";
+            //usrReleaseOrder releaseOrder = new usrReleaseOrder();
+            //setRibbonTabs(releaseOrder, tabName, bbiExternalOrder);
         }
 
         private void bbiReleaseOrderList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "external part order list";
-            usrReleaseOrderList releaseOrderList = new usrReleaseOrderList();
-            setRibbonTabs(releaseOrderList, tabName, bbiReleaseOrderList);
+            //string tabName = "external part order list";
+            //usrReleaseOrderList releaseOrderList = new usrReleaseOrderList();
+            //setRibbonTabs(releaseOrderList, tabName, bbiReleaseOrderList);
         }
 
         private void bbiTechnicalRequest_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "technical request";
-            usrTechnicalRequest technicalRequest = new usrTechnicalRequest();
-            setRibbonTabs(technicalRequest, tabName, bbiTechnicalRequest);
+            //string tabName = "technical request";
+            //usrTechnicalRequest technicalRequest = new usrTechnicalRequest();
+            //setRibbonTabs(technicalRequest, tabName, bbiTechnicalRequest);
         }
 
         private void bbiInventoryManagement_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string tabName = "inventory management";
-            usrExternalInventoryList externalInventoryList = new usrExternalInventoryList();
-            setRibbonTabs(externalInventoryList, tabName, bbiInventoryManagement);
+            //string tabName = "inventory management";
+            //usrExternalInventoryList externalInventoryList = new usrExternalInventoryList();
+            //setRibbonTabs(externalInventoryList, tabName, bbiInventoryManagement);
         }
 
-       
+        
     }
 }

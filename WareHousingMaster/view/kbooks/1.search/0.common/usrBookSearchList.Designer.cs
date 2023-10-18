@@ -408,7 +408,7 @@
             this.gcDes.AppearanceHeader.Options.UseTextOptions = true;
             this.gcDes.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcDes.Caption = "재고";
-            this.gcDes.FieldName = "STOCK_CNT";
+            this.gcDes.FieldName = "STOCK";
             this.gcDes.MaxWidth = 80;
             this.gcDes.MinWidth = 80;
             this.gcDes.Name = "gcDes";

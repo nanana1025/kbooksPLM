@@ -190,6 +190,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     {
                         JArray jArray = JArray.Parse(jResult["DATA"].ToString());
                         int index = 1;
+                        int cnt;
 
                         gvList.BeginDataUpdate();
 
@@ -212,9 +213,18 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                             dr["STAND_NM"] = ConvertUtil.ToString(obj["STAND_NM"]);
 
                             dr["PRICE"] = ConvertUtil.ToInt32(obj["PRICE"]);
-                            dr["RETURN_CNT"] = ConvertUtil.ToInt32(obj["RETURN_CNT"]);
-                            dr["DELIVERY_CNT"] = ConvertUtil.ToInt32(obj["DELIVERY_CNT"]);
-                            dr["STOCK"] = ConvertUtil.ToInt32(obj["STOCK"]);
+
+                            cnt = ConvertUtil.ToInt32(obj["RETURN_CNT"]);
+                            if (cnt != 0) dr["RETURN_CNT"] = cnt;
+                            else dr["RETURN_CNT"] = DBNull.Value;
+
+                            cnt = ConvertUtil.ToInt32(obj["DELIVERY_CNT"]);
+                            if (cnt != 0) dr["DELIVERY_CNT"] = cnt;
+                            else dr["DELIVERY_CNT"] = DBNull.Value;
+
+                            cnt = ConvertUtil.ToInt32(obj["STOCK"]);
+                            if (cnt != 0) dr["STOCK"] = cnt;
+                            else dr["STOCK"] = DBNull.Value;
 
                             dr["STATE"] = 1;
                             dr["CHECK"] = false;
@@ -239,6 +249,30 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             //{
             //    
             //}
+        }
+
+        private void gvList_DoubleClick(object sender, EventArgs e)
+        {
+            if (_currentRow == null)
+            {
+                Dangol.Warining("선택된 도서정보가 없습니다.");
+            }
+            else
+            {
+                using (usrBookDetail bookDetail = new usrBookDetail(ConvertUtil.ToInt64(_currentRow["BOOKCD"]), ConvertUtil.ToInt32(_currentRow["SHOPCD"]), false))
+                {
+                    //bookDetail.StartPosition = FormStartPosition.Manual;
+                    //bookDetail.Location = new Point(this.Location.X + (this.Size.Width / 2) - (bookDetail.Size.Width / 2),
+                    //this.Location.Y + (this.Size.Height / 2) - (bookDetail.Size.Height / 2));
+
+                    if (bookDetail.ShowDialog(this) == DialogResult.OK)
+                    {
+
+                    }
+                    //this.ActiveControl = this;
+                    //gvList.Focus();
+                }
+            }
         }
 
         public void clearGridView()
@@ -571,5 +605,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 }
             }
         }
+
+        
     }
 }

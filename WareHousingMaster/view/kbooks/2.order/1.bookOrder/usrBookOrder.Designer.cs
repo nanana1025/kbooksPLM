@@ -30,14 +30,22 @@
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
+            this.usrSideCheck1 = new WareHousingMaster.view.kbooks.search.booksearch.usrSideCheck();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.usrBookOrderList1 = new WareHousingMaster.view.kbooks.search.booksearch.usrBookOrderList();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
+            this.usrBookOrderSearch1 = new WareHousingMaster.view.kbooks.search.booksearch.usrBookOrderSearch();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
+            this.usrPreOrderBookList1 = new WareHousingMaster.view.kbooks.order.bookOrder.usrPreOrderBookList();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lcPreOrder = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -45,30 +53,26 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.usrSideCheck1 = new WareHousingMaster.view.kbooks.search.booksearch.usrSideCheck();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.usrBookOrderList1 = new WareHousingMaster.view.kbooks.search.booksearch.usrBookOrderList();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.usrBookOrderSearch1 = new WareHousingMaster.view.kbooks.search.booksearch.usrBookOrderSearch();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.usrPreOrderBookList1 = new WareHousingMaster.view.kbooks.order.bookOrder.usrPreOrderBookList();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
             this.layoutControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
             this.layoutControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
             this.layoutControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcPreOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -76,10 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -105,6 +105,15 @@
             this.layoutControl4.TabIndex = 6;
             this.layoutControl4.Text = "layoutControl4";
             // 
+            // usrSideCheck1
+            // 
+            this.usrSideCheck1.Location = new System.Drawing.Point(2, 2);
+            this.usrSideCheck1.MaximumSize = new System.Drawing.Size(85, 0);
+            this.usrSideCheck1.MinimumSize = new System.Drawing.Size(80, 417);
+            this.usrSideCheck1.Name = "usrSideCheck1";
+            this.usrSideCheck1.Size = new System.Drawing.Size(85, 569);
+            this.usrSideCheck1.TabIndex = 4;
+            // 
             // layoutControlGroup3
             // 
             this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -116,6 +125,16 @@
             this.layoutControlGroup3.Size = new System.Drawing.Size(91, 573);
             this.layoutControlGroup3.TextVisible = false;
             // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.usrSideCheck1;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
+            this.layoutControlItem6.Size = new System.Drawing.Size(89, 571);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
             // layoutControl3
             // 
             this.layoutControl3.Controls.Add(this.usrBookOrderList1);
@@ -125,6 +144,16 @@
             this.layoutControl3.Size = new System.Drawing.Size(1058, 412);
             this.layoutControl3.TabIndex = 5;
             this.layoutControl3.Text = "layoutControl3";
+            // 
+            // usrBookOrderList1
+            // 
+            this.usrBookOrderList1._currentRow = null;
+            this.usrBookOrderList1.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.usrBookOrderList1.Appearance.Options.UseBackColor = true;
+            this.usrBookOrderList1.Location = new System.Drawing.Point(4, 23);
+            this.usrBookOrderList1.Name = "usrBookOrderList1";
+            this.usrBookOrderList1.Size = new System.Drawing.Size(1050, 385);
+            this.usrBookOrderList1.TabIndex = 4;
             // 
             // layoutControlGroup2
             // 
@@ -137,6 +166,15 @@
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup2.Size = new System.Drawing.Size(1058, 412);
             this.layoutControlGroup2.Text = "주문도서리스트";
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.usrBookOrderList1;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(1054, 389);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControl2
             // 
@@ -159,6 +197,16 @@
             this.layoutControl6.TabIndex = 7;
             this.layoutControl6.Text = "layoutControl6";
             // 
+            // usrBookOrderSearch1
+            // 
+            this.usrBookOrderSearch1._releaseCategory = 0;
+            this.usrBookOrderSearch1.Location = new System.Drawing.Point(3, 3);
+            this.usrBookOrderSearch1.MaximumSize = new System.Drawing.Size(0, 144);
+            this.usrBookOrderSearch1.MinimumSize = new System.Drawing.Size(770, 144);
+            this.usrBookOrderSearch1.Name = "usrBookOrderSearch1";
+            this.usrBookOrderSearch1.Size = new System.Drawing.Size(770, 144);
+            this.usrBookOrderSearch1.TabIndex = 4;
+            // 
             // layoutControlGroup5
             // 
             this.layoutControlGroup5.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -170,6 +218,15 @@
             this.layoutControlGroup5.Size = new System.Drawing.Size(776, 151);
             this.layoutControlGroup5.TextVisible = false;
             // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.usrBookOrderSearch1;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(774, 149);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
             // layoutControl5
             // 
             this.layoutControl5.Controls.Add(this.usrPreOrderBookList1);
@@ -179,6 +236,16 @@
             this.layoutControl5.Size = new System.Drawing.Size(272, 151);
             this.layoutControl5.TabIndex = 6;
             this.layoutControl5.Text = "layoutControl5";
+            // 
+            // usrPreOrderBookList1
+            // 
+            this.usrPreOrderBookList1._currentRow = null;
+            this.usrPreOrderBookList1.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.usrPreOrderBookList1.Appearance.Options.UseBackColor = true;
+            this.usrPreOrderBookList1.Location = new System.Drawing.Point(3, 3);
+            this.usrPreOrderBookList1.Name = "usrPreOrderBookList1";
+            this.usrPreOrderBookList1.Size = new System.Drawing.Size(266, 145);
+            this.usrPreOrderBookList1.TabIndex = 5;
             // 
             // layoutControlGroup4
             // 
@@ -190,6 +257,15 @@
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup4.Size = new System.Drawing.Size(272, 151);
             this.layoutControlGroup4.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.usrPreOrderBookList1;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(270, 149);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlGroup1
             // 
@@ -270,82 +346,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // usrSideCheck1
-            // 
-            this.usrSideCheck1.Location = new System.Drawing.Point(2, 2);
-            this.usrSideCheck1.MaximumSize = new System.Drawing.Size(85, 0);
-            this.usrSideCheck1.MinimumSize = new System.Drawing.Size(80, 417);
-            this.usrSideCheck1.Name = "usrSideCheck1";
-            this.usrSideCheck1.Size = new System.Drawing.Size(85, 569);
-            this.usrSideCheck1.TabIndex = 4;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.usrSideCheck1;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlItem6.Size = new System.Drawing.Size(89, 571);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
-            // usrBookOrderList1
-            // 
-            this.usrBookOrderList1._currentRow = null;
-            this.usrBookOrderList1.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.usrBookOrderList1.Appearance.Options.UseBackColor = true;
-            this.usrBookOrderList1.Location = new System.Drawing.Point(4, 23);
-            this.usrBookOrderList1.Name = "usrBookOrderList1";
-            this.usrBookOrderList1.Size = new System.Drawing.Size(1050, 385);
-            this.usrBookOrderList1.TabIndex = 4;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.usrBookOrderList1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(1054, 389);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
-            // usrBookOrderSearch1
-            // 
-            this.usrBookOrderSearch1._releaseCategory = 0;
-            this.usrBookOrderSearch1.Location = new System.Drawing.Point(3, 3);
-            this.usrBookOrderSearch1.MaximumSize = new System.Drawing.Size(0, 144);
-            this.usrBookOrderSearch1.MinimumSize = new System.Drawing.Size(770, 144);
-            this.usrBookOrderSearch1.Name = "usrBookOrderSearch1";
-            this.usrBookOrderSearch1.Size = new System.Drawing.Size(770, 144);
-            this.usrBookOrderSearch1.TabIndex = 4;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.usrBookOrderSearch1;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(774, 149);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
-            // usrPreOrderBookList1
-            // 
-            this.usrPreOrderBookList1._currentRow = null;
-            this.usrPreOrderBookList1.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.usrPreOrderBookList1.Appearance.Options.UseBackColor = true;
-            this.usrPreOrderBookList1.Location = new System.Drawing.Point(3, 3);
-            this.usrPreOrderBookList1.Name = "usrPreOrderBookList1";
-            this.usrPreOrderBookList1.Size = new System.Drawing.Size(266, 145);
-            this.usrPreOrderBookList1.TabIndex = 5;
-            // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.usrPreOrderBookList1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(270, 149);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
             // usrBookOrder
             // 
             this.Appearance.Options.UseTextOptions = true;
@@ -366,17 +366,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
             this.layoutControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
             this.layoutControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
             this.layoutControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcPreOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -384,10 +388,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
         }

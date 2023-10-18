@@ -4,7 +4,6 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using WareHousingMaster.view.common;
-using WareHousingMaster.view.common.kbooks;
 
 namespace WareHousingMaster.view.kbooks.user
 {
@@ -20,83 +19,111 @@ namespace WareHousingMaster.view.kbooks.user
         {
             InitializeComponent();
 
+
             _dtUser = new DataTable();
 
             _dtUser.Columns.Add(new DataColumn("NO", typeof(int)));
             _dtUser.Columns.Add(new DataColumn("USER_ID", typeof(string)));
+            _dtUser.Columns.Add(new DataColumn("PASSWD", typeof(string)));
             _dtUser.Columns.Add(new DataColumn("USER_NM", typeof(string)));
-            _dtUser.Columns.Add(new DataColumn("USER_TYPE_CD", typeof(string)));
-            _dtUser.Columns.Add(new DataColumn("STATE_CD", typeof(string)));
-            _dtUser.Columns.Add(new DataColumn("COMPANY_ID", typeof(long)));
-            _dtUser.Columns.Add(new DataColumn("DEPT_CD", typeof(string)));
-            _dtUser.Columns.Add(new DataColumn("MOBILE", typeof(string)));
-            _dtUser.Columns.Add(new DataColumn("TEAM_CD", typeof(string)));
-            _dtUser.Columns.Add(new DataColumn("POSITION", typeof(string)));
+            _dtUser.Columns.Add(new DataColumn("USER_TYPE", typeof(string)));
+            //_dtUser.Columns.Add(new DataColumn("COMPANY_TYPE", typeof(string)));
+            //_dtUser.Columns.Add(new DataColumn("STATE_CD", typeof(string)));
+            //_dtUser.Columns.Add(new DataColumn("COMPANY_ID", typeof(long)));
+            //_dtUser.Columns.Add(new DataColumn("DEPT_CD", typeof(string)));
+            //_dtUser.Columns.Add(new DataColumn("MOBILE", typeof(string)));
+            //_dtUser.Columns.Add(new DataColumn("TEAM_CD", typeof(string)));
+            //_dtUser.Columns.Add(new DataColumn("POSITION", typeof(string)));
+
+
 
             _bs = new BindingSource();
+
         }
+
+
 
         private void usrWarehousingManagement_Load(object sender, EventArgs e)
         {
             setInfoBox();
             setIInitData();
             setGridControl();
-            //getUserInfo();
+            getUserInfo();
 
             teUserId.DataBindings.Add(new Binding("Text", _bs, "USER_ID", false, DataSourceUpdateMode.Never));
             teUserNm.DataBindings.Add(new Binding("Text", _bs, "USER_NM", false, DataSourceUpdateMode.Never));
 
-            leUserType.DataBindings.Add(new Binding("EditValue", _bs, "USER_TYPE_CD", false, DataSourceUpdateMode.Never));
-            leUserState.DataBindings.Add(new Binding("EditValue", _bs, "STATE_CD", false, DataSourceUpdateMode.Never));
-            leCompanyId.DataBindings.Add(new Binding("EditValue", _bs, "COMPANY_ID", false, DataSourceUpdateMode.Never));
+            leUserType.DataBindings.Add(new Binding("EditValue", _bs, "USER_TYPE", false, DataSourceUpdateMode.Never));
+            //leUserState.DataBindings.Add(new Binding("EditValue", _bs, "STATE_CD", false, DataSourceUpdateMode.Never));
+            //leUserCompanyType.DataBindings.Add(new Binding("EditValue", _bs, "COMPANY_TYPE", false, DataSourceUpdateMode.Never));
+            
+            //leCompanyId.DataBindings.Add(new Binding("EditValue", _bs, "COMPANY_ID", false, DataSourceUpdateMode.Never));
 
-            leDeptCd.DataBindings.Add(new Binding("EditValue", _bs, "DEPT_CD", false, DataSourceUpdateMode.Never));
-            teTel.DataBindings.Add(new Binding("Text", _bs, "MOBILE", false, DataSourceUpdateMode.Never));
-            leTeamCd.DataBindings.Add(new Binding("EditValue", _bs, "TEAM_CD", false, DataSourceUpdateMode.Never));
-            lePosition.DataBindings.Add(new Binding("EditValue", _bs, "POSITION", false, DataSourceUpdateMode.Never));
+            //leDeptCd.DataBindings.Add(new Binding("EditValue", _bs, "DEPT_CD", false, DataSourceUpdateMode.Never));
+            //teTel.DataBindings.Add(new Binding("Text", _bs, "MOBILE", false, DataSourceUpdateMode.Never));
+            //leTeamCd.DataBindings.Add(new Binding("EditValue", _bs, "TEAM_CD", false, DataSourceUpdateMode.Never));
+            //lePosition.DataBindings.Add(new Binding("EditValue", _bs, "POSITION", false, DataSourceUpdateMode.Never));
 
         }
 
-        public IOverlaySplashScreenHandle ShowProgressPanel()
-        {
-            return SplashScreenManager.ShowOverlayForm(this);
-        }
-        public void CloseProgressPanel(IOverlaySplashScreenHandle handle)
-        {
-            if (handle != null)
-                SplashScreenManager.CloseOverlayForm(handle);
-        }
+        //public IOverlaySplashScreenHandle ShowProgressPanel()
+        //{
+        //    return SplashScreenManager.ShowOverlayForm(this);
+        //}
+
+        //public void CloseProgressPanel(IOverlaySplashScreenHandle handle)
+        //{
+        //    if (handle != null)
+        //        SplashScreenManager.CloseOverlayForm(handle);
+        //}
 
         private void setInfoBox()
         {
-            DataTable dtUserType = Util.getCodeList("CD0201", "KEY", "VALUE");
+            //DataTable dtUserType = Util.getCodeList("CD0201", "KEY", "VALUE");
+
+            DataTable dtUserType = new DataTable();
+            dtUserType.Columns.Add(new DataColumn("KEY", typeof(string)));
+            dtUserType.Columns.Add(new DataColumn("VALUE", typeof(string)));
+            Util.insertRow(dtUserType, "M", "마스터관리자");
+            Util.insertRow(dtUserType, "S", "관리자");
+            Util.insertRow(dtUserType, "U", "일반유저");
+
             Util.LookupEditHelper(rileUserType, dtUserType, "KEY", "VALUE");
             Util.LookupEditHelper(leUserType, dtUserType, "KEY", "VALUE");
 
-            DataTable dtUserState = Util.getCodeList("CD0202", "KEY", "VALUE");
-            Util.LookupEditHelper(rileUserState, dtUserState, "KEY", "VALUE");
-            Util.LookupEditHelper(leUserState, dtUserState, "KEY", "VALUE");
+            //DataTable dtUserState = Util.getCodeList("CD0202", "KEY", "VALUE");
+            //Util.LookupEditHelper(rileUserState, dtUserState, "KEY", "VALUE");
+            //Util.LookupEditHelper(leUserState, dtUserState, "KEY", "VALUE");
 
-            DataTable dtCompany = Util.getCodeListCustom("TN_COMPANY_MST", "COMPANY_ID", "COMPANY_NM", "DEL_YN = 'N'", "COMPANY_NM ASC");
-            Util.insertRowonTop(dtCompany, "-1", "-");
-            Util.LookupEditHelper(rileCompanyId, dtCompany, "KEY", "VALUE");
-            Util.LookupEditHelper(leCompanyId, dtCompany, "KEY", "VALUE");
+            //DataTable dtCompany = Util.getCodeListCustom("TN_COMPANY_MST", "COMPANY_ID", "COMPANY_NM", "DEL_YN = 'N'", "COMPANY_NM ASC");
+            //Util.insertRowonTop(dtCompany, "-1", "-");
+            //Util.LookupEditHelper(rileCompanyId, dtCompany, "KEY", "VALUE");
+            //Util.LookupEditHelper(leCompanyId, dtCompany, "KEY", "VALUE");
 
-            DataTable dtDeptCd = Util.getCodeList("CD0502", "KEY", "VALUE");
-            Util.insertRowonTop(dtDeptCd, "-1", "-");
-            Util.LookupEditHelper(rileDeptCd, dtDeptCd, "KEY", "VALUE");
-            Util.LookupEditHelper(leDeptCd, dtDeptCd, "KEY", "VALUE");
+            //DataTable dtDeptCd = Util.getCodeList("CD0502", "KEY", "VALUE");
+            //Util.insertRowonTop(dtDeptCd, "-1", "-");
+            //Util.LookupEditHelper(rileDeptCd, dtDeptCd, "KEY", "VALUE");
+            //Util.LookupEditHelper(leDeptCd, dtDeptCd, "KEY", "VALUE");
 
-            DataTable dtTeamCd = Util.getCodeList("CD0503", "KEY", "VALUE");
-            Util.insertRowonTop(dtTeamCd, "-1", "-");
-            Util.LookupEditHelper(rileTeamCd, dtTeamCd, "KEY", "VALUE");
-            Util.LookupEditHelper(leTeamCd, dtTeamCd, "KEY", "VALUE");
+            //DataTable dtTeamCd = Util.getCodeList("CD0503", "KEY", "VALUE");
+            //Util.insertRowonTop(dtTeamCd, "-1", "-");
+            //Util.LookupEditHelper(rileTeamCd, dtTeamCd, "KEY", "VALUE");
+            //Util.LookupEditHelper(leTeamCd, dtTeamCd, "KEY", "VALUE");
 
-            DataTable dtPosition = Util.getCodeList("CD0505", "KEY", "VALUE");
-            Util.insertRowonTop(dtPosition, "-1", "-");
-            Util.LookupEditHelper(rilePosition, dtPosition, "KEY", "VALUE");
-            Util.LookupEditHelper(lePosition, dtPosition, "KEY", "VALUE");
+            //DataTable dtPosition = Util.getCodeList("CD0505", "KEY", "VALUE");
+            //Util.insertRowonTop(dtPosition, "-1", "-");
+            //Util.LookupEditHelper(rilePosition, dtPosition, "KEY", "VALUE");
+            //Util.LookupEditHelper(lePosition, dtPosition, "KEY", "VALUE");
 
+
+            //DataTable dtCompanyType = new DataTable();
+            //dtCompanyType.Columns.Add(new DataColumn("KEY", typeof(string)));
+            //dtCompanyType.Columns.Add(new DataColumn("VALUE", typeof(string)));
+            //Util.insertRowonTop(dtCompanyType, "I", "내부");
+            //Util.insertRowonTop(dtCompanyType, "E", "외부");
+
+            //Util.LookupEditHelper(leUserCompanyType, dtCompanyType, "KEY", "VALUE");
+            //Util.LookupEditHelper(rileCompanyType, dtCompanyType, "KEY", "VALUE");       
         }
 
         private void setIInitData()
@@ -150,80 +177,75 @@ namespace WareHousingMaster.view.kbooks.user
         private void getUserInfo()
         {
             JObject jResult = new JObject();
-            JObject jobj = new JObject();
-            string url = "/user/getUserInfo.json";
 
+            gvUser.BeginDataUpdate();
             _dtUser.Clear();
 
-            if (DBConnect.getRequest(jobj, ref jResult, url))
-            {
-                if (Convert.ToBoolean(jResult["EXIST"]))
-                {
-                    JArray jArray = JArray.Parse(jResult["DATA"].ToString());
-                    int index = 1;
-                    foreach (JObject obj in jArray.Children<JObject>())
-                    {
-                        DataRow dr = _dtUser.NewRow();
+            DataTable dtUser = Util.getTable("TN_USER_MST", "USER_ID,PASSWD,USER_NM,USER_TYPE", "USER_ID IS NOT NULL", "USER_NM ASC");
+            int index = 1;
 
-                        dr["NO"] = index++;
-                        dr["USER_ID"] = obj["USER_ID"];
-                        dr["USER_NM"] = obj["USER_NM"];
-                        dr["USER_TYPE_CD"] = obj["USER_TYPE_CD"];
-                        dr["STATE_CD"] = obj["STATE_CD"];
-                        dr["COMPANY_ID"] = ConvertUtil.ToInt64(obj["COMPANY_ID"]);
-                        dr["MOBILE"] = ConvertUtil.ToString(obj["MOBILE"]);
-                        dr["DEPT_CD"] = ConvertUtil.ToString(obj["DEPT_CD"]);
-                        dr["TEAM_CD"] = ConvertUtil.ToString(obj["TEAM_CD"]);
-                        dr["POSITION"] = ConvertUtil.ToString(obj["POSITION"]);
-                        _dtUser.Rows.Add(dr);
-                    }
-
-                    if (lcgIserList.CustomHeaderButtons[lcgIserList.CustomHeaderButtons.Count - 1].Properties.Checked)
-                        _bs.Filter = null;
-                    else
-                        _bs.Filter = "STATE_CD = 'A'";
-                }
-                return;
-            }
-            else
+            foreach (DataRow obj in dtUser.Rows)
             {
-                return;
+                DataRow dr = _dtUser.NewRow();
+
+                dr["NO"] = index++;
+                dr["USER_ID"] = ConvertUtil.ToString(obj["USER_ID"]);
+                dr["PASSWD"] = ConvertUtil.ToString(obj["PASSWD"]);
+                dr["USER_NM"] = ConvertUtil.ToString(obj["USER_NM"]);
+                dr["USER_TYPE"] = ConvertUtil.ToString(obj["USER_TYPE"]);
+                //dr["COMPANY_TYPE"] = ConvertUtil.ToString(obj["COMPANY_TYPE"]);
+                //dr["STATE_CD"] = obj["STATE_CD"];
+                //dr["COMPANY_ID"] = ConvertUtil.ToInt64(obj["COMPANY_ID"]);
+                //dr["MOBILE"] = ConvertUtil.ToString(obj["MOBILE"]);
+                //dr["DEPT_CD"] = ConvertUtil.ToString(obj["DEPT_CD"]);
+                //dr["TEAM_CD"] = ConvertUtil.ToString(obj["TEAM_CD"]);
+                //dr["POSITION"] = ConvertUtil.ToString(obj["POSITION"]);
+                _dtUser.Rows.Add(dr);
             }
+
+            gvUser.EndDataUpdate();
         }
 
         private void layoutControlGroup6_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
         {
             if (Dangol.MessageYN("선택하신 유저정보를 저장하시겠습니까?") == DialogResult.Yes)
             {
-                JObject jPartInfo = new JObject();
+                //JObject jPartInfo = new JObject();
                 JObject jResult = new JObject();
-                string url = "/user/userUpdateFromPlm.json";
+                JObject jobj = new JObject();
+                string url = "/common/execute.json";
 
-                jPartInfo.Add("SELECT_USER_ID", _userId);
-                jPartInfo.Add("USER_NM", ConvertUtil.ToString(teUserNm.Text));
-                jPartInfo.Add("STATE_CD", ConvertUtil.ToString(leUserState.EditValue));
-                jPartInfo.Add("USER_TYPE_CD", ConvertUtil.ToString(leUserType.EditValue));
-                jPartInfo.Add("COMPANY_ID", ConvertUtil.ToInt64(leCompanyId.EditValue));
-                jPartInfo.Add("MOBILE", ConvertUtil.ToString(teTel.Text));
-                jPartInfo.Add("DEPT_CD", ConvertUtil.ToString(leDeptCd.EditValue));
-                jPartInfo.Add("TEAM_CD", ConvertUtil.ToString(leTeamCd.EditValue));
-                jPartInfo.Add("POSITION", ConvertUtil.ToString(lePosition.EditValue));
+                jobj.Add("USER_ID", _userId);
+                jobj.Add("USER_NM", ConvertUtil.ToString(teUserNm.Text));
+                jobj.Add("USER_TYPE", ConvertUtil.ToString(leUserType.EditValue));
 
-                if (DBConnect.getRequest(jPartInfo, ref jResult, url))
+                ////jPartInfo.Add("STATE_CD", ConvertUtil.ToString(leUserState.EditValue));
+                ////jPartInfo.Add("COMPANY_ID", ConvertUtil.ToInt64(leCompanyId.EditValue));
+                ////jPartInfo.Add("COMPANY_TYPE", ConvertUtil.ToString(leUserCompanyType.EditValue));
+                ////jPartInfo.Add("MOBILE", ConvertUtil.ToString(teTel.Text));
+                ////jPartInfo.Add("DEPT_CD", ConvertUtil.ToString(leDeptCd.EditValue));
+                ////jPartInfo.Add("TEAM_CD", ConvertUtil.ToString(leTeamCd.EditValue));
+                ////jPartInfo.Add("POSITION", ConvertUtil.ToString(lePosition.EditValue));
+
+                string query = $"UPDATE TN_USER_MST SET USER_NM = '{teUserNm.Text.Trim()}', USER_TYPE = '{leUserType.EditValue}' WHERE USER_ID = '{_userId}'";
+
+                jobj.Add("QUERY", query);
+
+                if (DBConnect.getRequest(jobj, ref jResult, url))
                 {
                     _currentRow.BeginEdit();
 
-                    _currentRow["USER_NM"] = jPartInfo["USER_NM"];
-                    _currentRow["STATE_CD"] = jPartInfo["STATE_CD"];
-                    _currentRow["USER_TYPE_CD"] = jPartInfo["USER_TYPE_CD"];
-                    _currentRow["COMPANY_ID"] = jPartInfo["COMPANY_ID"];
-                    _currentRow["MOBILE"] = jPartInfo["MOBILE"];
-                    _currentRow["DEPT_CD"] = jPartInfo["DEPT_CD"];
-                    _currentRow["TEAM_CD"] = jPartInfo["TEAM_CD"];
-                    _currentRow["POSITION"] = jPartInfo["POSITION"];
+                    _currentRow["USER_NM"] = jobj["USER_NM"];
+                    _currentRow["USER_TYPE"] = jobj["USER_TYPE"];
+                    //_currentRow["COMPANY_TYPE"] = jPartInfo["COMPANY_TYPE"];
+                    //_currentRow["COMPANY_ID"] = jPartInfo["COMPANY_ID"];
+                    //_currentRow["MOBILE"] = jPartInfo["MOBILE"];
+                    //_currentRow["DEPT_CD"] = jPartInfo["DEPT_CD"];
+                    //_currentRow["TEAM_CD"] = jPartInfo["TEAM_CD"];
+                    //_currentRow["POSITION"] = jPartInfo["POSITION"];
                     _currentRow.EndEdit();
 
-                    Dangol.Message(jResult["MSG"]);
+                    Dangol.Message("수정되었습니다");
                 }
                 else
                 {
@@ -235,14 +257,14 @@ namespace WareHousingMaster.view.kbooks.user
 
         private void lcgInventory_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
         {
-            if (e.Button.Properties.Tag.Equals(1))
+            if (e.Button.Properties.Tag.Equals(9))
             {
                 Dangol.ShowSplash();
                 getUserInfo();
                 Dangol.CloseSplash();
 
             }
-            else if (e.Button.Properties.Tag.Equals(2))
+            else if (e.Button.Properties.Tag.Equals(1))
             {
                 dlgCreateUser dlgCreateUser = new dlgCreateUser();
 
@@ -258,7 +280,7 @@ namespace WareHousingMaster.view.kbooks.user
                 }
 
             }
-            else if (e.Button.Properties.Tag.Equals(3))
+            else if (e.Button.Properties.Tag.Equals(2))
             {
                 if (_currentRow == null)
                 {
@@ -273,52 +295,40 @@ namespace WareHousingMaster.view.kbooks.user
 
                 JObject jResult = new JObject();
                 JObject jobj = new JObject();
-                string url = "/user/userUpdateFromPlm.json";
+                string url = "/common/execute.json";
 
-                jobj.Add("SELECT_USER_ID", _userId);
-                jobj.Add("STATE_CD", "D");
+                string query = $"DELETE FROM TN_USER_MST WHERE USER_ID = '{_userId}'";
+
+                jobj.Add("QUERY", query);
 
                 if (DBConnect.getRequest(jobj, ref jResult, url))
                 {
-                    gvUser.BeginUpdate();
-                    _currentRow["STATE_CD"] = "D";
-                    gvUser.EndUpdate();
+                    gvUser.BeginDataUpdate();
+                    _currentRow.Delete();
+                    gvUser.EndDataUpdate();
 
-                    Dangol.Message("삭제되었습니다.");
+                    Dangol.Message("삭제되었습니다");
                 }
                 else
                 {
-                    Dangol.Message(ConvertUtil.ToString(jResult["MSG"]));
+                    Dangol.Message(jResult["MSG"]);
+                    return;
                 }
 
             }
-            else if (e.Button.Properties.Tag.Equals(4))
+            else if (e.Button.Properties.Tag.Equals(3))
             {
-                if (_currentRow == null)
-                {
-                    Dangol.Message("선택하신 유저가 없습니다.");
-                    return;
-                }
+                //dlgUserPassword dlgCreateUser = new dlgUserPassword(ProjectInfo._userId, ProjectInfo._userPasswd);
 
-                if (Dangol.MessageYN("선택하신 유저의 비밀번호를 초기화 하시겠습니까?(초기 비밀번호: test123)") == DialogResult.No)
-                {
-                    return;
-                }
+                dlgUserPassword dlgPasswd = new dlgUserPassword(ConvertUtil.ToString(_currentRow["USER_ID"]), ConvertUtil.ToString(_currentRow["PASSWD"]), true);
 
-                JObject jResult = new JObject();
-                JObject jobj = new JObject();
-                string url = "/user/userUpdateFromPlm.json";
+                //dlgCreateUser.StartPosition = FormStartPosition.Manual;
+                //dlgCreateUser.Location = new Point(this.Location.X + (this.Size.Width / 2) - (dlgCreateUser.Size.Width / 2),
+                //this.Location.Y + (this.Size.Height / 2) - (dlgCreateUser.Size.Height / 2));
 
-                jobj.Add("SELECT_USER_ID", _userId);
-                jobj.Add("PW", Encrypt.Password(_userId, "test123"));
+                if (dlgPasswd.ShowDialog(this) == DialogResult.OK)
+                {
 
-                if (DBConnect.getRequest(jobj, ref jResult, url))
-                {
-                    Dangol.Message("변경되었습니다.");
-                }
-                else
-                {
-                    Dangol.Message(ConvertUtil.ToString(jResult["MSG"]));
                 }
 
             }
@@ -327,12 +337,12 @@ namespace WareHousingMaster.view.kbooks.user
 
         private void lcgInventory_CustomButtonChecked(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
         {
-            _bs.Filter = null;
+            //_bs.Filter = null;
         }
 
         private void lcgInventory_CustomButtonUnchecked(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)
         {
-            _bs.Filter = "STATE_CD = 'A'";
+            //_bs.Filter = "STATE_CD = 'A'";
         }
     }
 }

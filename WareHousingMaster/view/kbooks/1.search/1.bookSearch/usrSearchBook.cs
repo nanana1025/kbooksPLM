@@ -36,6 +36,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             this.Icon = ProjectInfo.ProjectIcon;
             usrSideCheck1.processHandler += new usrSideCheck.ProcessHandler(processHandler);
             usrSearchBookSearch1.searchHandler += new usrSearchBookSearch.SearchHandler(searchList);
+            usrSearchBookSearch1.clearHandler += new usrSearchBookSearch.ClearHandler(clear);
             usrSearchBookSearchList1.focusedRowObjectChangeHandler += new usrSearchBookSearchList.FocusedRowObjectChangeHandler(FocusedRowObjectChangeHandler);
 
             setInitialize();
@@ -116,6 +117,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     break;
 
             }
+        }
+
+        private void clear()
+        {
+            usrSearchBookSearchList1.clearGridView();
         }
 
         private void lcgSearchBookList_CustomButtonClick(object sender, DevExpress.XtraBars.Docking2010.BaseButtonEventArgs e)

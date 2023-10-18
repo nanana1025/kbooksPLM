@@ -440,7 +440,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     jArray = JArray.Parse(jResult["DATA"].ToString());
                     int index = 1;
                     int total;
-
+                    int cnt;
                     int modifEnd = end;
 
                     if (end == 99)
@@ -468,7 +468,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         if (colType == 1)
                         {
                             total = ConvertUtil.ToInt32(obj[$"STORE{cd}"]);
-                            dr[$"STORE{cd}"] = ConvertUtil.ToInt32(obj[$"STORE{cd}"]);
+
+                            cnt = ConvertUtil.ToInt32(obj[$"STORE{cd}"]);
+                            if (cnt != 0) dr[$"STORE{cd}"] = cnt;
+                            else dr[$"STORE{cd}"] = DBNull.Value;
+
+                            //dr[$"STORE{cd}"] = ConvertUtil.ToInt32(obj[$"STORE{cd}"]);
                             dr[$"STORE{cd}_O"] = ConvertUtil.ToInt32(obj[$"STORE{cd}"]);
                         }
                         else if (colType == 2)
@@ -477,7 +482,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                             for (int i = start; i <= modifEnd; i++)
                             {
                                 total += ConvertUtil.ToInt32(obj[$"STORE{i}"]);
-                                dr[$"STORE{i}"] = ConvertUtil.ToInt32(obj[$"STORE{i}"]);
+
+                                cnt = ConvertUtil.ToInt32(obj[$"STORE{i}"]);
+                                if (cnt != 0) dr[$"STORE{i}"] = cnt;
+                                else dr[$"STORE{i}"] = DBNull.Value;
+
+                                //dr[$"STORE{i}"] = ConvertUtil.ToInt32(obj[$"STORE{i}"]);
                                 dr[$"STORE{i}_O"] = ConvertUtil.ToInt32(obj[$"STORE{i}"]);
                             }
 
@@ -493,7 +503,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                             for (int i = 0; i < arrGcCol.Length; i++)
                             {
                                 total += ConvertUtil.ToInt32(obj[$"STORE{i+1}"]);
-                                dr[$"STORE{i + 1}"] = ConvertUtil.ToInt32(obj[$"STORE{i + 1}"]);
+
+                                cnt = ConvertUtil.ToInt32(obj[$"STORE{i + 1}"]);
+                                if (cnt != 0) dr[$"STORE{i + 1}"] = cnt;
+                                else dr[$"STORE{i + 1}"] = DBNull.Value;
+                                //dr[$"STORE{i + 1}"] = ConvertUtil.ToInt32(obj[$"STORE{i + 1}"]);
                                 dr[$"STORE{i + 1}_O"] = ConvertUtil.ToInt32(obj[$"STORE{i + 1}"]);
                             }
 

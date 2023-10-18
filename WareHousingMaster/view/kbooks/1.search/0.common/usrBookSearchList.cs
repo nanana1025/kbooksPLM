@@ -54,9 +54,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             _dt.Columns.Add(new DataColumn("GROUPCD", typeof(int)));
             _dt.Columns.Add(new DataColumn("STANDCD", typeof(int)));
+            _dt.Columns.Add(new DataColumn("STOCK", typeof(int)));
 
             _dt.Columns.Add(new DataColumn("STATE", typeof(int)));
             _dt.Columns.Add(new DataColumn("CHECK", typeof(bool)));
+           
+            
 
 
             _bs = new BindingSource();
@@ -211,6 +214,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
                             dr["GROUPCD"] = ConvertUtil.ToInt32(obj["GROUPCD"]);
                             dr["STANDCD"] = ConvertUtil.ToInt32(obj["STANDCD"]);
+                            dr["STOCK"] = ConvertUtil.ToInt32(obj["STOCK"]);
+                            
 
                             dr["STATE"] = 1;
                             dr["CHECK"] = false;

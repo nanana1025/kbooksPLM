@@ -131,7 +131,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(780, 141);
+            this.layoutControl1.Size = new System.Drawing.Size(780, 145);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -179,28 +179,30 @@
             // 
             // teGSCD
             // 
-            this.teGSCD.Location = new System.Drawing.Point(132, 115);
+            this.teGSCD.Location = new System.Drawing.Point(132, 118);
             this.teGSCD.Name = "teGSCD";
             this.teGSCD.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teGSCD.Properties.Appearance.Options.UseFont = true;
             this.teGSCD.Properties.ReadOnly = true;
-            this.teGSCD.Size = new System.Drawing.Size(46, 24);
+            this.teGSCD.Size = new System.Drawing.Size(66, 24);
             this.teGSCD.StyleController = this.layoutControl1;
             this.teGSCD.TabIndex = 5;
             // 
             // teGSNm
             // 
-            this.teGSNm.Location = new System.Drawing.Point(182, 115);
+            this.teGSNm.ImeMode = System.Windows.Forms.ImeMode.Hangul;
+            this.teGSNm.Location = new System.Drawing.Point(202, 118);
             this.teGSNm.Name = "teGSNm";
             this.teGSNm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teGSNm.Properties.Appearance.Options.UseFont = true;
             this.teGSNm.Properties.ReadOnly = true;
-            this.teGSNm.Size = new System.Drawing.Size(149, 24);
+            this.teGSNm.Size = new System.Drawing.Size(129, 24);
             this.teGSNm.StyleController = this.layoutControl1;
             this.teGSNm.TabIndex = 6;
             // 
             // tePurchaseNm
             // 
+            this.tePurchaseNm.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.tePurchaseNm.Location = new System.Drawing.Point(560, 62);
             this.tePurchaseNm.Name = "tePurchaseNm";
             this.tePurchaseNm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,7 +227,7 @@
             // rgGSType
             // 
             this.rgGSType.EditValue = 1;
-            this.rgGSType.Location = new System.Drawing.Point(132, 85);
+            this.rgGSType.Location = new System.Drawing.Point(132, 88);
             this.rgGSType.Name = "rgGSType";
             this.rgGSType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rgGSType.Properties.Appearance.Options.UseFont = true;
@@ -297,7 +299,7 @@
             // rgType
             // 
             this.rgType.EditValue = 2;
-            this.rgType.Location = new System.Drawing.Point(490, 88);
+            this.rgType.Location = new System.Drawing.Point(490, 90);
             this.rgType.Name = "rgType";
             this.rgType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rgType.Properties.Appearance.Options.UseFont = true;
@@ -314,7 +316,7 @@
             // sbSearch1
             // 
             this.sbSearch1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch1.ImageOptions.Image")));
-            this.sbSearch1.Location = new System.Drawing.Point(672, 40);
+            this.sbSearch1.Location = new System.Drawing.Point(672, 42);
             this.sbSearch1.Name = "sbSearch1";
             this.sbSearch1.Size = new System.Drawing.Size(96, 22);
             this.sbSearch1.StyleController = this.layoutControl1;
@@ -325,7 +327,7 @@
             // sbSearch2
             // 
             this.sbSearch2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch2.ImageOptions.Image")));
-            this.sbSearch2.Location = new System.Drawing.Point(672, 92);
+            this.sbSearch2.Location = new System.Drawing.Point(672, 94);
             this.sbSearch2.Name = "sbSearch2";
             this.sbSearch2.Size = new System.Drawing.Size(96, 22);
             this.sbSearch2.StyleController = this.layoutControl1;
@@ -336,7 +338,7 @@
             // sbSearch3
             // 
             this.sbSearch3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch3.ImageOptions.Image")));
-            this.sbSearch3.Location = new System.Drawing.Point(672, 66);
+            this.sbSearch3.Location = new System.Drawing.Point(672, 68);
             this.sbSearch3.Name = "sbSearch3";
             this.sbSearch3.Size = new System.Drawing.Size(96, 22);
             this.sbSearch3.StyleController = this.layoutControl1;
@@ -388,7 +390,7 @@
             this.layoutControlItem2});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(780, 141);
+            this.Root.Size = new System.Drawing.Size(780, 145);
             this.Root.TextVisible = false;
             // 
             // lcReleaseCategory2
@@ -417,7 +419,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(770, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(10, 141);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(10, 145);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lcReceiptNo6
@@ -432,9 +434,9 @@
             this.lcReceiptNo6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lcReceiptNo6.ImageOptions.Image")));
             this.lcReceiptNo6.Location = new System.Drawing.Point(0, 58);
             this.lcReceiptNo6.MaxSize = new System.Drawing.Size(0, 28);
-            this.lcReceiptNo6.MinSize = new System.Drawing.Size(220, 25);
+            this.lcReceiptNo6.MinSize = new System.Drawing.Size(220, 28);
             this.lcReceiptNo6.Name = "lcReceiptNo6";
-            this.lcReceiptNo6.Size = new System.Drawing.Size(220, 25);
+            this.lcReceiptNo6.Size = new System.Drawing.Size(220, 28);
             this.lcReceiptNo6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lcReceiptNo6.Text = "매장코드";
             this.lcReceiptNo6.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -446,7 +448,7 @@
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(670, 28);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(100, 10);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(100, 12);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -482,7 +484,7 @@
             this.lcReceiptNo7.MaxSize = new System.Drawing.Size(200, 28);
             this.lcReceiptNo7.MinSize = new System.Drawing.Size(200, 25);
             this.lcReceiptNo7.Name = "lcReceiptNo7";
-            this.lcReceiptNo7.Size = new System.Drawing.Size(200, 26);
+            this.lcReceiptNo7.Size = new System.Drawing.Size(200, 28);
             this.lcReceiptNo7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lcReceiptNo7.Text = "매입처 코드 / 명";
             this.lcReceiptNo7.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -500,7 +502,7 @@
             this.lcReceiptNo5.MaxSize = new System.Drawing.Size(200, 28);
             this.lcReceiptNo5.MinSize = new System.Drawing.Size(100, 25);
             this.lcReceiptNo5.Name = "lcReceiptNo5";
-            this.lcReceiptNo5.Size = new System.Drawing.Size(112, 26);
+            this.lcReceiptNo5.Size = new System.Drawing.Size(112, 28);
             this.lcReceiptNo5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lcReceiptNo5.Text = "서가 코드 / 명";
             this.lcReceiptNo5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -515,7 +517,7 @@
             this.emptySpaceItem3.MaxSize = new System.Drawing.Size(25, 0);
             this.emptySpaceItem3.MinSize = new System.Drawing.Size(25, 10);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(25, 141);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(25, 145);
             this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -550,7 +552,7 @@
             this.lcReceiptNo1.MaxSize = new System.Drawing.Size(0, 28);
             this.lcReceiptNo1.MinSize = new System.Drawing.Size(100, 25);
             this.lcReceiptNo1.Name = "lcReceiptNo1";
-            this.lcReceiptNo1.Size = new System.Drawing.Size(100, 25);
+            this.lcReceiptNo1.Size = new System.Drawing.Size(100, 28);
             this.lcReceiptNo1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lcReceiptNo1.Text = "매장코드";
             this.lcReceiptNo1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -565,7 +567,7 @@
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
             this.layoutControlItem10.Location = new System.Drawing.Point(220, 58);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(13, 25);
+            this.layoutControlItem10.Size = new System.Drawing.Size(13, 28);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
@@ -593,7 +595,7 @@
             this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem4.ImageOptions.Image")));
-            this.layoutControlItem4.Location = new System.Drawing.Point(670, 90);
+            this.layoutControlItem4.Location = new System.Drawing.Point(670, 92);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -612,7 +614,7 @@
             this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem11.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem11.ImageOptions.Image")));
-            this.layoutControlItem11.Location = new System.Drawing.Point(670, 64);
+            this.layoutControlItem11.Location = new System.Drawing.Point(670, 66);
             this.layoutControlItem11.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem11.Name = "layoutControlItem11";
@@ -635,11 +637,11 @@
             this.lcTypeNm.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lcTypeNm.CustomizationFormText = "접수번호";
             this.lcTypeNm.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lcTypeNm.ImageOptions.Image")));
-            this.lcTypeNm.Location = new System.Drawing.Point(0, 113);
-            this.lcTypeNm.MaxSize = new System.Drawing.Size(180, 28);
-            this.lcTypeNm.MinSize = new System.Drawing.Size(180, 25);
+            this.lcTypeNm.Location = new System.Drawing.Point(0, 116);
+            this.lcTypeNm.MaxSize = new System.Drawing.Size(200, 28);
+            this.lcTypeNm.MinSize = new System.Drawing.Size(200, 28);
             this.lcTypeNm.Name = "lcTypeNm";
-            this.lcTypeNm.Size = new System.Drawing.Size(180, 28);
+            this.lcTypeNm.Size = new System.Drawing.Size(200, 29);
             this.lcTypeNm.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lcTypeNm.Text = "과 코드 / 명";
             this.lcTypeNm.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -654,11 +656,11 @@
             this.lcReceiptNo4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lcReceiptNo4.CustomizationFormText = "접수번호";
             this.lcReceiptNo4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lcReceiptNo4.ImageOptions.Image")));
-            this.lcReceiptNo4.Location = new System.Drawing.Point(180, 113);
+            this.lcReceiptNo4.Location = new System.Drawing.Point(200, 116);
             this.lcReceiptNo4.MaxSize = new System.Drawing.Size(200, 28);
             this.lcReceiptNo4.MinSize = new System.Drawing.Size(100, 25);
             this.lcReceiptNo4.Name = "lcReceiptNo4";
-            this.lcReceiptNo4.Size = new System.Drawing.Size(153, 28);
+            this.lcReceiptNo4.Size = new System.Drawing.Size(133, 29);
             this.lcReceiptNo4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lcReceiptNo4.Text = "서가 코드 / 명";
             this.lcReceiptNo4.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -674,7 +676,7 @@
             this.layoutControlItem9.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem9.CustomizationFormText = "구분";
             this.layoutControlItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem9.ImageOptions.Image")));
-            this.layoutControlItem9.Location = new System.Drawing.Point(358, 86);
+            this.layoutControlItem9.Location = new System.Drawing.Point(358, 88);
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(0, 30);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(50, 30);
             this.layoutControlItem9.Name = "layoutControlItem9";
@@ -694,7 +696,7 @@
             this.lcType.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lcType.CustomizationFormText = "구분";
             this.lcType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lcType.ImageOptions.Image")));
-            this.lcType.Location = new System.Drawing.Point(0, 83);
+            this.lcType.Location = new System.Drawing.Point(0, 86);
             this.lcType.MaxSize = new System.Drawing.Size(0, 30);
             this.lcType.MinSize = new System.Drawing.Size(215, 30);
             this.lcType.Name = "lcType";
@@ -727,9 +729,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(358, 116);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(358, 118);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(412, 25);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(412, 27);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -738,7 +740,7 @@
             this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem2.ImageOptions.Image")));
-            this.layoutControlItem2.Location = new System.Drawing.Point(670, 38);
+            this.layoutControlItem2.Location = new System.Drawing.Point(670, 40);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -756,10 +758,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.MaximumSize = new System.Drawing.Size(0, 141);
-            this.MinimumSize = new System.Drawing.Size(780, 141);
+            this.MaximumSize = new System.Drawing.Size(0, 145);
+            this.MinimumSize = new System.Drawing.Size(780, 145);
             this.Name = "usrInputReturnSearch";
-            this.Size = new System.Drawing.Size(780, 141);
+            this.Size = new System.Drawing.Size(780, 145);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.leShopCd.Properties)).EndInit();

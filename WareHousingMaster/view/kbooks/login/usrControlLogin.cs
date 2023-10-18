@@ -19,6 +19,8 @@ namespace WareHousingMaster.view.login
         public string _userId { get; private set; }
         public string _userPasswd { get; private set; }
 
+        public string _userType { get; private set; }
+
         IniFile ini;
         string _local_path;
         [DllImport("kernel32")]

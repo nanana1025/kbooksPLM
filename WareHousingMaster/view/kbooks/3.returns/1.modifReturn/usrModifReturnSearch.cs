@@ -31,7 +31,8 @@ namespace WareHousingMaster.view.kbooks.returns
         public delegate void ConfirmHandler();
         public event ConfirmHandler confirmHandler;
 
-        
+        public delegate void ClearHandler();
+        public event ClearHandler clearHandler;
 
         public usrModifReturnSearch()
         {
@@ -97,6 +98,8 @@ namespace WareHousingMaster.view.kbooks.returns
 
         public void Search()
         {
+            clearHandler();
+
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 

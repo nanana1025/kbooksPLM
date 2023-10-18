@@ -34,8 +34,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             {
                 { Keys.F1, 1 }, { Keys.F2, 2 },{ Keys.F3, 3 },{ Keys.F4, 4 },{ Keys.F5, 5 },{ Keys.F6, 6 },{ Keys.F7, 7 },{ Keys.F8, 8 },{ Keys.F9, 9 },{ Keys.F10, 10 }
             };
-            _arrFunctionText = new string[] { "F1\n조건확정", "F2\n행삭제", "F3\n실적조회", "F4", "F5", "F6", "F7\n취소", "F8\n확정", "F9\n닫기", "F10\n닫기", };
-            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, true, true };
+            _arrFunctionText = new string[] { "F1\n조건확정", "F2\n행삭제", "F3\n실적조회", "F4", "F5", "F6", "F7\n취소", "F8\n확정", "F9", "F10\n닫기", };
+            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, false, true };
 
 
             _isPreOrderExist = false;
@@ -49,10 +49,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             usrSideCheck1.processHandler += new usrSideCheck.ProcessHandler(processHandler);
             usrBookOrderSearch1.searchHandler += new usrBookOrderSearch.SearchHandler(searchList);
+            usrBookOrderSearch1.clearHandler += new usrBookOrderSearch.ClearHandler(clear);
             //usrBookOrderSearch1.cancelHandler += new usrBookOrderSearch.CancelHandler(cancel);
             //usrBookOrderSearch1.insertHandler += new usrBookOrderSearch.InsertHandler(insert);
             //usrBookOrderSearch1.deleteRowHandler += new usrBookOrderSearch.DeleteRowHandler(deleteRowHandler);
-            
+
 
             usrBookOrderList1.getSearchInfoHandler += new usrBookOrderList.GetSearchInfoHandler(getSearchInfo);
             usrBookOrderList1.focusedRowObjectChangeHandler += new usrBookOrderList.FocusedRowObjectChangeHandler(FocusedRowObjectChangeHandler);
@@ -130,7 +131,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     insert();
                     break;
                 case 9:
-                    this.Close();
+                    //this.Close();
                     break;
                 case 10:
                     this.Close();
@@ -166,6 +167,14 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             {
                 Dangol.Warining("선택된 데이터가 없습니다.");
             }
+        }
+        public void clear()
+        {
+            //usrBookOrderSearch1.clear();
+            //usrBookOrderList1.getList(jobj);
+            usrBookOrderList1.setTableInitialize();
+            usrBookOrderList1.setTableEditable(false);
+            //usrBookOrderSearch1.setFocus();
         }
 
         public void cancel()

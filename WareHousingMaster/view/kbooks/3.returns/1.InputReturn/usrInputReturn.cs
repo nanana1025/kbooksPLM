@@ -23,8 +23,8 @@ namespace WareHousingMaster.view.kbooks.returns
             {
                 { Keys.F1, 1 }, { Keys.F2, 2 },{ Keys.F3, 3 },{ Keys.F4, 4 },{ Keys.F5, 5 },{ Keys.F6, 6 },{ Keys.F7, 7 },{ Keys.F8, 8 },{ Keys.F9, 9 },{ Keys.F10, 10 }
             };
-            _arrFunctionText = new string[] { "F1\n조건확정", "F2\n행삭제", "F3\n실적조회", "F4", "F5", "F6", "F7\n취소", "F8\n확정", "F9\n닫기", "F10\n닫기", };
-            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, false, true, true };
+            _arrFunctionText = new string[] { "F1\n조건확정", "F2\n행삭제", "F3\n실적조회", "F4", "F5", "F6", "F7\n취소", "F8\n확정", "F9", "F10\n닫기", };
+            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, false, true };
 
         }
 
@@ -35,6 +35,7 @@ namespace WareHousingMaster.view.kbooks.returns
 
             usrSideCheck1.processHandler += new usrSideCheck.ProcessHandler(processHandler);
             usrInputReturnSearch1.searchHandler += new usrInputReturnSearch.SearchHandler(searchList);
+            usrInputReturnSearch1.clearHandler += new usrInputReturnSearch.ClearHandler(clear);
             //usrInputReturnSearch1.confirmHandler += new usrInputReturnSearch.ConfirmHandler(confirmHandler);
             //usrInputReturnSearch1.searchPerformanceHandler += new usrInputReturnSearch.SearchPerformanceHandler(searchPerformanceHandler);
             //usrInputReturnSearch1.deleteRowHandler += new usrInputReturnSearch.DeleteRowHandler(deleteRowHandler);
@@ -82,16 +83,14 @@ namespace WareHousingMaster.view.kbooks.returns
                 case 6:
                     break;
                 case 7:
-                    usrInputReturnSearch1.clear();
-                    usrInputReturnList1.setTableInitialize();
-                    //usrInputReturnList1.setTableEditable(false);
-                    usrInputReturnSearch1.setFocus();
+                    reset();
                     break;
                 case 8:
                     confirmHandler();
+                    reset();
                     break;
                 case 9:
-                    this.Close();
+                    //this.Close();
                     break;
                 case 10:
                     this.Close();
@@ -100,6 +99,19 @@ namespace WareHousingMaster.view.kbooks.returns
                     break;
 
             }
+        }
+
+        private void reset()
+        {
+            usrInputReturnSearch1.clear();
+            usrInputReturnList1.setTableInitialize();
+            //usrInputReturnList1.setTableEditable(false);
+            usrInputReturnSearch1.setFocus();
+        }
+
+        private void clear()
+        {
+            usrInputReturnList1.setTableInitialize();
         }
 
         private void searchPerformanceHandler()

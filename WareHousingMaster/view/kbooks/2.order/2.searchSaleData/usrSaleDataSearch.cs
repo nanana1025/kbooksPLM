@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using WareHousingMaster.view.common;
+using Enum = WareHousingMaster.view.common.Enum;
 
 namespace WareHousingMaster.view.kbooks.search.booksearch
 {
@@ -19,6 +20,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         public delegate void SaveHandler();
         public event SaveHandler saveHandler;
+
+        public delegate void ClearHandler(bool isSearch);
+        public event ClearHandler clearHandler;
 
         public usrSaleDataSearch()
         {
@@ -49,10 +53,18 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             //deDtOrder.EditValue = Convert.ToDateTime("2023-03-14");
             //deDtWarehousing.EditValue = Convert.ToDateTime("2023-03-15");
 
-
             var today = DateTime.Today;
+            var pastDate = today.AddDays(-15);
+            if (ProjectInfo._userType.Equals("U"))
+            {
+                string value = Util.getValue((int)Enum.VALUE_MGNT_TYPE.ORDER, (int)Enum.VALUE_MGNT_ORDER.SEARCH);
+                if (!string.IsNullOrEmpty(value))
+                    pastDate = today.AddDays(ConvertUtil.ToInt32(value) * -1);
+                else
+                    pastDate = today.AddDays(-7);
+            }
 
-            deDtStart.EditValue = today;
+            deDtStart.EditValue = pastDate;
             deDtEnd.EditValue = today;
 
             deDtOrder.EditValue = today.AddDays(+1);
@@ -86,17 +98,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         }
         private void sbSearch_Click(object sender, EventArgs e)
         {
-            JObject jData = new JObject();
-            bool isSuccess = checkSearch(ref jData);
-
-            if (isSuccess)
-                searchHandler(jData);
-            else
-                Dangol.Message(jData["MSG"]);
+            Search();
         }
 
         public void Search()
         {
+            clearHandler(true);
+
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 
@@ -116,35 +124,69 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             if (!string.IsNullOrWhiteSpace(codeS) && string.IsNullOrWhiteSpace(codeE))
             {
                 jData.Add("STORE_TYPE", "SINGLE");
-                jData.Add($"STORECD", ConvertUtil.ToInt32(codeS));
+
+                if (Util.checkOnlyNumeric(codeS))
+                {
+                    jData.Add($"STORECD", ConvertUtil.ToInt32(codeS));
+                }
+                else
+                {
+                    jData.Add("MSG", "매장코드를 확인하세요.");
+                    return false;
+                }  
             }
             else if (string.IsNullOrWhiteSpace(codeS) && !string.IsNullOrWhiteSpace(codeE))
             {
                 jData.Add("STORE_TYPE", "SINGLE");
-                jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
-
+                if (Util.checkOnlyNumeric(codeE))
+                {
+                    jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
+                }
+                else
+                {
+                    jData.Add("MSG", "매장코드를 확인하세요.");
+                    return false;
+                }
             }
             else if (codeS.Equals(codeE))
             {
                 jData.Add("STORE_TYPE", "SINGLE");
-                jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
-            }
-            else
-            {
-                int start = ConvertUtil.ToInt32(codeS);
-                int end = ConvertUtil.ToInt32(codeE);
-
-                jData.Add("STORE_TYPE", "MULTI");
-                if (start > end)
+                if (Util.checkOnlyNumeric(codeE))
                 {
-                    jData.Add($"STORECD_S", end);
-                    jData.Add($"STORECD_E", start);
+                    jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
                 }
                 else
                 {
-                    jData.Add($"STORECD_S", start);
-                    jData.Add($"STORECD_E", end);
+                    jData.Add("MSG", "매장코드를 확인하세요.");
+                    return false;
                 }
+            }
+            else
+            {
+                if (Util.checkOnlyNumeric(codeS) && Util.checkOnlyNumeric(codeE))
+                {
+                    int start = ConvertUtil.ToInt32(codeS);
+                    int end = ConvertUtil.ToInt32(codeE);
+
+                    jData.Add("STORE_TYPE", "MULTI");
+                    if (start > end)
+                    {
+                        jData.Add($"STORECD_S", end);
+                        jData.Add($"STORECD_E", start);
+                    }
+                    else
+                    {
+                        jData.Add($"STORECD_S", start);
+                        jData.Add($"STORECD_E", end);
+                    }
+                }
+                else
+                {
+                    jData.Add("MSG", "매장코드를 확인하세요.");
+                    return false;
+                }
+
+                
             }
 
             string colNm = ConvertUtil.ToString(rgType.Properties.Items[rgType.SelectedIndex].Tag);
@@ -169,6 +211,14 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 }
                 else
                 {
+                    string colText = ConvertUtil.ToString(rgType.Properties.Items[rgType.SelectedIndex].Description);
+
+                    if (!string.IsNullOrWhiteSpace(GSCd) && !Util.checkOnlyNumeric(GSCd))
+                    {
+                        jData.Add("MSG", $"{colText}코드를 확인하세요.");
+                        return false;
+                    }
+
                     if (type == 1)
                     {
                         if (!string.IsNullOrWhiteSpace(GSCd))
@@ -188,98 +238,95 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     
                 }
             }
-           
 
-
-
-
-
-            string dtDate = "";
-
-            DateTime dtfrom;
-            DateTime dtto;
-           
-            
-
-            if (deDtStart.EditValue != null && !string.IsNullOrEmpty(deDtStart.EditValue.ToString()))
-                dtDate = $"{deDtStart.Text} 00:00:00";
-
-            if (string.IsNullOrWhiteSpace(dtDate))
+            try
             {
-                jData.Add("MSG", "(시작)판매 기간이 없습니다.");
+                string dtDate = "";
+
+                DateTime dtfrom;
+                DateTime dtto;
+
+                if (deDtStart.EditValue != null && !string.IsNullOrEmpty(deDtStart.EditValue.ToString()))
+                    dtDate = $"{deDtStart.Text} 00:00:00";
+
+                if (string.IsNullOrWhiteSpace(dtDate))
+                {
+                    jData.Add("MSG", "(시작)판매 기간이 없습니다.");
+                    return false;
+                }
+                else
+                {
+                    DateTime dt = dtfrom = Convert.ToDateTime(dtDate);
+                    jData.Add("DT_FROM", dt.ToString("yyyyMMdd"));
+                }
+
+                int result = DateTime.Compare(dtfrom, DateTime.Today);
+
+                //if (result > 0)
+                //{
+                //    jData.Add("MSG", "종료날짜는 시작날짜보다 커야합니다.");
+                //    return false;
+                //}
+
+                dtDate = "";
+                if (deDtEnd.EditValue != null && !string.IsNullOrEmpty(deDtEnd.EditValue.ToString()))
+                    dtDate = $"{deDtEnd.Text} 23:59:59";
+
+                if (string.IsNullOrWhiteSpace(dtDate))
+                {
+                    jData.Add("MSG", "(종료)판매 기간이 없습니다.");
+                    return false;
+                }
+                else
+                {
+                    DateTime dt = dtto = Convert.ToDateTime(dtDate);
+                    jData.Add("DT_TO", dt.ToString("yyyyMMdd"));
+                }
+
+                result = DateTime.Compare(dtfrom, dtto);
+
+                if (result > 0)
+                {
+                    jData.Add("MSG", "종료날짜는 시작날짜보다 커야합니다.");
+                    return false;
+                }
+
+                dtDate = "";
+                if (deDtOrder.EditValue != null && !string.IsNullOrEmpty(deDtOrder.EditValue.ToString()))
+                    dtDate = $"{deDtOrder.Text} 00:00:00";
+
+                if (string.IsNullOrWhiteSpace(dtDate))
+                {
+                    jData.Add("MSG", "주문일자가 없습니다.");
+                    return false;
+                }
+                else
+                {
+                    DateTime dt = Convert.ToDateTime(dtDate);
+                    jData.Add("ORDER_DATE", dt.ToString("yyyyMMdd"));
+                }
+
+
+                dtDate = "";
+                if (deDtWarehousing.EditValue != null && !string.IsNullOrEmpty(deDtWarehousing.EditValue.ToString()))
+                    dtDate = $"{deDtWarehousing.Text} 00:00:00";
+
+                if (string.IsNullOrWhiteSpace(dtDate))
+                {
+                    jData.Add("MSG", "입고예정일자가 없습니다.");
+                    return false;
+                }
+                else
+                {
+                    DateTime dt = Convert.ToDateTime(dtDate);
+                    jData.Add("INP_DATE", dt.ToString("yyyyMMdd"));
+                }
+            }
+            catch (FormatException ex)
+            {
+                jData.Add("MSG", "날짜 형식을 확인하세요.");
                 return false;
             }
-            else
-            {
-                DateTime dt = dtfrom = Convert.ToDateTime(dtDate);
-                jData.Add("DT_FROM", dt.ToString("yyyyMMdd"));
-            }
-
-            int result = DateTime.Compare(dtfrom, DateTime.Today);
-
-            //if (result > 0)
-            //{
-            //    jData.Add("MSG", "종료날짜는 시작날짜보다 커야합니다.");
-            //    return false;
-            //}
-
-
-
-
-            dtDate = "";
-            if (deDtEnd.EditValue != null && !string.IsNullOrEmpty(deDtEnd.EditValue.ToString()))
-                dtDate = $"{deDtEnd.Text} 23:59:59";
-
-            if (string.IsNullOrWhiteSpace(dtDate))
-            {
-                jData.Add("MSG", "(종료)판매 기간이 없습니다.");
-                return false;
-            }
-            else
-            {
-                DateTime dt = dtto = Convert.ToDateTime(dtDate);
-                jData.Add("DT_TO", dt.ToString("yyyyMMdd"));
-            }
-
-            result = DateTime.Compare(dtfrom, dtto);
-
-            if (result > 0)
-            {
-                jData.Add("MSG", "종료날짜는 시작날짜보다 커야합니다.");
-                return false;
-            }
-
-            dtDate = "";
-            if (deDtOrder.EditValue != null && !string.IsNullOrEmpty(deDtOrder.EditValue.ToString()))
-                dtDate = $"{deDtOrder.Text} 00:00:00";
-
-            if (string.IsNullOrWhiteSpace(dtDate))
-            {
-                jData.Add("MSG", "주문일자가 없습니다.");
-                return false;
-            }
-            else
-            {
-                DateTime dt = Convert.ToDateTime(dtDate);
-                jData.Add("ORDER_DATE", dt.ToString("yyyyMMdd"));
-            }
-
-
-            dtDate = "";
-            if (deDtWarehousing.EditValue != null && !string.IsNullOrEmpty(deDtWarehousing.EditValue.ToString()))
-                dtDate = $"{deDtWarehousing.Text} 00:00:00";
-
-            if (string.IsNullOrWhiteSpace(dtDate))
-            {
-                jData.Add("MSG", "입고예정일자가 없습니다.");
-                return false;
-            }
-            else
-            {
-                DateTime dt = Convert.ToDateTime(dtDate);
-                jData.Add("INP_DATE", dt.ToString("yyyyMMdd"));
-            }
-                
 
 
             return true;

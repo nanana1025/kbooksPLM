@@ -17,6 +17,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         public delegate void SearchHandler(JObject jData);
         public event SearchHandler searchHandler;
 
+        public delegate void ClearHandler();
+        public event ClearHandler clearHandler;
+
         List<long> listShopCd;
 
         string _publiser;
@@ -200,6 +203,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         private void search()
         {
+            clearHandler();
+
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 
@@ -235,7 +240,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 jData.Add("AUTHOR", teAuthor.Text.Trim());
 
             if (!string.IsNullOrWhiteSpace(tePublisherCd.Text))
-                jData.Add("PUBSHCD", ConvertUtil.ToInt32(tePublisherCd.Text.Trim()));
+            {
+                if (Util.checkOnlyNumeric(tePublisherCd.Text))
+                {
+                    jData.Add("PUBSHCD", ConvertUtil.ToInt32(tePublisherCd.Text.Trim()));
+                }
+                else
+                {
+                    Dangol.Warining("출판사코드를 확인하세요.");
+                    return false;
+                }
+            }
 
             if (!string.IsNullOrWhiteSpace(tePublisher.Text))
                 jData.Add("PUBSHNM", tePublisher.Text.Trim());

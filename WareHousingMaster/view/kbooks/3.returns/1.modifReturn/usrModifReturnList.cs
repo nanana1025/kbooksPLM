@@ -407,18 +407,69 @@ namespace WareHousingMaster.view.kbooks.returns
                 Dangol.Warining("반품건이 없습니다.");
             else
             {
+                string msg;
+
                 if (dataVerification())
-                {
-                    if (Dangol.MessageYN("반품건을 확정하시겠습니까?") == DialogResult.Yes)
-                        confirmData();
-                }
+                    msg = "반품건을 확정하시겠습니까?";
                 else
+                    msg = "완료되지 않은 반품건이 있습니다. 그래도 진행하시겠습니까?";
+
+                DialogResult result = Dangol.Custom(msg);
+
+                if (result == DialogResult.Yes) //confirm
                 {
-                    if (Dangol.MessageYN("완료되지 않은 반품건이 있습니다. 그래도 진행하시겠습니까?") == DialogResult.Yes)
+                    JObject jResult = new JObject();
+
+                    if (save(ref jResult))
                     {
-                        confirmData();
+                        if (confirmList(ref jResult))
+                        {
+                            //if (delete(ref jResult))
+                                Dangol.Info("반품데이터가 확정되었습니다.");
+                            //else
+                            //    Dangol.Error(jResult["MSG"]);
+                        }
+                        else
+                        {
+                            if (ConvertUtil.ToBoolean(jResult["REFRESH"]))
+                            {
+                                receiptRefresh();
+                                Dangol.Warining(jResult["MSG"]);
+                            }
+                            else
+                                Dangol.Error(jResult["MSG"]);
+                        }
+                    }
+                    else
+                    {
+                        Dangol.Error(jResult["MSG"]);
                     }
                 }
+                else if (result == DialogResult.OK) //save
+                {
+                    JObject jResult = new JObject();
+                    if (save(ref jResult))
+                    {
+                        Dangol.Info("반품데이터를 저장하였습니다.");
+                    }
+                    else
+                    {
+                        Dangol.Error(jResult["MSG"]);
+                    }
+                }
+
+                //if (dataVerification())
+                //{
+                //    if (Dangol.MessageYN("반품건을 확정하시겠습니까?") == DialogResult.Yes)
+                //        confirmData();
+                //}
+                //else
+                //{
+                //    if (Dangol.MessageYN("완료되지 않은 반품건이 있습니다. 그래도 진행하시겠습니까?") == DialogResult.Yes)
+                //    {
+                //        confirmData();
+                //    }
+                //}
             }
         }
         private bool dataVerification()
@@ -451,9 +502,38 @@ namespace WareHousingMaster.view.kbooks.returns
             return faultCnt == 0;
         }
 
-        private void confirmData()
+        private bool confirmList(ref JObject jResult)
         {
-            JObject jResult = new JObject();
+            JObject jobj = new JObject();
+           
+
+            jobj.Add("SHOPCD", _shopCd);
+            jobj.Add("STORECD", ConvertUtil.ToInt32(_jobj["STORECD"]));
+            if (_jobj.ContainsKey("RET_GROUPCD"))
+                jobj.Add("RETURN_GROUPCD", ConvertUtil.ToInt32(_jobj["RET_GROUPCD"]));
+
+            if (_jobj.ContainsKey("GROUPCD"))
+                jobj.Add("GROUPCD", ConvertUtil.ToInt32(_jobj["GROUPCD"]));
+
+            if (_jobj.ContainsKey("PURCHCD"))
+                jobj.Add("PURCHCD", ConvertUtil.ToInt32(_jobj["PURCHCD"]));
+
+            string url = "/returns/confirmReturnBook.json";
+
+            if (DBConnect.getRequest(jobj, ref jResult, url))
+            {
+                //Dangol.Message($"{rows.Length}개의 데이터가 확정되었습니다.");
+                return true;
+            }
+            else
+            {
+                Dangol.Error(jResult["MSG"]);
+                return false;
+            }
+        }
+
+        private bool save(ref JObject jResult)
+        {
             JObject jobj = new JObject();
             var jArray = new JArray();
 
@@ -493,7 +573,7 @@ namespace WareHousingMaster.view.kbooks.returns
                 jdata.Add("STOCK", ConvertUtil.ToInt32(row["STOCK"]));
                 jdata.Add("RATE_KBN", ConvertUtil.ToInt32(row["RATE_KBN"]));
                 jdata.Add("RATE_KBN_O", ConvertUtil.ToInt32(row["RATE_KBN_O"]));
-                
+
                 if (_jobj.ContainsKey("RET_GROUPCD"))
                     jdata.Add("RETURN_GROUPCD", ConvertUtil.ToInt32(_jobj["RET_GROUPCD"]));
 
@@ -524,15 +604,17 @@ namespace WareHousingMaster.view.kbooks.returns
 
             jobj.Add("DATA", jArray);
 
-            string url = "/returns/confirmReturnBook.json";
+            string url = "/returns/saveReturnBook.json";
 
             if (DBConnect.getRequest(jobj, ref jResult, url))
             {
-                Dangol.Message($"{rows.Length}개의 데이터가 확정되었습니다.");
+                //Dangol.Message($"{rows.Length}개의 데이터가 확정되었습니다.");
+                return true;
             }
             else
             {
-                Dangol.Error(jResult["MSG"]);
+                //Dangol.Error(jResult["MSG"]);
+                return false;
             }
         }
 

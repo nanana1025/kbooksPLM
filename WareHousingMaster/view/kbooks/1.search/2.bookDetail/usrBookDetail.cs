@@ -33,13 +33,13 @@ namespace WareHousingMaster.view.kbooks.search.bookDetail
 
             if (isEditable)
             {
-                _arrFunctionText = new string[] { "F1\n조회", "F2", "F3", "F4", "F5", "F6", "F7\n취소", "F8", "F9\n닫기", "F10\n닫기", };
-                _arrFunctionEditable = new bool[] { true, false, false, false, false, false, true, false, true, true };
+                _arrFunctionText = new string[] { "F1\n조회", "F2", "F3", "F4", "F5", "F6", "F7\n취소", "F8", "F9", "F10\n닫기", };
+                _arrFunctionEditable = new bool[] { true, false, false, false, false, false, true, false, false, true };
             }
             else
             {
-                _arrFunctionText = new string[] { "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9\n닫기", "F10\n닫기", };
-                _arrFunctionEditable = new bool[] { false, false, false, false, false, false, false, false, true, true };
+                _arrFunctionText = new string[] { "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10\n닫기", };
+                _arrFunctionEditable = new bool[] { false, false, false, false, false, false, false, false, false, true };
             }
         }
 
@@ -92,10 +92,10 @@ namespace WareHousingMaster.view.kbooks.search.bookDetail
                 case 8:
                     break;
                 case 9:
-                    if (_isEditable)
-                        this.Close();
-                    else
-                        this.DialogResult = DialogResult.OK;
+                    //if (_isEditable)
+                    //    this.Close();
+                    //else
+                    //    this.DialogResult = DialogResult.OK;
                     break;
                 case 10:
                     if (_isEditable)

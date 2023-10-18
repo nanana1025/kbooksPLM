@@ -51,6 +51,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             _dt.Columns.Add(new DataColumn("ORGAN_NM", typeof(string)));
             _dt.Columns.Add(new DataColumn("PRICE", typeof(int)));
             _dt.Columns.Add(new DataColumn("STOCK", typeof(int)));
+            _dt.Columns.Add(new DataColumn("FIRSTSTORE", typeof(string)));
+            
             _dt.Columns.Add(new DataColumn("ETC", typeof(string)));
             _dt.Columns.Add(new DataColumn("STATE", typeof(int)));
             _dt.Columns.Add(new DataColumn("CHECK", typeof(bool)));
@@ -209,6 +211,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     {
                         JArray jArray = JArray.Parse(jResult["DATA"].ToString());
                         int index = 1;
+                        int cnt;
 
                         gvList.BeginDataUpdate();
 
@@ -224,8 +227,14 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                             dr["AUTHOR1"] = ConvertUtil.ToString(obj["AUTHOR1"]);
                             dr["AUTHOR2"] = ConvertUtil.ToString(obj["AUTHOR2"]);
                             dr["PUBSHNM"] = ConvertUtil.ToString(obj["PUBSHNM"]);
+                            dr["FIRSTSTORE"] = ConvertUtil.ToString(obj["FIRSTSTORE"]);
+                            
                             dr["PRICE"] = ConvertUtil.ToInt32(obj["PRICE"]);
-                            dr["STOCK"] = ConvertUtil.ToInt32(obj["STOCK"]);
+
+                            cnt = ConvertUtil.ToInt32(obj["STOCK"]);
+                            if (cnt != 0) dr["STOCK"] = cnt;
+                            else dr["STOCK"] = DBNull.Value;
+                            //dr["STOCK"] = ConvertUtil.ToInt32(obj["STOCK"]);
 
                             if (category == 0)
                             {

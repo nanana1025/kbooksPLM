@@ -36,6 +36,7 @@
             this.bsiUserSetting = new DevExpress.XtraBars.BarSubItem();
             this.bbiRepNo = new DevExpress.XtraBars.BarButtonItem();
             this.bbiLogout2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.biProduce = new DevExpress.XtraBars.BarButtonItem();
             this.biConsigned = new DevExpress.XtraBars.BarButtonItem();
             this.biWarehousing = new DevExpress.XtraBars.BarButtonItem();
@@ -125,24 +126,25 @@
             this.bbiReturnList = new DevExpress.XtraBars.BarButtonItem();
             this.bbiReturnMidif = new DevExpress.XtraBars.BarButtonItem();
             this.bbiOrderModifyOrder_admin = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiViewManagement = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiValuSetting = new DevExpress.XtraBars.BarButtonItem();
             this.rpHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bhcrf = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgWarehousing = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bhcor = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bhcre = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpSetting = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgCapture = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpProduce = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgPart = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpInventory = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpTechnicalRequest = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpScreen = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpgCapture = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpStype = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.prgHome = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rptest = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -154,6 +156,7 @@
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonLogoHelper1 = new DevExpress.XtraBars.Ribbon.RibbonLogoHelper();
+            this.clockTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -168,6 +171,7 @@
             this.ribbon.CaptionBarItemLinks.Add(this.bsiUserSetting);
             this.ribbon.DrawGroupCaptions = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ExpandCollapseItem.Id = 0;
+            this.ribbon.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bsiUserNm,
             this.bbiLogout,
@@ -264,22 +268,28 @@
             this.bbiStoreOrderBookList,
             this.bbiReturnList,
             this.bbiReturnMidif,
-            this.bbiOrderModifyOrder_admin});
+            this.bbiOrderModifyOrder_admin,
+            this.barButtonItem1,
+            this.bbiViewManagement,
+            this.bbiValuSetting});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 100;
+            this.ribbon.Margin = new System.Windows.Forms.Padding(1);
+            this.ribbon.MaxItemId = 103;
             this.ribbon.Name = "ribbon";
+            this.ribbon.OptionsStubGlyphs.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbon.OptionsStubGlyphs.UseFont = true;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHome,
             this.bhcrf,
             this.bhcor,
             this.bhcre,
+            this.rpSetting,
             this.rpProduce,
             this.rpInventory,
             this.rpTechnicalRequest,
-            this.rpScreen,
             this.rpStype,
             this.rptest});
-            this.ribbon.Size = new System.Drawing.Size(1388, 135);
+            this.ribbon.Size = new System.Drawing.Size(1388, 137);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             this.ribbon.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbon.Paint += new System.Windows.Forms.PaintEventHandler(this.ribbon_Paint);
@@ -310,9 +320,9 @@
             this.bsiUserSetting.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bsiUserSetting.ImageOptions.LargeImage")));
             this.bsiUserSetting.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiRepNo),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogout2)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogout2),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
             this.bsiUserSetting.Name = "bsiUserSetting";
-            this.bsiUserSetting.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // bbiRepNo
             // 
@@ -321,6 +331,7 @@
             this.bbiRepNo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRepNo.ImageOptions.Image")));
             this.bbiRepNo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRepNo.ImageOptions.LargeImage")));
             this.bbiRepNo.Name = "bbiRepNo";
+            this.bbiRepNo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiRepNo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRepNo_ItemClick);
             // 
             // bbiLogout2
@@ -330,7 +341,17 @@
             this.bbiLogout2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiLogout2.ImageOptions.Image")));
             this.bbiLogout2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiLogout2.ImageOptions.LargeImage")));
             this.bbiLogout2.Name = "bbiLogout2";
+            this.bbiLogout2.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiLogout2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLogout2_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "비밀번호 변경";
+            this.barButtonItem1.Id = 100;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // biProduce
             // 
@@ -406,6 +427,8 @@
             this.biHome.ImageOptions.DisabledLargeImage = global::WareHousingMaster.Properties.Resources.home_32x321;
             this.biHome.ImageOptions.Image = global::WareHousingMaster.Properties.Resources.home_16x16;
             this.biHome.ImageOptions.LargeImage = global::WareHousingMaster.Properties.Resources.home_32x32;
+            this.biHome.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.biHome.ItemAppearance.Normal.Options.UseFont = true;
             this.biHome.LargeWidth = 100;
             this.biHome.Name = "biHome";
             this.biHome.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.biHome_ItemClick);
@@ -518,6 +541,8 @@
             this.biUserManagement.Id = 21;
             this.biUserManagement.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("biUserManagement.ImageOptions.Image")));
             this.biUserManagement.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("biUserManagement.ImageOptions.LargeImage")));
+            this.biUserManagement.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.biUserManagement.ItemAppearance.Normal.Options.UseFont = true;
             this.biUserManagement.LargeWidth = 100;
             this.biUserManagement.Name = "biUserManagement";
             this.biUserManagement.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.biUserManagement_ItemClick);
@@ -991,8 +1016,12 @@
             this.bbiSearchBookInfo.Id = 79;
             this.bbiSearchBookInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSearchBookInfo.ImageOptions.Image")));
             this.bbiSearchBookInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSearchBookInfo.ImageOptions.LargeImage")));
+            this.bbiSearchBookInfo.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiSearchBookInfo.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiSearchBookInfo.LargeWidth = 100;
             this.bbiSearchBookInfo.Name = "bbiSearchBookInfo";
+            this.bbiSearchBookInfo.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
+            this.bbiSearchBookInfo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiSearchBookInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSearchBookInfo_ItemClick);
             // 
             // bbiOrderCartInfo
@@ -1001,8 +1030,11 @@
             this.bbiOrderCartInfo.Id = 80;
             this.bbiOrderCartInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiOrderCartInfo.ImageOptions.Image")));
             this.bbiOrderCartInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiOrderCartInfo.ImageOptions.LargeImage")));
+            this.bbiOrderCartInfo.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiOrderCartInfo.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiOrderCartInfo.LargeWidth = 100;
             this.bbiOrderCartInfo.Name = "bbiOrderCartInfo";
+            this.bbiOrderCartInfo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiOrderCartInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOrderCartInfo_ItemClick);
             // 
             // bbiSearchBookInfoDetail
@@ -1011,8 +1043,11 @@
             this.bbiSearchBookInfoDetail.Id = 81;
             this.bbiSearchBookInfoDetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSearchBookInfoDetail.ImageOptions.Image")));
             this.bbiSearchBookInfoDetail.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSearchBookInfoDetail.ImageOptions.LargeImage")));
+            this.bbiSearchBookInfoDetail.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiSearchBookInfoDetail.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiSearchBookInfoDetail.LargeWidth = 100;
             this.bbiSearchBookInfoDetail.Name = "bbiSearchBookInfoDetail";
+            this.bbiSearchBookInfoDetail.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiSearchBookInfoDetail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSearchBookInfoDetail_ItemClick);
             // 
             // bbiOrderRegistBookInfo
@@ -1069,8 +1104,11 @@
             this.bbiSearchPublisherInfo.Id = 87;
             this.bbiSearchPublisherInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSearchPublisherInfo.ImageOptions.Image")));
             this.bbiSearchPublisherInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSearchPublisherInfo.ImageOptions.LargeImage")));
+            this.bbiSearchPublisherInfo.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiSearchPublisherInfo.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiSearchPublisherInfo.LargeWidth = 100;
             this.bbiSearchPublisherInfo.Name = "bbiSearchPublisherInfo";
+            this.bbiSearchPublisherInfo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiSearchPublisherInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSearchPublisherInfo_ItemClick);
             // 
             // bbiSearchBookBest
@@ -1079,8 +1117,11 @@
             this.bbiSearchBookBest.Id = 88;
             this.bbiSearchBookBest.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSearchBookBest.ImageOptions.Image")));
             this.bbiSearchBookBest.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSearchBookBest.ImageOptions.LargeImage")));
+            this.bbiSearchBookBest.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiSearchBookBest.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiSearchBookBest.LargeWidth = 100;
             this.bbiSearchBookBest.Name = "bbiSearchBookBest";
+            this.bbiSearchBookBest.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiSearchBookBest.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSearchBookBest_ItemClick);
             // 
             // bbiSearchCreditorInfo
@@ -1089,8 +1130,11 @@
             this.bbiSearchCreditorInfo.Id = 89;
             this.bbiSearchCreditorInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSearchCreditorInfo.ImageOptions.Image")));
             this.bbiSearchCreditorInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSearchCreditorInfo.ImageOptions.LargeImage")));
+            this.bbiSearchCreditorInfo.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiSearchCreditorInfo.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiSearchCreditorInfo.LargeWidth = 100;
             this.bbiSearchCreditorInfo.Name = "bbiSearchCreditorInfo";
+            this.bbiSearchCreditorInfo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiSearchCreditorInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSearchCreditorInfo_ItemClick);
             // 
             // bbiOrderSaleInfo
@@ -1099,8 +1143,11 @@
             this.bbiOrderSaleInfo.Id = 90;
             this.bbiOrderSaleInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiOrderSaleInfo.ImageOptions.Image")));
             this.bbiOrderSaleInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiOrderSaleInfo.ImageOptions.LargeImage")));
+            this.bbiOrderSaleInfo.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiOrderSaleInfo.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiOrderSaleInfo.LargeWidth = 100;
             this.bbiOrderSaleInfo.Name = "bbiOrderSaleInfo";
+            this.bbiOrderSaleInfo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiOrderSaleInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOrderSaleInfo_ItemClick);
             // 
             // bbiOrderModifyOrder
@@ -1109,8 +1156,11 @@
             this.bbiOrderModifyOrder.Id = 91;
             this.bbiOrderModifyOrder.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiOrderModifyOrder.ImageOptions.Image")));
             this.bbiOrderModifyOrder.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiOrderModifyOrder.ImageOptions.LargeImage")));
+            this.bbiOrderModifyOrder.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiOrderModifyOrder.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiOrderModifyOrder.LargeWidth = 100;
             this.bbiOrderModifyOrder.Name = "bbiOrderModifyOrder";
+            this.bbiOrderModifyOrder.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiOrderModifyOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOrderModifyOrder_ItemClick);
             // 
             // bbiOrderNonRegisterOrder
@@ -1119,8 +1169,11 @@
             this.bbiOrderNonRegisterOrder.Id = 92;
             this.bbiOrderNonRegisterOrder.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiOrderNonRegisterOrder.ImageOptions.Image")));
             this.bbiOrderNonRegisterOrder.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiOrderNonRegisterOrder.ImageOptions.LargeImage")));
+            this.bbiOrderNonRegisterOrder.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiOrderNonRegisterOrder.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiOrderNonRegisterOrder.LargeWidth = 100;
             this.bbiOrderNonRegisterOrder.Name = "bbiOrderNonRegisterOrder";
+            this.bbiOrderNonRegisterOrder.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiOrderNonRegisterOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOrderNonRegisterOrder_ItemClick);
             // 
             // bbiOrderConfirm
@@ -1138,8 +1191,11 @@
             this.bbiSearchNewBook.Id = 94;
             this.bbiSearchNewBook.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSearchNewBook.ImageOptions.Image")));
             this.bbiSearchNewBook.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiSearchNewBook.ImageOptions.LargeImage")));
+            this.bbiSearchNewBook.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiSearchNewBook.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiSearchNewBook.LargeWidth = 100;
             this.bbiSearchNewBook.Name = "bbiSearchNewBook";
+            this.bbiSearchNewBook.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiSearchNewBook.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSearchNewBook_ItemClick);
             // 
             // bbiOrderBookAllList
@@ -1147,8 +1203,11 @@
             this.bbiOrderBookAllList.Caption = "미등록/등록 주문도서일람";
             this.bbiOrderBookAllList.Id = 95;
             this.bbiOrderBookAllList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiOrderBookAllList.ImageOptions.SvgImage")));
+            this.bbiOrderBookAllList.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiOrderBookAllList.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiOrderBookAllList.LargeWidth = 100;
             this.bbiOrderBookAllList.Name = "bbiOrderBookAllList";
+            this.bbiOrderBookAllList.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiOrderBookAllList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOrderBookAllList_ItemClick);
             // 
             // bbiStoreOrderBookList
@@ -1156,8 +1215,11 @@
             this.bbiStoreOrderBookList.Caption = "매장별 주문도서일람표";
             this.bbiStoreOrderBookList.Id = 96;
             this.bbiStoreOrderBookList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiStoreOrderBookList.ImageOptions.SvgImage")));
+            this.bbiStoreOrderBookList.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiStoreOrderBookList.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiStoreOrderBookList.LargeWidth = 120;
             this.bbiStoreOrderBookList.Name = "bbiStoreOrderBookList";
+            this.bbiStoreOrderBookList.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiStoreOrderBookList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiStoreOrderBookList_ItemClick);
             // 
             // bbiReturnList
@@ -1165,8 +1227,11 @@
             this.bbiReturnList.Caption = "반품예정입력";
             this.bbiReturnList.Id = 97;
             this.bbiReturnList.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiReturnList.ImageOptions.SvgImage")));
+            this.bbiReturnList.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiReturnList.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiReturnList.LargeWidth = 100;
             this.bbiReturnList.Name = "bbiReturnList";
+            this.bbiReturnList.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiReturnList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReturnList_ItemClick);
             // 
             // bbiReturnMidif
@@ -1175,8 +1240,11 @@
             this.bbiReturnMidif.Id = 98;
             this.bbiReturnMidif.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiReturnMidif.ImageOptions.Image")));
             this.bbiReturnMidif.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiReturnMidif.ImageOptions.LargeImage")));
+            this.bbiReturnMidif.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiReturnMidif.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiReturnMidif.LargeWidth = 100;
             this.bbiReturnMidif.Name = "bbiReturnMidif";
+            this.bbiReturnMidif.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiReturnMidif.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReturnMidif_ItemClick);
             // 
             // bbiOrderModifyOrder_admin
@@ -1184,11 +1252,38 @@
             this.bbiOrderModifyOrder_admin.Caption = "주문도서수정/확정";
             this.bbiOrderModifyOrder_admin.Id = 99;
             this.bbiOrderModifyOrder_admin.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiOrderModifyOrder_admin.ImageOptions.SvgImage")));
+            this.bbiOrderModifyOrder_admin.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiOrderModifyOrder_admin.ItemAppearance.Normal.Options.UseFont = true;
             this.bbiOrderModifyOrder_admin.Name = "bbiOrderModifyOrder_admin";
+            this.bbiOrderModifyOrder_admin.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiOrderModifyOrder_admin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOrderModifyOrder_admin_ItemClick);
+            // 
+            // bbiViewManagement
+            // 
+            this.bbiViewManagement.Caption = "화면 관리";
+            this.bbiViewManagement.Id = 101;
+            this.bbiViewManagement.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiViewManagement.ImageOptions.SvgImage")));
+            this.bbiViewManagement.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiViewManagement.ItemAppearance.Normal.Options.UseFont = true;
+            this.bbiViewManagement.LargeWidth = 100;
+            this.bbiViewManagement.Name = "bbiViewManagement";
+            this.bbiViewManagement.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiViewMgmt_ItemClick);
+            // 
+            // bbiValuSetting
+            // 
+            this.bbiValuSetting.Caption = "설정 값 관리";
+            this.bbiValuSetting.Id = 102;
+            this.bbiValuSetting.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiValuSetting.ImageOptions.SvgImage")));
+            this.bbiValuSetting.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bbiValuSetting.ItemAppearance.Normal.Options.UseFont = true;
+            this.bbiValuSetting.LargeWidth = 100;
+            this.bbiValuSetting.Name = "bbiValuSetting";
+            this.bbiValuSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiValuSetting_ItemClick);
             // 
             // rpHome
             // 
+            this.rpHome.Appearance.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rpHome.Appearance.Options.UseFont = true;
             this.rpHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3});
             this.rpHome.ImageOptions.Image = global::WareHousingMaster.Properties.Resources.home_16x161;
@@ -1203,11 +1298,14 @@
             // 
             // bhcrf
             // 
+            this.bhcrf.Appearance.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bhcrf.Appearance.Options.UseFont = true;
             this.bhcrf.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgWarehousing});
-            this.bhcrf.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpSearch.ImageOptions.Image")));
+            this.bhcrf.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bhcrf.ImageOptions.Image")));
             this.bhcrf.Name = "bhcrf";
             this.bhcrf.Text = "검색관리";
+            this.bhcrf.Visible = false;
             // 
             // rpgWarehousing
             // 
@@ -1221,12 +1319,14 @@
             // 
             // bhcor
             // 
+            this.bhcor.Appearance.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bhcor.Appearance.Options.UseFont = true;
             this.bhcor.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2,
-            this.ribbonPageGroup5});
-            this.bhcor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpOrder.ImageOptions.Image")));
+            this.ribbonPageGroup2});
+            this.bhcor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bhcor.ImageOptions.Image")));
             this.bhcor.Name = "bhcor";
             this.bhcor.Text = "주문관리";
+            this.bhcor.Visible = false;
             // 
             // ribbonPageGroup2
             // 
@@ -1241,21 +1341,16 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.bbiOrderRegistBookInfo);
-            this.ribbonPageGroup5.ItemLinks.Add(this.bbiOrderConfirm);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Visible = false;
-            // 
             // bhcre
             // 
+            this.bhcre.Appearance.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.bhcre.Appearance.Options.UseFont = true;
             this.bhcre.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup6});
-            this.bhcre.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpReturns.ImageOptions.Image")));
+            this.bhcre.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bhcre.ImageOptions.Image")));
             this.bhcre.Name = "bhcre";
             this.bhcre.Text = "반품관리";
+            this.bhcre.Visible = false;
             // 
             // ribbonPageGroup6
             // 
@@ -1263,6 +1358,38 @@
             this.ribbonPageGroup6.ItemLinks.Add(this.bbiReturnMidif);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "ribbonPageGroup6";
+            // 
+            // rpSetting
+            // 
+            this.rpSetting.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rpSetting.Appearance.Options.UseFont = true;
+            this.rpSetting.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup11,
+            this.rpgCapture});
+            this.rpSetting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpSetting.ImageOptions.Image")));
+            this.rpSetting.Name = "rpSetting";
+            this.rpSetting.Text = "설정";
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.ItemLinks.Add(this.biUserManagement);
+            this.ribbonPageGroup11.ItemLinks.Add(this.bbiViewManagement);
+            this.ribbonPageGroup11.ItemLinks.Add(this.bbiValuSetting);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "ribbonPageGroup11";
+            // 
+            // rpgCapture
+            // 
+            this.rpgCapture.ItemLinks.Add(this.biSoundTest);
+            this.rpgCapture.ItemLinks.Add(this.biBatteryTest);
+            this.rpgCapture.ItemLinks.Add(this.biKeyboardTest);
+            this.rpgCapture.ItemLinks.Add(this.bbiVideoPlay);
+            this.rpgCapture.ItemLinks.Add(this.biSTGTest);
+            this.rpgCapture.ItemLinks.Add(this.biCamTest);
+            this.rpgCapture.ItemLinks.Add(this.bbiCapture);
+            this.rpgCapture.Name = "rpgCapture";
+            this.rpgCapture.Text = "ribbonPageGroup4";
+            this.rpgCapture.Visible = false;
             // 
             // rpProduce
             // 
@@ -1310,34 +1437,6 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
-            // rpScreen
-            // 
-            this.rpScreen.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup11,
-            this.rpgCapture});
-            this.rpScreen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rpScreen.ImageOptions.Image")));
-            this.rpScreen.Name = "rpScreen";
-            this.rpScreen.Text = "설정";
-            this.rpScreen.Visible = false;
-            // 
-            // ribbonPageGroup11
-            // 
-            this.ribbonPageGroup11.ItemLinks.Add(this.biUserManagement);
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.Text = "ribbonPageGroup11";
-            // 
-            // rpgCapture
-            // 
-            this.rpgCapture.ItemLinks.Add(this.biSoundTest);
-            this.rpgCapture.ItemLinks.Add(this.biBatteryTest);
-            this.rpgCapture.ItemLinks.Add(this.biKeyboardTest);
-            this.rpgCapture.ItemLinks.Add(this.bbiVideoPlay);
-            this.rpgCapture.ItemLinks.Add(this.biSTGTest);
-            this.rpgCapture.ItemLinks.Add(this.biCamTest);
-            this.rpgCapture.ItemLinks.Add(this.bbiCapture);
-            this.rpgCapture.Name = "rpgCapture";
-            this.rpgCapture.Text = "ribbonPageGroup4";
-            // 
             // rpStype
             // 
             this.rpStype.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -1365,6 +1464,8 @@
             // 
             this.ribbonPageGroup24.ItemLinks.Add(this.bbiExportReceipt);
             this.ribbonPageGroup24.ItemLinks.Add(this.bbiReleaseReceiptList);
+            this.ribbonPageGroup24.ItemLinks.Add(this.bbiOrderRegistBookInfo);
+            this.ribbonPageGroup24.ItemLinks.Add(this.bbiOrderConfirm);
             this.ribbonPageGroup24.Name = "ribbonPageGroup24";
             this.ribbonPageGroup24.Text = "ribbonPageGroup24";
             // 
@@ -1403,8 +1504,14 @@
             // 
             // ribbonLogoHelper1
             // 
-            this.ribbonLogoHelper1.Image = global::WareHousingMaster.Properties.Resources.kbookslogo;
+            this.ribbonLogoHelper1.Image = null;
             this.ribbonLogoHelper1.RibbonControl = this.ribbon;
+            // 
+            // clockTimer
+            // 
+            this.clockTimer.Enabled = true;
+            this.clockTimer.Interval = 1000;
+            this.clockTimer.Tick += new System.EventHandler(this.clockTimer_Tick);
             // 
             // Main
             // 
@@ -1465,7 +1572,7 @@
         private DevExpress.XtraBars.BarButtonItem biCustomerPaymentState;
         private DevExpress.XtraBars.BarButtonItem biExamPartList;
         private DevExpress.XtraBars.BarButtonItem biUserManagement;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rpScreen;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rpSetting;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.BarButtonItem biReceipt;
         private DevExpress.XtraBars.BarButtonItem biWarehousingProduct;
@@ -1551,11 +1658,14 @@
         private DevExpress.XtraBars.BarButtonItem bbiSearchNewBook;
         private DevExpress.XtraBars.BarButtonItem bbiOrderBookAllList;
         private DevExpress.XtraBars.BarButtonItem bbiStoreOrderBookList;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem bbiReturnList;
         private DevExpress.XtraBars.Ribbon.RibbonPage bhcre;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem bbiReturnMidif;
         private DevExpress.XtraBars.BarButtonItem bbiOrderModifyOrder_admin;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem bbiViewManagement;
+        private DevExpress.XtraBars.BarButtonItem bbiValuSetting;
+        private System.Windows.Forms.Timer clockTimer;
     }
 }

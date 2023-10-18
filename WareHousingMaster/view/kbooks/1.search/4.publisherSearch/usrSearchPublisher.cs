@@ -31,8 +31,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             {
                 { Keys.F1, 1 }, { Keys.F2, 2 },{ Keys.F3, 3 },{ Keys.F4, 4 },{ Keys.F5, 5 },{ Keys.F6, 6 },{ Keys.F7, 7 },{ Keys.F8, 8 },{ Keys.F9, 9 },{ Keys.F10, 10 }
             };
-            _arrFunctionText = new string[] { "F1\n조회", "F2", "F3", "F4", "F5", "F6", "F7\n선택주문", "F8\n취소", "F9\n닫기", "F10\n닫기", };
-            _arrFunctionEditable = new bool[] { true, false, false, false, false, false, true, true, true, true };
+            _arrFunctionText = new string[] { "F1\n조회", "F2", "F3", "F4", "F5", "F6", "F7\n선택주문", "F8\n취소", "F9", "F10\n닫기", };
+            _arrFunctionEditable = new bool[] { true, false, false, false, false, false, true, true, false, true };
 
             _shopCd = 1;
             _publiserCd = -1;
@@ -46,6 +46,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             usrSideCheck1.processHandler += new usrSideCheck.ProcessHandler(processHandler);
             usrSearchSellerAndPublisher1.searchHandler += new usrSearchPurchaseAndPublisher.SearchHandler(searchList);
+            usrSearchSellerAndPublisher1.clearHandler += new usrSearchPurchaseAndPublisher.ClearHandler(clear);
             usrSearchPublisherList1.focusedRowObjectChangeHandler += new usrSearchPublisherList.FocusedRowObjectChangeHandler(FocusedRowObjectChangeHandler);
             usrSearchBookSearchList1.focusedRowObjectChangeHandler += new usrSearchBookSearchList.FocusedRowObjectChangeHandler(FocusedRowObjectChangeBookHandler);
 
@@ -102,13 +103,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     goOrderBook();
                     break;
                 case 8:
-                    xtcPublisher.SelectedTabPage = xtPubliserList;
-                    usrSearchPublisherList1.clear();
-                    usrSearchSellerAndPublisher1.clear();
-                    usrSearchSellerAndPublisher1.setFocus();
+                    clear(false);
                     break;
                 case 9:
-                    this.Close();
+                    //this.Close();
                     break;
                 case 10:
                     this.Close();
@@ -119,6 +117,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 default:
                     break;
 
+            }
+        }
+
+        private void clear(bool isSearch = true)
+        {
+            xtcPublisher.SelectedTabPage = xtPubliserList;
+            usrSearchPublisherList1.clear();
+            if (!isSearch)
+            {
+                usrSearchSellerAndPublisher1.clear();
+                usrSearchSellerAndPublisher1.setFocus();
             }
         }
 

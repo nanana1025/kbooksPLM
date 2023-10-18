@@ -287,7 +287,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                 row["AUTHORNM"] = ConvertUtil.ToString(obj["AUTHORNM"]);
                                 row["TRADE_ITEM"] = ConvertUtil.ToInt32(obj["TRADE_ITEM"]);
                                 row["ORD_COUNT"] = ConvertUtil.ToInt32(obj["ORD_COUNT"]);
-                                row["ORDER_CNT"] = 0;
+                                row["ORDER_CNT"] = DBNull.Value;
                                 row["ETC"] = ConvertUtil.ToString(obj["ETC"]);
                                 row["STATE"] = 2;
                             }
@@ -304,7 +304,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                                 dr["AUTHORNM"] = ConvertUtil.ToString(obj["AUTHORNM"]);
                                 dr["TRADE_ITEM"] = ConvertUtil.ToInt32(obj["TRADE_ITEM"]);
                                 dr["ORD_COUNT"] = ConvertUtil.ToInt32(obj["ORD_COUNT"]);
-                                dr["ORDER_CNT"] = 0;
+                                dr["ORDER_CNT"] = DBNull.Value;
                                 dr["ETC"] = ConvertUtil.ToString(obj["ETC"]);
                                 dr["STATE"] = 2;
                                 _dt.Rows.Add(dr);

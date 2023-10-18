@@ -29,8 +29,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             {
                 { Keys.F1, 1 }, { Keys.F2, 2 },{ Keys.F3, 3 },{ Keys.F4, 4 },{ Keys.F5, 5 },{ Keys.F6, 6 },{ Keys.F7, 7 },{ Keys.F8, 8 },{ Keys.F9, 9 },{ Keys.F10, 10 }
             };
-            _arrFunctionText = new string[] { "F1\n조건확정", "F2\n행삭제", "F3\n실적조회", "F4", "F5", "F6", "F7\n취소", "F8\n확정", "F9\n닫기", "F10\n닫기", };
-            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, true, true };
+            _arrFunctionText = new string[] { "F1\n조건확정", "F2\n행삭제", "F3\n실적조회", "F4", "F5", "F6", "F7\n취소", "F8\n확정", "F9", "F10\n닫기", };
+            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, false, true };
         }
 
        
@@ -40,6 +40,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             usrSideCheck1.processHandler += new usrSideCheck.ProcessHandler(processHandler);
             usrOrderBookModifySearch1.searchHandler += new usrOrderBookModifySearch.SearchHandler(searchList);
+            usrOrderBookModifySearch1.clearHandler += new usrOrderBookModifySearch.ClearHandler(clear);
             //usrOrderBookModifySearch1.searchPerformanceHandler += new usrOrderBookModifySearch.SearchPerformanceHandler(searchPerformanceHandler);
             //usrOrderBookModifySearch1.deleteRowHandler += new usrOrderBookModifySearch.DeleteRowHandler(deleteRowHandler);
             //usrOrderBookModifySearch1.confirmHandler += new usrOrderBookModifySearch.ConfirmHandler(confirmHandler);
@@ -109,7 +110,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     confirmHandler(0);
                     break;
                 case 9:
-                    this.Close();
+                    //this.Close();
                     break;
                 case 10:
                     this.Close();
@@ -118,6 +119,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     break;
 
             }
+        }
+
+        private void clear()
+        {
+            usrOrderBookModifyList1.clear();
         }
 
         private void searchPerformanceHandler()

@@ -1,17 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 using WareHousingMaster.view.common;
-using Newtonsoft.Json.Linq;
 using WareHousingMaster.view.kbooks.search.booksearch;
-using Enum = WareHousingMaster.view.common.Enum;
 
 namespace WareHousingMaster.view.usedPurchase
 {
@@ -31,8 +25,8 @@ namespace WareHousingMaster.view.usedPurchase
             {
                 { Keys.F1, 1 }, { Keys.F2, 2 },{ Keys.F3, 3 },{ Keys.F4, 4 },{ Keys.F5, 5 },{ Keys.F6, 6 },{ Keys.F7, 7 },{ Keys.F8, 8 },{ Keys.F9, 9 },{ Keys.F10, 10 }
             };
-            _arrFunctionText = new string[] { "F1\n조회", "F2\n도서상세정보", "F3\n엑셀저장", "F4", "F5", "F6", "F7\n선택주문", "F8\n취소", "F9\n닫기", "F10\n닫기", };
-            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, true, true };
+            _arrFunctionText = new string[] { "F1\n조회", "F2\n도서상세정보", "F3\n엑셀저장", "F4", "F5", "F6", "F7\n선택주문", "F8\n취소", "F9", "F10\n닫기", };
+            _arrFunctionEditable = new bool[] { true, true, true, false, false, false, true, true, false, true };
 
         }
 
@@ -43,6 +37,7 @@ namespace WareHousingMaster.view.usedPurchase
 
             usrSideCheck1.processHandler += new usrSideCheck.ProcessHandler(processHandler);
             usrBestSellerSearch1.searchHandler += new usrBestSellerSearch.SearchHandler(searchList);
+            usrBestSellerSearch1.clearHandler += new usrBestSellerSearch.ClearHandler(clear);
             usrBestSellerList1.focusedRowObjectChangeHandler += new usrBestSellerList.FocusedRowObjectChangeHandler(FocusedRowObjectChangeHandler);
 
             setInitialize();
@@ -96,7 +91,7 @@ namespace WareHousingMaster.view.usedPurchase
                     usrBestSellerSearch1.setFocus();
                     break;
                 case 9:
-                    this.Close();
+                    //this.Close();
                     break;
                 case 10:
                     this.Close();
@@ -108,6 +103,11 @@ namespace WareHousingMaster.view.usedPurchase
                     break;
 
             }
+        }
+
+        private void clear()
+        {
+            usrBestSellerList1.clear();
         }
 
         private void FocusedRowObjectChangeHandler(DataRowView drv)

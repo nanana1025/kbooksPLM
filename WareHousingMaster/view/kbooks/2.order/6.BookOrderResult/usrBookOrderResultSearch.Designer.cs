@@ -237,6 +237,7 @@
             // 
             // teGSNm
             // 
+            this.teGSNm.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.teGSNm.Location = new System.Drawing.Point(182, 89);
             this.teGSNm.Name = "teGSNm";
             this.teGSNm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

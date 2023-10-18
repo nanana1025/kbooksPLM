@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcList = new DevExpress.XtraGrid.GridControl();
             this.gvList = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -222,7 +222,7 @@
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.Visible = true;
             this.gridColumn23.VisibleIndex = 2;
-            this.gridColumn23.Width = 126;
+            this.gridColumn23.Width = 124;
             // 
             // riteTitle
             // 
@@ -284,16 +284,16 @@
             this.gcStg.AppearanceHeader.Options.UseFont = true;
             this.gcStg.AppearanceHeader.Options.UseTextOptions = true;
             this.gcStg.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gcStg.Caption = "입고수량";
-            this.gcStg.FieldName = "ORD_CNT";
-            this.gcStg.MaxWidth = 70;
-            this.gcStg.MinWidth = 70;
+            this.gcStg.Caption = "입고예정수량";
+            this.gcStg.FieldName = "INP_CNT";
+            this.gcStg.MaxWidth = 90;
+            this.gcStg.MinWidth = 90;
             this.gcStg.Name = "gcStg";
             this.gcStg.OptionsColumn.AllowEdit = false;
             this.gcStg.OptionsColumn.ReadOnly = true;
             this.gcStg.Visible = true;
             this.gcStg.VisibleIndex = 8;
-            this.gcStg.Width = 70;
+            this.gcStg.Width = 90;
             // 
             // gcReceiptCnt
             // 
@@ -308,7 +308,7 @@
             this.gcReceiptCnt.AppearanceHeader.Options.UseTextOptions = true;
             this.gcReceiptCnt.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcReceiptCnt.Caption = "주문예정수량";
-            this.gcReceiptCnt.FieldName = "ESTI_CNT";
+            this.gcReceiptCnt.FieldName = "ORD_CNT";
             this.gcReceiptCnt.MaxWidth = 90;
             this.gcReceiptCnt.MinWidth = 90;
             this.gcReceiptCnt.Name = "gcReceiptCnt";
@@ -379,7 +379,7 @@
             this.gcMarginCost.AppearanceHeader.Options.UseTextOptions = true;
             this.gcMarginCost.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gcMarginCost.Caption = "납품예정수량";
-            this.gcMarginCost.FieldName = "INP_CNT";
+            this.gcMarginCost.FieldName = "ESTI_CNT";
             this.gcMarginCost.MaxWidth = 90;
             this.gcMarginCost.MinWidth = 90;
             this.gcMarginCost.Name = "gcMarginCost";
@@ -428,7 +428,7 @@
             this.gcReleaseCnt.Name = "gcReleaseCnt";
             this.gcReleaseCnt.Visible = true;
             this.gcReleaseCnt.VisibleIndex = 11;
-            this.gcReleaseCnt.Width = 79;
+            this.gcReleaseCnt.Width = 63;
             // 
             // rilePurchCd
             // 
@@ -446,7 +446,7 @@
             this.gcPrice.AppearanceCell.Options.UseBackColor = true;
             this.gcPrice.AppearanceCell.Options.UseFont = true;
             this.gcPrice.AppearanceCell.Options.UseTextOptions = true;
-            this.gcPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gcPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gcPrice.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.gcPrice.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcPrice.AppearanceHeader.Options.UseBackColor = true;
@@ -507,7 +507,7 @@
             // 
             this.riseCnt.AutoHeight = false;
             this.riseCnt.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, false, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riseCnt.IsFloatValue = false;
             this.riseCnt.MaskSettings.Set("mask", "N00");
             this.riseCnt.Name = "riseCnt";

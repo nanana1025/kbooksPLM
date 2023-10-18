@@ -43,6 +43,7 @@
             this.gcCpu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcStg = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rileComponentCd = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.rileMemCapacity = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.risleCpu = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
@@ -110,7 +111,8 @@
             this.gcComponent,
             this.gcCpu,
             this.gcStg,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.gridColumn3});
             this.gvList.GridControl = this.gcList;
             this.gvList.Name = "gvList";
             this.gvList.OptionsView.ShowFooter = true;
@@ -278,7 +280,7 @@
             this.gcCode.Name = "gcCode";
             this.gcCode.OptionsColumn.ReadOnly = true;
             this.gcCode.Visible = true;
-            this.gcCode.VisibleIndex = 6;
+            this.gcCode.VisibleIndex = 7;
             this.gcCode.Width = 70;
             // 
             // gcCodeNm
@@ -300,7 +302,7 @@
             this.gcCodeNm.Name = "gcCodeNm";
             this.gcCodeNm.OptionsColumn.ReadOnly = true;
             this.gcCodeNm.Visible = true;
-            this.gcCodeNm.VisibleIndex = 7;
+            this.gcCodeNm.VisibleIndex = 8;
             this.gcCodeNm.Width = 76;
             // 
             // gcComponent
@@ -327,7 +329,7 @@
             this.gcComponent.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PRICE", "{0:N0}")});
             this.gcComponent.Visible = true;
-            this.gcComponent.VisibleIndex = 8;
+            this.gcComponent.VisibleIndex = 9;
             this.gcComponent.Width = 77;
             // 
             // gcCpu
@@ -354,7 +356,7 @@
             this.gcCpu.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "STOCK", "{0:N0}")});
             this.gcCpu.Visible = true;
-            this.gcCpu.VisibleIndex = 9;
+            this.gcCpu.VisibleIndex = 10;
             this.gcCpu.Width = 82;
             // 
             // gcStg
@@ -388,8 +390,29 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 10;
+            this.gridColumn1.VisibleIndex = 11;
             this.gridColumn1.Width = 72;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceCell.Options.UseFont = true;
+            this.gridColumn3.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.Caption = "조회일";
+            this.gridColumn3.FieldName = "FIRSTSTORE";
+            this.gridColumn3.MaxWidth = 90;
+            this.gridColumn3.MinWidth = 80;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 6;
+            this.gridColumn3.Width = 80;
             // 
             // rileComponentCd
             // 
@@ -523,5 +546,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rileOs;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rileLanguage;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rileUsedYn;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }

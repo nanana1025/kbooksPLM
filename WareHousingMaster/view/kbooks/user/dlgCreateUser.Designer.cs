@@ -35,59 +35,59 @@
             this.teUserId = new DevExpress.XtraEditors.TextEdit();
             this.teUserNm = new DevExpress.XtraEditors.TextEdit();
             this.tePassword = new DevExpress.XtraEditors.TextEdit();
+            this.tePasswordConfirm = new DevExpress.XtraEditors.TextEdit();
+            this.leUserType = new DevExpress.XtraEditors.LookUpEdit();
+            this.leUserState = new DevExpress.XtraEditors.LookUpEdit();
+            this.leCompanyId = new DevExpress.XtraEditors.LookUpEdit();
+            this.leDeptCd = new DevExpress.XtraEditors.LookUpEdit();
+            this.teTel = new DevExpress.XtraEditors.TextEdit();
+            this.leTeamCd = new DevExpress.XtraEditors.LookUpEdit();
+            this.lePosition = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem28 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tePasswordConfirm = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.leUserType = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.leUserState = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem37 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.leCompanyId = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.leDeptCd = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.teTel = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.leTeamCd = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lePosition = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teUserId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teUserNm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tePassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tePasswordConfirm.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leUserType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leUserState.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leCompanyId.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leDeptCd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teTel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leTeamCd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lePosition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tePasswordConfirm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leUserType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leUserState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem37)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leCompanyId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leDeptCd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teTel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leTeamCd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lePosition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -162,6 +162,111 @@
             this.tePassword.StyleController = this.layoutControl1;
             this.tePassword.TabIndex = 4;
             this.tePassword.Tag = "INVENTORY_CAT";
+            // 
+            // tePasswordConfirm
+            // 
+            this.tePasswordConfirm.Location = new System.Drawing.Point(103, 78);
+            this.tePasswordConfirm.Name = "tePasswordConfirm";
+            this.tePasswordConfirm.Properties.UseSystemPasswordChar = true;
+            this.tePasswordConfirm.Size = new System.Drawing.Size(232, 20);
+            this.tePasswordConfirm.StyleController = this.layoutControl1;
+            this.tePasswordConfirm.TabIndex = 4;
+            this.tePasswordConfirm.Tag = "INVENTORY_CAT";
+            // 
+            // leUserType
+            // 
+            this.leUserType.Location = new System.Drawing.Point(103, 127);
+            this.leUserType.Name = "leUserType";
+            this.leUserType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.leUserType.Properties.NullText = "";
+            this.leUserType.Size = new System.Drawing.Size(232, 20);
+            this.leUserType.StyleController = this.layoutControl1;
+            this.leUserType.TabIndex = 4;
+            this.leUserType.Tag = "WAREHOUSE";
+            // 
+            // leUserState
+            // 
+            this.leUserState.Location = new System.Drawing.Point(103, 151);
+            this.leUserState.Name = "leUserState";
+            this.leUserState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.leUserState.Properties.NullText = "";
+            this.leUserState.Size = new System.Drawing.Size(232, 20);
+            this.leUserState.StyleController = this.layoutControl1;
+            this.leUserState.TabIndex = 4;
+            this.leUserState.Tag = "PALLET";
+            // 
+            // leCompanyId
+            // 
+            this.leCompanyId.Location = new System.Drawing.Point(103, 175);
+            this.leCompanyId.Name = "leCompanyId";
+            this.leCompanyId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.leCompanyId.Properties.NullText = "";
+            this.leCompanyId.Size = new System.Drawing.Size(232, 20);
+            this.leCompanyId.StyleController = this.layoutControl1;
+            this.leCompanyId.TabIndex = 6;
+            // 
+            // leDeptCd
+            // 
+            this.leDeptCd.Location = new System.Drawing.Point(103, 200);
+            this.leDeptCd.Name = "leDeptCd";
+            this.leDeptCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.leDeptCd.Properties.NullText = "";
+            this.leDeptCd.Size = new System.Drawing.Size(232, 20);
+            this.leDeptCd.StyleController = this.layoutControl1;
+            this.leDeptCd.TabIndex = 4;
+            this.leDeptCd.Tag = "INVENTORY_CAT";
+            // 
+            // teTel
+            // 
+            this.teTel.EditValue = "";
+            this.teTel.Location = new System.Drawing.Point(103, 225);
+            this.teTel.Name = "teTel";
+            this.teTel.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.teTel.Properties.Appearance.Options.UseForeColor = true;
+            this.teTel.Properties.DisplayFormat.FormatString = "n0";
+            this.teTel.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.teTel.Size = new System.Drawing.Size(232, 20);
+            this.teTel.StyleController = this.layoutControl1;
+            this.teTel.TabIndex = 6;
+            this.teTel.Tag = "INIT_PRICE";
+            // 
+            // leTeamCd
+            // 
+            this.leTeamCd.EditValue = "";
+            this.leTeamCd.Location = new System.Drawing.Point(103, 250);
+            this.leTeamCd.Name = "leTeamCd";
+            this.leTeamCd.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.leTeamCd.Properties.Appearance.Options.UseForeColor = true;
+            this.leTeamCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.leTeamCd.Properties.DisplayFormat.FormatString = "n0";
+            this.leTeamCd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.leTeamCd.Properties.NullText = "";
+            this.leTeamCd.Size = new System.Drawing.Size(232, 20);
+            this.leTeamCd.StyleController = this.layoutControl1;
+            this.leTeamCd.TabIndex = 6;
+            this.leTeamCd.Tag = "ADJUST_PRICE";
+            // 
+            // lePosition
+            // 
+            this.lePosition.EditValue = "";
+            this.lePosition.Location = new System.Drawing.Point(103, 275);
+            this.lePosition.Name = "lePosition";
+            this.lePosition.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lePosition.Properties.Appearance.Options.UseForeColor = true;
+            this.lePosition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lePosition.Properties.DisplayFormat.FormatString = "n0";
+            this.lePosition.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.lePosition.Properties.NullText = "";
+            this.lePosition.Size = new System.Drawing.Size(232, 20);
+            this.lePosition.StyleController = this.layoutControl1;
+            this.lePosition.TabIndex = 6;
+            this.lePosition.Tag = "ADJUST_PRICE";
             // 
             // Root
             // 
@@ -264,14 +369,6 @@
             this.layoutControlItem29.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem29.TextToControlDistance = 10;
             // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 297);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(336, 11);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.tePassword;
@@ -288,16 +385,6 @@
             this.layoutControlItem3.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem3.TextToControlDistance = 10;
-            // 
-            // tePasswordConfirm
-            // 
-            this.tePasswordConfirm.Location = new System.Drawing.Point(103, 78);
-            this.tePasswordConfirm.Name = "tePasswordConfirm";
-            this.tePasswordConfirm.Properties.UseSystemPasswordChar = true;
-            this.tePasswordConfirm.Size = new System.Drawing.Size(232, 20);
-            this.tePasswordConfirm.StyleController = this.layoutControl1;
-            this.tePasswordConfirm.TabIndex = 4;
-            this.tePasswordConfirm.Tag = "INVENTORY_CAT";
             // 
             // layoutControlItem4
             // 
@@ -316,18 +403,6 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem4.TextToControlDistance = 10;
             // 
-            // leUserType
-            // 
-            this.leUserType.Location = new System.Drawing.Point(103, 127);
-            this.leUserType.Name = "leUserType";
-            this.leUserType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.leUserType.Properties.NullText = "";
-            this.leUserType.Size = new System.Drawing.Size(232, 20);
-            this.leUserType.StyleController = this.layoutControl1;
-            this.leUserType.TabIndex = 4;
-            this.leUserType.Tag = "WAREHOUSE";
-            // 
             // layoutControlItem27
             // 
             this.layoutControlItem27.Control = this.leUserType;
@@ -345,18 +420,6 @@
             this.layoutControlItem27.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem27.TextToControlDistance = 10;
             // 
-            // leUserState
-            // 
-            this.leUserState.Location = new System.Drawing.Point(103, 151);
-            this.leUserState.Name = "leUserState";
-            this.leUserState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.leUserState.Properties.NullText = "";
-            this.leUserState.Size = new System.Drawing.Size(232, 20);
-            this.leUserState.StyleController = this.layoutControl1;
-            this.leUserState.TabIndex = 4;
-            this.leUserState.Tag = "PALLET";
-            // 
             // layoutControlItem37
             // 
             this.layoutControlItem37.Control = this.leUserState;
@@ -373,17 +436,7 @@
             this.layoutControlItem37.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem37.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem37.TextToControlDistance = 10;
-            // 
-            // leCompanyId
-            // 
-            this.leCompanyId.Location = new System.Drawing.Point(103, 175);
-            this.leCompanyId.Name = "leCompanyId";
-            this.leCompanyId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.leCompanyId.Properties.NullText = "";
-            this.leCompanyId.Size = new System.Drawing.Size(232, 20);
-            this.leCompanyId.StyleController = this.layoutControl1;
-            this.leCompanyId.TabIndex = 6;
+            this.layoutControlItem37.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem26
             // 
@@ -400,18 +453,7 @@
             this.layoutControlItem26.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem26.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem26.TextToControlDistance = 10;
-            // 
-            // leDeptCd
-            // 
-            this.leDeptCd.Location = new System.Drawing.Point(103, 200);
-            this.leDeptCd.Name = "leDeptCd";
-            this.leDeptCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.leDeptCd.Properties.NullText = "";
-            this.leDeptCd.Size = new System.Drawing.Size(232, 20);
-            this.leDeptCd.StyleController = this.layoutControl1;
-            this.leDeptCd.TabIndex = 4;
-            this.leDeptCd.Tag = "INVENTORY_CAT";
+            this.layoutControlItem26.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem20
             // 
@@ -428,20 +470,7 @@
             this.layoutControlItem20.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem20.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem20.TextToControlDistance = 10;
-            // 
-            // teTel
-            // 
-            this.teTel.EditValue = "";
-            this.teTel.Location = new System.Drawing.Point(103, 225);
-            this.teTel.Name = "teTel";
-            this.teTel.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.teTel.Properties.Appearance.Options.UseForeColor = true;
-            this.teTel.Properties.DisplayFormat.FormatString = "n0";
-            this.teTel.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.teTel.Size = new System.Drawing.Size(232, 20);
-            this.teTel.StyleController = this.layoutControl1;
-            this.teTel.TabIndex = 6;
-            this.teTel.Tag = "INIT_PRICE";
+            this.layoutControlItem20.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem8
             // 
@@ -458,23 +487,7 @@
             this.layoutControlItem8.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem8.TextToControlDistance = 10;
-            // 
-            // leTeamCd
-            // 
-            this.leTeamCd.EditValue = "";
-            this.leTeamCd.Location = new System.Drawing.Point(103, 250);
-            this.leTeamCd.Name = "leTeamCd";
-            this.leTeamCd.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.leTeamCd.Properties.Appearance.Options.UseForeColor = true;
-            this.leTeamCd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.leTeamCd.Properties.DisplayFormat.FormatString = "n0";
-            this.leTeamCd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.leTeamCd.Properties.NullText = "";
-            this.leTeamCd.Size = new System.Drawing.Size(232, 20);
-            this.leTeamCd.StyleController = this.layoutControl1;
-            this.leTeamCd.TabIndex = 6;
-            this.leTeamCd.Tag = "ADJUST_PRICE";
+            this.layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem9
             // 
@@ -491,23 +504,7 @@
             this.layoutControlItem9.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem9.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem9.TextToControlDistance = 10;
-            // 
-            // lePosition
-            // 
-            this.lePosition.EditValue = "";
-            this.lePosition.Location = new System.Drawing.Point(103, 275);
-            this.lePosition.Name = "lePosition";
-            this.lePosition.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.lePosition.Properties.Appearance.Options.UseForeColor = true;
-            this.lePosition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lePosition.Properties.DisplayFormat.FormatString = "n0";
-            this.lePosition.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.lePosition.Properties.NullText = "";
-            this.lePosition.Size = new System.Drawing.Size(232, 20);
-            this.lePosition.StyleController = this.layoutControl1;
-            this.lePosition.TabIndex = 6;
-            this.lePosition.Tag = "ADJUST_PRICE";
+            this.layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem5
             // 
@@ -524,6 +521,15 @@
             this.layoutControlItem5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(90, 14);
             this.layoutControlItem5.TextToControlDistance = 10;
+            this.layoutControlItem5.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 297);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(336, 11);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // dlgCreateUser
             // 
@@ -540,30 +546,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.teUserId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teUserNm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tePassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tePasswordConfirm.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leUserType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leUserState.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leCompanyId.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leDeptCd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teTel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leTeamCd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lePosition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tePasswordConfirm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leUserType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leUserState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leCompanyId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leDeptCd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teTel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leTeamCd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lePosition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -19,6 +19,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         public delegate void SearchHandler(JObject jData);
         public event SearchHandler searchHandler;
 
+        public delegate void ClearHandler(bool isSearch);
+        public event ClearHandler clearHandler;
+
         public usrSearchPurchaseAndPublisher()
         {
             InitializeComponent();
@@ -64,16 +67,16 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             }
         }
 
-        public JObject getSearch()
-        {
-            JObject jData = new JObject();
-            bool isSuccess = checkSearch(ref jData);
+        //public JObject getSearch()
+        //{
+        //    JObject jData = new JObject();
+        //    bool isSuccess = checkSearch(ref jData);
 
-            if (isSuccess)
-                return jData;
-            else
-                return null;
-        }
+        //    if (isSuccess)
+        //        return jData;
+        //    else
+        //        return null;
+        //}
 
         private void sbSearch_Click(object sender, EventArgs e)
         {
@@ -82,6 +85,8 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         public void Search()
         {
+            clearHandler(true);
+
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 
@@ -102,7 +107,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             {
                 if (_viewType == (int)Enum.SearchType.SELLER)
                     jData.Add("MSG", "매입처 코드 또는 매입처 명을 입력하세요.");
-                else if (_viewType == (int)Enum.SearchType.SELLER)
+                else if (_viewType == (int)Enum.SearchType.PUBLISHER)
                     jData.Add("MSG", "출판사 코드 또는 출판사 명을 입력하세요.");
 
                 return false;
@@ -110,8 +115,22 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
             else
             {
                 if (!string.IsNullOrWhiteSpace(code))
-                    jData.Add($"{_colNm}CD", code);
+                {
+                    if (Util.checkOnlyNumeric(code))
+                    {
+                        jData.Add($"{_colNm}CD", code);
+                    }
+                    else
+                    {
+                        if (_viewType == (int)Enum.SearchType.SELLER)
+                            jData.Add("MSG", "매입처 코드를 확인하세요.");
+                        else if (_viewType == (int)Enum.SearchType.PUBLISHER)
+                            jData.Add("MSG", "출판사 코드를 확인하세요.");
 
+                        return false;
+                    }
+                }
+                    
                 if (!string.IsNullOrWhiteSpace(name))
                     jData.Add($"{_colNm}NM", name);
             }

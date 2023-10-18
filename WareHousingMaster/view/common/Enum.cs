@@ -26,6 +26,31 @@ namespace WareHousingMaster.view.common
         }
 
 
+        public enum VALUE_MGNT_TYPE : Int32
+        {
+            [Description("조회")]
+            SEARCH = 1,
+            [Description("주문")]
+            ORDER = 2,
+
+        }
+
+        public enum VALUE_MGNT_SEARCH : Int32
+        {
+            [Description("신간조회")]
+            NEW = 1,
+            [Description("베스트셀러조회")]
+            BEST = 2,
+        }
+
+        public enum VALUE_MGNT_ORDER : Int32
+        {
+            [Description("신간조회")]
+            SEARCH = 1,
+           
+        }
+
+
 
 
 

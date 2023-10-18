@@ -395,6 +395,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     long purchCd;
                     long bookCd;
                     int rate;
+                    int cnt;
 
                     DataRow[] rows;
 
@@ -415,15 +416,32 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                         dr["BOOKNM"] = ConvertUtil.ToString(obj["BOOKNM"]);
                         dr["PRICE"] = ConvertUtil.ToInt32(obj["PRICE"]);
                         dr["AUTHORNM"] = ConvertUtil.ToString(obj["AUTHORNM"]);
-                        dr["ESTI_SUM"] = ConvertUtil.ToInt32(obj["ESTI_SUM"]);
 
-                        dr["RET_SUM"] = ConvertUtil.ToInt32(obj["RET_SUM"]);
-                        dr["ORD_SUM"] = ConvertUtil.ToInt32(obj["ORD_SUM"]);
+                        cnt = ConvertUtil.ToInt32(obj["ESTI_SUM"]);
+                        if (cnt != 0) dr["ESTI_SUM"] = cnt;
+                        else dr["ESTI_SUM"] = DBNull.Value;
+                        //dr["ESTI_SUM"] = ConvertUtil.ToInt32(obj["ESTI_SUM"]);
+
+                        cnt = ConvertUtil.ToInt32(obj["RET_SUM"]);
+                        if (cnt != 0) dr["RET_SUM"] = cnt;
+                        else dr["RET_SUM"] = DBNull.Value;
+                        //dr["RET_SUM"] = ConvertUtil.ToInt32(obj["RET_SUM"]);
+
+                        cnt = ConvertUtil.ToInt32(obj["ORD_SUM"]);
+                        if (cnt != 0) dr["ORD_SUM"] = cnt;
+                        else dr["ORD_SUM"] = DBNull.Value;
+                        //dr["ORD_SUM"] = ConvertUtil.ToInt32(obj["ORD_SUM"]);
+
+                        cnt = ConvertUtil.ToInt32(obj["INP_SUM"]);
+                        if (cnt != 0) dr["INP_SUM"] = cnt;
+                        else dr["INP_SUM"] = DBNull.Value;
+                        //dr["INP_SUM"] = ConvertUtil.ToInt32(obj["INP_SUM"]);
+
                         dr["ORD_RATE"] = ConvertUtil.ToInt32(obj["RATE"]);
                         //dr["TRADE_ITEM"] = ConvertUtil.ToInt32(obj["TRADE_ITEM"]);
                        
                         dr["TRADE_ITEM"] = 1;
-                        dr["INP_SUM"] = ConvertUtil.ToInt32(obj["INP_SUM"]);
+                       
 
                         dr["ORDER_CNT_YN"] = ConvertUtil.ToInt32(obj["RATE"]) == 0 ? "Y" : "N";
                         rate = ConvertUtil.ToInt32(obj["RATE"]);

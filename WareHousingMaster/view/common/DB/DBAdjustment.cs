@@ -373,71 +373,8 @@ namespace WareHousingMaster.view.common
         }
 
 
-        static public bool insertAdjustmentPrice(long inventoryId, short checkType, ref JObject jResult)
-        {
-            try
-            {
-                JObject jobj = new JObject();
-                string url = "/inventoryCheck/insertAdjustmentPrice.json";
+        
 
-                jobj.Add("INVENTORY_ID", inventoryId);
-                jobj.Add("CHECK_TYPE", checkType);
-
-                foreach (string col in ExamineInfo._listAdjustmentPriceColShort)
-                    jobj.Add(col, ConvertUtil.ToInt64(ProjectInfo._dtNTBAdjustmentPrice.Rows[checkType][col]));
-
-                jobj.Add("USER_ID", ProjectInfo._userId);
-
-                // 요청 전송
-                string result = DBConnect.SendRequestMessage(jobj, url);
-
-                // 반환값 파싱
-                jResult = JObject.Parse(result);
-                if (Convert.ToBoolean(jResult["SUCCESS"])) // IVT
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                jResult.Add("MSG", e.Message);
-                return false;
-            }
-        }
-
-        static public bool insertAdjustmentAllInOnePrice(long inventoryId, short checkType, ref JObject jResult)
-        {
-            try
-            {
-                JObject jobj = new JObject();
-                string url = "/inventoryCheck/insertAdjustmentAllInOnePrice.json";
-
-                jobj.Add("INVENTORY_ID", inventoryId);
-                jobj.Add("CHECK_TYPE", checkType);
-
-                foreach (string col in ExamineInfo._listAdjustmentAllInOnePriceColShort)
-                    jobj.Add(col, ConvertUtil.ToInt64(ProjectInfo._dtAllInOneAdjustmentPrice.Rows[checkType][col]));
-
-                jobj.Add("USER_ID", ProjectInfo._userId);
-
-                // 요청 전송
-                string result = DBConnect.SendRequestMessage(jobj, url);
-
-                // 반환값 파싱
-                jResult = JObject.Parse(result);
-                if (Convert.ToBoolean(jResult["SUCCESS"])) // IVT
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                jResult.Add("MSG", e.Message);
-                return false;
-            }
-        }
 
         static public bool insertAdjustmentTabletPrice(long inventoryId, short checkType, DataTable dtAdjustmentPrice, ref JObject jResult)
         {

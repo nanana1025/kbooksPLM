@@ -73,9 +73,9 @@
             this.sbSearch.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sbSearch.Appearance.Options.UseFont = true;
             this.sbSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch.ImageOptions.Image")));
-            this.sbSearch.Location = new System.Drawing.Point(720, 4);
+            this.sbSearch.Location = new System.Drawing.Point(720, 3);
             this.sbSearch.Name = "sbSearch";
-            this.sbSearch.Size = new System.Drawing.Size(96, 22);
+            this.sbSearch.Size = new System.Drawing.Size(96, 23);
             this.sbSearch.StyleController = this.layoutControl1;
             this.sbSearch.TabIndex = 3;
             this.sbSearch.Text = "검색";
@@ -101,6 +101,7 @@
             // 
             // teNm
             // 
+            this.teNm.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.teNm.Location = new System.Drawing.Point(552, 4);
             this.teNm.Name = "teNm";
             this.teNm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

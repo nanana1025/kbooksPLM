@@ -186,6 +186,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     gvList.BeginDataUpdate();
 
                     int index = 1;
+                    int cnt;
 
                     if (Convert.ToBoolean(jResult["EXIST"]))
                     {
@@ -203,16 +204,47 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                             dr["DATE"] = ConvertUtil.ToInt32(obj["BOOK_DATE"]);
                             dr["BOOK_DATE"] = ConvertUtil.ToDateTimeNull_S(ConvertUtil.ToInt32(obj["BOOK_DATE"]));
 
-                            dr["SALE_COUNT"] = ConvertUtil.ToInt32(obj["SALE_COUNT"]);
-                            dr["BUY_COUNT"] = ConvertUtil.ToInt32(obj["BUY_COUNT"]);
-                            dr["TRUST_RET_COUNT"] = ConvertUtil.ToInt32(obj["TRUST_RET_COUNT"]);
-                            dr["PRESENT_COUNT"] = ConvertUtil.ToInt32(obj["PRESENT_COUNT"]);
-                            dr["DISUSE_COUNT"] = ConvertUtil.ToInt32(obj["DISUSE_COUNT"]);
-                            dr["LOSS_COUNT"] = ConvertUtil.ToInt32(obj["LOSS_COUNT"]);
-                            dr["SPEC_SALE_COUNT"] = ConvertUtil.ToInt32(obj["SPEC_SALE_COUNT"]);
-                            dr["LD_COUNT_A"] = 0;
-                            dr["LD_COUNT_B"] = 0;
-                            dr["WAREHOUSE_COUNT"] = 0;
+                            cnt = ConvertUtil.ToInt32(obj["SALE_COUNT"]);
+                            if (cnt != 0) dr["SALE_COUNT"] = cnt;
+                            else dr["SALE_COUNT"] = DBNull.Value;
+
+                            cnt = ConvertUtil.ToInt32(obj["BUY_COUNT"]);
+                            if (cnt != 0) dr["BUY_COUNT"] = cnt;
+                            else dr["BUY_COUNT"] = DBNull.Value;
+
+                            cnt = ConvertUtil.ToInt32(obj["TRUST_RET_COUNT"]);
+                            if (cnt != 0) dr["TRUST_RET_COUNT"] = cnt;
+                            else dr["TRUST_RET_COUNT"] = DBNull.Value;
+
+                            cnt = ConvertUtil.ToInt32(obj["PRESENT_COUNT"]);
+                            if (cnt != 0) dr["PRESENT_COUNT"] = cnt;
+                            else dr["PRESENT_COUNT"] = DBNull.Value;
+
+                            cnt = ConvertUtil.ToInt32(obj["DISUSE_COUNT"]);
+                            if (cnt != 0) dr["DISUSE_COUNT"] = cnt;
+                            else dr["DISUSE_COUNT"] = DBNull.Value;
+
+                            cnt = ConvertUtil.ToInt32(obj["LOSS_COUNT"]);
+                            if (cnt != 0) dr["LOSS_COUNT"] = cnt;
+                            else dr["LOSS_COUNT"] = DBNull.Value;
+
+                            cnt = ConvertUtil.ToInt32(obj["SPEC_SALE_COUNT"]);
+                            if (cnt != 0) dr["SPEC_SALE_COUNT"] = cnt;
+                            else dr["SPEC_SALE_COUNT"] = DBNull.Value;
+
+
+
+
+                            //dr["SALE_COUNT"] = ConvertUtil.ToInt32(obj[""]);
+                            //dr["BUY_COUNT"] = ConvertUtil.ToInt32(obj[""]);
+                            //dr["TRUST_RET_COUNT"] = ConvertUtil.ToInt32(obj[""]);
+                            //dr["PRESENT_COUNT"] = ConvertUtil.ToInt32(obj[""]);
+                            //dr["DISUSE_COUNT"] = ConvertUtil.ToInt32(obj[""]);
+                            //dr["LOSS_COUNT"] = ConvertUtil.ToInt32(obj[""]);
+                            //dr["SPEC_SALE_COUNT"] = ConvertUtil.ToInt32(obj[""]);
+                            dr["LD_COUNT_A"] = DBNull.Value;
+                            dr["LD_COUNT_B"] = DBNull.Value;
+                            dr["WAREHOUSE_COUNT"] = DBNull.Value;
 
                             dr["STATE"] = 1;
                             dr["CHECK"] = false;
@@ -236,16 +268,21 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                             dr["DATE"] = ConvertUtil.ToInt32(obj["LS_DATE"]);
                             dr["BOOK_DATE"] = ConvertUtil.ToDateTimeNull_S(ConvertUtil.ToInt32(obj["LS_DATE"]));
 
-                            dr["SALE_COUNT"] = 0;
-                            dr["BUY_COUNT"] = 0;
-                            dr["TRUST_RET_COUNT"] = 0;
-                            dr["PRESENT_COUNT"] = 0;
-                            dr["DISUSE_COUNT"] = 0;
-                            dr["LOSS_COUNT"] = 0;
-                            dr["SPEC_SALE_COUNT"] = 0;
-                            dr["LD_COUNT_A"] = ConvertUtil.ToInt32(obj["LD_COUNT"]);
-                            dr["LD_COUNT_B"] = 0;
-                            dr["WAREHOUSE_COUNT"] = 0;
+                            dr["SALE_COUNT"] = DBNull.Value;
+                            dr["BUY_COUNT"] = DBNull.Value;
+                            dr["TRUST_RET_COUNT"] = DBNull.Value;
+                            dr["PRESENT_COUNT"] = DBNull.Value;
+                            dr["DISUSE_COUNT"] = DBNull.Value;
+                            dr["LOSS_COUNT"] = DBNull.Value;
+                            dr["SPEC_SALE_COUNT"] = DBNull.Value;
+
+                            cnt = ConvertUtil.ToInt32(obj["LD_COUNT"]);
+                            if (cnt != 0) dr["LD_COUNT_A"] = cnt;
+                            else dr["LD_COUNT_A"] = DBNull.Value;
+                            //dr["LD_COUNT_A"] = ConvertUtil.ToInt32(obj[""]);
+
+                            dr["LD_COUNT_B"] = DBNull.Value;
+                            dr["WAREHOUSE_COUNT"] = DBNull.Value;
 
                             dr["STATE"] = 1;
                             dr["CHECK"] = false;

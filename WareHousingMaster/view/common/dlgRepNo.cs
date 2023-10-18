@@ -85,7 +85,7 @@ namespace WareHousingMaster.view.common
             dr["CHECK"] = false;
             _dtList.Rows.Add(dr);
 
-            DBConnect.InsertRepNo(_repValue, repNo, seq, ref jResult);
+            //DBConnect.InsertRepNo(_repValue, repNo, seq, ref jResult);
 
         }
 
@@ -115,7 +115,7 @@ namespace WareHousingMaster.view.common
                         }
                         _dtList.EndInit();
 
-                        DBConnect.deleteRepNo(_repValue, listData, ref jResult);
+                        //DBConnect.deleteRepNo(_repValue, listData, ref jResult);
                     }
                 }
 
@@ -173,7 +173,7 @@ namespace WareHousingMaster.view.common
                         listSeq.Add(ConvertUtil.ToInt32(row["SEQ"]));
                     }
 
-                    DBConnect.updateRepNo(_repValue, listData, listSeq, ref jResult);
+                    //DBConnect.updateRepNo(_repValue, listData, listSeq, ref jResult);
 
                     Dangol.Message("저장되었습니다.");
                     //this.DialogResult = DialogResult.OK;
@@ -184,35 +184,35 @@ namespace WareHousingMaster.view.common
 
         private void getRepNo()
         {
-            JObject jResult = new JObject();
+            //JObject jResult = new JObject();
 
-            _dtList.Clear();
-            if (DBConnect.getRepNo(_repValue, ref jResult))
-            {
+            //_dtList.Clear();
+            //if (DBConnect.getRepNo(_repValue, ref jResult))
+            //{
 
-                if (ConvertUtil.ToBoolean(jResult["DATA_EXIST"]))
-                {
-                    gvList.FocusedRowObjectChanged -= gvList_FocusedRowObjectChanged;
-                    gvList.BeginDataUpdate();
+            //    if (ConvertUtil.ToBoolean(jResult["DATA_EXIST"]))
+            //    {
+            //        gvList.FocusedRowObjectChanged -= gvList_FocusedRowObjectChanged;
+            //        gvList.BeginDataUpdate();
 
-                    JArray jArray = JArray.Parse(jResult["DATA"].ToString());
+            //        JArray jArray = JArray.Parse(jResult["DATA"].ToString());
 
-                    foreach (JObject obj in jArray.Children<JObject>())
-                    {
-                        DataRow dr = _dtList.NewRow();
+            //        foreach (JObject obj in jArray.Children<JObject>())
+            //        {
+            //            DataRow dr = _dtList.NewRow();
 
 
-                        dr["REP_NO"] = obj["REP_NO"];
-                        dr["SEQ"] = obj["SEQ"];
-                        dr["CHECK"] = false;
-                        _dtList.Rows.Add(dr);
-                    }
+            //            dr["REP_NO"] = obj["REP_NO"];
+            //            dr["SEQ"] = obj["SEQ"];
+            //            dr["CHECK"] = false;
+            //            _dtList.Rows.Add(dr);
+            //        }
 
-                    gvList.EndDataUpdate();
-                    gvList.FocusedRowObjectChanged += gvList_FocusedRowObjectChanged;
-                }
+            //        gvList.EndDataUpdate();
+            //        gvList.FocusedRowObjectChanged += gvList_FocusedRowObjectChanged;
+            //    }
 
-            }
+            //}
 
         }
 

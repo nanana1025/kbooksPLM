@@ -171,7 +171,7 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                     {
                         JArray jArray = JArray.Parse(jResult["DATA"].ToString());
                         int index = 1;
-
+                        int cnt;
                         gvList.BeginDataUpdate();
 
                         foreach (JObject obj in jArray.Children<JObject>())
@@ -197,10 +197,21 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                             dr["STAND_NM"] = ConvertUtil.ToString(obj["STAND_NM"]);
 
                             dr["PRICE"] = ConvertUtil.ToInt32(obj["PRICE"]);
-                            dr["STOCK"] = ConvertUtil.ToInt32(obj["STOCK"]);
 
-                            dr["SUM_SALE_COUNT"] = ConvertUtil.ToInt32(obj["SUM_SALE_COUNT"]);
-                            dr["SUM_SALE_PRICE"] = ConvertUtil.ToInt32(obj["SUM_SALE_PRICE"]);
+                            cnt = ConvertUtil.ToInt32(obj["STOCK"]);
+                            if (cnt != 0) dr["STOCK"] = cnt;
+                            else dr["STOCK"] = DBNull.Value;
+                            //dr["STOCK"] = ConvertUtil.ToInt32(obj["STOCK"]);
+
+                            cnt = ConvertUtil.ToInt32(obj["SUM_SALE_COUNT"]);
+                            if (cnt != 0) dr["SUM_SALE_COUNT"] = cnt;
+                            else dr["SUM_SALE_COUNT"] = DBNull.Value;
+                            //dr["SUM_SALE_COUNT"] = ConvertUtil.ToInt32(obj[""]);
+
+                            cnt = ConvertUtil.ToInt32(obj["SUM_SALE_PRICE"]);
+                            if (cnt != 0) dr["SUM_SALE_PRICE"] = cnt;
+                            else dr["SUM_SALE_PRICE"] = DBNull.Value;
+                            //dr["SUM_SALE_PRICE"] = ConvertUtil.ToInt32(obj["SUM_SALE_PRICE"]);
 
                             dr["ETC"] = "";
 

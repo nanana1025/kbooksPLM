@@ -36,6 +36,7 @@
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions5 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
+            this.usrSideCheck1 = new WareHousingMaster.view.kbooks.search.booksearch.usrSideCheck();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.lcgSearchBookList = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -45,7 +46,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.usrSideCheck1 = new WareHousingMaster.view.kbooks.search.booksearch.usrSideCheck();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.usrSearchBookSearchList1 = new WareHousingMaster.view.kbooks.search.booksearch.usrSearchBookSearchList();
             this.lcSearchBook = new DevExpress.XtraLayout.LayoutControlItem();
@@ -93,6 +93,15 @@
             this.layoutControl4.Size = new System.Drawing.Size(91, 473);
             this.layoutControl4.TabIndex = 6;
             this.layoutControl4.Text = "layoutControl4";
+            // 
+            // usrSideCheck1
+            // 
+            this.usrSideCheck1.Location = new System.Drawing.Point(3, 3);
+            this.usrSideCheck1.MaximumSize = new System.Drawing.Size(85, 0);
+            this.usrSideCheck1.MinimumSize = new System.Drawing.Size(85, 435);
+            this.usrSideCheck1.Name = "usrSideCheck1";
+            this.usrSideCheck1.Size = new System.Drawing.Size(85, 467);
+            this.usrSideCheck1.TabIndex = 4;
             // 
             // layoutControlGroup3
             // 
@@ -211,15 +220,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // usrSideCheck1
-            // 
-            this.usrSideCheck1.Location = new System.Drawing.Point(3, 3);
-            this.usrSideCheck1.MaximumSize = new System.Drawing.Size(85, 0);
-            this.usrSideCheck1.MinimumSize = new System.Drawing.Size(85, 435);
-            this.usrSideCheck1.Name = "usrSideCheck1";
-            this.usrSideCheck1.Size = new System.Drawing.Size(85, 467);
-            this.usrSideCheck1.TabIndex = 4;
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.usrSideCheck1;
@@ -234,9 +234,9 @@
             this.usrSearchBookSearchList1._currentRow = null;
             this.usrSearchBookSearchList1.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.usrSearchBookSearchList1.Appearance.Options.UseBackColor = true;
-            this.usrSearchBookSearchList1.Location = new System.Drawing.Point(4, 25);
+            this.usrSearchBookSearchList1.Location = new System.Drawing.Point(4, 23);
             this.usrSearchBookSearchList1.Name = "usrSearchBookSearchList1";
-            this.usrSearchBookSearchList1.Size = new System.Drawing.Size(1079, 405);
+            this.usrSearchBookSearchList1.Size = new System.Drawing.Size(1079, 407);
             this.usrSearchBookSearchList1.TabIndex = 4;
             // 
             // lcSearchBook
@@ -244,7 +244,7 @@
             this.lcSearchBook.Control = this.usrSearchBookSearchList1;
             this.lcSearchBook.Location = new System.Drawing.Point(0, 0);
             this.lcSearchBook.Name = "lcSearchBook";
-            this.lcSearchBook.Size = new System.Drawing.Size(1083, 409);
+            this.lcSearchBook.Size = new System.Drawing.Size(1083, 411);
             this.lcSearchBook.Text = "도서목록";
             this.lcSearchBook.TextSize = new System.Drawing.Size(0, 0);
             this.lcSearchBook.TextVisible = false;

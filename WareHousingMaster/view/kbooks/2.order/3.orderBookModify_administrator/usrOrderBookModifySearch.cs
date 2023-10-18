@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 using WareHousingMaster.view.common;
 using WareHousingMaster.view.kbooks.search.common;
@@ -26,6 +25,9 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         public delegate void ConfirmHandler();
         public event ConfirmHandler confirmHandler;
+
+        public delegate void ClearHandler();
+        public event ClearHandler clearHandler;
 
         public usrOrderBookModifySearch()
         {
@@ -174,17 +176,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         private void sbSearch_Click(object sender, EventArgs e)
         {
-            JObject jData = new JObject();
-            bool isSuccess = checkSearch(ref jData);
-
-            if (isSuccess)
-                searchHandler(jData);
-            else
-                Dangol.Message(jData["MSG"]);
+            Search();
         }
 
         public void Search()
         {
+            clearHandler();
+
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 
@@ -212,41 +210,73 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 if (!string.IsNullOrWhiteSpace(codeS) && string.IsNullOrWhiteSpace(codeE))
                 {
                     jData.Add("STORE_TYPE", "SINGLE");
-                    jData.Add($"STORECD", ConvertUtil.ToInt32(codeS));
+                    if (Util.checkOnlyNumeric(codeS))
+                    {
+                        jData.Add($"STORECD", ConvertUtil.ToInt32(codeS));
+                    }
+                    else
+                    {
+                        jData.Add("MSG", "매장코드를 확인하세요.");
+                        return false;
+                    }
 
                     start = end = ConvertUtil.ToInt32(jData["STORECD"]);
                 }
                 else if (string.IsNullOrWhiteSpace(codeS) && !string.IsNullOrWhiteSpace(codeE))
                 {
                     jData.Add("STORE_TYPE", "SINGLE");
-                    jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
+                    if (Util.checkOnlyNumeric(codeE))
+                    {
+                        jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
+                    }
+                    else
+                    {
+                        jData.Add("MSG", "매장코드를 확인하세요.");
+                        return false;
+                    }
                     start = end = ConvertUtil.ToInt32(jData["STORECD"]);
 
                 }
                 else if (codeS.Equals(codeE))
                 {
                     jData.Add("STORE_TYPE", "SINGLE");
-                    jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
+                    if (Util.checkOnlyNumeric(codeE))
+                    {
+                        jData.Add($"STORECD", ConvertUtil.ToInt32(codeE));
+                    }
+                    else
+                    {
+                        jData.Add("MSG", "매장코드를 확인하세요.");
+                        return false;
+                    }
                     start = end = ConvertUtil.ToInt32(jData["STORECD"]);
                 }
                 else
                 {
-                    jData.Add("STORE_TYPE", "MULTI");
-                    if (start > end)
+                    if (Util.checkOnlyNumeric(codeS) && Util.checkOnlyNumeric(codeE))
                     {
-                        jData.Add($"STORECD_S", end);
-                        jData.Add($"STORECD_E", start);
+                        jData.Add("STORE_TYPE", "MULTI");
+                        if (start > end)
+                        {
+                            jData.Add($"STORECD_S", end);
+                            jData.Add($"STORECD_E", start);
+                        }
+                        else
+                        {
+                            jData.Add($"STORECD_S", start);
+                            jData.Add($"STORECD_E", end);
+                        }
                     }
                     else
                     {
-                        jData.Add($"STORECD_S", start);
-                        jData.Add($"STORECD_E", end);
+                        jData.Add("MSG", "매장코드를 확인하세요.");
+                        return false;
                     }
                 }
 
                 if(start < 1 || (end != 99 && end > 15))
                 {
-                    jData.Add("MSG", $"매장코드는 [1~15] 만 가능합니다.");
+                    jData.Add("MSG", $"매장코드는 [1~12] 만 가능합니다.");
                     return false;
                 }
             }
@@ -275,6 +305,14 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 }
                 else
                 {
+                    string colText = ConvertUtil.ToString(rgType.Properties.Items[rgType.SelectedIndex].Description);
+
+                    if (!string.IsNullOrWhiteSpace(GSCd) && !Util.checkOnlyNumeric(GSCd))
+                    {
+                        jData.Add("MSG", $"{colText}코드를 확인하세요.");
+                        return false;
+                    }
+
                     if (!string.IsNullOrWhiteSpace(GSCd))
                         jData.Add($"{colNm}CD", ConvertUtil.ToInt32(GSCd));
 
@@ -298,6 +336,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 }
                 else
                 {
+                    if (!string.IsNullOrWhiteSpace(purchaseTCd) && !Util.checkOnlyNumeric(purchaseTCd))
+                    {
+                        jData.Add("MSG", $"매입처 코드를 확인하세요.");
+                        return false;
+                    }
+
                     if (!string.IsNullOrWhiteSpace(purchaseTCd))
                         jData.Add($"PURCHCD", ConvertUtil.ToInt32(purchaseTCd));
 
@@ -306,29 +350,35 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 }
             }
 
-            string deOrderDt = "";
-            if (deDtOrder.EditValue != null && !string.IsNullOrEmpty(deDtOrder.EditValue.ToString()))
-                deOrderDt = $"{deDtOrder.Text} 00:00:00";
-
-            if (string.IsNullOrWhiteSpace(deOrderDt))
+            try
             {
-                jData.Add("MSG", "주문일자를 선택하세요.");
-                return false;
-            }
-            else
-            {
-                DateTime dt = Convert.ToDateTime(deOrderDt);
-                DateTime dtToday = DateTime.Now;
+                string deOrderDt = "";
+                if (deDtOrder.EditValue != null && !string.IsNullOrEmpty(deDtOrder.EditValue.ToString()))
+                    deOrderDt = $"{deDtOrder.Text} 00:00:00";
 
-                //if(dt.CompareTo(dtToday) > 0)
-                //{
-                //    jData.Add("MSG", "주문일자는 당일영업일보다 작을 수 없습니다.");
-                //    return false;
-                //}
-                //else
+                if (string.IsNullOrWhiteSpace(deOrderDt))
+                {
+                    jData.Add("MSG", "주문일자를 선택하세요.");
+                    return false;
+                }
+                else
+                {
+                    DateTime dt = Convert.ToDateTime(deOrderDt);
+                    DateTime dtToday = DateTime.Now;
+
+                    //if(dt.CompareTo(dtToday) > 0)
+                    //{
+                    //    jData.Add("MSG", "주문일자는 당일영업일보다 작을 수 없습니다.");
+                    //    return false;
+                    //}
+                    //else
                     jData.Add("DT_ORDER", dt.ToString("yyyyMMdd"));
-
-                
+                }
+            }
+            catch (FormatException ex)
+            {
+                jData.Add("MSG", "날짜 형식을 확인하세요.");
+                return false;
             }
 
             int orderType = ConvertUtil.ToInt32(rgOrderType.EditValue);

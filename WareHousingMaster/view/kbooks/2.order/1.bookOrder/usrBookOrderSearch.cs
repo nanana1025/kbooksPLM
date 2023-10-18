@@ -28,7 +28,10 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         public delegate void DeleteRowHandler();
         public event DeleteRowHandler deleteRowHandler;
 
-        
+        public delegate void ClearHandler();
+        public event ClearHandler clearHandler;
+
+
         public usrBookOrderSearch()
         {
             InitializeComponent();
@@ -172,17 +175,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
         private void sbSearch_Click(object sender, EventArgs e)
         {
-            JObject jData = new JObject();
-            bool isSuccess = checkSearch(ref jData);
-
-            if (isSuccess)
-                searchHandler(jData);
-            else
-                Dangol.Message(jData["MSG"]);
+            Searches();
         }
 
         public void Searches()
         {
+            clearHandler();
+
             JObject jData = new JObject();
             bool isSuccess = checkSearch(ref jData);
 
@@ -209,7 +208,17 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 return false;
             }
             else
-                jData.Add("STORECD", ConvertUtil.ToInt32(teStoreCd.Text.Trim()));
+            {
+                if (Util.checkOnlyNumeric(teStoreCd.Text))
+                {
+                    jData.Add("STORECD", ConvertUtil.ToInt32(teStoreCd.Text.Trim()));
+                }
+                else
+                { 
+                    Dangol.Warining("매장코드를 확인하세요.");
+                    return false;
+                }  
+            }
 
 
             int groupType = ConvertUtil.ToInt32(rgGroupType.EditValue);
@@ -225,6 +234,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 }
                 else
                 {
+                    if (!string.IsNullOrWhiteSpace(teGroupCd.Text) && !Util.checkOnlyNumeric(teGroupCd.Text))
+                    {
+                        Dangol.Warining("조코드를 확인하세요.");
+                        return false;
+                    }
+
                     DataTable checkJoCd = Search.checkGroupCd(ConvertUtil.ToInt32(leShopCd.EditValue), ConvertUtil.ToInt32(teGroupCd.Text.Trim()), ConvertUtil.ToString(teGroupNm.Text.Trim()));
 
                     if(checkJoCd.Rows.Count < 1)
@@ -265,6 +280,11 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 }
                 else
                 {
+                    if (!string.IsNullOrWhiteSpace(tePurchaseCd.Text) && !Util.checkOnlyNumeric(tePurchaseCd.Text))
+                    {
+                        Dangol.Warining("매입처 코드를 확인하세요.");
+                        return false;
+                    }
 
                     DataTable checkPurchCd1 = Order.checkPurchCd(ConvertUtil.ToInt32(leShopCd.EditValue), ConvertUtil.ToInt32(tePurchaseCd.Text.Trim()), ConvertUtil.ToString(tePurchaseNm.Text.Trim()));
 
@@ -305,36 +325,44 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             jData.Add("TRADE_ITEM", tradeItem);
 
-            DateTime orderTime;
-            string dtOrder = "";
-            if (deDtOrder.EditValue != null && !string.IsNullOrEmpty(deDtOrder.EditValue.ToString()))
-                dtOrder = $"{deDtOrder.Text} 00:00:00";
-
-            if (string.IsNullOrWhiteSpace(dtOrder))
+            try
             {
-                jData.Add("MSG", "주문일자를 선택하세요.");
+                DateTime orderTime;
+                string dtOrder = "";
+                if (deDtOrder.EditValue != null && !string.IsNullOrEmpty(deDtOrder.EditValue.ToString()))
+                    dtOrder = $"{deDtOrder.Text} 00:00:00";
+
+                if (string.IsNullOrWhiteSpace(dtOrder))
+                {
+                    jData.Add("MSG", "주문일자를 선택하세요.");
+                    return false;
+                }
+                else
+                {
+                    orderTime = Convert.ToDateTime(dtOrder);
+                    jData.Add("DT_ORDER", orderTime.ToString("yyyyMMdd"));
+                }
+
+                DateTime inpTime;
+                string dtWarehousing = "";
+                if (deDtWarehousing.EditValue != null && !string.IsNullOrEmpty(deDtWarehousing.EditValue.ToString()))
+                    dtWarehousing = $"{deDtWarehousing.Text} 00:00:00";
+
+                if (string.IsNullOrWhiteSpace(dtOrder))
+                {
+                    jData.Add("MSG", "입고예정일자를 선택하세요.");
+                    return false;
+                }
+                else
+                {
+                    inpTime = Convert.ToDateTime(dtWarehousing);
+                    jData.Add("DT_INP", inpTime.ToString("yyyyMMdd"));
+                }
+            }
+            catch (FormatException ex)
+            {
+                jData.Add("MSG", "날짜 형식을 확인하세요.");
                 return false;
-            }
-            else
-            {
-                orderTime = Convert.ToDateTime(dtOrder);
-                jData.Add("DT_ORDER", orderTime.ToString("yyyyMMdd"));
-            }
-
-            DateTime inpTime;
-            string dtWarehousing = "";
-            if (deDtWarehousing.EditValue != null && !string.IsNullOrEmpty(deDtWarehousing.EditValue.ToString()))
-                dtWarehousing = $"{deDtWarehousing.Text} 00:00:00";
-
-            if (string.IsNullOrWhiteSpace(dtOrder))
-            {
-                jData.Add("MSG", "입고예정일자를 선택하세요.");
-                return false;
-            }
-            else
-            {
-                inpTime = Convert.ToDateTime(dtWarehousing);
-                jData.Add("DT_INP", inpTime.ToString("yyyyMMdd"));
             }
 
             return true;

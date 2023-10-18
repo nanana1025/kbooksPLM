@@ -165,6 +165,7 @@
             // 
             // teName
             // 
+            this.teName.ImeMode = System.Windows.Forms.ImeMode.Hangul;
             this.teName.Location = new System.Drawing.Point(642, 31);
             this.teName.Name = "teName";
             this.teName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
