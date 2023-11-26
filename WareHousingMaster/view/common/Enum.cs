@@ -50,7 +50,17 @@ namespace WareHousingMaster.view.common
            
         }
 
-
+        public enum CODE_TYPE : Int32
+        {
+            [Description("부코드")]
+            DEPT = 1,
+            [Description("조코드")]
+            GROUP = 2,
+            [Description("서가코드")]
+            STAND = 3,
+            [Description("소소분류")]
+            PRODUCT = 4,
+        }
 
 
 

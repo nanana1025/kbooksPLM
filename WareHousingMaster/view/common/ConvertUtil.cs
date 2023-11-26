@@ -13,7 +13,7 @@ namespace WareHousingMaster.view.common
         static Regex r = new Regex(@"[0-9]*\.[0-9]+");
         private static bool IsEmpty(object o)
         {
-            if (o == null || o == DBNull.Value || o.ToString().Equals(string.Empty)) return true;
+            if (o == null || o == DBNull.Value || o.ToString().Trim().Equals(string.Empty)) return true;
             //else if (o is double && Double.IsNaN((double)o)) return true;
             return false;
         }

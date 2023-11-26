@@ -35,25 +35,25 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.sbCancel = new DevExpress.XtraEditors.SimpleButton();
             this.sbOk = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
-            this.usrPublishList1 = new WareHousingMaster.view.kbooks.search.booksearch.usrPublishList();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.usrPublishList1 = new WareHousingMaster.view.kbooks.search.booksearch.usrPublishList();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -76,7 +76,7 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.sbCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbCancel.ImageOptions.Image")));
             this.sbCancel.Location = new System.Drawing.Point(751, 3);
             this.sbCancel.Name = "sbCancel";
-            this.sbCancel.Size = new System.Drawing.Size(96, 22);
+            this.sbCancel.Size = new System.Drawing.Size(96, 24);
             this.sbCancel.StyleController = this.layoutControl1;
             this.sbCancel.TabIndex = 7;
             this.sbCancel.Text = "취소";
@@ -105,16 +105,6 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.layoutControl3.TabIndex = 5;
             this.layoutControl3.Text = "layoutControl3";
             // 
-            // usrPublishList1
-            // 
-            this.usrPublishList1._currentRow = null;
-            this.usrPublishList1.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.usrPublishList1.Appearance.Options.UseBackColor = true;
-            this.usrPublishList1.Location = new System.Drawing.Point(3, 3);
-            this.usrPublishList1.Name = "usrPublishList1";
-            this.usrPublishList1.Size = new System.Drawing.Size(838, 326);
-            this.usrPublishList1.TabIndex = 4;
-            // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -125,15 +115,6 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup2.Size = new System.Drawing.Size(844, 332);
             this.layoutControlGroup2.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.usrPublishList1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(842, 330);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // Root
             // 
@@ -190,6 +171,25 @@ namespace WareHousingMaster.view.kbooks.search.common
             this.emptySpaceItem1.Size = new System.Drawing.Size(648, 28);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // usrPublishList1
+            // 
+            this.usrPublishList1._currentRow = null;
+            this.usrPublishList1.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.usrPublishList1.Appearance.Options.UseBackColor = true;
+            this.usrPublishList1.Location = new System.Drawing.Point(3, 3);
+            this.usrPublishList1.Name = "usrPublishList1";
+            this.usrPublishList1.Size = new System.Drawing.Size(838, 326);
+            this.usrPublishList1.TabIndex = 4;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.usrPublishList1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(842, 330);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // dlgPublisherList
             // 
             this.Appearance.Options.UseTextOptions = true;
@@ -210,12 +210,12 @@ namespace WareHousingMaster.view.kbooks.search.common
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

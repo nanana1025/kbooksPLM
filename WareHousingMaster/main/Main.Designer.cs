@@ -128,10 +128,23 @@
             this.bbiOrderModifyOrder_admin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiViewManagement = new DevExpress.XtraBars.BarButtonItem();
             this.bbiValuSetting = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRegistBook = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRegistPurchase = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRegistPublish = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRegistHoliday = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiWarehousingPlan = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiWarehousingConfirm = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRegistReturn = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiWarehousingBarcode = new DevExpress.XtraBars.BarButtonItem();
             this.rpHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bhcrf = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgWarehousing = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bhcma = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bhcIn = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bhcor = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bhcre = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -149,6 +162,7 @@
             this.prgHome = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rptest = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup24 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.documentManager = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
@@ -157,6 +171,7 @@
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonLogoHelper1 = new DevExpress.XtraBars.Ribbon.RibbonLogoHelper();
             this.clockTimer = new System.Windows.Forms.Timer(this.components);
+            this.bbiReturnConfirm = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -271,16 +286,28 @@
             this.bbiOrderModifyOrder_admin,
             this.barButtonItem1,
             this.bbiViewManagement,
-            this.bbiValuSetting});
+            this.bbiValuSetting,
+            this.barButtonItem2,
+            this.bbiRegistBook,
+            this.bbiRegistPurchase,
+            this.bbiRegistPublish,
+            this.bbiRegistHoliday,
+            this.bbiWarehousingPlan,
+            this.bbiWarehousingConfirm,
+            this.bbiRegistReturn,
+            this.bbiWarehousingBarcode,
+            this.bbiReturnConfirm});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(1);
-            this.ribbon.MaxItemId = 103;
+            this.ribbon.MaxItemId = 113;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsStubGlyphs.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbon.OptionsStubGlyphs.UseFont = true;
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpHome,
             this.bhcrf,
+            this.bhcma,
+            this.bhcIn,
             this.bhcor,
             this.bhcre,
             this.rpSetting,
@@ -1280,6 +1307,100 @@
             this.bbiValuSetting.Name = "bbiValuSetting";
             this.bbiValuSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiValuSetting_ItemClick);
             // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "barButtonItem2";
+            this.barButtonItem2.Id = 103;
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            // 
+            // bbiRegistBook
+            // 
+            this.bbiRegistBook.Caption = "통합도서 관리";
+            this.bbiRegistBook.Id = 104;
+            this.bbiRegistBook.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRegistBook.ImageOptions.Image")));
+            this.bbiRegistBook.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRegistBook.ImageOptions.LargeImage")));
+            this.bbiRegistBook.LargeWidth = 100;
+            this.bbiRegistBook.Name = "bbiRegistBook";
+            this.bbiRegistBook.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiRegistBook.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRegistBook_ItemClick);
+            // 
+            // bbiRegistPurchase
+            // 
+            this.bbiRegistPurchase.Caption = "매입처 관리";
+            this.bbiRegistPurchase.Id = 105;
+            this.bbiRegistPurchase.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRegistPurchase.ImageOptions.Image")));
+            this.bbiRegistPurchase.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRegistPurchase.ImageOptions.LargeImage")));
+            this.bbiRegistPurchase.LargeWidth = 100;
+            this.bbiRegistPurchase.Name = "bbiRegistPurchase";
+            this.bbiRegistPurchase.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiRegistPurchase.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRegistPurchase_ItemClick);
+            // 
+            // bbiRegistPublish
+            // 
+            this.bbiRegistPublish.Caption = "출판사 관리";
+            this.bbiRegistPublish.Id = 106;
+            this.bbiRegistPublish.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRegistPublish.ImageOptions.Image")));
+            this.bbiRegistPublish.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRegistPublish.ImageOptions.LargeImage")));
+            this.bbiRegistPublish.LargeWidth = 100;
+            this.bbiRegistPublish.Name = "bbiRegistPublish";
+            this.bbiRegistPublish.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiRegistPublish.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRegistPublish_ItemClick);
+            // 
+            // bbiRegistHoliday
+            // 
+            this.bbiRegistHoliday.Caption = "점 휴일 관리";
+            this.bbiRegistHoliday.Id = 107;
+            this.bbiRegistHoliday.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRegistHoliday.ImageOptions.Image")));
+            this.bbiRegistHoliday.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRegistHoliday.ImageOptions.LargeImage")));
+            this.bbiRegistHoliday.LargeWidth = 100;
+            this.bbiRegistHoliday.Name = "bbiRegistHoliday";
+            this.bbiRegistHoliday.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiRegistHoliday.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRegistHoliday_ItemClick);
+            // 
+            // bbiWarehousingPlan
+            // 
+            this.bbiWarehousingPlan.Caption = "입고예정입력";
+            this.bbiWarehousingPlan.Id = 108;
+            this.bbiWarehousingPlan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiWarehousingPlan.ImageOptions.Image")));
+            this.bbiWarehousingPlan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiWarehousingPlan.ImageOptions.LargeImage")));
+            this.bbiWarehousingPlan.LargeWidth = 100;
+            this.bbiWarehousingPlan.Name = "bbiWarehousingPlan";
+            this.bbiWarehousingPlan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiWarehousingPlan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiWarehousingPlan_ItemClick);
+            // 
+            // bbiWarehousingConfirm
+            // 
+            this.bbiWarehousingConfirm.Caption = "입고예정 수정";
+            this.bbiWarehousingConfirm.Id = 109;
+            this.bbiWarehousingConfirm.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiWarehousingConfirm.ImageOptions.Image")));
+            this.bbiWarehousingConfirm.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiWarehousingConfirm.ImageOptions.LargeImage")));
+            this.bbiWarehousingConfirm.LargeWidth = 100;
+            this.bbiWarehousingConfirm.Name = "bbiWarehousingConfirm";
+            this.bbiWarehousingConfirm.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiWarehousingConfirm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiWarehousingConfirm_ItemClick);
+            // 
+            // bbiRegistReturn
+            // 
+            this.bbiRegistReturn.Caption = "반품처 관리";
+            this.bbiRegistReturn.Id = 110;
+            this.bbiRegistReturn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiRegistReturn.ImageOptions.Image")));
+            this.bbiRegistReturn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiRegistReturn.ImageOptions.LargeImage")));
+            this.bbiRegistReturn.LargeWidth = 100;
+            this.bbiRegistReturn.Name = "bbiRegistReturn";
+            this.bbiRegistReturn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiRegistReturn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRegistReturn_ItemClick);
+            // 
+            // bbiWarehousingBarcode
+            // 
+            this.bbiWarehousingBarcode.Caption = "바코드발행";
+            this.bbiWarehousingBarcode.Id = 111;
+            this.bbiWarehousingBarcode.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiWarehousingBarcode.ImageOptions.Image")));
+            this.bbiWarehousingBarcode.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbiWarehousingBarcode.ImageOptions.LargeImage")));
+            this.bbiWarehousingBarcode.LargeWidth = 100;
+            this.bbiWarehousingBarcode.Name = "bbiWarehousingBarcode";
+            this.bbiWarehousingBarcode.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiWarehousingBarcode_ItemClick);
+            // 
             // rpHome
             // 
             this.rpHome.Appearance.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -1316,6 +1437,46 @@
             this.rpgWarehousing.ItemLinks.Add(this.bbiSearchNewBook);
             this.rpgWarehousing.ItemLinks.Add(this.bbiSearchBookBest);
             this.rpgWarehousing.Name = "rpgWarehousing";
+            // 
+            // bhcma
+            // 
+            this.bhcma.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bhcma.Appearance.Options.UseFont = true;
+            this.bhcma.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup7});
+            this.bhcma.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bhcma.ImageOptions.Image")));
+            this.bhcma.Name = "bhcma";
+            this.bhcma.Text = "등록관리";
+            this.bhcma.Visible = false;
+            // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.bbiRegistBook);
+            this.ribbonPageGroup7.ItemLinks.Add(this.bbiRegistPurchase);
+            this.ribbonPageGroup7.ItemLinks.Add(this.bbiRegistPublish);
+            this.ribbonPageGroup7.ItemLinks.Add(this.bbiRegistReturn);
+            this.ribbonPageGroup7.ItemLinks.Add(this.bbiRegistHoliday);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "ribbonPageGroup7";
+            // 
+            // bhcIn
+            // 
+            this.bhcIn.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bhcIn.Appearance.Options.UseFont = true;
+            this.bhcIn.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup8});
+            this.bhcIn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bhcIn.ImageOptions.Image")));
+            this.bhcIn.Name = "bhcIn";
+            this.bhcIn.Text = "입고관리";
+            this.bhcIn.Visible = false;
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.bbiWarehousingPlan);
+            this.ribbonPageGroup8.ItemLinks.Add(this.bbiWarehousingConfirm);
+            this.ribbonPageGroup8.ItemLinks.Add(this.bbiWarehousingBarcode);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "ribbonPageGroup8";
             // 
             // bhcor
             // 
@@ -1356,6 +1517,7 @@
             // 
             this.ribbonPageGroup6.ItemLinks.Add(this.bbiReturnList);
             this.ribbonPageGroup6.ItemLinks.Add(this.bbiReturnMidif);
+            this.ribbonPageGroup6.ItemLinks.Add(this.bbiReturnConfirm);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "ribbonPageGroup6";
             // 
@@ -1454,7 +1616,8 @@
             // rptest
             // 
             this.rptest.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup24});
+            this.ribbonPageGroup24,
+            this.ribbonPageGroup5});
             this.rptest.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rptest.ImageOptions.Image")));
             this.rptest.Name = "rptest";
             this.rptest.Text = "테스트";
@@ -1468,6 +1631,12 @@
             this.ribbonPageGroup24.ItemLinks.Add(this.bbiOrderConfirm);
             this.ribbonPageGroup24.Name = "ribbonPageGroup24";
             this.ribbonPageGroup24.Text = "ribbonPageGroup24";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
             // 
             // ribbonStatusBar
             // 
@@ -1512,6 +1681,15 @@
             this.clockTimer.Enabled = true;
             this.clockTimer.Interval = 1000;
             this.clockTimer.Tick += new System.EventHandler(this.clockTimer_Tick);
+            // 
+            // bbiReturnConfirm
+            // 
+            this.bbiReturnConfirm.Caption = "반품예정 확정";
+            this.bbiReturnConfirm.Id = 112;
+            this.bbiReturnConfirm.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbiReturnConfirm.ImageOptions.SvgImage")));
+            this.bbiReturnConfirm.LargeWidth = 100;
+            this.bbiReturnConfirm.Name = "bbiReturnConfirm";
+            this.bbiReturnConfirm.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiReturnConfirm_ItemClick);
             // 
             // Main
             // 
@@ -1667,5 +1845,20 @@
         private DevExpress.XtraBars.BarButtonItem bbiViewManagement;
         private DevExpress.XtraBars.BarButtonItem bbiValuSetting;
         private System.Windows.Forms.Timer clockTimer;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem bbiRegistBook;
+        private DevExpress.XtraBars.Ribbon.RibbonPage bhcma;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem bbiRegistPurchase;
+        private DevExpress.XtraBars.BarButtonItem bbiRegistPublish;
+        private DevExpress.XtraBars.BarButtonItem bbiRegistHoliday;
+        private DevExpress.XtraBars.BarButtonItem bbiWarehousingPlan;
+        private DevExpress.XtraBars.Ribbon.RibbonPage bhcIn;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem bbiWarehousingConfirm;
+        private DevExpress.XtraBars.BarButtonItem bbiRegistReturn;
+        private DevExpress.XtraBars.BarButtonItem bbiWarehousingBarcode;
+        private DevExpress.XtraBars.BarButtonItem bbiReturnConfirm;
     }
 }

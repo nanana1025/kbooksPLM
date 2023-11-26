@@ -218,11 +218,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             jData.Add("SHOPCD", ConvertUtil.ToInt32(leShopCd.EditValue));
 
+            string title = teTitle.Text.Trim();
+
             if (!string.IsNullOrWhiteSpace(teTitle.Text))
             {
-                string title = teTitle.Text.Trim();
                 string titleExceptPercent = title.Replace("%", "");
-                if(string.IsNullOrWhiteSpace(titleExceptPercent))
+                if (string.IsNullOrWhiteSpace(titleExceptPercent))
                 {
                     Dangol.Warining("도서명을 입력하세요.");
                     return false;
@@ -230,20 +231,22 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
                 else
                     jData.Add("BOOKNM", title);
             }
-            else
-            {
-                Dangol.Warining("도서명을 입력하세요.");
-                return false;
-            }
+            //else
+            //{
+            //    Dangol.Warining("도서명을 입력하세요.");
+            //    return false;
+            //}
 
             if (!string.IsNullOrWhiteSpace(teAuthor.Text))
                 jData.Add("AUTHOR", teAuthor.Text.Trim());
 
-            if (!string.IsNullOrWhiteSpace(tePublisherCd.Text))
+            string pubshCd = tePublisherCd.Text.Trim();
+
+            if (!string.IsNullOrWhiteSpace(pubshCd))
             {
-                if (Util.checkOnlyNumeric(tePublisherCd.Text))
+                if (Util.checkOnlyNumeric(pubshCd))
                 {
-                    jData.Add("PUBSHCD", ConvertUtil.ToInt32(tePublisherCd.Text.Trim()));
+                    jData.Add("PUBSHCD", ConvertUtil.ToInt32(pubshCd));
                 }
                 else
                 {
@@ -254,6 +257,12 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             if (!string.IsNullOrWhiteSpace(tePublisher.Text))
                 jData.Add("PUBSHNM", tePublisher.Text.Trim());
+
+            if(string.IsNullOrEmpty(title) && string.IsNullOrEmpty(pubshCd))
+            {
+                Dangol.Warining("도서명 또는 출판사코드를 입력하세요.");
+                return false;
+            }
 
             //if (!string.IsNullOrWhiteSpace(teGroupCd.Text))
             //    jData.Add("GROUPCD", ConvertUtil.ToInt32(teGroupCd.Text.Trim()));
@@ -352,7 +361,30 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
         {
             if (e.KeyCode == Keys.Enter)
             {
-                search();
+                int publisherCd = ConvertUtil.ToInt32(tePublisherCd.Text.Trim());
+
+                JObject jResult = new JObject();
+                string query = $"SELECT PUBSHCD, PUBSHNM FROM HMA11 WHERE PUBSHCD = {publisherCd}";
+
+                if (DBConnect.getRow(query, ref jResult))
+                {
+                    if (Convert.ToBoolean(jResult["EXIST"]))
+                    {
+                        tePublisher.Text = ConvertUtil.ToString(jResult["PUBSHNM"]);
+                        tePublisherCd.Text = ConvertUtil.ToString(jResult["PUBSHCD"]);
+                        search();
+                    }
+                    else
+                    {
+                        Dangol.Warining("출판사 정보가 없습니다.");
+                    }
+                }
+                else
+                    Dangol.Warining("출판사 정보가 없습니다.");
+
+
+
+                
             }
                 //tePublisher.Focus();
         }

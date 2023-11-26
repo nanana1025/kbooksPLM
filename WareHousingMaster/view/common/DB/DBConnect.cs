@@ -23,6 +23,13 @@ namespace WareHousingMaster.view.common
 
             try
             {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+                                    | SecurityProtocolType.Tls11
+                                    | SecurityProtocolType.Tls12
+                                    | SecurityProtocolType.Ssl3;
+
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlPath);
                 request.Method = "POST";
 
@@ -325,7 +332,32 @@ namespace WareHousingMaster.view.common
             }
         }
 
+        static public bool getRow(string query, ref JObject jResult)
+        {
+            try
+            {
+                JObject jobj = new JObject();
+                string url = "/common/getRow.json";
 
+                jobj.Add("QUERY", query);
+
+                // 요청 전송
+                string result = SendRequestMessage(jobj, url);
+
+                // 반환값 파싱
+                jResult = JObject.Parse(result);
+                if (Convert.ToBoolean(jResult["SUCCESS"])) // IVT
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                jResult.Add("MSG", e.Message);
+                return false;
+            }
+        }
 
 
 

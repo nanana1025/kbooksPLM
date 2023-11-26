@@ -47,6 +47,13 @@ namespace WareHousingMaster.view.kbooks.search.booksearch
 
             processHandler(F);
         }
+
+        public void setButtonEnableExecutionTime(int index, bool enable)
+        {
+            Root.BeginUpdate();
+            _arrSb[index-1].Enabled = enable;
+            Root.EndUpdate();
+        }
     }
 
 

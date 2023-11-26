@@ -91,7 +91,8 @@ namespace WareHousingMaster.view.kbooks.user
                 string url = "/common/execute.json";
 
                 jobj.Add("CREATE_USER_ID", ConvertUtil.ToString(teUserId.Text.Trim()));
-                jobj.Add("PASSWD", Encrypt.Password(teUserId.Text, tePassword.Text));
+                //jobj.Add("PASSWD", Encrypt.Password(teUserId.Text, ConvertUtil.ToString(tePassword.EditValue)));
+                jobj.Add("PASSWD", ConvertUtil.ToString(tePassword.EditValue));
                 jobj.Add("USER_NM", ConvertUtil.ToString(teUserNm.Text));
                 jobj.Add("STATE_CD", ConvertUtil.ToString(leUserState.EditValue));
                 jobj.Add("USER_TYPE", ConvertUtil.ToString(leUserType.EditValue));
@@ -105,6 +106,14 @@ namespace WareHousingMaster.view.kbooks.user
 
                 if (DBConnect.getRequest(jobj, ref jResult, url))
                 {
+                    jResult = new JObject();
+                    url = "/board/updateUserView.json";
+                    
+                    jobj.Add("SELECT_USER_ID", ConvertUtil.ToString(jobj["CREATE_USER_ID"]));
+
+                    DBConnect.getRequest(jobj, ref jResult, url);
+
+
                     this.DialogResult = DialogResult.OK;
                     Dangol.Message("추가되었습니다.");
                 }

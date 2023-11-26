@@ -128,6 +128,7 @@
     <Reference Include="DevExpress.Utils.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v20.2.UI, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpf.Core.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v20.2.UI, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -139,6 +140,9 @@
     <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v20.2.Extensions, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v20.2.Core.Desktop, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraWizard.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Interop.QuartzTypeLib, Version=1.0.0.0, Culture=neutral">
@@ -328,6 +332,12 @@
     <Compile Include="view\kbooks\1.search\0.common\dlgBookOutCome.Designer.cs">
       <DependentUpon>dlgBookOutCome.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgCodeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgCodeList.Designer.cs">
+      <DependentUpon>dlgCodeList.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\kbooks\1.search\0.common\dlgPurchaseList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +361,12 @@
     </Compile>
     <Compile Include="view\kbooks\1.search\0.common\usrPublishList.Designer.cs">
       <DependentUpon>usrPublishList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrCodeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\usrCodeList.Designer.cs">
+      <DependentUpon>usrCodeList.cs</DependentUpon>
     </Compile>
     <Compile Include="view\kbooks\1.search\0.common\usrSideCheck.cs">
       <SubType>UserControl</SubType>
@@ -466,22 +482,148 @@
     <Compile Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooks.Designer.cs">
       <DependentUpon>usrNewBooks.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrder.cs">
+    <Compile Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterMaintanancePurchase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrder.Designer.cs">
+    <Compile Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterMaintanancePurchase.Designer.cs">
+      <DependentUpon>usrRegisterMaintanancePurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterPurchaseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterPurchaseInfo.Designer.cs">
+      <DependentUpon>usrRegisterPurchaseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterMaintanance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterMaintanance.Designer.cs">
+      <DependentUpon>usrRegisterMaintanance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterMaintananceDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterMaintananceDetail.Designer.cs">
+      <DependentUpon>usrRegisterMaintananceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\4.ReturnMaintanance\usrReturnMaintanance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\4.ReturnMaintanance\usrReturnMaintanance.Designer.cs">
+      <DependentUpon>usrReturnMaintanance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\4.ReturnMaintanance\usrReturnMaintananceDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\4.ReturnMaintanance\usrReturnMaintananceDetail.Designer.cs">
+      <DependentUpon>usrReturnMaintananceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\2.PurchaseMaintanance\usrPurchaseMaintanance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\2.PurchaseMaintanance\usrPurchaseMaintanance.Designer.cs">
+      <DependentUpon>usrPurchaseMaintanance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\2.PurchaseMaintanance\usrPurchaseMaintananceDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\2.PurchaseMaintanance\usrPurchaseMaintananceDetail.Designer.cs">
+      <DependentUpon>usrPurchaseMaintananceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\3.publisherMaintananace\usrPublisherMaintanance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\3.publisherMaintananace\usrPublisherMaintanance.Designer.cs">
+      <DependentUpon>usrPublisherMaintanance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\3.publisherMaintananace\usrPublisherMaintananceDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\3.publisherMaintananace\usrPublisherMaintananceDetail.Designer.cs">
+      <DependentUpon>usrPublisherMaintananceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\5.workManagement\usrCalendarList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\5.workManagement\usrCalendarList.Designer.cs">
+      <DependentUpon>usrCalendarList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\5.workManagement\usrCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\2.register\5.workManagement\usrCalendar.Designer.cs">
+      <DependentUpon>usrCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\3.warehousingBarcode\WarehousingBarcodeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\3.warehousingBarcode\WarehousingBarcodeList.Designer.cs">
+      <DependentUpon>WarehousingBarcodeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\5.returns\3.ReturnConfirm\usrReturnConfirm_real.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\5.returns\3.ReturnConfirm\usrReturnConfirm_real.Designer.cs">
+      <DependentUpon>usrReturnConfirm_real.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\0.common\PaymentNotice2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\0.common\PaymentNotice2.Designer.cs">
+      <DependentUpon>PaymentNotice2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\0.common\PaymentNotice3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\0.common\PaymentNotice3.Designer.cs">
+      <DependentUpon>PaymentNotice3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\0.common\PaymentNotice1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\0.common\PaymentNotice1.Designer.cs">
+      <DependentUpon>PaymentNotice1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\1.PaymentTrading\PaymentTrading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\1.PaymentTrading\PaymentTrading.Designer.cs">
+      <DependentUpon>PaymentTrading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\1.PaymentTrading\PaymentTradingList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\1.PaymentTrading\PaymentTradingList.Designer.cs">
+      <DependentUpon>PaymentTradingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\1.PaymentTrading\PaymentTradingSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\7.payment\1.PaymentTrading\PaymentTradingSearch.Designer.cs">
+      <DependentUpon>PaymentTradingSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\2.warehousingConfirm\WarehousingConfirmList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\2.warehousingConfirm\WarehousingConfirmList.Designer.cs">
+      <DependentUpon>WarehousingConfirmList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\4.order\1.bookOrder\usrBookOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\4.order\1.bookOrder\usrBookOrder.Designer.cs">
       <DependentUpon>usrBookOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrderSearch.cs">
+    <Compile Include="view\kbooks\4.order\1.bookOrder\usrBookOrderSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrderSearch.Designer.cs">
+    <Compile Include="view\kbooks\4.order\1.bookOrder\usrBookOrderSearch.Designer.cs">
       <DependentUpon>usrBookOrderSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrderList.cs">
+    <Compile Include="view\kbooks\4.order\1.bookOrder\usrBookOrderList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\1.bookOrder\usrBookOrderList.Designer.cs">
+    <Compile Include="view\kbooks\4.order\1.bookOrder\usrBookOrderList.Designer.cs">
       <DependentUpon>usrBookOrderList.cs</DependentUpon>
     </Compile>
     <Compile Include="view\kbooks\1.search\0.common\usrPurchaseList.cs">
@@ -502,155 +644,233 @@
     <Compile Include="view\kbooks\1.search\0.common\dlgBookSearch.Designer.cs">
       <DependentUpon>dlgBookSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\1.bookOrder\usrPreOrderBookList.cs">
+    <Compile Include="view\kbooks\4.order\1.bookOrder\usrPreOrderBookList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\1.bookOrder\usrPreOrderBookList.Designer.cs">
+    <Compile Include="view\kbooks\4.order\1.bookOrder\usrPreOrderBookList.Designer.cs">
       <DependentUpon>usrPreOrderBookList.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleData.cs">
+    <Compile Include="view\kbooks\4.order\2.searchSaleData\usrSaleData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleData.Designer.cs">
+    <Compile Include="view\kbooks\4.order\2.searchSaleData\usrSaleData.Designer.cs">
       <DependentUpon>usrSaleData.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataList.cs">
+    <Compile Include="view\kbooks\4.order\2.searchSaleData\usrSaleDataList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataList.Designer.cs">
+    <Compile Include="view\kbooks\4.order\2.searchSaleData\usrSaleDataList.Designer.cs">
       <DependentUpon>usrSaleDataList.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataSearch.cs">
+    <Compile Include="view\kbooks\4.order\2.searchSaleData\usrSaleDataSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataSearch.Designer.cs">
+    <Compile Include="view\kbooks\4.order\2.searchSaleData\usrSaleDataSearch.Designer.cs">
       <DependentUpon>usrSaleDataSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.5 orderBookModify_user\usrOrderBookModifyUser.cs">
+    <Compile Include="view\kbooks\4.order\3.5 orderBookModify_user\usrOrderBookModifyUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.5 orderBookModify_user\usrOrderBookModifyUser.Designer.cs">
+    <Compile Include="view\kbooks\4.order\3.5 orderBookModify_user\usrOrderBookModifyUser.Designer.cs">
       <DependentUpon>usrOrderBookModifyUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifySearch.cs">
+    <Compile Include="view\kbooks\4.order\3.orderBookModify_administrator\usrOrderBookModifySearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifySearch.Designer.cs">
+    <Compile Include="view\kbooks\4.order\3.orderBookModify_administrator\usrOrderBookModifySearch.Designer.cs">
       <DependentUpon>usrOrderBookModifySearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifyList.cs">
+    <Compile Include="view\kbooks\4.order\3.orderBookModify_administrator\usrOrderBookModifyList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifyList.Designer.cs">
+    <Compile Include="view\kbooks\4.order\3.orderBookModify_administrator\usrOrderBookModifyList.Designer.cs">
       <DependentUpon>usrOrderBookModifyList.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModify.cs">
+    <Compile Include="view\kbooks\4.order\3.orderBookModify_administrator\usrOrderBookModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModify.Designer.cs">
+    <Compile Include="view\kbooks\4.order\3.orderBookModify_administrator\usrOrderBookModify.Designer.cs">
       <DependentUpon>usrOrderBookModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.cs">
+    <Compile Include="view\kbooks\4.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.Designer.cs">
+    <Compile Include="view\kbooks\4.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.Designer.cs">
       <DependentUpon>usrUnregisteredBookOrderSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrder.cs">
+    <Compile Include="view\kbooks\4.order\5.unregisteredBookOrder\usrUnregisteredBookOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrder.Designer.cs">
+    <Compile Include="view\kbooks\4.order\5.unregisteredBookOrder\usrUnregisteredBookOrder.Designer.cs">
       <DependentUpon>usrUnregisteredBookOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderList.cs">
+    <Compile Include="view\kbooks\4.order\5.unregisteredBookOrder\usrUnregisteredBookOrderList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderList.Designer.cs">
+    <Compile Include="view\kbooks\4.order\5.unregisteredBookOrder\usrUnregisteredBookOrderList.Designer.cs">
       <DependentUpon>usrUnregisteredBookOrderList.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultSearch.cs">
+    <Compile Include="view\kbooks\4.order\6.BookOrderResult\usrBookOrderResultSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultSearch.Designer.cs">
+    <Compile Include="view\kbooks\4.order\6.BookOrderResult\usrBookOrderResultSearch.Designer.cs">
       <DependentUpon>usrBookOrderResultSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResult.cs">
+    <Compile Include="view\kbooks\4.order\6.BookOrderResult\usrBookOrderResult.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResult.Designer.cs">
+    <Compile Include="view\kbooks\4.order\6.BookOrderResult\usrBookOrderResult.Designer.cs">
       <DependentUpon>usrBookOrderResult.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultList.cs">
+    <Compile Include="view\kbooks\4.order\6.BookOrderResult\usrBookOrderResultList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultList.Designer.cs">
+    <Compile Include="view\kbooks\4.order\6.BookOrderResult\usrBookOrderResultList.Designer.cs">
       <DependentUpon>usrBookOrderResultList.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReport.cs">
+    <Compile Include="view\kbooks\4.order\7.report\usrOrderBookReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReport.Designer.cs">
+    <Compile Include="view\kbooks\4.order\7.report\usrOrderBookReport.Designer.cs">
       <DependentUpon>usrOrderBookReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReportList.cs">
+    <Compile Include="view\kbooks\4.order\7.report\usrOrderBookReportList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReportList.Designer.cs">
+    <Compile Include="view\kbooks\4.order\7.report\usrOrderBookReportList.Designer.cs">
       <DependentUpon>usrOrderBookReportList.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReportSearch.cs">
+    <Compile Include="view\kbooks\4.order\7.report\usrOrderBookReportSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\2.order\7.report\usrOrderBookReportSearch.Designer.cs">
+    <Compile Include="view\kbooks\4.order\7.report\usrOrderBookReportSearch.Designer.cs">
       <DependentUpon>usrOrderBookReportSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\0.common\usrReturnModifNotice.cs">
+    <Compile Include="view\kbooks\5.returns\0.common\usrReturnModifNotice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\0.common\usrReturnModifNotice.Designer.cs">
+    <Compile Include="view\kbooks\5.returns\0.common\usrReturnModifNotice.Designer.cs">
       <DependentUpon>usrReturnModifNotice.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\0.common\usrReturnNotice.cs">
+    <Compile Include="view\kbooks\5.returns\0.common\usrReturnNotice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\0.common\usrReturnNotice.Designer.cs">
+    <Compile Include="view\kbooks\5.returns\0.common\usrReturnNotice.Designer.cs">
       <DependentUpon>usrReturnNotice.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturn.cs">
+    <Compile Include="view\kbooks\5.returns\4.ReturnPrint\usrReturnPrint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturn.Designer.cs">
+    <Compile Include="view\kbooks\5.returns\4.ReturnPrint\usrReturnPrint.Designer.cs">
+      <DependentUpon>usrReturnPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\5.returns\4.ReturnPrint\usrReturnPrintSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\5.returns\4.ReturnPrint\usrReturnPrintSearch.Designer.cs">
+      <DependentUpon>usrReturnPrintSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\5.returns\2.modifReturn\usrModifReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\5.returns\2.modifReturn\usrModifReturn.Designer.cs">
       <DependentUpon>usrModifReturn.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnList.cs">
+    <Compile Include="view\kbooks\5.returns\2.modifReturn\usrModifReturnList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnList.Designer.cs">
+    <Compile Include="view\kbooks\5.returns\2.modifReturn\usrModifReturnList.Designer.cs">
       <DependentUpon>usrModifReturnList.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnSearch.cs">
+    <Compile Include="view\kbooks\5.returns\2.modifReturn\usrModifReturnSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnSearch.Designer.cs">
+    <Compile Include="view\kbooks\5.returns\2.modifReturn\usrModifReturnSearch.Designer.cs">
       <DependentUpon>usrModifReturnSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnList.cs">
+    <Compile Include="view\kbooks\5.returns\1.InputReturn\usrInputReturnList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnList.Designer.cs">
+    <Compile Include="view\kbooks\5.returns\1.InputReturn\usrInputReturnList.Designer.cs">
       <DependentUpon>usrInputReturnList.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnSearch.cs">
+    <Compile Include="view\kbooks\5.returns\1.InputReturn\usrInputReturnSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnSearch.Designer.cs">
+    <Compile Include="view\kbooks\5.returns\1.InputReturn\usrInputReturnSearch.Designer.cs">
       <DependentUpon>usrInputReturnSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturn.cs">
+    <Compile Include="view\kbooks\5.returns\1.InputReturn\usrInputReturn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\kbooks\3.returns\1.InputReturn\usrInputReturn.Designer.cs">
+    <Compile Include="view\kbooks\5.returns\1.InputReturn\usrInputReturn.Designer.cs">
       <DependentUpon>usrInputReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\5.returns\4.ReturnPrint\usrReturnPrintList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\5.returns\4.ReturnPrint\usrReturnPrintList.Designer.cs">
+      <DependentUpon>usrReturnPrintList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\0.common\usrwarehousingBarcodeNotice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\0.common\usrwarehousingBarcodeNotice.Designer.cs">
+      <DependentUpon>usrwarehousingBarcodeNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\0.common\usrwarehousingConfirmNotice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\0.common\usrwarehousingConfirmNotice.Designer.cs">
+      <DependentUpon>usrwarehousingConfirmNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\0.common\usrwarehousingPlanNotice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\0.common\usrwarehousingPlanNotice.Designer.cs">
+      <DependentUpon>usrwarehousingPlanNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\1.warehousingPlan\WarehousingPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\1.warehousingPlan\WarehousingPlan.Designer.cs">
+      <DependentUpon>WarehousingPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\1.warehousingPlan\WarehousingPlanList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\1.warehousingPlan\WarehousingPlanList.Designer.cs">
+      <DependentUpon>WarehousingPlanList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\1.warehousingPlan\WarehousingPlanSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\1.warehousingPlan\WarehousingPlanSearch.Designer.cs">
+      <DependentUpon>WarehousingPlanSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\3.warehousingBarcode\WarehousingBarcodeSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\3.warehousingBarcode\WarehousingBarcodeSearch.Designer.cs">
+      <DependentUpon>WarehousingBarcodeSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\3.warehousingBarcode\WarehousingBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\3.warehousingBarcode\WarehousingBarcode.Designer.cs">
+      <DependentUpon>WarehousingBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\2.warehousingConfirm\WarehousingConfirmSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\2.warehousingConfirm\WarehousingConfirmSearch.Designer.cs">
+      <DependentUpon>WarehousingConfirmSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\2.warehousingConfirm\WarehousingConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\3.warehousing\2.warehousingConfirm\WarehousingConfirm.Designer.cs">
+      <DependentUpon>WarehousingConfirm.cs</DependentUpon>
     </Compile>
     <Compile Include="view\kbooks\dlgControl.cs">
       <SubType>Form</SubType>
@@ -738,6 +958,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\kbooks\1.search\0.common\dlgGetAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\kbooks\1.search\0.common\dlgGetAddress.Designer.cs">
+      <DependentUpon>dlgGetAddress.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Helper\DlgWaitForm.resx">
       <DependentUpon>DlgWaitForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -784,6 +1010,9 @@
     <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgBookOutCome.resx">
       <DependentUpon>dlgBookOutCome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgCodeList.resx">
+      <DependentUpon>dlgCodeList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgPurchaseList.resx">
       <DependentUpon>dlgPurchaseList.cs</DependentUpon>
     </EmbeddedResource>
@@ -795,6 +1024,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\1.search\0.common\usrPublishList.resx">
       <DependentUpon>usrPublishList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\usrCodeList.resx">
+      <DependentUpon>usrCodeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\1.search\0.common\usrSideCheck.resx">
       <DependentUpon>usrSideCheck.cs</DependentUpon>
@@ -853,13 +1085,76 @@
     <EmbeddedResource Include="view\kbooks\1.search\5.newBooksSearch\usrNewBooks.resx">
       <DependentUpon>usrNewBooks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\1.bookOrder\usrBookOrder.resx">
+    <EmbeddedResource Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterMaintanancePurchase.resx">
+      <DependentUpon>usrRegisterMaintanancePurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterPurchaseInfo.resx">
+      <DependentUpon>usrRegisterPurchaseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterMaintanance.resx">
+      <DependentUpon>usrRegisterMaintanance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\1.bookmaintenance\usrRegisterMaintananceDetail.resx">
+      <DependentUpon>usrRegisterMaintananceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\4.ReturnMaintanance\usrReturnMaintanance.resx">
+      <DependentUpon>usrReturnMaintanance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\4.ReturnMaintanance\usrReturnMaintananceDetail.resx">
+      <DependentUpon>usrReturnMaintananceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\2.PurchaseMaintanance\usrPurchaseMaintanance.resx">
+      <DependentUpon>usrPurchaseMaintanance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\2.PurchaseMaintanance\usrPurchaseMaintananceDetail.resx">
+      <DependentUpon>usrPurchaseMaintananceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\3.publisherMaintananace\usrPublisherMaintanance.resx">
+      <DependentUpon>usrPublisherMaintanance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\3.publisherMaintananace\usrPublisherMaintananceDetail.resx">
+      <DependentUpon>usrPublisherMaintananceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\5.workManagement\usrCalendarList.resx">
+      <DependentUpon>usrCalendarList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\2.register\5.workManagement\usrCalendar.resx">
+      <DependentUpon>usrCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\3.warehousingBarcode\WarehousingBarcodeList.resx">
+      <DependentUpon>WarehousingBarcodeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\5.returns\3.ReturnConfirm\usrReturnConfirm_real.resx">
+      <DependentUpon>usrReturnConfirm_real.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\7.payment\0.common\PaymentNotice2.resx">
+      <DependentUpon>PaymentNotice2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\7.payment\0.common\PaymentNotice3.resx">
+      <DependentUpon>PaymentNotice3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\7.payment\0.common\PaymentNotice1.resx">
+      <DependentUpon>PaymentNotice1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\7.payment\1.PaymentTrading\PaymentTrading.resx">
+      <DependentUpon>PaymentTrading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\7.payment\1.PaymentTrading\PaymentTradingList.resx">
+      <DependentUpon>PaymentTradingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\7.payment\1.PaymentTrading\PaymentTradingSearch.resx">
+      <DependentUpon>PaymentTradingSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\2.warehousingConfirm\WarehousingConfirmList.resx">
+      <DependentUpon>WarehousingConfirmList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\4.order\1.bookOrder\usrBookOrder.resx">
       <DependentUpon>usrBookOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\1.bookOrder\usrBookOrderSearch.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\1.bookOrder\usrBookOrderSearch.resx">
       <DependentUpon>usrBookOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\1.bookOrder\usrBookOrderList.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\1.bookOrder\usrBookOrderList.resx">
       <DependentUpon>usrBookOrderList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\1.search\0.common\usrPurchaseList.resx">
@@ -871,80 +1166,119 @@
     <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgBookSearch.resx">
       <DependentUpon>dlgBookSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\1.bookOrder\usrPreOrderBookList.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\1.bookOrder\usrPreOrderBookList.resx">
       <DependentUpon>usrPreOrderBookList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\2.searchSaleData\usrSaleData.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\2.searchSaleData\usrSaleData.resx">
       <DependentUpon>usrSaleData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataList.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\2.searchSaleData\usrSaleDataList.resx">
       <DependentUpon>usrSaleDataList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\2.searchSaleData\usrSaleDataSearch.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\2.searchSaleData\usrSaleDataSearch.resx">
       <DependentUpon>usrSaleDataSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\3.5 orderBookModify_user\usrOrderBookModifyUser.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\3.5 orderBookModify_user\usrOrderBookModifyUser.resx">
       <DependentUpon>usrOrderBookModifyUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifySearch.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\3.orderBookModify_administrator\usrOrderBookModifySearch.resx">
       <DependentUpon>usrOrderBookModifySearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModifyList.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\3.orderBookModify_administrator\usrOrderBookModifyList.resx">
       <DependentUpon>usrOrderBookModifyList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\3.orderBookModify_administrator\usrOrderBookModify.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\3.orderBookModify_administrator\usrOrderBookModify.resx">
       <DependentUpon>usrOrderBookModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\5.unregisteredBookOrder\usrUnregisteredBookOrderSearch.resx">
       <DependentUpon>usrUnregisteredBookOrderSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrder.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\5.unregisteredBookOrder\usrUnregisteredBookOrder.resx">
       <DependentUpon>usrUnregisteredBookOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\5.unregisteredBookOrder\usrUnregisteredBookOrderList.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\5.unregisteredBookOrder\usrUnregisteredBookOrderList.resx">
       <DependentUpon>usrUnregisteredBookOrderList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultSearch.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\6.BookOrderResult\usrBookOrderResultSearch.resx">
       <DependentUpon>usrBookOrderResultSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResult.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\6.BookOrderResult\usrBookOrderResult.resx">
       <DependentUpon>usrBookOrderResult.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\6.BookOrderResult\usrBookOrderResultList.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\6.BookOrderResult\usrBookOrderResultList.resx">
       <DependentUpon>usrBookOrderResultList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\7.report\usrOrderBookReport.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\7.report\usrOrderBookReport.resx">
       <DependentUpon>usrOrderBookReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\7.report\usrOrderBookReportList.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\7.report\usrOrderBookReportList.resx">
       <DependentUpon>usrOrderBookReportList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\2.order\7.report\usrOrderBookReportSearch.resx">
+    <EmbeddedResource Include="view\kbooks\4.order\7.report\usrOrderBookReportSearch.resx">
       <DependentUpon>usrOrderBookReportSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\3.returns\0.common\usrReturnModifNotice.resx">
+    <EmbeddedResource Include="view\kbooks\5.returns\0.common\usrReturnModifNotice.resx">
       <DependentUpon>usrReturnModifNotice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\3.returns\0.common\usrReturnNotice.resx">
+    <EmbeddedResource Include="view\kbooks\5.returns\0.common\usrReturnNotice.resx">
       <DependentUpon>usrReturnNotice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\3.returns\1.modifReturn\usrModifReturn.resx">
+    <EmbeddedResource Include="view\kbooks\5.returns\4.ReturnPrint\usrReturnPrint.resx">
+      <DependentUpon>usrReturnPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\5.returns\4.ReturnPrint\usrReturnPrintSearch.resx">
+      <DependentUpon>usrReturnPrintSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\5.returns\2.modifReturn\usrModifReturn.resx">
       <DependentUpon>usrModifReturn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnList.resx">
+    <EmbeddedResource Include="view\kbooks\5.returns\2.modifReturn\usrModifReturnList.resx">
       <DependentUpon>usrModifReturnList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\3.returns\1.modifReturn\usrModifReturnSearch.resx">
+    <EmbeddedResource Include="view\kbooks\5.returns\2.modifReturn\usrModifReturnSearch.resx">
       <DependentUpon>usrModifReturnSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnList.resx">
+    <EmbeddedResource Include="view\kbooks\5.returns\1.InputReturn\usrInputReturnList.resx">
       <DependentUpon>usrInputReturnList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\3.returns\1.InputReturn\usrInputReturnSearch.resx">
+    <EmbeddedResource Include="view\kbooks\5.returns\1.InputReturn\usrInputReturnSearch.resx">
       <DependentUpon>usrInputReturnSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\kbooks\3.returns\1.InputReturn\usrInputReturn.resx">
+    <EmbeddedResource Include="view\kbooks\5.returns\1.InputReturn\usrInputReturn.resx">
       <DependentUpon>usrInputReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\5.returns\4.ReturnPrint\usrReturnPrintList.resx">
+      <DependentUpon>usrReturnPrintList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\0.common\usrwarehousingBarcodeNotice.resx">
+      <DependentUpon>usrwarehousingBarcodeNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\0.common\usrwarehousingConfirmNotice.resx">
+      <DependentUpon>usrwarehousingConfirmNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\0.common\usrwarehousingPlanNotice.resx">
+      <DependentUpon>usrwarehousingPlanNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\1.warehousingPlan\WarehousingPlan.resx">
+      <DependentUpon>WarehousingPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\1.warehousingPlan\WarehousingPlanList.resx">
+      <DependentUpon>WarehousingPlanList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\1.warehousingPlan\WarehousingPlanSearch.resx">
+      <DependentUpon>WarehousingPlanSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\3.warehousingBarcode\WarehousingBarcodeSearch.resx">
+      <DependentUpon>WarehousingBarcodeSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\3.warehousingBarcode\WarehousingBarcode.resx">
+      <DependentUpon>WarehousingBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\2.warehousingConfirm\WarehousingConfirmSearch.resx">
+      <DependentUpon>WarehousingConfirmSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\kbooks\3.warehousing\2.warehousingConfirm\WarehousingConfirm.resx">
+      <DependentUpon>WarehousingConfirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\kbooks\dlgControl.resx">
       <DependentUpon>dlgControl.cs</DependentUpon>
@@ -995,6 +1329,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="view\kbooks\1.search\0.common\dlgGetAddress.resx">
+      <DependentUpon>dlgGetAddress.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram2.cd" />
     <None Include="libOpenCvSharpExtern.so" />
     <None Include="OpenCvSharp.Blob.dll.config" />
@@ -1232,7 +1569,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DevExpress\" />
-    <Folder Include="view\kbooks\2.order\4.orderBookConfirm\" />
+    <Folder Include="view\kbooks\4.order\4.orderBookConfirm\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

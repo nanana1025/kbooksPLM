@@ -378,6 +378,24 @@ namespace WareHousingMaster.view.common
         //    DBConnect.SendPartInfo(msg, sb);
         //}
 
+        static public string getDateTime(DateEdit dt)
+        {
+            DateTime orderTime;
+            string dtDate = "";
+            if (dt.EditValue != null && !string.IsNullOrEmpty(dt.EditValue.ToString()))
+                dtDate = $"{dt.Text} 00:00:00";
+
+            if (string.IsNullOrWhiteSpace(dtDate))
+            {
+                return dtDate;
+            }
+            else
+            {
+                orderTime = Convert.ToDateTime(dtDate);
+                return orderTime.ToString("yyyyMMdd");
+            }
+        }
+
         static public TreeListNode getTreeListNode(TreeList tl, string FieldNm, object value)
         {
             TreeListNode myNode = null;
@@ -504,6 +522,7 @@ namespace WareHousingMaster.view.common
                 lookUpEdit.DataSource = null;
             }
         }
+        
 
         public static void LookupEditHelper(RepositoryItemSearchLookUpEdit editor, DataTable dt, string key, string value)
         {

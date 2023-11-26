@@ -23,10 +23,12 @@ using WareHousingMaster.main;
 using WareHousingMaster.UtilTest;
 using WareHousingMaster.view.board;
 using WareHousingMaster.view.common;
+using WareHousingMaster.view.kbooks.register;
 using WareHousingMaster.view.kbooks.returns;
 using WareHousingMaster.view.kbooks.search.bookDetail;
 using WareHousingMaster.view.kbooks.search.booksearch;
 using WareHousingMaster.view.kbooks.user;
+using WareHousingMaster.view.kbooks.warehouisng;
 using WareHousingMaster.view.login;
 using WareHousingMaster.view.PreView;
 using WareHousingMaster.view.usedPurchase;
@@ -58,6 +60,8 @@ namespace WareHousingMaster.view.main
             _MENU_CATEGORY = new Dictionary<string, RibbonPage>()
             {
                 {"bhcrf", bhcrf },
+                {"bhcma", bhcma},
+                {"bhcIn", bhcIn},
                 {"bhcor", bhcor},
                 {"bhcre", bhcre},
                 {"rpSetting", rpSetting},
@@ -71,6 +75,15 @@ namespace WareHousingMaster.view.main
                 {"bbiSearchPublisherInfo",bbiSearchPublisherInfo},
                 {"bbiSearchNewBook",bbiSearchNewBook},
                 {"bbiSearchBookBest",bbiSearchBookBest},
+
+                {"bbiRegistBook",bbiRegistBook},
+                {"bbiRegistPurchase",bbiRegistPurchase},
+                {"bbiRegistPublish",bbiRegistPublish},
+                {"bbiRegistReturn",bbiRegistReturn},
+                {"bbiRegistHoliday",bbiRegistHoliday},
+
+                {"bbiWarehousingPlan",bbiWarehousingPlan},
+                {"bbiWarehousingConfirm",bbiWarehousingConfirm},
 
                 {"bbiOrderCartInfo",bbiOrderCartInfo},
                 {"bbiOrderSaleInfo",bbiOrderSaleInfo},
@@ -353,6 +366,7 @@ namespace WareHousingMaster.view.main
         {
             string tabName = "도서정보조회";
             usrSearchBook searchBook = new usrSearchBook();
+            ProjectInfo._usrSearchBook = searchBook;
             setRibbonTabs(searchBook, tabName, bbiSearchBookInfo);
         }
 
@@ -447,20 +461,6 @@ namespace WareHousingMaster.view.main
             setRibbonTabs(orderBookReport, tabName, bbiStoreOrderBookList);
         }
 
-        private void bbiReturnList_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            string tabName = "반품예정입력";
-            usrInputReturn inputReturn = new usrInputReturn();
-            setRibbonTabs(inputReturn, tabName, bbiReturnList);
-        }
-
-        private void bbiReturnMidif_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            string tabName = "반품예정 수정/출력";
-            usrModifReturn modifReturn = new usrModifReturn();
-            setRibbonTabs(modifReturn, tabName, bbiReturnMidif);
-        }
-
         private void biUserManagement_ItemClick(object sender, ItemClickEventArgs e)
         {
             string tabName = "유저관리";
@@ -495,6 +495,87 @@ namespace WareHousingMaster.view.main
             usrValueManagement valueManagement = new usrValueManagement();
             setRibbonTabs(valueManagement, tabName, bbiValuSetting);
         }
+
+
+
+        private void bbiRegistBook_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "통합도서테이블유지보수";
+            usrRegisterMaintanance registerMaintanance = new usrRegisterMaintanance();
+            setRibbonTabs(registerMaintanance, tabName, bbiRegistBook);
+        }
+
+
+        private void bbiRegistPurchase_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "매입처테이블유지보수";
+            usrPurchaseMaintanance purchaseMaintananceㅔ = new usrPurchaseMaintanance();
+            setRibbonTabs(purchaseMaintananceㅔ, tabName, bbiRegistPurchase);
+        }
+
+        private void bbiRegistPublish_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "출판사테이블유지보수";
+            usrPublisherMaintanance publisherMaintanance = new usrPublisherMaintanance();
+            setRibbonTabs(publisherMaintanance, tabName, bbiRegistPublish);
+        }
+
+        private void bbiRegistReturn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "반품처유지보수";
+            usrReturnMaintanance returnMaintanance = new usrReturnMaintanance();
+            setRibbonTabs(returnMaintanance, tabName, bbiRegistReturn);
+        }
+
+        private void bbiRegistHoliday_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "점휴일관리";
+            usrCalendar calendar = new usrCalendar();
+            setRibbonTabs(calendar, tabName, bbiRegistHoliday);
+        }
+
+        private void bbiWarehousingPlan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "입고예정입력";
+            WarehousingPlan warehousingPlan = new WarehousingPlan();
+            setRibbonTabs(warehousingPlan, tabName, bbiWarehousingPlan);
+        }
+
+        private void bbiWarehousingConfirm_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "입고예정수정";
+            WarehousingConfirm warehousingConfirm = new WarehousingConfirm();
+            setRibbonTabs(warehousingConfirm, tabName, bbiWarehousingConfirm);
+        }
+
+        private void bbiWarehousingBarcode_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "바코드발행";
+            WarehousingBarcode warehousingBarcode = new WarehousingBarcode();
+            setRibbonTabs(warehousingBarcode, tabName, bbiWarehousingBarcode);
+        }
+
+        private void bbiReturnList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "반품예정입력";
+            usrInputReturn inputReturn = new usrInputReturn();
+            setRibbonTabs(inputReturn, tabName, bbiReturnList);
+        }
+
+        private void bbiReturnMidif_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "반품예정 수정/출력";
+            usrModifReturn modifReturn = new usrModifReturn();
+            setRibbonTabs(modifReturn, tabName, bbiReturnMidif);
+        }
+
+        private void bbiReturnConfirm_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string tabName = "반품예정 확정";
+            usrReturnConfirm_real returnConfirm_real = new usrReturnConfirm_real();
+            setRibbonTabs(returnConfirm_real, tabName, bbiReturnConfirm);
+        }
+
 
 
 
@@ -1838,6 +1919,11 @@ namespace WareHousingMaster.view.main
             //string tabName = "inventory management";
             //usrExternalInventoryList externalInventoryList = new usrExternalInventoryList();
             //setRibbonTabs(externalInventoryList, tabName, bbiInventoryManagement);
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+           
         }
 
         

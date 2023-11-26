@@ -913,10 +913,10 @@
             // 
             // xtraTabControl1
             // 
-            this.xtraTabControl1.Location = new System.Drawing.Point(4, 23);
+            this.xtraTabControl1.Location = new System.Drawing.Point(4, 25);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtpPruchaseList1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(557, 238);
+            this.xtraTabControl1.Size = new System.Drawing.Size(557, 236);
             this.xtraTabControl1.TabIndex = 4;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpPruchaseList1,
@@ -984,7 +984,7 @@
             this.xtpPruchaseList2.Appearance.Header.Options.UseFont = true;
             this.xtpPruchaseList2.Controls.Add(this.layoutControl7);
             this.xtpPruchaseList2.Name = "xtpPruchaseList2";
-            this.xtpPruchaseList2.Size = new System.Drawing.Size(555, 226);
+            this.xtpPruchaseList2.Size = new System.Drawing.Size(555, 208);
             this.xtpPruchaseList2.Text = "매입처2";
             // 
             // layoutControl7
@@ -994,7 +994,7 @@
             this.layoutControl7.Location = new System.Drawing.Point(0, 0);
             this.layoutControl7.Name = "layoutControl7";
             this.layoutControl7.Root = this.layoutControlGroup6;
-            this.layoutControl7.Size = new System.Drawing.Size(555, 226);
+            this.layoutControl7.Size = new System.Drawing.Size(555, 208);
             this.layoutControl7.TabIndex = 0;
             this.layoutControl7.Text = "layoutControl7";
             // 
@@ -1005,7 +1005,7 @@
             this.usrPurchaseInfo2.Appearance.Options.UseBackColor = true;
             this.usrPurchaseInfo2.Location = new System.Drawing.Point(3, 3);
             this.usrPurchaseInfo2.Name = "usrPurchaseInfo2";
-            this.usrPurchaseInfo2.Size = new System.Drawing.Size(549, 220);
+            this.usrPurchaseInfo2.Size = new System.Drawing.Size(549, 202);
             this.usrPurchaseInfo2.TabIndex = 4;
             // 
             // layoutControlGroup6
@@ -1016,7 +1016,7 @@
             this.layoutControlItem31});
             this.layoutControlGroup6.Name = "layoutControlGroup6";
             this.layoutControlGroup6.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup6.Size = new System.Drawing.Size(555, 226);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(555, 208);
             this.layoutControlGroup6.TextVisible = false;
             // 
             // layoutControlItem31
@@ -1024,7 +1024,7 @@
             this.layoutControlItem31.Control = this.usrPurchaseInfo2;
             this.layoutControlItem31.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem31.Name = "layoutControlItem31";
-            this.layoutControlItem31.Size = new System.Drawing.Size(553, 224);
+            this.layoutControlItem31.Size = new System.Drawing.Size(553, 206);
             this.layoutControlItem31.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem31.TextVisible = false;
             // 
@@ -1034,7 +1034,7 @@
             this.xtpPruchaseList3.Appearance.Header.Options.UseFont = true;
             this.xtpPruchaseList3.Controls.Add(this.layoutControl8);
             this.xtpPruchaseList3.Name = "xtpPruchaseList3";
-            this.xtpPruchaseList3.Size = new System.Drawing.Size(555, 226);
+            this.xtpPruchaseList3.Size = new System.Drawing.Size(555, 208);
             this.xtpPruchaseList3.Text = "매입처3";
             // 
             // layoutControl8
@@ -1044,7 +1044,7 @@
             this.layoutControl8.Location = new System.Drawing.Point(0, 0);
             this.layoutControl8.Name = "layoutControl8";
             this.layoutControl8.Root = this.layoutControlGroup7;
-            this.layoutControl8.Size = new System.Drawing.Size(555, 226);
+            this.layoutControl8.Size = new System.Drawing.Size(555, 208);
             this.layoutControl8.TabIndex = 0;
             this.layoutControl8.Text = "layoutControl8";
             // 
@@ -1055,7 +1055,7 @@
             this.usrPurchaseInfo3.Appearance.Options.UseBackColor = true;
             this.usrPurchaseInfo3.Location = new System.Drawing.Point(3, 3);
             this.usrPurchaseInfo3.Name = "usrPurchaseInfo3";
-            this.usrPurchaseInfo3.Size = new System.Drawing.Size(549, 220);
+            this.usrPurchaseInfo3.Size = new System.Drawing.Size(549, 202);
             this.usrPurchaseInfo3.TabIndex = 4;
             // 
             // layoutControlGroup7
@@ -1066,7 +1066,7 @@
             this.layoutControlItem32});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
             this.layoutControlGroup7.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup7.Size = new System.Drawing.Size(555, 226);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(555, 208);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem32
@@ -1074,7 +1074,7 @@
             this.layoutControlItem32.Control = this.usrPurchaseInfo3;
             this.layoutControlItem32.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem32.Name = "layoutControlItem32";
-            this.layoutControlItem32.Size = new System.Drawing.Size(553, 224);
+            this.layoutControlItem32.Size = new System.Drawing.Size(553, 206);
             this.layoutControlItem32.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem32.TextVisible = false;
             // 
@@ -1084,7 +1084,7 @@
             this.xtpPruchaseList4.Appearance.Header.Options.UseFont = true;
             this.xtpPruchaseList4.Controls.Add(this.layoutControl9);
             this.xtpPruchaseList4.Name = "xtpPruchaseList4";
-            this.xtpPruchaseList4.Size = new System.Drawing.Size(555, 226);
+            this.xtpPruchaseList4.Size = new System.Drawing.Size(555, 208);
             this.xtpPruchaseList4.Text = "매입처4";
             // 
             // layoutControl9
@@ -1094,7 +1094,7 @@
             this.layoutControl9.Location = new System.Drawing.Point(0, 0);
             this.layoutControl9.Name = "layoutControl9";
             this.layoutControl9.Root = this.layoutControlGroup8;
-            this.layoutControl9.Size = new System.Drawing.Size(555, 226);
+            this.layoutControl9.Size = new System.Drawing.Size(555, 208);
             this.layoutControl9.TabIndex = 0;
             this.layoutControl9.Text = "layoutControl9";
             // 
@@ -1105,7 +1105,7 @@
             this.usrPurchaseInfo4.Appearance.Options.UseBackColor = true;
             this.usrPurchaseInfo4.Location = new System.Drawing.Point(3, 3);
             this.usrPurchaseInfo4.Name = "usrPurchaseInfo4";
-            this.usrPurchaseInfo4.Size = new System.Drawing.Size(549, 220);
+            this.usrPurchaseInfo4.Size = new System.Drawing.Size(549, 202);
             this.usrPurchaseInfo4.TabIndex = 4;
             // 
             // layoutControlGroup8
@@ -1116,7 +1116,7 @@
             this.layoutControlItem33});
             this.layoutControlGroup8.Name = "layoutControlGroup8";
             this.layoutControlGroup8.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup8.Size = new System.Drawing.Size(555, 226);
+            this.layoutControlGroup8.Size = new System.Drawing.Size(555, 208);
             this.layoutControlGroup8.TextVisible = false;
             // 
             // layoutControlItem33
@@ -1124,7 +1124,7 @@
             this.layoutControlItem33.Control = this.usrPurchaseInfo4;
             this.layoutControlItem33.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem33.Name = "layoutControlItem33";
-            this.layoutControlItem33.Size = new System.Drawing.Size(553, 224);
+            this.layoutControlItem33.Size = new System.Drawing.Size(553, 206);
             this.layoutControlItem33.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem33.TextVisible = false;
             // 
@@ -1134,7 +1134,7 @@
             this.xtpPruchaseList5.Appearance.Header.Options.UseFont = true;
             this.xtpPruchaseList5.Controls.Add(this.layoutControl10);
             this.xtpPruchaseList5.Name = "xtpPruchaseList5";
-            this.xtpPruchaseList5.Size = new System.Drawing.Size(555, 226);
+            this.xtpPruchaseList5.Size = new System.Drawing.Size(555, 208);
             this.xtpPruchaseList5.Text = "매입처5";
             // 
             // layoutControl10
@@ -1144,7 +1144,7 @@
             this.layoutControl10.Location = new System.Drawing.Point(0, 0);
             this.layoutControl10.Name = "layoutControl10";
             this.layoutControl10.Root = this.layoutControlGroup9;
-            this.layoutControl10.Size = new System.Drawing.Size(555, 226);
+            this.layoutControl10.Size = new System.Drawing.Size(555, 208);
             this.layoutControl10.TabIndex = 0;
             this.layoutControl10.Text = "layoutControl10";
             // 
@@ -1155,7 +1155,7 @@
             this.usrPurchaseInfo5.Appearance.Options.UseBackColor = true;
             this.usrPurchaseInfo5.Location = new System.Drawing.Point(3, 3);
             this.usrPurchaseInfo5.Name = "usrPurchaseInfo5";
-            this.usrPurchaseInfo5.Size = new System.Drawing.Size(549, 220);
+            this.usrPurchaseInfo5.Size = new System.Drawing.Size(549, 202);
             this.usrPurchaseInfo5.TabIndex = 4;
             // 
             // layoutControlGroup9
@@ -1166,7 +1166,7 @@
             this.layoutControlItem34});
             this.layoutControlGroup9.Name = "layoutControlGroup9";
             this.layoutControlGroup9.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup9.Size = new System.Drawing.Size(555, 226);
+            this.layoutControlGroup9.Size = new System.Drawing.Size(555, 208);
             this.layoutControlGroup9.TextVisible = false;
             // 
             // layoutControlItem34
@@ -1174,7 +1174,7 @@
             this.layoutControlItem34.Control = this.usrPurchaseInfo5;
             this.layoutControlItem34.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem34.Name = "layoutControlItem34";
-            this.layoutControlItem34.Size = new System.Drawing.Size(553, 224);
+            this.layoutControlItem34.Size = new System.Drawing.Size(553, 206);
             this.layoutControlItem34.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem34.TextVisible = false;
             // 
@@ -1184,7 +1184,7 @@
             this.xtpPruchaseList6.Appearance.Header.Options.UseFont = true;
             this.xtpPruchaseList6.Controls.Add(this.layoutControl11);
             this.xtpPruchaseList6.Name = "xtpPruchaseList6";
-            this.xtpPruchaseList6.Size = new System.Drawing.Size(555, 226);
+            this.xtpPruchaseList6.Size = new System.Drawing.Size(555, 208);
             this.xtpPruchaseList6.Text = "매입처6";
             // 
             // layoutControl11
@@ -1194,7 +1194,7 @@
             this.layoutControl11.Location = new System.Drawing.Point(0, 0);
             this.layoutControl11.Name = "layoutControl11";
             this.layoutControl11.Root = this.layoutControlGroup10;
-            this.layoutControl11.Size = new System.Drawing.Size(555, 226);
+            this.layoutControl11.Size = new System.Drawing.Size(555, 208);
             this.layoutControl11.TabIndex = 0;
             this.layoutControl11.Text = "layoutControl11";
             // 
@@ -1205,7 +1205,7 @@
             this.usrPurchaseInfo6.Appearance.Options.UseBackColor = true;
             this.usrPurchaseInfo6.Location = new System.Drawing.Point(3, 3);
             this.usrPurchaseInfo6.Name = "usrPurchaseInfo6";
-            this.usrPurchaseInfo6.Size = new System.Drawing.Size(549, 220);
+            this.usrPurchaseInfo6.Size = new System.Drawing.Size(549, 202);
             this.usrPurchaseInfo6.TabIndex = 4;
             // 
             // layoutControlGroup10
@@ -1216,7 +1216,7 @@
             this.layoutControlItem35});
             this.layoutControlGroup10.Name = "layoutControlGroup10";
             this.layoutControlGroup10.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup10.Size = new System.Drawing.Size(555, 226);
+            this.layoutControlGroup10.Size = new System.Drawing.Size(555, 208);
             this.layoutControlGroup10.TextVisible = false;
             // 
             // layoutControlItem35
@@ -1224,7 +1224,7 @@
             this.layoutControlItem35.Control = this.usrPurchaseInfo6;
             this.layoutControlItem35.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem35.Name = "layoutControlItem35";
-            this.layoutControlItem35.Size = new System.Drawing.Size(553, 224);
+            this.layoutControlItem35.Size = new System.Drawing.Size(553, 206);
             this.layoutControlItem35.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem35.TextVisible = false;
             // 
@@ -1234,7 +1234,7 @@
             this.xtpPruchaseList7.Appearance.Header.Options.UseFont = true;
             this.xtpPruchaseList7.Controls.Add(this.layoutControl12);
             this.xtpPruchaseList7.Name = "xtpPruchaseList7";
-            this.xtpPruchaseList7.Size = new System.Drawing.Size(555, 226);
+            this.xtpPruchaseList7.Size = new System.Drawing.Size(555, 208);
             this.xtpPruchaseList7.Text = "매입처7";
             // 
             // layoutControl12
@@ -1244,7 +1244,7 @@
             this.layoutControl12.Location = new System.Drawing.Point(0, 0);
             this.layoutControl12.Name = "layoutControl12";
             this.layoutControl12.Root = this.layoutControlGroup11;
-            this.layoutControl12.Size = new System.Drawing.Size(555, 226);
+            this.layoutControl12.Size = new System.Drawing.Size(555, 208);
             this.layoutControl12.TabIndex = 0;
             this.layoutControl12.Text = "layoutControl12";
             // 
@@ -1255,7 +1255,7 @@
             this.usrPurchaseInfo7.Appearance.Options.UseBackColor = true;
             this.usrPurchaseInfo7.Location = new System.Drawing.Point(3, 3);
             this.usrPurchaseInfo7.Name = "usrPurchaseInfo7";
-            this.usrPurchaseInfo7.Size = new System.Drawing.Size(549, 220);
+            this.usrPurchaseInfo7.Size = new System.Drawing.Size(549, 202);
             this.usrPurchaseInfo7.TabIndex = 4;
             // 
             // layoutControlGroup11
@@ -1266,7 +1266,7 @@
             this.layoutControlItem36});
             this.layoutControlGroup11.Name = "layoutControlGroup11";
             this.layoutControlGroup11.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup11.Size = new System.Drawing.Size(555, 226);
+            this.layoutControlGroup11.Size = new System.Drawing.Size(555, 208);
             this.layoutControlGroup11.TextVisible = false;
             // 
             // layoutControlItem36
@@ -1274,7 +1274,7 @@
             this.layoutControlItem36.Control = this.usrPurchaseInfo7;
             this.layoutControlItem36.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem36.Name = "layoutControlItem36";
-            this.layoutControlItem36.Size = new System.Drawing.Size(553, 224);
+            this.layoutControlItem36.Size = new System.Drawing.Size(553, 206);
             this.layoutControlItem36.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem36.TextVisible = false;
             // 
@@ -1284,7 +1284,7 @@
             this.xtpPruchaseList8.Appearance.Header.Options.UseFont = true;
             this.xtpPruchaseList8.Controls.Add(this.layoutControl13);
             this.xtpPruchaseList8.Name = "xtpPruchaseList8";
-            this.xtpPruchaseList8.Size = new System.Drawing.Size(555, 226);
+            this.xtpPruchaseList8.Size = new System.Drawing.Size(555, 208);
             this.xtpPruchaseList8.Text = "매입처8";
             // 
             // layoutControl13
@@ -1294,7 +1294,7 @@
             this.layoutControl13.Location = new System.Drawing.Point(0, 0);
             this.layoutControl13.Name = "layoutControl13";
             this.layoutControl13.Root = this.layoutControlGroup12;
-            this.layoutControl13.Size = new System.Drawing.Size(555, 226);
+            this.layoutControl13.Size = new System.Drawing.Size(555, 208);
             this.layoutControl13.TabIndex = 0;
             this.layoutControl13.Text = "layoutControl13";
             // 
@@ -1305,7 +1305,7 @@
             this.usrPurchaseInfo8.Appearance.Options.UseBackColor = true;
             this.usrPurchaseInfo8.Location = new System.Drawing.Point(3, 3);
             this.usrPurchaseInfo8.Name = "usrPurchaseInfo8";
-            this.usrPurchaseInfo8.Size = new System.Drawing.Size(549, 220);
+            this.usrPurchaseInfo8.Size = new System.Drawing.Size(549, 202);
             this.usrPurchaseInfo8.TabIndex = 4;
             // 
             // layoutControlGroup12
@@ -1316,7 +1316,7 @@
             this.layoutControlItem37});
             this.layoutControlGroup12.Name = "layoutControlGroup12";
             this.layoutControlGroup12.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup12.Size = new System.Drawing.Size(555, 226);
+            this.layoutControlGroup12.Size = new System.Drawing.Size(555, 208);
             this.layoutControlGroup12.TextVisible = false;
             // 
             // layoutControlItem37
@@ -1324,7 +1324,7 @@
             this.layoutControlItem37.Control = this.usrPurchaseInfo8;
             this.layoutControlItem37.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem37.Name = "layoutControlItem37";
-            this.layoutControlItem37.Size = new System.Drawing.Size(553, 224);
+            this.layoutControlItem37.Size = new System.Drawing.Size(553, 206);
             this.layoutControlItem37.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem37.TextVisible = false;
             // 
@@ -1345,7 +1345,7 @@
             this.layoutControlItem16.Control = this.xtraTabControl1;
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(561, 242);
+            this.layoutControlItem16.Size = new System.Drawing.Size(561, 240);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 

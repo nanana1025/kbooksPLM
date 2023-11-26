@@ -69,11 +69,11 @@ namespace WareHousingMaster.view.kbooks.user
                 }
             }
 
-            if (teNewPassword.Text.Length < 4)
-            {
-                Dangol.Message("비밀번호는 4자리 이상으로 구성해야합니다.");
-                return;
-            }
+            //if (teNewPassword.Text.Length < 4)
+            //{
+            //    Dangol.Message("비밀번호는 4자리 이상으로 구성해야합니다.");
+            //    return;
+            //}
 
             if (!teNewPassword.Text.Equals(teNewPasswordConfirm.Text))
             {

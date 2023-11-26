@@ -119,7 +119,6 @@
             this.leShopCd.Properties.NullText = "선택";
             this.leShopCd.Properties.ReadOnly = true;
             this.leShopCd.Size = new System.Drawing.Size(157, 24);
-            this.leShopCd.StyleController = this.layoutControl1;
             this.leShopCd.TabIndex = 4;
             this.leShopCd.TabStop = false;
             // 

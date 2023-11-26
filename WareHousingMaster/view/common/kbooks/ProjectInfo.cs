@@ -29,11 +29,13 @@ namespace WareHousingMaster.view.common
 #if DEBUG
         //public static string _url = "https://dangol365.com";
         //public static string _url = "http://211.202.79.253";
-        //public static string _url = "https://testcs.asworld.co.kr";
-        //public static string _url = "http://localhost:5555";
-        public static string _url = "http://3.39.55.175";
+        //public static string _url = "https://tests1.asworld.co.kr";
+        public static string _AddressUrl = "https://dangol365.com";
+        public static string _url = "http://localhost:5555";
+        //public static string _url = "http://3.39.55.175";
 #else
         public static string _url = "https://tests1.asworld.co.kr";
+        public static string _AddressUrl = "https://dangol365.com";
         
         
 #endif
@@ -43,6 +45,7 @@ namespace WareHousingMaster.view.common
         public static DocumentManager _documentManager;
         public static Dictionary<BarButtonItem, XtraForm> _ribbonTabs;
 
+        public static usrSearchBook _usrSearchBook;
         public static usrBookOrder _usrBookOrder;
 
         public static BarButtonItem _bbiOrderCartInfo;
